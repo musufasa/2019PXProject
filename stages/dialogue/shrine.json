@@ -1,0 +1,59 @@
+{
+	"medea2":[
+		{ "char":"Jason",
+			"speech":"I am full of glee that thee has summoned me, come tell me, what is on your mind?" 
+		},
+		{ "char":"Medea",
+			"speech":"This task my father has given you is impossible,if the bulls do not slay you, the army will. If the army does not slay you, the dragon will." 
+		},
+		{ "char":"Jason",
+			"speech":"Do not worry for me young beauty as I have the will of the gods behind me." 
+		},
+		{ "char":"Medea",
+			"speech":"Not even the gods could prevent you from burning to death. Retrieve for  me the root of a two stalked flower, similar to the Corycian crocus, so that I can make a solution for you." 
+		},
+		{ "char":"",
+			"speech":"" 
+		}
+	],
+	"medea3":[
+		{
+			"char":"Medea",
+			"speech":"*Prepares ointment*",
+			"_MEDEAPREPAREOINTMENT":""
+		},
+		{
+			"char":"Medea",
+			"speech":"When the task of plowing with bulls comes, place the ointment upon thee so that thou be resistant to their flames"
+		},
+		{
+			"char":"Jason",
+			"speech":"Thank you Medea"
+		},
+		{
+			"char":"Medea",
+			"speech":"Return to the palace, My father will have retrieved the dragonsteeth by now"
+		},
+		{ "char":"",
+			"speech":"" 
+		}
+	],
+	"signR2C":[
+		{ "char":"To the road to Colchis",
+			"speech":" " 
+		},
+		{ "char":"",
+			"speech":"" 
+		}
+	],
+	"signShrineForest":[
+		{ "char":"Danger: Forest Area",
+			"speech":"Be on your Guard" 
+		},
+		{ "char":"",
+			"speech":"" 
+		}
+	]
+
+
+}

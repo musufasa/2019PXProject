@@ -1,0 +1,20 @@
+{
+	"signGardenEntrance":[
+		{ "char":"To the Garden's Gate",
+			"speech":" " 
+		},
+		{ "char":"",
+			"speech":"" 
+		}
+	],
+	"signColchisFields":[
+		{ "char":"To the fields of Colchis",
+			"speech":" " 
+		},
+		{ "char":"",
+			"speech":"" 
+		}
+	]
+
+
+}

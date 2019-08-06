@@ -1,0 +1,92 @@
+{
+	"medea1":[
+		{ "char":"Medea",
+			"speech":"Hello there strangers, may I ask why are you here?",
+			"_KINGAETIOSRESETXY":""
+		},
+		{ "char":"Jason",
+			"speech":"Hello there, my name is Jason and it is a pleasure to meet a beauty such as yourself, we are here on a heroic quest from a city called lolcus" 
+		},
+		{ "char":"Medea",
+			"speech":"A long and weary quest for heroes, I am Medea daughter of King Aetios I hope your journey found you well" 
+		},
+		{
+		  "char":"Jason",
+			"speech":"An arduous adventure to reclaim my fathers throne from my treacherous uncle..."
+		},
+		{ "char":"King Aetios",
+			"speech":"WHO ARE THESE STRANGE MEN WHO INVADE MY HALLS?",
+			"_KINGAETIOSWALK":""
+		},
+		{ "char":"Jason",
+			"speech":"I am Jason, son of Aeson. I am here to retrieve the golden fleece as a challenge set by my uncle" 
+		},
+		{ "char":"King Aetios",
+			"speech":"So you have come from a city I have not heard of, on the challenge of a man I do not know.\n Foreign lies to take MY THRONE!" 
+		},
+		{ "char":"Medea",
+			"speech":"Father please, his uncle has usurped his father as king, why would a stranger travel so far for a throne so foreign without an army?" 
+		},
+		{ "char":"Jason",
+			"speech":" My uncle King Pelias challenged me to deem my worth, I must return with the fleece so my people know who is the true champion of lolcus!" 
+		},
+		{ "char":"King Aetios",
+			"speech":"A challenge of worth? And you believe thee worthy of my fleece? Very well let us see your worth I give thee challenge three!" 
+		},
+		{ "char":"King Aetios",
+			"speech":"First you must plow the fields with 2 fire breathing golden hoofed bulls" 
+		},
+		{ "char":"King Aetios",
+			"speech":"Second you must sow the field with dragons teeth and slay the army that arises" 
+		},
+		{ "char":"King Aetios",
+			"speech":"Third, you must defeat the dragon guarding the fleece within the garden" 
+		},
+		{ "char":"King Aetios",
+			"speech":"If you complete these three tasks then you have my permission to take the fleece" 
+		},
+		{ "char":"Jason",
+			"speech":"Challenge accepted, I have not come this far to turn back now" 
+		},
+		{ "char":"King Aetios",
+			"speech":"Very well stranger, I look forward to watching this",
+			"_KINGAETIOSWALKAWAY":"" 
+		},
+		{ "char":"Medea",
+			"speech":"Meet me at the shrine of Hecate outside the city",
+			"_SPAWNAFTERMEETAETIOS":"" 
+		},
+		{ "char":"",
+			"speech":""
+		}
+	],
+	"aetios3":[
+		{
+		  "char":"King Aetios",
+			"speech":"I see you have come to fulfil your challenge, very well to the fields! The bulls await!",
+			"_SPAWNAFTERTALKAETIOS":""
+		},
+		{
+			"char":"",
+			"speech":""
+		}
+	],
+	"signMarket":[
+		{ "char":"To the Marketplace",
+			"speech":" " 
+		},
+		{ "char":"",
+			"speech":"" 
+		}
+	],
+	"signColchisFields":[
+		{ "char":"To the fields of Colchis",
+			"speech":" " 
+		},
+		{ "char":"",
+			"speech":"" 
+		}
+	]
+
+
+}

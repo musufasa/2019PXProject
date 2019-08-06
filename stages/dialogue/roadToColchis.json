@@ -1,0 +1,18 @@
+{
+	"signMarket":[
+		{ "char":"To the Marketplace",
+			"speech":" " 
+		},
+		{ "char":"",
+			"speech":"" 
+		}
+	],
+	"signShrine":[
+		{ "char":"To the Shrine of Hecate",
+			"speech":" " 
+		},
+		{ "char":"",
+			"speech":"" 
+		}
+	]
+}

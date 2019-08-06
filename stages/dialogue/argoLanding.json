@@ -1,0 +1,72 @@
+{
+	"oileus1":[
+		{ 
+			"char":"Oileus",
+			"speech":"A long boat ride, I always enjoy the soil of new lands" 
+		},
+		{ 
+			"char":"",
+			"speech":"" 
+		}
+	],
+	"iphiclus1":[
+		{
+			"char":"Iphiclus",
+			"speech":"We will stay here and protect the boat whilst you head to the palace"
+		},
+		{ 
+			"char":"",
+			"speech":"" 
+		}
+	],
+	"oileus2":[
+		{ 
+			"char":"Oileus",
+			"speech":"The buildings, the structure, of a foreign land facinate me" 
+		},
+		{ 
+			"char":"",
+			"speech":"" 
+		}
+	],
+	"iphiclus2":[
+		{
+			"char":"Iphiclus",
+			"speech":"A meeting by the shrine with the kings daughter? that's a royal invite you cannot refuse"
+		},
+		{ 
+			"char":"",
+			"speech":"" 
+		}
+	],
+	"oileus3":[
+		{
+			"char":"Oileus",
+			"speech":"Medea is a helpful one isn't she?"
+		},
+		{ 
+			"char":"",
+			"speech":"" 
+		}
+	],
+	"iphiclus3": [
+		{
+			"char":"Iphiclus",
+			"speech":"No challenge is too great for mighty Jason!"
+		},
+		{ 
+			"char":"",
+			"speech":"" 
+		}
+	],
+	"signR2C": [
+		{
+			"char":"To the road to Colchis",
+			"speech":" "
+		},
+		{ 
+			"char":"",
+			"speech":"" 
+		}
+	]
+}
