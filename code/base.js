@@ -1,11 +1,14 @@
 //Variables for controls
 var cursors; //Arrow Keys
 var attackKey; //Attack key (default is Z)
-var jumpKey; //Jump key (default is X)
+var jumpKey; //Jump key (default is Space bar)
 var talkKey; //Talk key (default is C)
 var pauseKey; //Pause key (default is P)
+var displayMapKey; //Map key (default is M)
+
 //Player character
-var player; //Player sprite 
+var player; //Player sprite
+
 //Map variables
 var mapLayer; //Layer with tiles. 
 var createThis;
@@ -15,7 +18,8 @@ var levelProgress = 1; //Level progress. Used to control NPCs and portals.
 var music;
 var musicMuted = false; //Is the music muted?
 var musicPlaying = false; //Is music playing?
-var portalMap; //Which map should a portal warp into? 
+var portalMap; //Which map should a portal warp into?
+
 //Background layers
 var backgroundLayer0; 
 var backgroundLayer1;
@@ -286,6 +290,7 @@ function loadMap() {
     attackKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Z);
     jumpKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
     talkKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.C);
+    displayMapKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.M);
 
     if (playerShip) {
         player.body.allowGravity = false;

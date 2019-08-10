@@ -121,7 +121,12 @@ function playerMovement() {
                 }   
             }
         }
-    } 
+    }
+
+    if(displayMapKey.isDown){
+        maybeDisplayMap();
+    }
+
 }
 
 /* Ship Movement. 
@@ -303,4 +308,8 @@ function playerSword () {
  */
 function playerSwordStop () {
     playerSwingSword = false; 
+}
+
+function maybeDisplayMap(){
+    changeLevel('mapMenu');
 }
