@@ -284,7 +284,7 @@ function loadMap() {
     //Keyboard input.
     cursors = createThis.input.keyboard.createCursorKeys();
     attackKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Z);
-    jumpKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.X);
+    jumpKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
     talkKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.C);
 
     if (playerShip) {
