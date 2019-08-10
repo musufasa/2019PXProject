@@ -19,6 +19,7 @@ var music;
 var musicMuted = false; //Is the music muted?
 var musicPlaying = false; //Is music playing?
 var portalMap; //Which map should a portal warp into?
+var musicVolume = 0.7; // global starting music volume,editable via pause menu. 1 = 100%, 0.5 = 50% etc.
 
 //Background layers
 var backgroundLayer0; 
@@ -132,23 +133,23 @@ class controller extends Phaser.Scene {
             if (['endScreen','titleScreen','mapMenu'].includes(currentLevelID)) {
                 music = this.sound.add('water', {loop: true});
                 music.play();
-                music.setVolume(1);
+                music.setVolume(musicVolume);
             } else if (['colchisFields','gardenFleece'].includes(currentLevelID)) {
                 music = this.sound.add('male', {loop: true})
                 music.play();
-                music.setVolume(0.8);
+                music.setVolume(musicVolume);
             } else if (['siren'].includes(currentLevelID)) {
                 music = this.sound.add('upbeat', {loop: true})
                 music.play();
-                music.setVolume(1);
+                music.setVolume(musicVolume);
             } else if (['introCutscene'].includes(currentLevelID)) {
                 music = this.sound.add('jasonIntro', {loop: true})
                 music.play();
-                music.setVolume(1);
+                music.setVolume(musicVolume);
             } else {
                 music = this.sound.add('female', {loop: true});
                 music.play();
-                music.setVolume(0.8);
+                music.setVolume(musicVolume);
             }
             musicPlaying = true;
         }

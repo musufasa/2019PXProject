@@ -21,6 +21,10 @@ class pause extends Phaser.Scene {
         
         let toPauseButton = this.add.image(this.game.renderer.width / 2, this.game.renderer.height * 0.5, "resumebut").setDepth(1).setInteractive();
         let toMapMenu = this.add.image(this.game.renderer.width / 2, this.game.renderer.height * 0.7, "mapMenu").setDepth(1).setInteractive();
+        //todo:change image mapping to relevant decrease volume arrow
+        let decreaseVolume = this.add.image(this.game.renderer.width*0.70, this.game.renderer.height * 0.135, "mutebtn").setDepth(1).setInteractive();
+        //todo:change image mapping to relevant increase volume arrow
+        let increaseVolume = this.add.image(this.game.renderer.width*0.74, this.game.renderer.height * 0.135, "mutebtn").setDepth(1).setInteractive();
         let muteBtn = this.add.image(this.game.renderer.width*0.78, this.game.renderer.height * 0.135, "mutebtn").setDepth(1).setInteractive();        
         
         if (!musicMuted) {
@@ -37,8 +41,32 @@ class pause extends Phaser.Scene {
         toMapMenu.on('pointerup', ()=>{
         	changeLevel('mapMenu');
         	game.scene.stop('pause');            
-        });                     
-            
+        });
+
+        decreaseVolume.on('pointerup', function () {
+            //get the current volume and make sure we aren't reducing below 0/muted.
+            var currentVolume = music.currentConfig.volume;
+            if(currentVolume > 0){
+                console.log(currentVolume);
+                //use to fixed to avoid floating point error on addition & parse as float to avoid strange error.
+                var newVolume = (parseFloat(currentVolume) - 0.1).toFixed(2);
+                console.log(newVolume);
+                music.setVolume(newVolume);
+            }
+        });
+
+        increaseVolume.on('pointerup', function () {
+            //get the current volume and make sure we aren't reducing below 0/muted.
+            var currentVolume = music.currentConfig.volume;
+            if(currentVolume > 0){
+                console.log(currentVolume);
+                //use to fixed to avoid floating point error on addition & parse as float to avoid strange error.
+                var newVolume = (parseFloat(currentVolume) + 0.1).toFixed(2);
+                console.log(newVolume);
+                music.setVolume(newVolume);
+            }
+        });
+
         muteBtn.on('pointerup', ()=>{
         	if (!musicMuted) {
         		music.setMute(true);
