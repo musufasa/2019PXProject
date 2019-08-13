@@ -18,6 +18,7 @@ var playerDamagePoints = playerDamgePointsInit; //Current damage inflicted upon 
 var playerInvulnerabilityWait = 1000; //How long the player should be invulnerable.
 var playerInvulnerability = false; //Is the player invulnerable?
 var playerVelocityYMax = 1350; //Maximum Y velocity - prevents clipping through floor when falling. 
+var playerDoubleJump = false;
 
 //Variables relating to siren level
 var playerShipOffsetX = 300; //Camera offset for playerShip mode. 
@@ -103,10 +104,20 @@ function playerMovement() {
     }
     
     //Vertical movement
-    if (jumpKey.isDown) {
+    if (jumpKey._justDown) {
+        jumpKey._justDown = false;
         if (playerHasWings || player.body.blocked.down){
             player.setVelocityY(-playerJumpVelocity);
+        }else if(!playerDoubleJump){
+            //todo: double jump velocity to be halfed ?
+            player.setVelocityY(-playerJumpVelocity);
+            playerDoubleJump = true;
         }
+    }
+
+    if(player.body.blocked.down){
+        //once player lands on ground reset double jump ability.
+        playerDoubleJump = false;
     }
     
     /* If there are portals in the map, iterate through them to check collision 
