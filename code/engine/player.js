@@ -115,7 +115,7 @@ function playerMovement() {
         }
     }
 
-    if(player.body.blocked.down){
+    if(player.body.blocked.down && playerDoubleJump){
         //once player lands on ground reset double jump ability.
         playerDoubleJump = false;
     }
