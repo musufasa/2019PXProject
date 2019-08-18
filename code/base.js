@@ -2,6 +2,7 @@
 var cursors; //Arrow Keys
 var attackKey; //Attack key (default is Z)
 var jumpKey; //Jump key (default is Space bar)
+var sprintKey; //Sprint/dash key (default is left shift)
 var talkKey; //Talk key (default is C)
 var pauseKey; //Pause key (default is P)
 var displayMapKey; //Map key (default is M)
@@ -292,6 +293,7 @@ function loadMap() {
     jumpKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
     talkKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.C);
     displayMapKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.M);
+    sprintKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SHIFT);
 
     if (playerShip) {
         player.body.allowGravity = false;

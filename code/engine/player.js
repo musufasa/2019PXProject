@@ -10,6 +10,7 @@ var playerAlive = true;
 //Variables relating to normal levels
 var playerJumpVelocity = 500; //Jumping Y velocity
 var playerWalkVelocity = 200; //Walking X velocity
+var playerSprintVelocity = 300;
 var playerFacingRight = true; //Is the player facing right?
 var playerHasWings = false; //Can the player fly?
 var playerSwingSword = false; //Is the player swinging their sword?
@@ -47,17 +48,27 @@ function playerMovement() {
     //Horizontal movement. tempVelocityX is modified and then used as the horizontal velocity of the player. 
     var tempVelocityX = 0; 
     if (cursors.left.isDown) {
-        tempVelocityX -= playerWalkVelocity;
+        if(sprintKey.isDown){
+            //todo:if player is sprinting the animation should be different from walking
+            tempVelocityX -=playerSprintVelocity;
+        }else {
+            tempVelocityX -= playerWalkVelocity;
+        }
         playerFacingRight = false; 
     }
     if (cursors.right.isDown) {
-        tempVelocityX += playerWalkVelocity;
+        if(sprintKey.isDown){
+            //todo:if player is sprinting the animation should be different from walking
+            tempVelocityX +=playerSprintVelocity;
+        }else {
+            tempVelocityX += playerWalkVelocity;
+        }
         playerFacingRight = true;
     }
     player.setVelocityX(tempVelocityX);
     
     //Flip the player if they are facing left. 
-    player.flipX = !(playerFacingRight); 
+    player.flipX = !(playerFacingRight);
 
     //Animations. 
     if (!playerSwingSword && !cursors.left.isDown && !cursors.right.isDown) {
@@ -95,7 +106,7 @@ function playerMovement() {
             //Expand hitbox to left
             player.setSize(60, 64);
             player.setOffset(-12, 0);
-        } 
+        }
     } else {
         //Play walk animation. 
         player.anims.play('jasonRight', true);
@@ -109,7 +120,7 @@ function playerMovement() {
         if (playerHasWings || player.body.blocked.down){
             player.setVelocityY(-playerJumpVelocity);
         }else if(!playerDoubleJump){
-            //todo: double jump velocity to be halfed ?
+            //double jump velocity to be halfed ?
             player.setVelocityY(-playerJumpVelocity);
             playerDoubleJump = true;
         }
