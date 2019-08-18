@@ -322,5 +322,9 @@ function playerSwordStop () {
 }
 
 function maybeDisplayMap(){
-    changeLevel('mapMenu');
+    var hideMapOptionLevels = ['endScreen','titleScreen','mapMenu','introCutscene','tutorial'];
+    if(!hideMapOptionLevels.includes(currentLevelID)){
+        //only allow the map to be shown if it is not in the array of maps above.
+        changeLevel('mapMenu');
+    }
 }
