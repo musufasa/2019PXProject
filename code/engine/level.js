@@ -364,7 +364,16 @@ function spawnObjects() {
                     x: mapObjectArray[i].x, 
                     y: mapObjectArray[i].y
                 });
-                break; 
+                break;
+            case 'tutorialEnemy':
+                enemies[enemyCount] = new tutorialEnemy({
+                    x: mapObjectArray[i].x,
+                    y: mapObjectArray[i].y,
+                    xMove: tempProperties['xMove'],
+                    enemyId: enemyCount
+                });
+                enemyCount++;
+                break;
         }
     }
 }
