@@ -13,11 +13,11 @@ var attacksound = false; // Variable for attack sound - Used to tell if sound sh
 var jumpsound = false; // Variable for Jump Sound - Used to tell if sound should be played.
 
 //Map variables
-var mapLayer; //Layer with tiles. 
+var mapLayer; //Layer with tiles.
 var createThis;
 var userIntThis;
-var currentLevelDialogueJSON; //Current level's JSON dialogue file. 
-var levelProgress = 1; //Level progress. Used to control NPCs and portals. 
+var currentLevelDialogueJSON; //Current level's JSON dialogue file.
+var levelProgress = 1; //Level progress. Used to control NPCs and portals.
 var music;
 var musicMuted = false; //Is the music muted?
 var musicPlaying = false; //Is music playing?
@@ -25,29 +25,29 @@ var portalMap; //Which map should a portal warp into?
 var musicVolume = 0.7; // global starting music volume,editable via pause menu. 1 = 100%, 0.5 = 50% etc.
 
 //Background layers
-var backgroundLayer0; 
+var backgroundLayer0;
 var backgroundLayer1;
 
-/* Controller. 
- * Handles the entire game. 
+/* Controller.
+ * Handles the entire game.
  */
 class controller extends Phaser.Scene {
     constructor() {
         super({key: 'controller'});
     }
 
-    //Preload common assets. 
+    //Preload common assets.
     preload() {
         //Load assets used in all levels
         createThis = this;
         userIntThis = this;
 
         //Main characters
-        this.load.spritesheet('medeaSprite','assets/NPC/medea.png', 
+        this.load.spritesheet('medeaSprite','assets/NPC/medea.png',
            { frameWidth: 32, frameHeight: 64 });
-        this.load.spritesheet('jason','assets/player/jason.png', 
+        this.load.spritesheet('jason','assets/player/jason.png',
            { frameWidth: 76, frameHeight: 64 });
-        this.load.spritesheet('kingSprite','assets/NPC/king.png', 
+        this.load.spritesheet('kingSprite','assets/NPC/king.png',
            { frameWidth: 40, frameHeight: 64 });
 
         //Portal
@@ -62,9 +62,9 @@ class controller extends Phaser.Scene {
         this.load.audio('attack',['assets/stage/background/attack.mp3']);
         this.load.audio('jump',['assets/stage/background/jump.mp3']);
         this.load.audio('bite',['assets/stage/background/bite.wav']);
-        
+
         //Other/Placeholders
-        this.load.spritesheet('tempEnemy','assets/enemy/eviljason.png', 
+        this.load.spritesheet('tempEnemy','assets/enemy/eviljason.png',
            { frameWidth: 48, frameHeight: 48 });
         this.load.image('artemisSprite','assets/NPC/artemis.png');
         this.load.image('bonfireSprite','assets/bonfire.png');
@@ -96,7 +96,10 @@ class controller extends Phaser.Scene {
         this.load.image('resumebut', 'assets/stage/background/resumebut.png');
         this.load.image('pausebg', 'assets/stage/background/pausebg.png');
         this.load.image('mapMenu', 'assets/stage/background/mapMenu.png');
-        this.load.image('mutebtn', 'assets/stage/background/mutebtn.png');  
+        this.load.image('mutebtn', 'assets/stage/background/mutebtn.png');
+        this.load.image('volumeupbut', 'assets/stage/background/volumeupbut.png');
+        this.load.image('volumedownbut', 'assets/stage/background/volumedownbut.png');
+        this.load.image('scrollbg', 'assets/stage/background/scrollbg.png');    
 
         //SIGNS
         this.load.image('signR2CSprite','assets/items/signR2C.png');
@@ -115,7 +118,7 @@ class controller extends Phaser.Scene {
         firstInitHealthBar();
         pauseKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.P);
         initDialogueBox();
-        
+
         attackKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Z);
         jumpKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
@@ -123,19 +126,19 @@ class controller extends Phaser.Scene {
         var jump = this.sound.add('jump');
         var attack = this.sound.add('attack');
         var bite = this.sound.add('bite');
-        
+
 
         game.scene.run(currentLevelID);
 
         if (['endScreen','titleScreen','mapMenu','introCutscene'].includes(currentLevelID)) {
-            userIntThis.scene.sendToBack('controller');    
+            userIntThis.scene.sendToBack('controller');
         } else {
             userIntThis.scene.bringToTop('controller');
         }
 
         this.ritualItemText = userIntThis.add.text(800, 50, '0/x Ritual Items', undefined);
-        this.ritualItemText.alpha = 0; 
-        
+        this.ritualItemText.alpha = 0;
+
         createThis.anims.create({
         key: 'jasonAttackRight',
         frames: createThis.anims.generateFrameNumbers('jason', { start: 12, end: 29 }),
@@ -145,12 +148,12 @@ class controller extends Phaser.Scene {
     }
 
     update() {
-        //Pause the game if the pause key is held down. 
+        //Pause the game if the pause key is held down.
         if (pauseKey.isDown) {
             game.scene.run('pause');
         }
 
-        //Music 
+        //Music
         if (!musicPlaying && !musicMuted) {
             if (['endScreen','titleScreen','mapMenu','settingsScreen'].includes(currentLevelID)) {
                 music = this.sound.add('water', {loop: true});
@@ -174,57 +177,57 @@ class controller extends Phaser.Scene {
                 music.setVolume(musicVolume);
             }
             musicPlaying = true;
-        } 
+        }
         //Dont play sounds on these Scenes.
         if (['endScreen','titleScreen','mapMenu','settingsScreen','introCutscene','siren'].includes(currentLevelID))
             {
                 jumpsound = false;
                 attacksound = false;
             }
-        
+
         // When character Jumps, play the jump sound
         if(!jumpKey.isDown)
             {
                 jumpsound = true;
             }
-        
-        
+
+
         if (jumpKey.isDown && jumpsound)
             {
                 this.sound.play('jump');
                 jumpsound = false;
             }
-        
-     
+
+
         //When character Attacks, play the attack sound.
         if (!attackKey.isDown)
             {
-                attacksound = true; 
-            } 
+                attacksound = true;
+            }
         if (attackKey.isDown && attacksound )
             {
            this.sound.play('attack');
                 attacksound = false;
-            } 
-        
-        
+            }
+
+
     }
     updateRitualItemText() {
-        var tempCount = 0; 
+        var tempCount = 0;
         for (i = 0; i < ritualItemCount; i++){
             tempCount += (1 * inventory[i]);
-        } 
-        
-        //Update the text. 
+        }
+
+        //Update the text.
         if (tempCount != ritualItemCount){
             userIntThis.ritualItemText.setText(tempCount + '/' + ritualItemCount + " Ritual Items.");
-            userIntThis.ritualItemText.alpha = 1; 
+            userIntThis.ritualItemText.alpha = 1;
         } else {
             userIntThis.ritualItemText.alpha = 0;
             if (levelProgress === 4)
             {
                 levelProgress++;
-            } 
+            }
         }
     }
 
@@ -237,7 +240,7 @@ class controller extends Phaser.Scene {
     }
 }
 
-//Preload code common to all levels. 
+//Preload code common to all levels.
 function commonPreload() {
     //load map
     createThis.load.tilemapTiledJSON(currentLevelID + 'Tilemap', 'assets/'+ currentLevelID + '.json');
@@ -246,29 +249,29 @@ function commonPreload() {
     currentLevelDialogueJSON = 'stages/dialogue/' + currentLevelID + '.json';
     loadLevelDialogue();
 
-    //Update resetInventory. 
+    //Update resetInventory.
     for (j = 0; j < inventory.length; j++) {
         resetInventory[j] = (inventory[j]);
     }
 }
 
-/* Load the level specified in currentLevelID. 
- * It is assumed that currentLevelID is a valid value. 
+/* Load the level specified in currentLevelID.
+ * It is assumed that currentLevelID is a valid value.
  */
 function loadMap() {
     destroyOldObjects();
-    createThis.physics.world.TILE_BIAS = 64; 
+    createThis.physics.world.TILE_BIAS = 64;
 
     var currentTilemapKey = currentLevelID + 'Tilemap';
 
     createThis.map = createThis.make.tilemap({ key: currentTilemapKey });
-    
+
     //set Boundary
     gameWidth = createThis.map.widthInPixels;
     gameHeight = createThis.map.heightInPixels;
     createThis.physics.world.setBounds(0, 0, gameWidth + (200 * playerShip), gameHeight, 64, true, true, false, false);
 
-    //Render background. 
+    //Render background.
     background = createThis.add.image(1024, 576, backgroundLayer0);
     background.setOrigin(1,1);
     background.scrollFactorX = 0;
@@ -302,11 +305,11 @@ function loadMap() {
     var playerSpawnPoint = createThis.map.findObject("Objects", obj => obj.name === "Player Spawn");
     player = createThis.physics.add.sprite(playerSpawnPoint.x, playerSpawnPoint.y, playerSprite);
     player.setCollideWorldBounds(true);
-    
+
     mapLayer.setCollisionByProperty({ collides: true });
     createThis.physics.add.collider(player, mapLayer);
 
-    //Player animations. 
+    //Player animations.
     createThis.anims.create({
         key: 'jasonRight',
         frames: createThis.anims.generateFrameNumbers('jason', { start: 0, end: 11 }),
@@ -326,7 +329,7 @@ function loadMap() {
         repeat: -1
     });
 
-    //Medea animations. 
+    //Medea animations.
     createThis.anims.create({
         key: 'medeaIdleRight',
         frames: createThis.anims.generateFrameNumbers('medeaSprite', { start: 0, end: 0 }),
@@ -339,8 +342,8 @@ function loadMap() {
         frameRate: 10,
         repeat: -1
     });
-    
-    
+
+
 
     //Keyboard input.
     cursors = createThis.input.keyboard.createCursorKeys();
@@ -363,7 +366,7 @@ function loadMap() {
 
     spawnObjects();
 
-    playerCheckForPortal(); 
+    playerCheckForPortal();
 
     //Camera
     if (!playerShip) {
@@ -371,38 +374,38 @@ function loadMap() {
     } else {
         playerOffset = createThis.physics.add.sprite(playerSpawnPoint.x + playerShipOffsetX, playerSpawnPoint.y, playerSprite);
         createThis.cameras.main.startFollow(playerOffset, true, 1, 1);
-        playerOffset.alpha = 0; 
-        playerOffset.allowGravity = 0; 
+        playerOffset.alpha = 0;
+        playerOffset.allowGravity = 0;
     }
     createThis.cameras.main.setBounds(0, 0, createThis.map.widthInPixels, createThis.map.heightInPixels);
 
     playerAlive = true;
 }
 
-//Call update functions. 
+//Call update functions.
 function callUpdateFuncs() {
-    //Use the appropriate movement function for the level. 
+    //Use the appropriate movement function for the level.
     playerMovement();
-    
+
     //Enemy Movement
     enemyMovement();
-     
-    //Check if a player has fallen.  
-    playerCheckForFall(); 
 
-    //Run the update() function of each portal. 
+    //Check if a player has fallen.
+    playerCheckForFall();
+
+    //Run the update() function of each portal.
     portalUpdate();
 
-    //Run the update() function of each NPC. 
+    //Run the update() function of each NPC.
     npcUpdate();
-    
-    //Check if the player has walked away from dialogue. 
+
+    //Check if the player has walked away from dialogue.
     if (dialogueActive) {
-        playerCheckDialogueWalkAway(); 
-    }   
+        playerCheckDialogueWalkAway();
+    }
 }
 
-//Ship update function. 
+//Ship update function.
 function shipUpdate() {
     //Should the player move or sink?
     if (playerAlive) {
@@ -411,11 +414,11 @@ function shipUpdate() {
         playerShipSink();
     }
 
-    //Player offset calculation. Used for the camera offset. 
-    playerOffset.x = player.x + playerShipOffsetX; 
+    //Player offset calculation. Used for the camera offset.
+    playerOffset.x = player.x + playerShipOffsetX;
     playerOffset.y = player.y;
 
-    //Check if the player has fallen. 
+    //Check if the player has fallen.
     playerCheckForFall();
 }
 
@@ -432,17 +435,17 @@ function changeLevel(tempNewLevelID) {
     clearDialogueBox();
     npcDialogue.text = '';
     if (['endScreen','titleScreen','settingsScreen','mapMenu','introCutscene'].includes(tempNewLevelID)) {
-        userIntThis.scene.sendToBack('controller');    
+        userIntThis.scene.sendToBack('controller');
     } else {
         userIntThis.scene.bringToTop('controller');
     }
 
-    backgroundLayer1 = undefined; 
+    backgroundLayer1 = undefined;
     game.scene.run(tempNewLevelID);
     game.scene.stop(oldLevelID);
 }
 
-//Destroy objects in a map. Used when switching to a new map. 
+//Destroy objects in a map. Used when switching to a new map.
 function destroyOldObjects() {
     for (i = 0; i < enemyCount; i++){
         enemies[i].destroy();
@@ -471,14 +474,14 @@ var config = {
     physics: {
         default: 'arcade',
         arcade: {
-            gravity: {y: 900}, 
+            gravity: {y: 900},
             debug: false
         }
     },
 
 
     scene: [controller, titleScreen,tutorial,settingsScreen, argoLanding, roadToColchis, marketplace, palace, shrine, shrineForest,
-            colchisFields, riverCrossing, gardenEntrance, gardenForest, gardenDungeon, gardenFleece, 
+            colchisFields, riverCrossing, gardenEntrance, gardenForest, gardenDungeon, gardenFleece,
             placeholdertestmap, endCutscene, endScreen, siren, pause, mapMenu, introCutscene]
 };
 
