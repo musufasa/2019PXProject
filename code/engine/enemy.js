@@ -416,7 +416,7 @@ class snake extends enemyBase {
             
         if (this.alive && this.health <= 0) {
             this.alive = false; 
-            enemies[this.enemyId].destroy(); 
+            enemies[this.enemyId].destroy();
         }
     }
 }
@@ -970,6 +970,45 @@ function enemyMovement() {
                 enemies[i].movement();
                 enemies[i].update();
             }
+        }
+    }
+}
+
+/* Tutorial Enemy.
+ * Required parameters: x, y, xMove, enemyId
+ * todo: based on snake enemy for testing, need to modify with another type of creature etc.
+ */
+class tutorialEnemy extends enemyBase {
+    constructor (parameter) {
+        super({
+            scene: createThis,
+            x: parameter.x,
+            y: parameter.y,
+            key: 'tutorialEnemy',
+            xMove: parameter.xMove,
+            xVel: 130,
+            scale: 0.45,
+            enemyId: parameter.enemyId,
+            gravity: true,
+            health: 100,
+            //boss enabled as this makes the player need to kill off the tutorial enemy to pass the level.
+            boss:true
+        });
+    }
+    update () {
+        //todo: modify for hit effect left & right, using snake ani for sampling.
+        if (this.body.velocity.x < 0) {
+            this.anims.play('snakeLeft', true);
+        } else if (this.body.velocity.x > 0) {
+            this.anims.play('snakeRight', true);
+        }
+
+        if (this.alive && this.health <= 0) {
+            this.alive = false;
+            if(!this.alive) {
+                activeBosses --;
+            }
+            enemies[this.enemyId].destroy();
         }
     }
 }
