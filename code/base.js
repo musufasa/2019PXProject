@@ -8,6 +8,8 @@ var displayMapKey; //Map key (default is M)
 
 //Player character
 var player; //Player sprite
+var attacksound = false; // Variable for attack sound - Used to tell if sound should be played.
+var jumpsound = false; // Variable for Jump Sound - Used to tell if sound should be played.
 
 //Map variables
 var mapLayer; //Layer with tiles. 
@@ -50,12 +52,15 @@ class controller extends Phaser.Scene {
         //Portal
         this.load.image('portalSprite','assets/items/portal.png');
 
-        //Music
+        //Music & Audio
         this.load.audio('female', ['assets/stage/background/female.mp3']);
         this.load.audio('water', ['assets/stage/background/water.mp3']);
         this.load.audio('male',['assets/stage/background/male.mp3']);
         this.load.audio('upbeat', ['assets/stage/background/upbeat.mp3']);
         this.load.audio('jasonIntro', ['assets/stage/background/jasonIntro.mp3']);
+        this.load.audio('attack',['assets/stage/background/attack.mp3']);
+        this.load.audio('jump',['assets/stage/background/jump.mp3']);
+        this.load.audio('bite',['assets/stage/background/bite.wav']);
         
         //Other/Placeholders
         this.load.spritesheet('tempEnemy','assets/enemy/eviljason.png', 
@@ -109,6 +114,15 @@ class controller extends Phaser.Scene {
         firstInitHealthBar();
         pauseKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.P);
         initDialogueBox();
+        
+        attackKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Z);
+        jumpKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+
+
+        var jump = this.sound.add('jump');
+        var attack = this.sound.add('attack');
+        var bite = this.sound.add('bite');
+        
 
         game.scene.run(currentLevelID);
 
@@ -120,6 +134,13 @@ class controller extends Phaser.Scene {
 
         this.ritualItemText = userIntThis.add.text(800, 50, '0/x Ritual Items', undefined);
         this.ritualItemText.alpha = 0; 
+        
+        createThis.anims.create({
+        key: 'jasonAttackRight',
+        frames: createThis.anims.generateFrameNumbers('jason', { start: 12, end: 29 }),
+        frameRate: 30,
+        repeat: -1
+    });
     }
 
     update() {
@@ -130,7 +151,7 @@ class controller extends Phaser.Scene {
 
         //Music 
         if (!musicPlaying && !musicMuted) {
-            if (['endScreen','titleScreen','mapMenu'].includes(currentLevelID)) {
+            if (['endScreen','titleScreen','mapMenu','settingsScreen'].includes(currentLevelID)) {
                 music = this.sound.add('water', {loop: true});
                 music.play();
                 music.setVolume(musicVolume);
@@ -152,9 +173,41 @@ class controller extends Phaser.Scene {
                 music.setVolume(musicVolume);
             }
             musicPlaying = true;
-        }
+        } 
+        //Dont play sounds on these Scenes.
+        if (['endScreen','titleScreen','mapMenu','settingsScreen','introCutscene','siren'].includes(currentLevelID))
+            {
+                jumpsound = false;
+                attacksound = false;
+            }
+        
+        // When character Jumps, play the jump sound
+        if(!jumpKey.isDown)
+            {
+                jumpsound = true;
+            }
+        
+        
+        if (jumpKey.isDown && jumpsound)
+            {
+                this.sound.play('jump');
+                jumpsound = false;
+            }
+        
+     
+        //When character Attacks, play the attack sound.
+        if (!attackKey.isDown)
+            {
+                attacksound = true; 
+            } 
+        if (attackKey.isDown && attacksound )
+            {
+           this.sound.play('attack');
+                attacksound = false;
+            } 
+        
+        
     }
-
     updateRitualItemText() {
         var tempCount = 0; 
         for (i = 0; i < ritualItemCount; i++){
@@ -285,6 +338,8 @@ function loadMap() {
         frameRate: 10,
         repeat: -1
     });
+    
+    
 
     //Keyboard input.
     cursors = createThis.input.keyboard.createCursorKeys();
@@ -292,6 +347,9 @@ function loadMap() {
     jumpKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
     talkKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.C);
     displayMapKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.M);
+    
+    
+    
 
     if (playerShip) {
         player.body.allowGravity = false;
@@ -364,7 +422,7 @@ function shipUpdate() {
 function changeLevel(tempNewLevelID) {
     oldLevelID = currentLevelID;
     playerShip = false;
-    if ((['endScreen','titleScreen','colchisFields', 'gardenFleece','mapMenu','siren','introCutscene'].includes(currentLevelID)) ||
+    if ((['endScreen','titleScreen','settingsScreen','colchisFields', 'gardenFleece','mapMenu','siren','introCutscene'].includes(currentLevelID)) ||
             (['endScreen','titleScreen','colchisFields', 'gardenFleece','mapMenu','siren','introCutscene'].includes(tempNewLevelID)))
     {
         musicPlaying = false;
@@ -372,7 +430,7 @@ function changeLevel(tempNewLevelID) {
     }
     clearDialogueBox();
     npcDialogue.text = '';
-    if (['endScreen','titleScreen','mapMenu','introCutscene'].includes(tempNewLevelID)) {
+    if (['endScreen','titleScreen','settingsScreen','mapMenu','introCutscene'].includes(tempNewLevelID)) {
         userIntThis.scene.sendToBack('controller');    
     } else {
         userIntThis.scene.bringToTop('controller');
@@ -416,7 +474,7 @@ var config = {
             debug: false
         }
     },
-    scene: [controller, titleScreen, argoLanding, roadToColchis, marketplace, palace, shrine, shrineForest,
+    scene: [controller, titleScreen, settingsScreen, argoLanding, roadToColchis, marketplace, palace, shrine, shrineForest,
             colchisFields, riverCrossing, gardenEntrance, gardenForest, gardenDungeon, gardenFleece, 
             placeholdertestmap, endCutscene, endScreen, siren, pause, mapMenu, introCutscene]
 };
