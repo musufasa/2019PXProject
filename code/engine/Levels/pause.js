@@ -61,7 +61,7 @@ class pause extends Phaser.Scene {
         increaseVolume.on('pointerup', function () {
             //get the current volume and make sure we aren't reducing below 0/muted.
             var currentVolume = music.currentConfig.volume;
-            if(currentVolume > 0){
+            if(currentVolume > 0 || currentVolume <=0){
                 console.log(currentVolume);
                 //use to fixed to avoid floating point error on addition & parse as float to avoid strange error.
                 var newVolume = (parseFloat(currentVolume) + 0.1).toFixed(2);
@@ -80,6 +80,37 @@ class pause extends Phaser.Scene {
         		musicMuted = false;
         		muteBtn.setTint(0x00ff00);
         	}
+        });
+        
+        toPauseButton.on('pointerover',()=>{
+            toPauseButton.setTint(0xA7FF7D);
+        });
+        
+        toPauseButton.on('pointerout',()=>{
+            toPauseButton.setTint(0xffffff);
+        });
+        
+        toMapMenu.on('pointerover',()=>{
+            toMapMenu.setTint(0xA7FF7D);
+        });
+        
+        toMapMenu.on('pointerout',()=>{
+            toMapMenu.setTint(0xffffff);
+        });
+        
+        increaseVolume.on('pointerover',()=>{
+            increaseVolume.setTint(0xA7FF7D);
+        });
+        
+        increaseVolume.on('pointerout',()=>{
+            increaseVolume.setTint(0xffffff);
+        });
+         decreaseVolume.on('pointerover',()=>{
+            decreaseVolume.setTint(0xA7FF7D);
+        });
+        
+        decreaseVolume.on('pointerout',()=>{
+            decreaseVolume.setTint(0xffffff);
         });
     }
 }
