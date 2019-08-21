@@ -37,7 +37,7 @@ class npcBase extends Phaser.GameObjects.Sprite {
 
     collision (tempNPC){
         //If the NPC has dialogue and it is not undefined, run the processNPCdialogue() function and set the dialogueMax variable. 
-        if (tempNPC.hasDialogue){ 
+        if (tempNPC.hasDialogue){
             dialogue = levelJSON[tempNPC.dialogueKey];
             if (dialogue !== undefined)
             {
@@ -266,7 +266,7 @@ class oileusNPC extends npcBase {
             y: parameter.y, 
             key: 'tempEnemy',
             dialogueKey: parameter.dialogueKey,
-            npcId: parameter.npcId, 
+            npcId: parameter.npcId,
             gravity: true
         })
     }
@@ -314,7 +314,7 @@ class iphiclusNPC extends npcBase {
  * If the text is blank, a box will not appear. 
  */
 function processNPCdialogue () {
-    if (talkKey.isDown && typeof dialogue !== 'undefined') {
+    if ((talkKey.isDown || currentLevelID === 'tutorial' )&& typeof dialogue !== 'undefined') {
         if (!dialogueAlreadyEngaged) {
             //Some NPCs react to flags in dialogue.
             for (i = 0; i < npcCount; i++){
@@ -325,24 +325,51 @@ function processNPCdialogue () {
             for (i = 0; i < portalCount; i++){
                 portals[i].dialogueUpdate();
             }
-            
-            //Clear the existing dialogue box. 
+
+            //Clear the existing dialogue box.
             clearDialogueBox();
 
-            //Draw a new dialogue box. 
-            drawDialogueBox(); 
+            //Draw a new dialogue box.
+            drawDialogueBox();
             npcDialogue.setText(dialogue[currentDialogue].char + '\n' + dialogue[currentDialogue].speech);
-            dialoguex = player.x; //dialoguex is used to check if the player walks away. 
+            dialoguex = player.x; //dialoguex is used to check if the player walks away.
 
-            //Iterate through dialogue, looping back to 0 if there are no more lines of dialogue. 
+            //Iterate through dialogue, looping back to 0 if there are no more lines of dialogue.
             if (currentDialogue == dialogueMax) {
                 currentDialogue = 0;
             } else {
-                currentDialogue++; 
-            } 
+                currentDialogue++;
+            }
 
             dialogueAlreadyEngaged = true;
-            dialogueActive = true;  
+            dialogueActive = true;
+        }else if (talkKey._justDown){
+            //this second call is used to allow progress for auto dialogue characters.
+            talkKey._justDown = false;
+            //Some NPCs react to flags in dialogue.
+            for (i = 0; i < npcCount; i++){
+                npcs[i].dialogueUpdate();
+            }
+
+            //Some portals react to flags in dialogue.
+            for (i = 0; i < portalCount; i++){
+                portals[i].dialogueUpdate();
+            }
+
+            //Clear the existing dialogue box.
+            clearDialogueBox();
+
+            //Draw a new dialogue box.
+            drawDialogueBox();
+            npcDialogue.setText(dialogue[currentDialogue].char + '\n' + dialogue[currentDialogue].speech);
+            dialoguex = player.x; //dialoguex is used to check if the player walks away.
+
+            //Iterate through dialogue, looping back to 0 if there are no more lines of dialogue.
+            if (currentDialogue == dialogueMax) {
+                currentDialogue = 0;
+            } else {
+                currentDialogue++;
+            }
         }
 
         //Don't display a blank entry. 

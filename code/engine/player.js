@@ -48,7 +48,7 @@ function playerMovement() {
     //Horizontal movement. tempVelocityX is modified and then used as the horizontal velocity of the player. 
     var tempVelocityX = 0; 
     if (cursors.left.isDown) {
-        if(sprintKey.isDown){
+        if(sprintKey.isDown && player.body.blocked.down){
             //todo:if player is sprinting the animation should be different from walking
             tempVelocityX -=playerSprintVelocity;
         }else {
@@ -57,7 +57,7 @@ function playerMovement() {
         playerFacingRight = false; 
     }
     if (cursors.right.isDown) {
-        if(sprintKey.isDown){
+        if(sprintKey.isDown && player.body.blocked.down){
             //todo:if player is sprinting the animation should be different from walking
             tempVelocityX +=playerSprintVelocity;
         }else {
