@@ -1,32 +1,35 @@
 class pause extends Phaser.Scene {
     constructor() {
-        super({ key: "pause", active: false});    
+        super({ key: "pause", active: false});
     }
-    
-    preload() {
-        //pause image           
-    }
-    
-    create() { 
-        game.scene.pause(currentLevelID);
 
+    preload() {
+        //pause image
+    }
+
+    create() {
+        game.scene.pause(currentLevelID);
+        /*
         this.drawPauseSurface = this.add.graphics();
 
-        this.drawPauseSurface.lineStyle(this.sys.game.config.width*0.004,0x000000,1);    
+        this.drawPauseSurface.lineStyle(this.sys.game.config.width*0.004,0x000000,1);
         this.drawPauseSurface.fillStyle(0xf2edaa,1);
         this.drawPauseSurface.fillRect(this.sys.game.config.width*0.2,this.sys.game.config.height*0.1,this.sys.game.config.width*0.6,this.sys.game.config.height*0.7);
         this.drawPauseSurface.strokeRect(this.sys.game.config.width*0.2,this.sys.game.config.height*0.1,this.sys.game.config.width*0.6,this.sys.game.config.height*0.7);
-        
-        this.add.image(0,0, "pausebg").setOrigin(0).setDepth(0);            
-        
-        let toPauseButton = this.add.image(this.game.renderer.width / 2, this.game.renderer.height * 0.5, "resumebut").setDepth(1).setInteractive();
-        let toMapMenu = this.add.image(this.game.renderer.width / 2, this.game.renderer.height * 0.7, "mapMenu").setDepth(1).setInteractive();
+
+        this.add.image(0,0, "pausebg").setOrigin(0).setDepth(0);
+        */
+        let scrollbackground = this.add.image(this.game.renderer.width/2, this.game.renderer.height/2, "scrollbg").setDepth(1).setInteractive();
+
+        let toPauseButton = this.add.image(this.game.renderer.width / 2, this.game.renderer.height * 0.4, "resumebut").setDepth(1).setInteractive();
+        let toMapMenu = this.add.image(this.game.renderer.width / 2, this.game.renderer.height * 0.55, "mapMenu").setDepth(1).setInteractive();
         //todo:change image mapping to relevant decrease volume arrow
-        let decreaseVolume = this.add.image(this.game.renderer.width*0.70, this.game.renderer.height * 0.135, "mutebtn").setDepth(1).setInteractive();
+        let decreaseVolume = this.add.image(this.game.renderer.width*0.68, this.game.renderer.height * 0.28, "volumedownbut").setDepth(1).setInteractive();
         //todo:change image mapping to relevant increase volume arrow
-        let increaseVolume = this.add.image(this.game.renderer.width*0.74, this.game.renderer.height * 0.135, "mutebtn").setDepth(1).setInteractive();
-        let muteBtn = this.add.image(this.game.renderer.width*0.78, this.game.renderer.height * 0.135, "mutebtn").setDepth(1).setInteractive();        
-        
+        let increaseVolume = this.add.image(this.game.renderer.width*0.72, this.game.renderer.height * 0.28, "volumeupbut").setDepth(1).setInteractive();
+
+        let muteBtn = this.add.image(this.game.renderer.width*0.76, this.game.renderer.height * 0.28, "mutebtn").setDepth(1).setInteractive();
+
         if (!musicMuted) {
             muteBtn.setTint(0x00ff00);
         } else {
@@ -35,12 +38,12 @@ class pause extends Phaser.Scene {
 
         toPauseButton.on('pointerup', function () {
 	        game.scene.resume(currentLevelID);
-	        game.scene.stop('pause');               
-        });     
-                
+	        game.scene.stop('pause');
+        });
+
         toMapMenu.on('pointerup', ()=>{
         	changeLevel('mapMenu');
-        	game.scene.stop('pause');            
+        	game.scene.stop('pause');
         });
 
         decreaseVolume.on('pointerup', function () {
@@ -76,7 +79,7 @@ class pause extends Phaser.Scene {
         		music.setMute(false);
         		musicMuted = false;
         		muteBtn.setTint(0x00ff00);
-        	}            
-        });         
+        	}
+        });
     }
 }
