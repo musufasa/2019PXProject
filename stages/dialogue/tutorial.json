@@ -2,11 +2,11 @@
   "oileus1":[
     {
       "char":"Oileus",
-      "speech":"Welcome Jason, you can interact with characters and signs throughout your journey that have a speech bubble above their head by pressing 'C' to start a conversation and continue it....."
+      "speech":"Welcome Jason, you can interact with characters and signs throughout your journey that have a speech bubble above their head by pressing 'Z' to start a conversation and continue it....."
     },
     {
       "char":"Oileus",
-      "speech":"You can walk by using the left and right arrows respectively and jump using the space bar. Meet me on the other side of the towers ahead to learn more"
+      "speech":"You can walk by using the left and right arrows respectively and jump using the up arrow key. Meet me on the other side of the towers ahead to learn more"
     },
     {
       "char":"",
@@ -16,7 +16,7 @@
   "iphiclus1":[
     {
       "char":"Iphiclus",
-      "speech":"To jump over tall objects you can double jump by pressing the space bar once again while mid-air or jump."
+      "speech":"To jump over tall objects you can double jump by pressing the up arrow key once again while mid-air or jump."
     },
     {
       "char":"",
@@ -26,7 +26,7 @@
   "oileusB1":[
     {
       "char":"Oileus",
-      "speech":"An enemy is up ahead ! Attack it using the 'Z' key to open the door to the next level....."
+      "speech":"An enemy is up ahead ! Attack it using the 'SPACE' key to open the door to the next level....."
     },
     {
       "char":"Oileus",
@@ -36,5 +36,11 @@
       "char":"",
       "speech":""
     }
-  ]
+  ], 
+  "iphiclusB1":[
+      {
+          "char":"Iphiclus", 
+          "speech": "Press the UP key to go through open doors"
+      }
+    ]
 }

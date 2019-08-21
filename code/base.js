@@ -119,8 +119,8 @@ class controller extends Phaser.Scene {
         pauseKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.P);
         initDialogueBox();
 
-        attackKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Z);
-        jumpKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+        attackKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+        jumpKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
 
 
         var jump = this.sound.add('jump');
@@ -347,9 +347,9 @@ function loadMap() {
 
     //Keyboard input.
     cursors = createThis.input.keyboard.createCursorKeys();
-    attackKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Z);
-    jumpKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
-    talkKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.C);
+    attackKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+    jumpKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
+    talkKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Z);
     displayMapKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.M);
 
     sprintKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SHIFT);
