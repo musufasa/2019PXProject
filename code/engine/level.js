@@ -374,6 +374,13 @@ function spawnObjects() {
                 });
                 enemyCount++;
                 break;
+            case 'testItem':
+                items[itemCount] = new testItem({
+                    x: mapObjectArray[i].x,
+                    y: mapObjectArray[i].y
+                });
+                itemCount++;
+                break;
         }
     }
 }

@@ -90,6 +90,7 @@ class controller extends Phaser.Scene {
         this.load.image('plowSprite','assets/items/plow.png');
         this.load.image('maxHealthItemSprite', 'assets/items/maxHealth.png');
         this.load.image('healthItemSprite', 'assets/items/health.png');
+        this.load.image('testItemSprite', 'assets/items/health.png');
         this.load.image('damageIncreaseItemSprite', 'assets/items/damageIncrease.png');
 
         //Pause

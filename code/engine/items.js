@@ -2,7 +2,10 @@
  * IDs: 0-8: Ritual Items. 
  */
 inventory = [false, false, false, false, false, false, false, false, false]; 
-resetInventory = [false, false, false, false, false, false, false, false, false]; 
+resetInventory = [false, false, false, false, false, false, false, false, false];
+bagInventory = [];
+bagSize = 4;
+
 ritualItemCount = 9; 
 
 //Co-ordinates for the ritual fire. 
@@ -29,6 +32,13 @@ class itemBase extends Phaser.GameObjects.Sprite {
         if (typeof this.inventoryKey !== 'undefined' && inventory[this.inventoryKey]){
             this.destroy();
         }
+
+        //additional attributes required for storing of items into the players bag/ inventory for later use.
+        this.description = parameter.description;
+        this.itemName = parameter.itemName;
+        this.itemType = parameter.itemType;
+        this.attributeNumber = parameter.attributeNumber;
+        this.bagImage = parameter.bagImage;
 
         //Collision detection between the player and item. 
         createThis.physics.add.overlap(this, player, this.collision);
@@ -390,5 +400,73 @@ class plowItem extends Phaser.GameObjects.Sprite {
 function portalUpdate() {
     for (i = 0; i < portalCount; i++) {
         portals[i].update();
+    }
+}
+
+//allows the user to store item in bag if it is not full
+function pickUpItem(tempItem){
+    if(bagInventory.length < bagSize) {
+        var item = { "Description": tempItem.description, "ItemName": tempItem.itemName, "ItemType":tempItem.itemType, "Attribute":tempItem.attributeNumber,"BagImage":tempItem.bagImage };
+        bagInventory.push(item);
+        tempItem.destroy();
+    }else{
+        //todo: the bag is full, display a message to let the player know they need to drop/ use something to empty a spot.
+
+    }
+}
+
+//used to remove bag item.
+function removeBagItem(itemIndex){
+    bagInventory.splice(itemIndex,1);
+}
+
+//used to consume the bag item
+function useBagItem(itemIndex){
+    //determine which type of items can be consumed through a new attribute and what they do.
+    var tempBagItem = bagInventory[itemIndex];
+
+    var attributeNumber = parseInt(tempBagItem.Attribute);
+    var itemType = tempBagItem.ItemType;
+    var itemUsed = false;
+    switch (itemType) {
+        case 'healing':
+            playerHeal(attributeNumber);
+            itemUsed = true;
+            break;
+        default:
+            //do nothing if it doesn't fall under one of the above
+            break;
+    }
+
+    //when consumed delete the item from inventory.
+    if(itemUsed){
+        removeBagItem(itemIndex);
+    }
+
+}
+
+/* Test item for tutorial level/inventory test.
+ * Required parameters: x, y
+ */
+class testItem extends itemBase {
+    constructor(parameter){
+        super({
+            scene: createThis,
+            x: parameter.x,
+            y: parameter.y,
+            key: 'testItemSprite',
+            gravity: false,
+            itemName: 'test Item',
+            itemType: 'healing',
+            description: 'Passively adds 2 damage while in bag',
+            attributeNumber: 50,
+            bagImage: 'test'
+        })
+
+    }
+
+    collision (tempItem){
+        //todo: wrap in a item pickup button function and handle only if item has extra attribute allowing pickup.
+        pickUpItem(tempItem);
     }
 }

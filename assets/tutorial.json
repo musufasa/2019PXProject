@@ -180,6 +180,18 @@
                  "width":0,
                  "x":30,
                  "y":1785
+                }, 
+                {
+                 "height":0,
+                 "id":30,
+                 "name":"testItem",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":597,
+                 "y":1785
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -188,7 +200,7 @@
          "y":0
         }],
  "nextlayerid":15,
- "nextobjectid":30,
+ "nextobjectid":31,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",
