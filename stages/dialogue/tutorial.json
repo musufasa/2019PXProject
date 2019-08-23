@@ -2,35 +2,51 @@
   "oileus1":[
     {
       "char":"Oileus",
-      "speech":"Welcome Jason, you can interact with characters and signs throughout your journey that have a speech bubble above their head by pressing 'Z' to start a conversation and continue it....."
+      "speech":"Greetings Jason, It is good to finally be on fresh land! Let us continue our journey, Press Z to Continue..."
     },
     {
       "char":"Oileus",
-      "speech":"You can walk by using the left and right arrows respectively and jump using the up arrow key. Meet me on the other side of the towers ahead to learn more"
+      "speech":"You can interact with characters and signs throughout your journey that have a speech bubble above their head, this is done by pressing 'Z', Press Z to Continue..."
     },
     {
-      "char":"",
-      "speech":""
+      "char":"Oileus",
+      "speech":"You can walk by using the left and right arrows respectively and jump using the up arrow key. Let us continue to learn more! Press Z to Continue..."
+    },
+    {
+      "char":"Oileus",
+      "speech":"Where did Orpheus head off to? Press Z to Continue..."
+    },
+    {
+      "char":"Oileus",
+      "speech":"I could use a drink.."
     }
   ],
   "iphiclus1":[
     {
       "char":"Iphiclus",
-      "speech":"To jump over tall objects you can double jump by pressing the up arrow key once again while mid-air or jump."
+      "speech":"The guards in the keep require our assistance! Enter the Keep and speak to them. Press Z to Continue..."
     },
     {
-      "char":"",
-      "speech":""
+      "char":"Iphiclus",
+      "speech":"Jason.. did you know, you can double jump to jump even higher! This is done by pressing the up arrow key once again while mid-air or jump. Press Z to Continue..."
+    },
+    {
+      "char":"Iphiclus",
+      "speech":"You should see what the guards need.."
     }
   ],
   "oileusB1":[
     {
       "char":"Oileus",
-      "speech":"An enemy is up ahead ! Attack it using the 'SPACE' key to open the door to the next level....."
+      "speech":"Mighty hero! Creatures have appeard atop our keep, can you climb the tower and slay these foes. We will grant you access into the city once they are defeated! Press Z to Continue..."
+    },
+       {
+      "char":"Oileus",
+      "speech":"I am sure i dont need to tell you how to use your sword, but you can attack by pressing the SPACE key. Press Z to Continue..."
     },
     {
       "char":"Oileus",
-      "speech":"To move away from the enemy quickly you can hold 'SHIFT' while moving to run !"
+      "speech":"If you are in trouble, You can quickly move away from the enemy by holding 'SHIFT' while moving to run !"
     },
     {
       "char":"",
@@ -40,7 +56,15 @@
   "iphiclusB1":[
       {
           "char":"Iphiclus", 
-          "speech": "Press the UP key to go through open doors"
-      }
+          "speech": "Throughout the land of Colchis, you will find many items that can be picked up, Some will heal you while others will increase the damage you do... Press Z to Continue... "
+      },
+      {
+      "char":"Iphiclus",
+      "speech":"You must be hungry after a long journey, Please take some food... Press Z to Continue..."
+    },
+      {
+      "char":"Iphiclus",
+      "speech":"The creatures are on the roof, There are 3 in total. Please deal with them, Remember SPACE to attack."
+    }
     ]
 }

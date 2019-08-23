@@ -38,7 +38,7 @@ function parseLevelDialogue() {
 //Draw the dialogue box. 
 function drawDialogueBox() {
     //dimensions
-    drawWidth = userIntThis.sys.game.config.width;
+    drawWidth = userIntThis.sys.game.config.width /2;
     drawHeight = userIntThis.sys.game.config.height*0.30;
     swirlLength = drawWidth*0.02;
     lineStyleThick = swirlLength/5;
@@ -98,6 +98,8 @@ function drawDialogueBox() {
     dialogBox.lineBetween(diaBoxX+(swirlLength*0.75),diaBoxY+swirlLength,diaBoxX+(swirlLength*0.75),diaBoxY+drawHeight-swirlLength);
     //Right
     dialogBox.lineBetween(diaBoxX+drawWidth-(swirlLength*0.75),diaBoxY+swirlLength,diaBoxX+drawWidth-(swirlLength*0.75),diaBoxY+drawHeight-swirlLength);
+    
+    dialogBox.alpha = 0.7;
     
     //set text location
     npcDialogue.x = diaBoxX+(swirlLength*1.5);
