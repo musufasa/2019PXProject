@@ -3,10 +3,10 @@ var cursors; //Arrow Keys
 var attackKey; //Attack key (default is Z)
 var jumpKey; //Jump key (default is Space bar)
 var sprintKey; //Sprint/dash key (default is left shift)
-var talkKey; //Talk key (default is C)
+var interactKey; //Talk/interact key (default is C)
 var pauseKey; //Pause key (default is P)
 var displayMapKey; //Map key (default is M)
-
+var displayBagKey; //Inventory key (default is B)
 //Player character
 var player; //Player sprite
 var attacksound = false; // Variable for attack sound - Used to tell if sound should be played.
@@ -122,7 +122,7 @@ class controller extends Phaser.Scene {
 
         attackKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         jumpKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
-
+        displayBagKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.B);
 
         var jump = this.sound.add('jump');
         var attack = this.sound.add('attack');
@@ -350,7 +350,7 @@ function loadMap() {
     cursors = createThis.input.keyboard.createCursorKeys();
     attackKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
     jumpKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
-    talkKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Z);
+    interactKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Z);
     displayMapKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.M);
 
     sprintKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SHIFT);

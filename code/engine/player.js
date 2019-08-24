@@ -20,6 +20,7 @@ var playerInvulnerabilityWait = 1000; //How long the player should be invulnerab
 var playerInvulnerability = false; //Is the player invulnerable?
 var playerVelocityYMax = 1350; //Maximum Y velocity - prevents clipping through floor when falling. 
 var playerDoubleJump = false;
+var bagOpen = false; //used to alternate between opening and closing the bag/ inventory
 
 //Variables relating to siren level
 var playerShipOffsetX = 300; //Camera offset for playerShip mode. 
@@ -123,6 +124,19 @@ function playerMovement() {
             //double jump velocity to be halfed ?
             player.setVelocityY(-playerJumpVelocity);
             playerDoubleJump = true;
+        }
+    }
+
+    if(displayBagKey._justDown){
+        displayBagKey._justDown = false;
+        if(!bagOpen){
+            //todo:open the bag and show its contents
+            console.log(bagInventory);
+            bagOpen = true;
+        }else{
+            //todo:close the bag if it is open
+            console.log('closed bag');
+            bagOpen = false;
         }
     }
 

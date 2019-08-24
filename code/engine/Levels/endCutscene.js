@@ -57,7 +57,7 @@ class endCutscene extends Phaser.Scene{
         } 
 
         //Control dialogue + images.
-        if (talkKey.isDown && !talkKeyPressed) {
+        if (interactKey.isDown && !talkKeyPressed) {
             if (endCutscenePhase < 2) {
                 this.processDialogue();
                 talkKeyPressed = true; 
@@ -78,7 +78,7 @@ class endCutscene extends Phaser.Scene{
                 clearDialogueBox();
                 changeLevel('endScreen');
             }
-        } else if (!talkKey.isDown && talkKeyPressed) {
+        } else if (!interactKey.isDown && talkKeyPressed) {
             talkKeyPressed = false; 
         } 
     }

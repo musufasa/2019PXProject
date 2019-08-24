@@ -314,7 +314,7 @@ class iphiclusNPC extends npcBase {
  * If the text is blank, a box will not appear. 
  */
 function processNPCdialogue () {
-    if ((talkKey.isDown || currentLevelID === 'tutorial' )&& typeof dialogue !== 'undefined') {
+    if ((interactKey.isDown || currentLevelID === 'tutorial' )&& typeof dialogue !== 'undefined') {
         if (!dialogueAlreadyEngaged) {
             //Some NPCs react to flags in dialogue.
             for (i = 0; i < npcCount; i++){
@@ -343,9 +343,9 @@ function processNPCdialogue () {
 
             dialogueAlreadyEngaged = true;
             dialogueActive = true;
-        }else if (talkKey._justDown){
+        }else if (interactKey._justDown){
             //this second call is used to allow progress for auto dialogue characters.
-            talkKey._justDown = false;
+            interactKey._justDown = false;
             //Some NPCs react to flags in dialogue.
             for (i = 0; i < npcCount; i++){
                 npcs[i].dialogueUpdate();

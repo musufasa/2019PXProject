@@ -241,7 +241,7 @@ class ritualFire extends itemBase {
     }
 
     collision (tempItem) {
-        if (!tempItem.ritualBegun && talkKey.isDown && tempItem.checkBeginRitual()) {
+        if (!tempItem.ritualBegun && interactKey.isDown && tempItem.checkBeginRitual()) {
             tempItem.ritual();
             tempItem.ritualBegun = true; 
         } 
@@ -456,17 +456,19 @@ class testItem extends itemBase {
             y: parameter.y,
             key: 'testItemSprite',
             gravity: false,
-            itemName: 'test Item',
+            itemName: 'Chicken Leg',
             itemType: 'healing',
-            description: 'Passively adds 2 damage while in bag',
-            attributeNumber: 50,
+            description: 'Can be consumed to heal 10 damage',
+            attributeNumber: 10,
             bagImage: 'test'
         })
 
     }
 
     collision (tempItem){
-        //todo: wrap in a item pickup button function and handle only if item has extra attribute allowing pickup.
-        pickUpItem(tempItem);
+        // wrap in a item pickup button function and handle only if item has extra attribute allowing pickup.
+        if(interactKey.isDown){
+            pickUpItem(tempItem);
+        }
     }
 }
