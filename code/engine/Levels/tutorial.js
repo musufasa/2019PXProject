@@ -12,7 +12,7 @@ class tutorial extends Phaser.Scene {
         playerInvulnerability = true;
         //todo: change image for tutorial enemy character
         this.load.spritesheet('snake','assets/enemy/snake.png', {frameWidth: 120, frameHeight: 83});
-
+    
     }
 
     create() {
@@ -32,6 +32,8 @@ class tutorial extends Phaser.Scene {
             repeat: -1
         });
     }
+    
+    
 
     update() {
         callUpdateFuncs();

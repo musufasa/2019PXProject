@@ -35,13 +35,13 @@ class controller extends Phaser.Scene {
     constructor() {
         super({key: 'controller'});
     }
-
+    
     //Preload common assets.
     preload() {
         //Load assets used in all levels
         createThis = this;
         userIntThis = this;
-
+          
         //Main characters
         this.load.spritesheet('medeaSprite','assets/NPC/medea.png',
            { frameWidth: 32, frameHeight: 64 });
@@ -52,7 +52,7 @@ class controller extends Phaser.Scene {
 
         //Portal
         this.load.image('portalSprite','assets/items/portal.png');
-
+        
         //Music & Audio
         this.load.audio('female', ['assets/stage/background/female.mp3']);
         this.load.audio('water', ['assets/stage/background/water.mp3']);
@@ -127,7 +127,6 @@ class controller extends Phaser.Scene {
         var jump = this.sound.add('jump');
         var attack = this.sound.add('attack');
         var bite = this.sound.add('bite');
-
 
         game.scene.run(currentLevelID);
 
@@ -387,7 +386,7 @@ function loadMap() {
 function callUpdateFuncs() {
     //Use the appropriate movement function for the level.
     playerMovement();
-
+    
     //Enemy Movement
     enemyMovement();
 
