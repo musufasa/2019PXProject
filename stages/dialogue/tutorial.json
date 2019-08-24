@@ -37,15 +37,15 @@
   ],
   "oileusB1":[
     {
-      "char":"Oileus",
+      "char":"Keep Guard",
       "speech":"Mighty hero! Creatures have appeard atop our keep, can you climb the tower and slay these foes. We will grant you access into the city once they are defeated! Press Z to Continue..."
     },
        {
-      "char":"Oileus",
+      "char":"Keep Guard",
       "speech":"I am sure i dont need to tell you how to use your sword, but you can attack by pressing the SPACE key. Press Z to Continue..."
     },
     {
-      "char":"Oileus",
+      "char":"Keep Guard",
       "speech":"If you are in trouble, You can quickly move away from the enemy by holding 'SHIFT' while moving to run !"
     },
     {
@@ -55,16 +55,34 @@
   ], 
   "iphiclusB1":[
       {
-          "char":"Iphiclus", 
+          "char":"Keep Guard", 
+          "speech": "The creatures are on the roof, There are 3 in total. Please deal with them. Press Z to Continue..."
+      },
+      {
+      "char":"Keep Guard",
+      "speech":"Remember, it is SPACE to attack, Press Z to Continue..."
+    },
+      {
+      "char":"Keep Guard",
+      "speech":"If you need something to eat, enter the store room on the above level."
+    }
+    ],
+    "iphiclusC1":[
+      {
+          "char":"Keep Guard", 
           "speech": "Throughout the land of Colchis, you will find many items that can be picked up, Some will heal you while others will increase the damage you do... Press Z to Continue... "
       },
       {
-      "char":"Iphiclus",
-      "speech":"You must be hungry after a long journey, Please take some food... Press Z to Continue..."
+        "char":"Keep Guard",
+        "speech":"To pick up items, simply walk up to them and press Z. Press Z to Continue..."
     },
-      {
-      "char":"Iphiclus",
-      "speech":"The creatures are on the roof, There are 3 in total. Please deal with them, Remember SPACE to attack."
+        {
+        "char":"Keep Guard",
+        "speech":"You must be hungry after a long journey, Please take some food! Press Z to Continue..."
+    },
+        {
+        "char":"Keep Guard",
+        "speech":"What are you still doing here, go kill the creatures."
     }
-    ]
+]
 }
