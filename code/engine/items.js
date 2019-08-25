@@ -411,7 +411,7 @@ function pickUpItem(tempItem){
         tempItem.destroy();
     }else{
         //todo: the bag is full, display a message to let the player know they need to drop/ use something to empty a spot.
-
+        console.log('bag is full, drop or use a held item to add this item.');
     }
 }
 
