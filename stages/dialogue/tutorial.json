@@ -84,5 +84,11 @@
         "char":"Keep Guard",
         "speech":"What are you still doing here, go kill the creatures."
     }
-]
+], 
+    "iphiclusD1":[
+        {
+            "char":"Keep Guard", 
+            "speech": "Press the UP arrow key to go through open doors "
+        }
+    ]
 }
