@@ -110,10 +110,11 @@
     {
         "char":"Keep Guard",
         "speech":"To enter the door press the 'UP' key."
-    },
+    }, 
     {
         "char":"",
         "speech":""  
     }
+            
 ]
 }
