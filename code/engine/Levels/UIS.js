@@ -19,17 +19,27 @@ class UIS extends Phaser.Scene {
     }
 
     create() {
+            var styleRed = { font: "20px Arial", fill: "#FF0000", align: "center" };
+            var styleGreen = { font: "20px Arial", fill: "#008000", align: "center" };
+        	var styleBlue = { font: "20px Arial", fill: "#0000ff", align: "center" };
+        
         game.scene.pause(currentLevelID);
         
         let inventoryBg = this.add.image(this.game.renderer.width * 0.5, this.game.renderer.height * 0.5, "inventory").setDepth(0).setInteractive();
         let exitbutton = this.add.image(this.game.renderer.width * 0.85, this.game.renderer.height * 0.28, "items1").setDepth(1).setInteractive();
         
-        
+        //inventory slots
         let slotPresent1 = this.add.image(this.game.renderer.width * .45, this.game.renderer.height * 0.36, itemToDisplay1).setDepth(1).setInteractive(); 
         let slotPresent2 = this.add.image(this.game.renderer.width * .6, this.game.renderer.height * 0.36, itemToDisplay2).setDepth(1).setInteractive();
         let slotPresent3 = this.add.image(this.game.renderer.width * .7, this.game.renderer.height * 0.36, itemToDisplay3).setDepth(1).setInteractive();
         let slotPresent4 = this.add.image(this.game.renderer.width * .8, this.game.renderer.height * 0.36, itemToDisplay4).setDepth(1).setInteractive();
 
+        //display player stats
+       var maxHealthText= this.add.text(this.game.renderer.width *.12, this.game.renderer.height * 0.5, maxHealth+"  MaxHealth", styleRed)
+        var speedText = this.add.text(this.game.renderer.width *.12, this.game.renderer.height * 0.6, playerWalkVelocity+"  Speed", styleBlue)
+        var damage = this.add.text(this.game.renderer.width *.12, this.game.renderer.height * 0.7, playerDamagePoints +"  Damage", styleGreen)
+
+        
         //close invent screen when the x is pressed
         exitbutton.on('pointerup', function () {
 	        game.scene.resume(currentLevelID);
