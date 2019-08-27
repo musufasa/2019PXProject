@@ -2,15 +2,15 @@
   "oileus1":[
     {
       "char":"Oileus",
-      "speech":"Greetings Jason, It is good to finally be on fresh land! Let us continue our journey, Press Z to Continue..."
+      "speech":"Greetings Jason, it is good to finally be on fresh land! Let us continue our journey. Press Z to Continue..."
     },
     {
       "char":"Oileus",
-      "speech":"You can interact with characters and signs throughout your journey that have a speech bubble above their head, this is done by pressing 'Z', Press Z to Continue..."
+      "speech":"To walk, you can use the left and right arrow keys respectevively and jump using the up arrow key. Press Z to continue..."
     },
     {
       "char":"Oileus",
-      "speech":"You can walk by using the left and right arrows respectively and jump using the up arrow key. Let us continue to learn more! Press Z to Continue..."
+      "speech":"You can interact with characters and signs that have a speech bubble above their head, this is done by pressing 'Z'. Press Z to Continue..."
     },
     {
       "char":"Oileus",
@@ -18,9 +18,14 @@
     },
     {
       "char":"Oileus",
-      "speech":"I could use a drink.."
+      "speech":"I could use a drink..."
+    },
+    {
+        "char":"",
+        "speech":""  
     }
   ],
+    
   "iphiclus1":[
     {
       "char":"Iphiclus",
@@ -28,25 +33,29 @@
     },
     {
       "char":"Iphiclus",
-      "speech":"Jason.. did you know, you can double jump to jump even higher! This is done by pressing the up arrow key once again while mid-air or jump. Press Z to Continue..."
+      "speech":"Jason.. did you know, you can double jump to jump even higher! This is done by pressing the up arrow key once again while mid-air. Press Z to Continue..."
     },
     {
       "char":"Iphiclus",
       "speech":"You should see what the guards need.."
+    },
+    {
+        "char":"",
+        "speech":""  
     }
   ],
   "oileusB1":[
     {
       "char":"Keep Guard",
-      "speech":"Mighty hero! Creatures have appeard atop our keep, can you climb the tower and slay these foes. We will grant you access into the city once they are defeated! Press Z to Continue..."
+      "speech":"Mighty hero! Creatures have appeared and are raiding our keep, can you climb the tower and slay these foes. We will grant you access into the city once they are defeated! Press Z to Continue..."
     },
        {
       "char":"Keep Guard",
-      "speech":"I am sure i dont need to tell you how to use your sword, but you can attack by pressing the SPACE key. Press Z to Continue..."
+      "speech":"I am sure I don't need to tell you how to use your sword, but you can attack by pressing the 'SPACE' key. Press Z to Continue..."
     },
     {
       "char":"Keep Guard",
-      "speech":"If you are in trouble, You can quickly move away from the enemy by holding 'SHIFT' while moving to run !"
+      "speech":"If you are in trouble, You can quickly move away from the enemy by holding 'SHIFT' while moving to run!"
     },
     {
       "char":"",
@@ -54,35 +63,57 @@
     }
   ], 
   "iphiclusB1":[
-      {
-          "char":"Keep Guard", 
-          "speech": "The creatures are on the roof, There are 3 in total. Please deal with them. Press Z to Continue..."
-      },
-      {
-      "char":"Keep Guard",
-      "speech":"Remember, it is SPACE to attack, Press Z to Continue..."
+    {
+        "char":"Keep Guard", 
+        "speech": "The creatures are in the next room, please deal with them. Press Z to Continue..."
     },
-      {
+    {
+      "char":"Keep Guard",
+      "speech":"Remember, it is 'SPACE' to attack. Press Z to Continue..."
+    },
+    {
       "char":"Keep Guard",
       "speech":"If you need something to eat, enter the store room on the above level."
+    },
+    {
+        "char":"",
+        "speech":""  
     }
     ],
     "iphiclusC1":[
-      {
-          "char":"Keep Guard", 
-          "speech": "Throughout the land of Colchis, you will find many items that can be picked up, Some will heal you while others will increase the damage you do... Press Z to Continue... "
-      },
-      {
+    {
+        "char":"Keep Guard", 
+        "speech": "Throughout the land of Colchis, you will find many items that can be picked up. Some will heal you while others will increase the damage you do. Press Z to Continue... "
+    },
+    {
         "char":"Keep Guard",
         "speech":"To pick up items, simply walk up to them and press Z. Press Z to Continue..."
     },
-        {
+    {
         "char":"Keep Guard",
-        "speech":"You must be hungry after a long journey, Please take some food! Press Z to Continue..."
+        "speech":"You must be hungry after a long journey, please take some food! Press Z to Continue..."
     },
-        {
+    {
         "char":"Keep Guard",
-        "speech":"What are you still doing here, go kill the creatures."
+        "speech":"What are you still doing here? Go kill the creatures."
+    },
+    {
+        "char":"",
+        "speech":""  
+    }],
+        
+        "oileusC1":[
+    {
+        "char":"Keep Guard", 
+        "speech": "Thank you mighty hero! You can proceed into the city now and continue your journey. Press 'Z' to continue."
+    },
+    {
+        "char":"Keep Guard",
+        "speech":"To enter the door press the 'UP' key."
+    },
+    {
+        "char":"",
+        "speech":""  
     }
 ]
 }
