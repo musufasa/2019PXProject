@@ -115,5 +115,34 @@
         "char":"",
         "speech":""  
     }
+    ],
+    
+    "iphiclusD1":[
+    {
+        "char":"Keep Guard", 
+        "speech": "Once you pick up the items, they will be stored within your bag. To view your bag press the 'I' key. Press 'Z' to continue..."
+    },
+    {
+        "char":"Keep Guard",
+        "speech":"Once within your bag you can use the item or drop the item (In Progress)"
+    }, 
+    {
+        "char":"",
+        "speech":""  
+    }
+    ],
+     "iphiclusE1":[
+    {
+        "char":"Keep Guard", 
+        "speech": "Quick! There are some in the basement!"
+    },
+    {
+        "char":"Keep Guard",
+        "speech":"By the Gods, this is only my first day on duty."
+    }, 
+    {
+        "char":"",
+        "speech":""  
+    }
     ]
 }

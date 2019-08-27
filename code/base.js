@@ -62,7 +62,7 @@ class controller extends Phaser.Scene {
         this.load.audio('upbeat', ['assets/stage/background/upbeat.mp3']);
         this.load.audio('jasonIntro', ['assets/stage/background/jasonIntro.mp3']);
         this.load.audio('attack',['assets/stage/background/attack.mp3']);
-        this.load.audio('jump',['assets/stage/background/jump.mp3']);
+        this.load.audio('jump',['assets/stage/background/jump.wav']);
         this.load.audio('bite',['assets/stage/background/bite.wav']);
 
         //Other/Placeholders
@@ -215,7 +215,7 @@ class controller extends Phaser.Scene {
             }
 
 
-        //When character Attacks, play the attack sound.
+       //When character Attacks, play the attack sound.
         if (!attackKey.isDown)
             {
                 attacksound = true;
@@ -225,7 +225,8 @@ class controller extends Phaser.Scene {
            this.sound.play('attack');
                 attacksound = false;
             }
-
+        
+       
 
     }
     updateRitualItemText() {
