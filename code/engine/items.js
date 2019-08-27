@@ -408,6 +408,17 @@ function pickUpItem(tempItem){
     if(bagInventory.length < bagSize) {
         var item = { "Description": tempItem.description, "ItemName": tempItem.itemName, "ItemType":tempItem.itemType, "Attribute":tempItem.attributeNumber,"BagImage":tempItem.bagImage };
         bagInventory.push(item);
+          
+        bagInventory.forEach(function(item) {
+            
+            //send description and image to be displayed to the UI
+            //currently only changing for item 1
+        itemDescriptionInvent=tempItem.description;   
+        itemToDisplay1=tempItem.bagImage;
+        console.log(itemDescriptionInvent)
+        console.log(itemToDisplay1);
+            
+        });
         tempItem.destroy();
     }else{
         //todo: the bag is full, display a message to let the player know they need to drop/ use something to empty a spot.
@@ -460,7 +471,7 @@ class testItem extends itemBase {
             itemType: 'healing',
             description: 'Can be consumed to heal 10 damage',
             attributeNumber: 10,
-            bagImage: 'test'
+            bagImage: 'testItemSprite'
         })
 
     }

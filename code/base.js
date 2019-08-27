@@ -7,6 +7,8 @@ var interactKey; //Talk/interact key (default is C)
 var pauseKey; //Pause key (default is P)
 var displayMapKey; //Map key (default is M)
 var displayBagKey; //Inventory key (default is B)
+var inventoryKey; // Inventory key mapped to I
+
 //Player character
 var player; //Player sprite
 var attacksound = false; // Variable for attack sound - Used to tell if sound should be played.
@@ -113,11 +115,20 @@ class controller extends Phaser.Scene {
         this.load.image('signGardenEntranceSprite','assets/items/signGardenEntrance.png');
         this.load.image('signDungeonSprite','assets/items/signDungeon.png');
         this.load.image('signGardenForestSprite','assets/items/signGardenForest.png');
+        
+                //UIS stuff
+        this.load.image('items1', 'assets/background/closeinventbutton.png');
+        this.load.image('inventory', 'assets/background/inventorydraft.png');
+        
+        //load slot preset 
+        this.load.image('slots', 'assets/items/inventoryslots.png');
     }
 
     create() {
         firstInitHealthBar();
         pauseKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.P);
+        initDialogueBox();
+        inventoryKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.I);
         initDialogueBox();
 
         attackKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
@@ -148,6 +159,11 @@ class controller extends Phaser.Scene {
     }
 
     update() {
+        //open inventory
+        if (inventoryKey._justDown){
+            game.scene.run('UIS');
+        }
+        
         //Pause the game if the pause key is held down.
         if (pauseKey.isDown) {
             game.scene.run('pause');
@@ -482,7 +498,7 @@ var config = {
 
     scene: [controller, titleScreen,tutorial,settingsScreen, argoLanding, roadToColchis, marketplace, palace, shrine, shrineForest,
             colchisFields, riverCrossing, gardenEntrance, gardenForest, gardenDungeon, gardenFleece,
-            placeholdertestmap, endCutscene, endScreen, siren, pause, mapMenu, introCutscene]
+            placeholdertestmap, endCutscene, endScreen, siren, pause, UIS, mapMenu, introCutscene]
 };
 
 var game = new Phaser.Game(config);
