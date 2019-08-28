@@ -6,7 +6,7 @@
     },
     {
       "char":"Oileus",
-      "speech":"To walk, you can use the left and right arrow keys respectevively and jump using the up arrow key. Press Z to continue..."
+      "speech":"To walk, you can use the 'LEFT' and 'RIGHT' arrow keys respectevively and jump using the 'SPACE' key. Press Z to continue..."
     },
     {
       "char":"Oileus",
@@ -33,7 +33,7 @@
     },
     {
       "char":"Iphiclus",
-      "speech":"Jason.. did you know, you can double jump to jump even higher! This is done by pressing the up arrow key once again while mid-air. Press Z to Continue..."
+      "speech":"Jason.. did you know, you can double jump to jump even higher! This is done by pressing the 'SPACE' key once again while mid-air. Press Z to Continue..."
     },
     {
       "char":"Iphiclus",
@@ -51,7 +51,7 @@
     },
        {
       "char":"Keep Guard",
-      "speech":"I am sure I don't need to tell you how to use your sword, but you can attack by pressing the 'SPACE' key. Press Z to Continue..."
+      "speech":"I am sure I don't need to tell you how to use your sword, but you can attack by pressing the 'X' key. Press Z to Continue..."
     },
     {
       "char":"Keep Guard",
@@ -69,7 +69,7 @@
     },
     {
       "char":"Keep Guard",
-      "speech":"Remember, it is 'SPACE' to attack. Press Z to Continue..."
+      "speech":"Remember, it is 'X' to attack. Press Z to Continue..."
     },
     {
       "char":"Keep Guard",
@@ -109,7 +109,7 @@
     },
     {
         "char":"Keep Guard",
-        "speech":"To enter the door press the 'DOWN' key."
+        "speech":"To enter the door press the 'UP' key."
     }, 
     {
         "char":"",
