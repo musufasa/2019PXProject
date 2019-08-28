@@ -8,6 +8,7 @@ var pauseKey; //Pause key (default is P)
 var displayMapKey; //Map key (default is M)
 var displayBagKey; //Inventory key (default is B)
 var inventoryKey; // Inventory key mapped to I
+var portalKey;//travel through portals key is mapped to the UP arrow
 
 //Player character
 var player; //Player sprite
@@ -364,12 +365,13 @@ function loadMap() {
 
     //Keyboard input.
     cursors = createThis.input.keyboard.createCursorKeys();
-    attackKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
-    jumpKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
+    attackKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.X);
+    jumpKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
     interactKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Z);
     displayMapKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.M);
 
     sprintKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SHIFT);
+    portalKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
 
 
     if (playerShip) {
