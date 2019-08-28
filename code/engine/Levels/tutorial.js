@@ -8,11 +8,10 @@ class tutorial extends Phaser.Scene {
         currentLevelID = 'tutorial';
         backgroundLayer0 = 'bgSky';
         commonPreload();
-        //make the player invunerable during the tutorial
-        playerInvulnerability = true;
+
         //todo: change image for tutorial enemy character
         this.load.spritesheet('snake','assets/enemy/snake.png', {frameWidth: 120, frameHeight: 83});
-    
+
     }
 
     create() {
@@ -31,11 +30,24 @@ class tutorial extends Phaser.Scene {
             frameRate: 10,
             repeat: -1
         });
+        
+            
+
     }
     
     
 
     update() {
         callUpdateFuncs();
+            //makes the player invulnerable if they are below 50hp so the player
+            //can use items
+                 if (currentHealth<=70){
+            console.log("invulnerability on")
+                    playerInvulnerability = true;
+        }else
+            {
+                playerInvulnerability=false;
+            }
     }
 }
+
