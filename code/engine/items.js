@@ -408,17 +408,6 @@ function pickUpItem(tempItem){
     if(bagInventory.length < bagSize) {
         var item = { "Description": tempItem.description, "ItemName": tempItem.itemName, "ItemType":tempItem.itemType, "Attribute":tempItem.attributeNumber,"BagImage":tempItem.bagImage };
         bagInventory.push(item);
-          
-        bagInventory.forEach(function(item) {
-            
-            //send description and image to be displayed to the UI
-            //currently only changing for item 1
-        itemDescriptionInvent=tempItem.description;   
-        itemToDisplay1=tempItem.bagImage;
-        console.log(itemDescriptionInvent)
-        console.log(itemToDisplay1);
-            
-        });
         tempItem.destroy();
     }else{
         //todo: the bag is full, display a message to let the player know they need to drop/ use something to empty a spot.
@@ -429,6 +418,8 @@ function pickUpItem(tempItem){
 //used to remove bag item.
 function removeBagItem(itemIndex){
     bagInventory.splice(itemIndex,1);
+    itemToDisplay[itemIndex+1] = "slots";
+    itemDescriptionInvent[itemIndex+1] = "pick up an item";
 }
 
 //used to consume the bag item
