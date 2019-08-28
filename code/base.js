@@ -366,15 +366,17 @@ function loadMap() {
 
 
 
-    //Keyboard input.
+    //Keyboard input
+    //Create default key bindings for up,down,left and right
     cursors = createThis.input.keyboard.createCursorKeys();
+    
     attackKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.X);
     jumpKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
     interactKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Z);
     displayMapKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.M);
 
     sprintKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SHIFT);
-    portalKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
+    portalKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
 
 
     if (playerShip) {
