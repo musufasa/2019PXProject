@@ -124,7 +124,7 @@
     },
     {
         "char":"Keep Guard",
-        "speech":"Once within your bag you can use the item or drop the item (In Progress)"
+        "speech":"Once within your bag you can use the item by clicking on it."
     }, 
     {
         "char":"",
@@ -140,6 +140,28 @@
         "char":"Keep Guard",
         "speech":"By the Gods, this is only my first day on duty."
     }, 
+    {
+        "char":"",
+        "speech":""  
+    }
+    ],
+    
+    "iphiclusF1":[
+    {
+        "char":"Keep Guard", 
+        "speech": "If you need a break, you can pause by pressing the 'P' key."
+    },
+    {
+        "char":"",
+        "speech":""  
+    }
+    ],
+    
+     "iphiclusG1":[
+    {
+        "char":"Keep Guard", 
+        "speech": "Hi Jonathan, how is our prototype going :)"
+    },
     {
         "char":"",
         "speech":""  

@@ -1,10 +1,4 @@
 var inventoryLocations = [4];
-var itemDescriptionInvent ="";
-var itemToDisplay1="slots" ;
-var itemToDisplay2="slots" ;
-var itemToDisplay3="slots" ;
-var itemToDisplay4="slots" ;
-
 var hoverchecker=false;
 
 class UIS extends Phaser.Scene {
@@ -19,6 +13,8 @@ class UIS extends Phaser.Scene {
     }
 
     create() {
+        var itemDescriptionInvent = ['pick up an item','pick up an item','pick up an item','pick up an item'];
+        var itemToDisplay = ["slots","slots","slots","slots"];
             var styleRed = { font: "20px Arial", fill: "#FF0000", align: "center" };
             var styleGreen = { font: "20px Arial", fill: "#008000", align: "center" };
         	var styleBlue = { font: "20px Arial", fill: "#0000ff", align: "center" };
@@ -27,13 +23,20 @@ class UIS extends Phaser.Scene {
         
         let inventoryBg = this.add.image(this.game.renderer.width * 0.5, this.game.renderer.height * 0.5, "inventory").setDepth(0).setInteractive();
         let exitbutton = this.add.image(this.game.renderer.width * 0.85, this.game.renderer.height * 0.28, "items1").setDepth(1).setInteractive();
-        
-        //inventory slots
-        let slotPresent1 = this.add.image(this.game.renderer.width * .45, this.game.renderer.height * 0.36, itemToDisplay1).setDepth(1).setInteractive(); 
-        let slotPresent2 = this.add.image(this.game.renderer.width * .6, this.game.renderer.height * 0.36, itemToDisplay2).setDepth(1).setInteractive();
-        let slotPresent3 = this.add.image(this.game.renderer.width * .7, this.game.renderer.height * 0.36, itemToDisplay3).setDepth(1).setInteractive();
-        let slotPresent4 = this.add.image(this.game.renderer.width * .8, this.game.renderer.height * 0.36, itemToDisplay4).setDepth(1).setInteractive();
 
+        //inventory slots
+        //todo:need to dynamically calculate number of items in bag etc rather than hardcoded array spots.
+        var index = 0;
+        bagInventory.forEach(function(item) {
+            itemToDisplay[index] = item.BagImage;
+            itemDescriptionInvent[index] = item.Description;
+            index++;
+        });
+
+        let slotPresent1 = this.add.image(this.game.renderer.width * .45, this.game.renderer.height * 0.36, itemToDisplay[0]).setDepth(1).setInteractive();
+        let slotPresent2 = this.add.image(this.game.renderer.width * .6, this.game.renderer.height * 0.36, itemToDisplay[1]).setDepth(1).setInteractive();
+        let slotPresent3 = this.add.image(this.game.renderer.width * .7, this.game.renderer.height * 0.36, itemToDisplay[2]).setDepth(1).setInteractive();
+        let slotPresent4 = this.add.image(this.game.renderer.width * .8, this.game.renderer.height * 0.36, itemToDisplay[3]).setDepth(1).setInteractive();
         //display player stats
        var maxHealthText= this.add.text(this.game.renderer.width *.12, this.game.renderer.height * 0.5, maxHealth+"  MaxHealth", styleRed)
         var speedText = this.add.text(this.game.renderer.width *.12, this.game.renderer.height * 0.6, playerWalkVelocity+"  Speed", styleBlue)
@@ -53,12 +56,12 @@ class UIS extends Phaser.Scene {
         var textItemDescriptionInvent = this.add.text(this.game.renderer.width * 0.1, this.game.renderer.height * 0.85, itemDescriptionInvent , descFont);
         textItemDescriptionInvent.setAlpha(0);
 
-                
-       
+
+        //todo:need to dynamically calculate number of items in bag for hover events.
         //checks if mouse is over item and displays description at the bottom
         slotPresent1.on('pointerover',()=>{
             if (hoverchecker==false){
-            textItemDescriptionInvent.text = itemDescriptionInvent;   
+            textItemDescriptionInvent.text = itemDescriptionInvent[0];
             textItemDescriptionInvent.setAlpha(1);
              console.log("hovered");
             hoverchecker =true;
@@ -74,10 +77,95 @@ class UIS extends Phaser.Scene {
                  hoverchecker=false;
                  }
         });
-        
 
 
+        //checks if mouse is over item and displays description at the bottom
+        slotPresent2.on('pointerover',()=>{
+            if (hoverchecker==false){
+                textItemDescriptionInvent.text = itemDescriptionInvent[1];
+                textItemDescriptionInvent.setAlpha(1);
+                console.log("hovered");
+                hoverchecker =true;
+            }
+        });
 
+
+        //checks if mouse is not on an item and turns description transparrent
+        slotPresent2.on('pointerout',()=>{
+            if (hoverchecker==true){
+                console.log("transparent")
+                textItemDescriptionInvent.setAlpha(0);
+                hoverchecker=false;
+            }
+        });
+
+
+        slotPresent3.on('pointerover',()=>{
+            if (hoverchecker==false){
+                textItemDescriptionInvent.text = itemDescriptionInvent[2];
+                textItemDescriptionInvent.setAlpha(1);
+                console.log("hovered");
+                hoverchecker =true;
+            }
+        });
+
+
+        //checks if mouse is not on an item and turns description transparrent
+        slotPresent3.on('pointerout',()=>{
+            if (hoverchecker==true){
+                console.log("transparent")
+                textItemDescriptionInvent.setAlpha(0);
+                hoverchecker=false;
+            }
+        });
+
+        slotPresent4.on('pointerover',()=>{
+            if (hoverchecker==false){
+                textItemDescriptionInvent.text = itemDescriptionInvent[3];
+                textItemDescriptionInvent.setAlpha(1);
+                console.log("hovered");
+                hoverchecker =true;
+            }
+        });
+
+
+        //checks if mouse is not on an item and turns description transparrent
+        slotPresent4.on('pointerout',()=>{
+            if (hoverchecker==true){
+                console.log("transparent")
+                textItemDescriptionInvent.setAlpha(0);
+                hoverchecker=false;
+            }
+        });
+        //todo: change to dynamic
+        slotPresent1.on('pointerup', function () {
+            if(bagInventory[0] != null){
+                useBagItem(0);
+            }else{
+                console.log('working nothing here');
+            }
+        });
+        slotPresent2.on('pointerup', function () {
+            if(bagInventory[1] != null){
+                useBagItem(1);
+            }else{
+                console.log('working nothing here');
+            }
+        });
+        slotPresent3.on('pointerup', function () {
+            if(bagInventory[2] != null){
+                useBagItem(2);
+            }else{
+                console.log('working nothing here');
+            }
+        });
+        slotPresent4.on('pointerup', function () {
+            if(bagInventory[3] != null){
+                useBagItem(3);
+            }else{
+                console.log('working nothing here');
+            }
+        });
         //slotCreation();
     }
 }
