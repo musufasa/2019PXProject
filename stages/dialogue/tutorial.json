@@ -144,5 +144,27 @@
         "char":"",
         "speech":""  
     }
+    ],
+    
+    "iphiclusF1":[
+    {
+        "char":"Keep Guard", 
+        "speech": "If you need a break, you can pause by pressing the 'P' key."
+    },
+    {
+        "char":"",
+        "speech":""  
+    }
+    ],
+    
+     "iphiclusG1":[
+    {
+        "char":"Keep Guard", 
+        "speech": "Hi Jonathan, how is our prototype going :)"
+    },
+    {
+        "char":"",
+        "speech":""  
+    }
     ]
 }
