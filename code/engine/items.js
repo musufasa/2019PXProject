@@ -418,8 +418,7 @@ function pickUpItem(tempItem){
 //used to remove bag item.
 function removeBagItem(itemIndex){
     bagInventory.splice(itemIndex,1);
-    itemToDisplay[itemIndex+1] = "slots";
-    itemDescriptionInvent[itemIndex+1] = "pick up an item";
+    game.scene.run('UIS');
 }
 
 //used to consume the bag item

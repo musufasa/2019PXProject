@@ -1,6 +1,4 @@
 var inventoryLocations = [4];
-var itemDescriptionInvent = ['pick up an item','pick up an item','pick up an item','pick up an item'];
-var itemToDisplay = ["slots","slots","slots","slots"];
 var hoverchecker=false;
 
 class UIS extends Phaser.Scene {
@@ -15,6 +13,8 @@ class UIS extends Phaser.Scene {
     }
 
     create() {
+        var itemDescriptionInvent = ['pick up an item','pick up an item','pick up an item','pick up an item'];
+        var itemToDisplay = ["slots","slots","slots","slots"];
             var styleRed = { font: "20px Arial", fill: "#FF0000", align: "center" };
             var styleGreen = { font: "20px Arial", fill: "#008000", align: "center" };
         	var styleBlue = { font: "20px Arial", fill: "#0000ff", align: "center" };
@@ -137,9 +137,35 @@ class UIS extends Phaser.Scene {
                 hoverchecker=false;
             }
         });
-
-
-
+        //todo: change to dynamic
+        slotPresent1.on('pointerup', function () {
+            if(bagInventory[0] != null){
+                useBagItem(0);
+            }else{
+                console.log('working nothing here');
+            }
+        });
+        slotPresent2.on('pointerup', function () {
+            if(bagInventory[1] != null){
+                useBagItem(1);
+            }else{
+                console.log('working nothing here');
+            }
+        });
+        slotPresent3.on('pointerup', function () {
+            if(bagInventory[2] != null){
+                useBagItem(2);
+            }else{
+                console.log('working nothing here');
+            }
+        });
+        slotPresent4.on('pointerup', function () {
+            if(bagInventory[3] != null){
+                useBagItem(3);
+            }else{
+                console.log('working nothing here');
+            }
+        });
         //slotCreation();
     }
 }
