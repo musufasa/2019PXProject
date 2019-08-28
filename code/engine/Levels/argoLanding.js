@@ -18,5 +18,7 @@ class argoLanding extends Phaser.Scene {
 
     update() {
         callUpdateFuncs();
+                playerInvulnerability = false;
+
     }
 }
