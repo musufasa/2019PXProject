@@ -42,7 +42,6 @@ class tutorial extends Phaser.Scene {
             //makes the player invulnerable if they are below 50hp so the player
             //can use items
                  if (currentHealth<=70){
-            console.log("invulnerability on")
                     playerInvulnerability = true;
         }else
             {
