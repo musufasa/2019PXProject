@@ -14,7 +14,7 @@ class tutorial extends Phaser.Scene {
         this.load.spritesheet('snake','assets/enemy/snake.png', {frameWidth: 120, frameHeight: 83});
     
     }
-
+    
     create() {
         loadMap();
         //todo: modify to fit tutorial enemy character

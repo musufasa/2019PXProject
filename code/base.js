@@ -31,6 +31,9 @@ var musicVolume = 0.7; // global starting music volume,editable via pause menu. 
 var backgroundLayer0;
 var backgroundLayer1;
 
+//Variables for test quest system 
+var loopcounter = 0; 
+
 /* Controller.
  * Handles the entire game.
  */
@@ -405,6 +408,30 @@ function loadMap() {
 function callUpdateFuncs() {
     //Use the appropriate movement function for the level.
     playerMovement();
+    
+    //Set test quest only once 
+    if(loopcounter<1)
+    {
+        
+        testQuest = new questClass("Quest 1");
+        testQuest.questName = "testQuest";
+        testQuest.questGiver = "Oileus";
+        testQuest.questState = "In progress"; 
+        testQuest.questCompletionTime = "Ongoing"; 
+        testQuest.questDescription = "Test quest - Player must slay all snakes in the tutorial level"
+      
+        //Completion reward should be set to same structure as pickup item and pushed using bagInventory.push(currentQuest.completionReward) if there is space in the bag
+        testQuest.completionReward = "Quest Complete!!"; 
+        
+        console.log("Quest Name: " + testQuest.questName);
+        console.log("Quest Giver: " + testQuest.questGiver);
+        console.log("Quest State: " + testQuest.questState);
+        console.log("Quest Completion Time: " + testQuest.questCompletionTime);
+        console.log("Quest Description: " + testQuest.questDescription);
+        
+        
+        loopcounter += 1; 
+    }
     
     //Enemy Movement
     enemyMovement();

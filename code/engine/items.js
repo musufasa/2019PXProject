@@ -325,6 +325,8 @@ class portal extends Phaser.GameObjects.Sprite {
 
     update (){
         var tempPortalActive = true; 
+        
+        
 
         if (tempPortalActive && this.spawnAfterSpiderFlower) {
             tempPortalActive = spiderFlowerPickedUp; 
@@ -389,7 +391,7 @@ class plowItem extends Phaser.GameObjects.Sprite {
                 }
             }
         }
-
+        
         if (this.x < 250) {
             this.stuck = true;
         } 

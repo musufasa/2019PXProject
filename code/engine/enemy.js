@@ -1010,5 +1010,24 @@ class tutorialEnemy extends enemyBase {
             }
             enemies[this.enemyId].destroy();
         }
+        
+        //If all snakes in tutorial level are killed mark test quest as complete and print out data 
+        if(activeBosses<=0)
+        {
+            testQuest.questName = "testQuest";
+            testQuest.questGiver = "Oileus";
+            testQuest.questState = "Complete"; 
+            testQuest.questCompletionTime = "Inplement timer here"; 
+            testQuest.questDescription = "Test quest - Player must slay all snakes in the tutorial level"
+            testQuest.completionReward = "Quest Complete!!"; 
+            
+            console.log("Quest Name: " + testQuest.questName);
+            console.log("Quest Giver: " + testQuest.questGiver);
+            console.log("Quest State: " + testQuest.questState);
+            console.log("Quest Completion Time: " + testQuest.questCompletionTime);
+            console.log("Quest Description: " + testQuest.questDescription);
+            
+            
+        }
     }
 }
