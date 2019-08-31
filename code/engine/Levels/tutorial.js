@@ -46,7 +46,7 @@ class tutorial extends Phaser.Scene {
         }else
             {
                 playerInvulnerability=false;
-            }
+            } 
     }
 }
 

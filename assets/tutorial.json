@@ -340,8 +340,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":1546,
-                 "y":1733
+                 "x":1640,
+                 "y":1741
                 }, 
                 {
                  "height":0,
@@ -435,29 +435,6 @@
                 }, 
                 {
                  "height":0,
-                 "id":46,
-                 "name":"tutorialEnemy",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"xMove",
-                         "type":"int",
-                         "value":45
-                        }, 
-                        {
-                         "name":"yMove",
-                         "type":"int",
-                         "value":90
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":1219,
-                 "y":1725
-                }, 
-                {
-                 "height":0,
                  "id":47,
                  "name":"tutorialEnemy",
                  "point":true,
@@ -527,6 +504,113 @@
                  "width":0,
                  "x":2558,
                  "y":826
+                }, 
+                {
+                 "height":0,
+                 "id":57,
+                 "name":"coin",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":27,
+                 "y":921
+                }, 
+                {
+                 "height":0,
+                 "id":58,
+                 "name":"coin",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":93,
+                 "y":922
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":19,
+         "name":"Coin Layer",
+         "objects":[
+                {
+                 "height":0,
+                 "id":51,
+                 "name":"coin",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":2845,
+                 "y":1753
+                }, 
+                {
+                 "height":0,
+                 "id":52,
+                 "name":"coin",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":2774,
+                 "y":1754
+                }, 
+                {
+                 "height":0,
+                 "id":53,
+                 "name":"coin",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":1960,
+                 "y":1749
+                }, 
+                {
+                 "height":0,
+                 "id":54,
+                 "name":"coin",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":2074,
+                 "y":1745
+                }, 
+                {
+                 "height":0,
+                 "id":55,
+                 "name":"coin",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":1893,
+                 "y":1173
+                }, 
+                {
+                 "height":0,
+                 "id":56,
+                 "name":"coin",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":1948,
+                 "y":1173
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -534,8 +618,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":19,
- "nextobjectid":51,
+ "nextlayerid":20,
+ "nextobjectid":59,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",
