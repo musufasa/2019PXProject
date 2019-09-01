@@ -477,8 +477,7 @@ class testItem extends itemBase {
     }
 }
 
-<<<<<<< Updated upstream
-=======
+
 
 //coins 
 class coin extends itemBase {
@@ -501,4 +500,3 @@ class coin extends itemBase {
         tempItem.destroy();
     }
 }
->>>>>>> Stashed changes
