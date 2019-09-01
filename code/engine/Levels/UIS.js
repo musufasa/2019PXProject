@@ -1,5 +1,6 @@
 var inventoryLocations = [4];
 var hoverchecker=false;
+var currentCoins=0;
 
 class UIS extends Phaser.Scene {
     constructor() {
@@ -42,6 +43,9 @@ class UIS extends Phaser.Scene {
         var speedText = this.add.text(this.game.renderer.width *.12, this.game.renderer.height * 0.6, playerWalkVelocity+"  Speed", styleBlue)
         var damage = this.add.text(this.game.renderer.width *.12, this.game.renderer.height * 0.7, playerDamagePoints +"  Damage", styleGreen)
 
+        
+        //need to make this more visually appealing
+        this.add.text(this.game.renderer.width *.12, this.game.renderer.height * 0.42, "Current coins: " + currentCoins)
         
         //close invent screen when the x is pressed
         exitbutton.on('pointerup', function () {

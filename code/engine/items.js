@@ -49,6 +49,7 @@ class itemBase extends Phaser.GameObjects.Sprite {
     }
 }
 
+
 /* Health Item 
  * This increases the player's health by a predefined amount (currently 50).
  * Required parameters: x, y
@@ -476,3 +477,28 @@ class testItem extends itemBase {
     }
 }
 
+<<<<<<< Updated upstream
+=======
+
+//coins 
+class coin extends itemBase {
+    constructor(parameter){
+        super({
+            scene: createThis,
+            x: parameter.x, 
+            y: parameter.y,
+            key: 'coinSprite', 
+            gravity: false
+        })
+        this.anims.play('spin', true);
+
+
+    }
+
+    collision (tempItem){
+        currentCoins=currentCoins+1
+         playcoinsound=true;
+        tempItem.destroy();
+    }
+}
+>>>>>>> Stashed changes
