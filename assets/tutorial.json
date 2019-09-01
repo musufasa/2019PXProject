@@ -507,6 +507,7 @@
                 }, 
                 {
                  "height":0,
+<<<<<<< Updated upstream
                  "id":57,
                  "name":"coin",
                  "point":true,
@@ -567,50 +568,85 @@
                 {
                  "height":0,
                  "id":53,
+=======
+                 "id":55,
+>>>>>>> Stashed changes
                  "name":"coin",
                  "point":true,
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
+<<<<<<< Updated upstream
                  "x":1960,
                  "y":1749
                 }, 
                 {
                  "height":0,
                  "id":54,
+=======
+                 "x":1895.68658006431,
+                 "y":1770.36627738925
+                }, 
+                {
+                 "height":0,
+                 "id":61,
+>>>>>>> Stashed changes
                  "name":"coin",
                  "point":true,
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
+<<<<<<< Updated upstream
                  "x":2074,
                  "y":1745
                 }, 
                 {
                  "height":0,
                  "id":55,
+=======
+                 "x":1959.7905051529,
+                 "y":1770.01672579828
+                }, 
+                {
+                 "height":0,
+                 "id":62,
+>>>>>>> Stashed changes
                  "name":"coin",
                  "point":true,
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
+<<<<<<< Updated upstream
                  "x":1893,
                  "y":1173
                 }, 
                 {
                  "height":0,
                  "id":56,
+=======
+                 "x":2022.30106436898,
+                 "y":1770.01672579828
+                }, 
+                {
+                 "height":0,
+                 "id":63,
+>>>>>>> Stashed changes
                  "name":"coin",
                  "point":true,
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
+<<<<<<< Updated upstream
                  "x":1948,
                  "y":1173
+=======
+                 "x":2083.12214901166,
+                 "y":1769.70620037168
+>>>>>>> Stashed changes
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -618,8 +654,13 @@
          "x":0,
          "y":0
         }],
+<<<<<<< Updated upstream
  "nextlayerid":20,
  "nextobjectid":59,
+=======
+ "nextlayerid":22,
+ "nextobjectid":70,
+>>>>>>> Stashed changes
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",
@@ -683,6 +724,19 @@
                         }]
                 }],
          "tilewidth":64
+        }, 
+        {
+         "columns":6,
+         "firstgid":27,
+         "image":"..\/..\/..\/..\/Downloads\/phaser3-examples-master\/public\/assets\/sprites\/coin.png",
+         "imageheight":32,
+         "imagewidth":192,
+         "margin":0,
+         "name":"coin",
+         "spacing":0,
+         "tilecount":6,
+         "tileheight":32,
+         "tilewidth":32
         }],
  "tilewidth":64,
  "type":"map",

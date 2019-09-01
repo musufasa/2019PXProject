@@ -34,6 +34,9 @@ var backgroundLayer1;
 //Variables for test quest system 
 var loopcounter = 0; 
 
+//variable to see if coin is picked up
+var playcoinsound = false;
+
 /* Controller.
  * Handles the entire game.
  */
@@ -68,7 +71,9 @@ class controller extends Phaser.Scene {
         this.load.audio('attack',['assets/stage/background/attack.mp3']);
         this.load.audio('jump',['assets/stage/background/jump.wav']);
         this.load.audio('bite',['assets/stage/background/bite.wav']);
+        this.load.audio('coinsSound',['assets/sounds/coincollectsounds.wav']);
 
+        
         //Other/Placeholders
         this.load.spritesheet('tempEnemy','assets/enemy/eviljason.png',
            { frameWidth: 48, frameHeight: 48 });
@@ -121,12 +126,15 @@ class controller extends Phaser.Scene {
         this.load.image('signDungeonSprite','assets/items/signDungeon.png');
         this.load.image('signGardenForestSprite','assets/items/signGardenForest.png');
         
-                //UIS stuff
+        //UIS stuff
         this.load.image('items1', 'assets/background/closeinventbutton.png');
         this.load.image('inventory', 'assets/background/inventorydraft.png');
-        
-        //load slot preset 
         this.load.image('slots', 'assets/items/inventoryslots.png');
+        
+        //coin
+        this.load.image('coinSprite', 'assets/items/coinplaceholder.png');
+        this.load.spritesheet('coinSpriteTest', 'assets/items/coin.png', { frameWidth: 32, frameHeight: 32 });
+
     }
 
     create() {
@@ -143,6 +151,7 @@ class controller extends Phaser.Scene {
         var jump = this.sound.add('jump');
         var attack = this.sound.add('attack');
         var bite = this.sound.add('bite');
+
 
         game.scene.run(currentLevelID);
 
@@ -230,8 +239,12 @@ class controller extends Phaser.Scene {
            this.sound.play('attack');
                 attacksound = false;
             }
-        
-       
+        //play coins sounds when coin is picked up
+       if(playcoinsound==true){
+         var coinsSoundtest = this.sound.add('coinsSound');
+           this.sound.play('coinsSound');
+           playcoinsound=false;
+       }
 
     }
     updateRitualItemText() {
@@ -266,7 +279,6 @@ class controller extends Phaser.Scene {
 function commonPreload() {
     //load map
     createThis.load.tilemapTiledJSON(currentLevelID + 'Tilemap', 'assets/'+ currentLevelID + '.json');
-
     //load dialogue
     currentLevelDialogueJSON = 'stages/dialogue/' + currentLevelID + '.json';
     loadLevelDialogue();
@@ -319,6 +331,8 @@ function loadMap() {
     //Draw tileset/objects
     var tileset = createThis.map.addTilesetImage("tilesheet-extruded", "tiles", 64, 64, 1, 2);
     var mapLayerBG = createThis.map.createStaticLayer("Layer_bg", tileset, 0, 0);
+   
+
     mapLayer = createThis.map.createStaticLayer("Layer", tileset, 0, 0);
     mapLayer.setDepth(-40);
     mapLayerBG.setDepth(-50);
@@ -362,6 +376,14 @@ function loadMap() {
         key: 'medeaWalkRight',
         frames: createThis.anims.generateFrameNumbers('medeaSprite', { start: 0, end: 7 }),
         frameRate: 10,
+        repeat: -1
+    });
+    
+    //coin animation 
+        createThis.anims.create({
+        key: 'spin',
+        frames: createThis.anims.generateFrameNumbers('coinSpriteTest', { start: 0, end: 6 }),
+        frameRate: 16,
         repeat: -1
     });
 
