@@ -12,7 +12,7 @@ var hbReady; //Is the health bar ready?
 var intervalVar; //Interval.
 
 var currentPlayerLvl =1;
-var upgradePoints;
+var upgradePoints=1;
 var XPtillNextLvl=1000;
 var currentXP=500;
 
@@ -25,6 +25,7 @@ if(currentXP >= XPtillNextLvl)
     console.log("player is currently"+currentPlayerLvl);
     console.log("currentxp "+currentXP);
     console.log("Xp till next lvl "+XPtillNextLvl);
+    console.log("upgradepoints "+upgradePoints);
 
     }
 }

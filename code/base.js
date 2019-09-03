@@ -131,6 +131,7 @@ class controller extends Phaser.Scene {
         this.load.image('items1', 'assets/background/closeinventbutton.png');
         this.load.image('inventory', 'assets/background/inventorydraft.png');
         this.load.image('slots', 'assets/items/inventoryslots.png');
+        this.load.image('upgradeStatButton','assets/buttons/upgradebutton.png')
         
         //coin
         this.load.image('coinSprite', 'assets/items/coinplaceholder.png');
@@ -182,7 +183,7 @@ class controller extends Phaser.Scene {
     }
 
     update() {
-        
+            //updates xp text
             updateXpText();
    
         

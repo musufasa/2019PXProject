@@ -1,6 +1,7 @@
 var inventoryLocations = [4];
 var hoverchecker=false;
 var currentCoins=0;
+var UISneedsUpdate=false;
 
 class UIS extends Phaser.Scene {
     constructor() {
@@ -38,8 +39,10 @@ class UIS extends Phaser.Scene {
         let slotPresent2 = this.add.image(this.game.renderer.width * .6, this.game.renderer.height * 0.36, itemToDisplay[1]).setDepth(1).setInteractive();
         let slotPresent3 = this.add.image(this.game.renderer.width * .7, this.game.renderer.height * 0.36, itemToDisplay[2]).setDepth(1).setInteractive();
         let slotPresent4 = this.add.image(this.game.renderer.width * .8, this.game.renderer.height * 0.36, itemToDisplay[3]).setDepth(1).setInteractive();
+      
         //display player stats
-       var maxHealthText= this.add.text(this.game.renderer.width *.12, this.game.renderer.height * 0.5, maxHealth+"  MaxHealth", styleRed)
+        var  maxHealthText= this.add.text(this.game.renderer.width *.12, this.game.renderer.height * 0.5, maxHealth+"  MaxHealth", styleRed)
+        
         var speedText = this.add.text(this.game.renderer.width *.12, this.game.renderer.height * 0.6, playerWalkVelocity+"  Speed", styleBlue)
         var damage = this.add.text(this.game.renderer.width *.12, this.game.renderer.height * 0.7, playerDamagePoints +"  Damage", styleGreen)
 
@@ -171,8 +174,46 @@ class UIS extends Phaser.Scene {
             }
         });
         //slotCreation();
+        
+        //upgrading stats
+        if(upgradePoints>=1){
+        let upgrade1 = this.add.image(this.game.renderer.width * 0.29, this.game.renderer.height * 0.51, "upgradeStatButton").setDepth(1).setInteractive();
+            
+        let upgrade2 = this.add.image(this.game.renderer.width * 0.29, this.game.renderer.height * 0.61, "upgradeStatButton").setDepth(1).setInteractive();
+        
+        let upgrade3 = this.add.image(this.game.renderer.width * 0.29, this.game.renderer.height * 0.72, "upgradeStatButton").setDepth(1).setInteractive();
+            
+            
+            //if player clicks upgrade buttons upgrade that stat
+               upgrade1.on('pointerup', function () {
+                   maxHealth = maxHealth+1;
+                           maxHealthText.setText(maxHealth+" MaxHealth");
+                   upgradePoints=upgradePoints-1;
+
+        });
+            upgrade2.on('pointerup', function () {
+                   playerWalkVelocity = playerWalkVelocity+1;
+                        upgradePoints=upgradePoints-1;
+
+                speedText.setText(playerWalkVelocity+"  Speed");
+        });
+            
+            upgrade3.on('pointerup', function () {
+                   playerDamagePoints = playerDamagePoints+1;
+                    upgradePoints=upgradePoints-1;
+
+                damage.setText(playerDamagePoints +"  Damage");
+        });
+
+        }
+        //need to remove buttons once all upgrade points are used
+
+
+        
     }
+
 }
+
 
 //need to dynamically create slots based on inventory size
  function slotCreation() {
