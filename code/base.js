@@ -37,6 +37,7 @@ var loopcounter = 0;
 //variable to see if coin is picked up
 var playcoinsound = false;
 
+var updatexpText=false;
 /* Controller.
  * Handles the entire game.
  */
@@ -170,9 +171,21 @@ class controller extends Phaser.Scene {
         frameRate: 30,
         repeat: -1
     });
+        
+         var styleRed = { font: "20px Arial", fill: "#FF0000", align: "right"};
+        var styleRed2 = { font: "20px Arial", fill: "#FF0000", align: "left"};
+
+        this.playerLevelText= userIntThis.add.text(this.game.renderer.width *.73, this.game.renderer.height * 0.09,"Player Level:"+currentPlayerLvl, styleRed2)
+
+         this.xpText= userIntThis.add.text(this.game.renderer.width *.73, this.game.renderer.height * 0.1,"/nCurrent EXP: "+currentXP+" / "+XPtillNextLvl, styleRed)
+    
     }
 
     update() {
+        
+            updateXpText();
+   
+        
         //open inventory
         if (inventoryKey._justDown){
             game.scene.run('UIS');
@@ -399,7 +412,7 @@ function loadMap() {
     displayMapKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.M);
 
     sprintKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SHIFT);
-    portalKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
+    portalKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
 
 
     if (playerShip) {
@@ -431,6 +444,8 @@ function loadMap() {
 
 //Call update functions.
 function callUpdateFuncs() {
+    //xpbar stuff
+    checkLevelUp()
     //Use the appropriate movement function for the level.
     playerMovement();
     
