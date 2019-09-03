@@ -31,13 +31,14 @@ class tutorial extends Phaser.Scene {
             repeat: -1
         });
         
-            
+         
 
     }
     
     
 
-    update() {
+    update() 
+    {
         callUpdateFuncs();
             //makes the player invulnerable if they are below 50hp so the player
             //can use items
@@ -47,6 +48,9 @@ class tutorial extends Phaser.Scene {
             {
                 playerInvulnerability=false;
             } 
+        
+        //Keep quest box up to date 
+        updateQuestBox(); 
     }
 }
 

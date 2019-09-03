@@ -136,6 +136,9 @@ class controller extends Phaser.Scene {
         //coin
         this.load.image('coinSprite', 'assets/items/coinplaceholder.png');
         this.load.spritesheet('coinSpriteTest', 'assets/items/coin.png', { frameWidth: 32, frameHeight: 32 });
+        
+        //Quest UI assets 
+        this.load.image('questBox', 'assets/items/questBox.png');
 
     }
 
@@ -145,7 +148,7 @@ class controller extends Phaser.Scene {
         initDialogueBox();
         inventoryKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.I);
         initDialogueBox();
-
+          
         attackKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         jumpKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
         displayBagKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.B);
@@ -154,6 +157,9 @@ class controller extends Phaser.Scene {
         var attack = this.sound.add('attack');
         var bite = this.sound.add('bite');
 
+        //Render quest box every frame with opacity of 40% 
+        this.add.image(0,0,'questBox').setOrigin(0, 0).setAlpha(0.4);
+    
 
         game.scene.run(currentLevelID);
 
@@ -571,5 +577,7 @@ var config = {
             colchisFields, riverCrossing, gardenEntrance, gardenForest, gardenDungeon, gardenFleece,
             placeholdertestmap, endCutscene, endScreen, siren, pause, UIS, mapMenu, introCutscene]
 };
+
+
 
 var game = new Phaser.Game(config);

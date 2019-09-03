@@ -16,3 +16,9 @@ class questClass
 /**Test quest object for debugging purposes**/ 
 myQuest = new questClass("Quest 1");
 myQuest.questName = "Test"; 
+
+//Called every frame to keep quest GUI element up to date 
+function updateQuestBox() 
+{
+    console.log("Update routine here");
+}
