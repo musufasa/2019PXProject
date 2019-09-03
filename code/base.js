@@ -412,7 +412,7 @@ function loadMap() {
     displayMapKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.M);
 
     sprintKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SHIFT);
-    portalKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
+    portalKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
 
 
     if (playerShip) {
