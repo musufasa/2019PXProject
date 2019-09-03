@@ -1009,6 +1009,11 @@ class tutorialEnemy extends enemyBase {
                 activeBosses --;
             }
             enemies[this.enemyId].destroy();
+            
+            currentXP=currentXP+100;
+            updatexpText=true;
+            console.log(currentXP);
+
         }
         
         //If all snakes in tutorial level are killed mark test quest as complete and print out data 

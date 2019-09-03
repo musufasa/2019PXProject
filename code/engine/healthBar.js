@@ -1,3 +1,5 @@
+//also contains player level code with checking level and XP
+
 var healthBar; //Health bar.
 var oldHealth; //Old health value. 
 var healthDif; //Difference 
@@ -7,7 +9,33 @@ var hbWidth; //Health bar width.
 var hbHeight; //Health bar height. 
 var hbIncrement; //Health increments .
 var hbReady; //Is the health bar ready? 
-var intervalVar; //Interval. 
+var intervalVar; //Interval.
+
+var currentPlayerLvl =1;
+var upgradePoints;
+var XPtillNextLvl=1000;
+var currentXP=500;
+
+function checkLevelUp(){
+if(currentXP >= XPtillNextLvl)
+    {
+    upgradePoints = upgradePoints+10;
+    currentPlayerLvl=currentPlayerLvl+1;
+    XPtillNextLvl=XPtillNextLvl*1.5;
+    console.log("player is currently"+currentPlayerLvl);
+    console.log("currentxp "+currentXP);
+    console.log("Xp till next lvl "+XPtillNextLvl);
+
+    }
+}
+
+function updateXpText(){
+    
+    userIntThis.xpText.setText("\nCurrent EXP: "+currentXP+" / "+XPtillNextLvl);
+    userIntThis.playerLevelText.setText("Player Level "+currentPlayerLvl);
+
+}
+
 
 //Initialise health bar. 
 function firstInitHealthBar() {
