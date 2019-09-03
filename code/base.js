@@ -148,7 +148,7 @@ class controller extends Phaser.Scene {
         initDialogueBox();
         inventoryKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.I);
         initDialogueBox();
-          
+           
         attackKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         jumpKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
         displayBagKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.B);
@@ -159,7 +159,30 @@ class controller extends Phaser.Scene {
 
         //Render quest box every frame with opacity of 40% 
         this.add.image(0,0,'questBox').setOrigin(0, 0).setAlpha(0.4);
-    
+        
+        
+        /**
+        //Placeholder for quest name in UI 
+        this.add.text(this.game.renderer.width *.09, this.game.renderer.height * 0.10,"TestQuest");
+        
+        //Placeholder for client in UI 
+        this.add.text(this.game.renderer.width *.09, this.game.renderer.height * 0.15,"Oileus"); 
+        
+        //Placeholder for current state in UI
+        this.add.text(this.game.renderer.width *.09, this.game.renderer.height * 0.21,"In progress"); 
+        
+        //Placeholder for completion time in UI 
+        this.add.text(this.game.renderer.width *.09, this.game.renderer.height * 0.27,"Ongoing"); 
+        
+        //Placeholder for description in UI 
+        this.add.text(this.game.renderer.width *.09, this.game.renderer.height * 0.33,"Test quest - Player must slay all snakes in the tutorial level"); 
+        
+        //Placeholder for reward in UI 
+        this.add.text(this.game.renderer.width *.09, this.game.renderer.height * 0.39,"20 coins"); 
+        **/
+        
+        
+        
 
         game.scene.run(currentLevelID);
 
@@ -475,6 +498,7 @@ function callUpdateFuncs() {
         console.log("Quest State: " + testQuest.questState);
         console.log("Quest Completion Time: " + testQuest.questCompletionTime);
         console.log("Quest Description: " + testQuest.questDescription);
+        
         
         
         loopcounter += 1; 
