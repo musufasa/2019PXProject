@@ -45,10 +45,11 @@ class UIS extends Phaser.Scene {
         
         var speedText = this.add.text(this.game.renderer.width *.12, this.game.renderer.height * 0.6, playerWalkVelocity+"  Speed", styleBlue)
         var damage = this.add.text(this.game.renderer.width *.12, this.game.renderer.height * 0.7, playerDamagePoints +"  Damage", styleGreen)
-
         
-        //need to make this more visually appealing
-        this.add.text(this.game.renderer.width *.12, this.game.renderer.height * 0.42, "Current coins: " + currentCoins)
+                //need to make this more visually appealing
+
+        var upgradepointsText =this.add.text(this.game.renderer.width *.09, this.game.renderer.height * 0.46, "Upgrade points: " + upgradePoints)  
+        this.add.text(this.game.renderer.width *.09, this.game.renderer.height * 0.42, "Current coins: " + currentCoins)
         
         //close invent screen when the x is pressed
         exitbutton.on('pointerup', function () {
@@ -189,25 +190,29 @@ class UIS extends Phaser.Scene {
                    maxHealth = maxHealth+1;
                            maxHealthText.setText(maxHealth+" MaxHealth");
                    upgradePoints=upgradePoints-1;
+                   upgradepointsText.setText("Upgrade points: " + upgradePoints);
 
         });
             upgrade2.on('pointerup', function () {
-                   playerWalkVelocity = playerWalkVelocity+1;
-                        upgradePoints=upgradePoints-1;
-
+                playerWalkVelocity = playerWalkVelocity+1;
+                upgradePoints=upgradePoints-1;
+                upgradepointsText.setText("Upgrade points: " + upgradePoints);
                 speedText.setText(playerWalkVelocity+"  Speed");
         });
             
             upgrade3.on('pointerup', function () {
-                   playerDamagePoints = playerDamagePoints+1;
-                    upgradePoints=upgradePoints-1;
-
+                playerDamagePoints = playerDamagePoints+1;
+                upgradePoints=upgradePoints-1;
+                upgradepointsText.setText("Upgrade points: " + upgradePoints);
                 damage.setText(playerDamagePoints +"  Damage");
         });
 
         }
         //need to remove buttons once all upgrade points are used
 
+        if (upgradePoints<=0){
+            console.log("upgrade points is 0");
+        }
 
         
     }
