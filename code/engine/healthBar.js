@@ -113,3 +113,4 @@ function drawHealthBar() {
 function setHBReady() {
     hbReady = true;
 }
+

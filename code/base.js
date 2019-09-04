@@ -51,7 +51,7 @@ class controller extends Phaser.Scene {
         //Load assets used in all levels
         createThis = this;
         userIntThis = this;
-          
+        
         //Main characters
         this.load.spritesheet('medeaSprite','assets/NPC/medea.png',
            { frameWidth: 32, frameHeight: 64 });
@@ -161,25 +161,25 @@ class controller extends Phaser.Scene {
         this.add.image(0,0,'questBox').setOrigin(0, 0).setAlpha(0.4);
         
         
-        /**
+        
         //Placeholder for quest name in UI 
-        this.add.text(this.game.renderer.width *.09, this.game.renderer.height * 0.10,"TestQuest");
+        this.add.text(this.game.renderer.width *.06, this.game.renderer.height * 0.10,"TestQuest",{ fontSize: '10px'});
         
         //Placeholder for client in UI 
-        this.add.text(this.game.renderer.width *.09, this.game.renderer.height * 0.15,"Oileus"); 
+        this.add.text(this.game.renderer.width *.06, this.game.renderer.height * 0.15,"Oileus",{ fontSize: '10px'}); 
         
         //Placeholder for current state in UI
-        this.add.text(this.game.renderer.width *.09, this.game.renderer.height * 0.21,"In progress"); 
+        this.add.text(this.game.renderer.width *.10, this.game.renderer.height * 0.21,"In progress",{ fontSize: '10px'}); 
         
         //Placeholder for completion time in UI 
-        this.add.text(this.game.renderer.width *.09, this.game.renderer.height * 0.27,"Ongoing"); 
+        this.add.text(this.game.renderer.width *.13, this.game.renderer.height * 0.27,"Ongoing",{ fontSize: '10px'}); 
         
         //Placeholder for description in UI 
-        this.add.text(this.game.renderer.width *.09, this.game.renderer.height * 0.33,"Test quest - Player must slay all snakes in the tutorial level"); 
+        this.add.text(this.game.renderer.width *.09, this.game.renderer.height * 0.33,"Slay all snakes in the \n tutorial level",{ fontSize: '10px'}); 
         
         //Placeholder for reward in UI 
-        this.add.text(this.game.renderer.width *.09, this.game.renderer.height * 0.39,"20 coins"); 
-        **/
+        this.add.text(this.game.renderer.width *.07, this.game.renderer.height * 0.39,"20 coins",{ fontSize: '10px'}); 
+        
         
         
         
@@ -215,7 +215,7 @@ class controller extends Phaser.Scene {
             //updates xp text
             updateXpText();
    
-        
+          
         //open inventory
         if (inventoryKey._justDown){
             game.scene.run('UIS');

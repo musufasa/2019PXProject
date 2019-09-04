@@ -8,7 +8,7 @@ class tutorial extends Phaser.Scene {
         currentLevelID = 'tutorial';
         backgroundLayer0 = 'bgSky';
         commonPreload();
-
+        
         //todo: change image for tutorial enemy character
         this.load.spritesheet('snake','assets/enemy/snake.png', {frameWidth: 120, frameHeight: 83});
 
@@ -31,12 +31,12 @@ class tutorial extends Phaser.Scene {
             repeat: -1
         });
         
+        
+        
+          
          
-
     }
     
-    
-
     update() 
     {
         callUpdateFuncs();
@@ -49,6 +49,8 @@ class tutorial extends Phaser.Scene {
                 playerInvulnerability=false;
             } 
         
+        
+         
         //Keep quest box up to date 
         updateQuestBox(); 
     }
