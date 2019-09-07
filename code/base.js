@@ -139,7 +139,6 @@ class controller extends Phaser.Scene {
         
         //Quest UI assets 
         this.load.image('questBox', 'assets/items/questBox.png');
-
     }
 
     create() {
@@ -156,34 +155,28 @@ class controller extends Phaser.Scene {
         var jump = this.sound.add('jump');
         var attack = this.sound.add('attack');
         var bite = this.sound.add('bite');
-
+        
         //Render quest box every frame with opacity of 40% 
         this.add.image(0,0,'questBox').setOrigin(0, 0).setAlpha(0.4);
         
+        //Rect structure for quest name in UI
+        this.questName = this.add.text(this.game.renderer.width *.06, this.game.renderer.height * 0.10,"testQuest",{ fontSize: '10px'});
         
+        //Rect structure for client in UI 
+        this.client = this.add.text(this.game.renderer.width *.06, this.game.renderer.height * 0.15,"Oileus",{ fontSize: '10px'}); 
         
-        //Placeholder for quest name in UI 
-        this.add.text(this.game.renderer.width *.06, this.game.renderer.height * 0.10,"TestQuest",{ fontSize: '10px'});
+        //Rect structure for current state in UI 
+        this.currentState = this.add.text(this.game.renderer.width *.10, this.game.renderer.height * 0.21,"In progress",{ fontSize: '10px'}); 
         
-        //Placeholder for client in UI 
-        this.add.text(this.game.renderer.width *.06, this.game.renderer.height * 0.15,"Oileus",{ fontSize: '10px'}); 
+        //Rect structure for completion time in UI 
+        this.completionTime = this.add.text(this.game.renderer.width *.13, this.game.renderer.height * 0.27,"Ongoing",{ fontSize: '10px'}); 
         
-        //Placeholder for current state in UI
-        this.add.text(this.game.renderer.width *.10, this.game.renderer.height * 0.21,"In progress",{ fontSize: '10px'}); 
+        //Rect structure for quest description in UI 
+        this.description = this.add.text(this.game.renderer.width *.09, this.game.renderer.height * 0.33,"Slay all snakes in the \n tutorial level",{ fontSize: '10px'}); 
         
-        //Placeholder for completion time in UI 
-        this.add.text(this.game.renderer.width *.13, this.game.renderer.height * 0.27,"Ongoing",{ fontSize: '10px'}); 
+        //Rect structure for quest reward in UI 
+        this.reward = this.add.text(this.game.renderer.width *.07, this.game.renderer.height * 0.39,"20 coins",{ fontSize: '10px'}); 
         
-        //Placeholder for description in UI 
-        this.add.text(this.game.renderer.width *.09, this.game.renderer.height * 0.33,"Slay all snakes in the \n tutorial level",{ fontSize: '10px'}); 
-        
-        //Placeholder for reward in UI 
-        this.add.text(this.game.renderer.width *.07, this.game.renderer.height * 0.39,"20 coins",{ fontSize: '10px'}); 
-        
-        
-        
-        
-
         game.scene.run(currentLevelID);
 
         if (['endScreen','titleScreen','mapMenu','introCutscene'].includes(currentLevelID)) {
@@ -208,14 +201,12 @@ class controller extends Phaser.Scene {
         this.playerLevelText= userIntThis.add.text(this.game.renderer.width *.73, this.game.renderer.height * 0.09,"Player Level:"+currentPlayerLvl, styleRed2)
 
          this.xpText= userIntThis.add.text(this.game.renderer.width *.73, this.game.renderer.height * 0.1,"/nCurrent EXP: "+currentXP+" / "+XPtillNextLvl, styleRed)
-    
     }
 
     update() {
             //updates xp text
             updateXpText();
-   
-          
+  
         //open inventory
         if (inventoryKey._justDown){
             game.scene.run('UIS');
@@ -484,14 +475,14 @@ function callUpdateFuncs() {
     {
         
         testQuest = new questClass("Quest 1");
-        testQuest.questName = "testQuest";
-        testQuest.questGiver = "Oileus";
+        testQuest.questName = "Snake hunt";
+        testQuest.questGiver = "Jason";
         testQuest.questState = "In progress"; 
-        testQuest.questCompletionTime = "Ongoing"; 
-        testQuest.questDescription = "Test quest - Player must slay all snakes in the tutorial level"
+        testQuest.questCompletionTime = "Not complete yet"; 
+        testQuest.questDescription = "Test quest - Player must \n slay all snakes \n in the tutorial level"
       
         //Completion reward should be set to same structure as pickup item and pushed using bagInventory.push(currentQuest.completionReward) if there is space in the bag
-        testQuest.completionReward = "Quest Complete!!"; 
+        testQuest.completionReward = "50 coins"; 
         
         console.log("Quest Name: " + testQuest.questName);
         console.log("Quest Giver: " + testQuest.questGiver);
@@ -503,6 +494,17 @@ function callUpdateFuncs() {
         
         loopcounter += 1; 
     }
+    
+    //Keep text UI data up to date 
+    userIntThis.questName.setText(testQuest.questName);
+    userIntThis.client.setText(testQuest.questGiver);
+    userIntThis.currentState.setText(testQuest.questState);
+    userIntThis.completionTime.setText(testQuest.questCompletionTime);
+    userIntThis.description.setText(testQuest.questDescription); 
+    userIntThis.reward.setText(testQuest.completionReward); 
+    
+    
+    
     
     //Enemy Movement
     enemyMovement();

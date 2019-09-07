@@ -30,10 +30,6 @@ class tutorial extends Phaser.Scene {
             frameRate: 10,
             repeat: -1
         });
-        
-        
-        
-          
          
     }
     
@@ -48,11 +44,6 @@ class tutorial extends Phaser.Scene {
             {
                 playerInvulnerability=false;
             } 
-        
-        
-         
-        //Keep quest box up to date 
-        updateQuestBox(); 
     }
 }
 
