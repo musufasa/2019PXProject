@@ -1020,12 +1020,12 @@ class tutorialEnemy extends enemyBase {
         //If all snakes in tutorial level are killed mark test quest as complete and print out data 
         if(activeBosses<=0)
         {
-            testQuest.questName = "Snake hunt";
-            testQuest.questGiver = "Jason";
-            testQuest.questState = "Complete"; 
-            testQuest.questCompletionTime = "Not implemented yet"; 
-            testQuest.questDescription = "Test quest - Player must \n slay all snakes \n in the tutorial level"
-            testQuest.completionReward = "Congratalations! You have been given 50 coins as a reward!"; 
+            tutorialQuest.questName = "Snake hunt";
+            tutorialQuest.questGiver = "Jason";
+            tutorialQuest.questState = "Complete"; 
+            tutorialQuest.questCompletionTime = "Not implemented yet"; 
+            tutorialQuest.questDescription = "Test quest - Player must \n slay all snakes \n in the tutorial level"
+            tutorialQuest.completionReward = "Congratalations! You have \n been given 50 coins as a reward!"; 
             
             //Grant 50 coin reward only once 
             if(looper<1)
@@ -1033,12 +1033,6 @@ class tutorialEnemy extends enemyBase {
                currentCoins += 50;
                playcoinsound = true;     
             }
-            
-            console.log("Quest Name: " + testQuest.questName);
-            console.log("Quest Giver: " + testQuest.questGiver);
-            console.log("Quest State: " + testQuest.questState);
-            console.log("Quest Completion Time: " + testQuest.questCompletionTime);
-            console.log("Quest Description: " + testQuest.questDescription);
         }
     }
 }

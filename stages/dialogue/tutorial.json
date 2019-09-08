@@ -47,7 +47,7 @@
   "oileusB1":[
     {
       "char":"Keep Guard",
-      "speech":"Mighty hero! Creatures have appeared and are raiding our keep, can you climb the tower and slay these foes. We will grant you access into the city once they are defeated! Press Z to Continue..."
+      "speech":"Mighty hero! Creatures have appeared and are raiding our keep, can you climb the tower and slay these foes. We will grant you 50 coins for your trouble and access into the city once they are defeated! Press Z to Continue..."
     },
        {
       "char":"Keep Guard",
@@ -109,7 +109,7 @@
     },
     {
         "char":"Keep Guard",
-        "speech":"To enter the door press the 'UP' key."
+        "speech":"To enter the door press the 'DOWN' key."
     }, 
     {
         "char":"",
