@@ -9,6 +9,7 @@ var displayMapKey; //Map key (default is M)
 var displayBagKey; //Inventory key (default is B)
 var inventoryKey; // Inventory key mapped to I
 var portalKey;//travel through portals key is mapped to the UP arrow
+var questInfoKey;//used to display or hide the quest information layer.
 
 //Player character
 var player; //Player sprite
@@ -27,6 +28,9 @@ var musicPlaying = false; //Is music playing?
 var portalMap; //Which map should a portal warp into?
 var musicVolume = 0.7; // global starting music volume,editable via pause menu. 1 = 100%, 0.5 = 50% etc.
 var inventoryOpen = false;
+var questInfoOpen = false;
+var currentQuest;//holds a quest object to be read into UI elements.
+
 //Background layers
 var backgroundLayer0;
 var backgroundLayer1;
@@ -151,39 +155,14 @@ class controller extends Phaser.Scene {
         attackKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         jumpKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
         displayBagKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.B);
+        questInfoKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Q);
 
         var jump = this.sound.add('jump');
         var attack = this.sound.add('attack');
         var bite = this.sound.add('bite');
         
-        //Render quest box every frame with opacity of 40% 
-        this.add.image(0,0,'questBox').setOrigin(0, 0).setAlpha(0.4);
-        
-        //Rect structure for quest name in UI
-        this.questName = this.add.text(this.game.renderer.width *.06, this.game.renderer.height * 0.10,"testQuest",{ fontSize: '10px'});
-        
-        //Rect structure for client in UI 
-        this.client = this.add.text(this.game.renderer.width *.06, this.game.renderer.height * 0.15,"Oileus",{ fontSize: '10px'}); 
-        
-        //Rect structure for current state in UI 
-        this.currentState = this.add.text(this.game.renderer.width *.10, this.game.renderer.height * 0.21,"In progress",{ fontSize: '10px'}); 
-        
-        //Rect structure for completion time in UI 
-        this.completionTime = this.add.text(this.game.renderer.width *.13, this.game.renderer.height * 0.27,"Ongoing",{ fontSize: '10px'}); 
-        
-        //Rect structure for quest description in UI 
-        this.description = this.add.text(this.game.renderer.width *.09, this.game.renderer.height * 0.33,"Slay all snakes in the \n tutorial level",{ fontSize: '10px'}); 
-        
-        //Rect structure for quest reward in UI 
-        this.reward = this.add.text(this.game.renderer.width *.07, this.game.renderer.height * 0.39,"20 coins",{ fontSize: '10px'}); 
-        
         game.scene.run(currentLevelID);
-
-        if (['endScreen','titleScreen','mapMenu','introCutscene'].includes(currentLevelID)) {
-            userIntThis.scene.sendToBack('controller');
-        } else {
-            userIntThis.scene.bringToTop('controller');
-        }
+        userIntThis.scene.bringToTop('controller');
 
         this.ritualItemText = userIntThis.add.text(800, 50, '0/x Ritual Items', undefined);
         this.ritualItemText.alpha = 0;
@@ -218,6 +197,48 @@ class controller extends Phaser.Scene {
                 game.scene.resume(currentLevelID);
                 game.scene.stop('UIS');
                 inventoryOpen = false;
+            }
+        }
+
+        if (questInfoKey._justDown){
+            //display the quest info or hide it depending on its current state.
+            questInfoKey._justDown = false;
+            console.log('quest key pressed.');
+            if(!questInfoOpen){
+
+                //Render quest box every frame with opacity of 40%
+                this.questBox = this.add.image(0,0,'questBox').setOrigin(0, 0).setAlpha(0.4);
+
+                //Rect structure for quest name in UI
+                this.questName = this.add.text(this.game.renderer.width *.06, this.game.renderer.height * 0.10,currentQuest.questName,{ fontSize: '10px'});
+
+                //Rect structure for client in UI
+                this.client = this.add.text(this.game.renderer.width *.06, this.game.renderer.height * 0.15,currentQuest.questGiver,{ fontSize: '10px'});
+
+                //Rect structure for current state in UI
+                this.currentState = this.add.text(this.game.renderer.width *.10, this.game.renderer.height * 0.21,currentQuest.questState,{ fontSize: '10px'});
+
+                //Rect structure for completion time in UI
+                this.completionTime = this.add.text(this.game.renderer.width *.13, this.game.renderer.height * 0.27,currentQuest.questCompletionTime,{ fontSize: '10px'});
+
+                //Rect structure for quest description in UI
+                this.description = this.add.text(this.game.renderer.width *.09, this.game.renderer.height * 0.33,currentQuest.questDescription,{ fontSize: '10px'});
+
+                //Rect structure for quest reward in UI
+                this.reward = this.add.text(this.game.renderer.width *.07, this.game.renderer.height * 0.39,currentQuest.completionReward,{ fontSize: '10px'});
+
+                questInfoOpen = true;
+            }else{
+                //remove all the quest UI elements from the screen.
+                this.questName.destroy();
+                this.questBox.destroy();
+                this.client.destroy();
+                this.currentState.destroy();
+                this.completionTime.destroy();
+                this.description.destroy();
+                this.reward.destroy();
+                this.reward.destroy();
+                questInfoOpen = false;
             }
         }
         
@@ -482,35 +503,21 @@ function callUpdateFuncs() {
     //Set test quest only once 
     if(loopcounter<1)
     {
-        
-        testQuest = new questClass("Quest 1");
-        testQuest.questName = "Snake hunt";
-        testQuest.questGiver = "Jason";
-        testQuest.questState = "In progress"; 
-        testQuest.questCompletionTime = "Not complete yet"; 
-        testQuest.questDescription = "Test quest - Player must \n slay all snakes \n in the tutorial level"
-      
+        //set the first class to be the tutorial one.
+        tutorialQuest = new questClass("Quest 1");
+        tutorialQuest.questName = "Snake hunt";
+        tutorialQuest.questGiver = "Jason";
+        tutorialQuest.questState = "In progress";
+        tutorialQuest.questCompletionTime = "Not complete yet";
+        tutorialQuest.questDescription = "Test quest - Player must \n slay all snakes \n in the tutorial level"
+
         //Completion reward should be set to same structure as pickup item and pushed using bagInventory.push(currentQuest.completionReward) if there is space in the bag
-        testQuest.completionReward = "50 coins"; 
-        
-        console.log("Quest Name: " + testQuest.questName);
-        console.log("Quest Giver: " + testQuest.questGiver);
-        console.log("Quest State: " + testQuest.questState);
-        console.log("Quest Completion Time: " + testQuest.questCompletionTime);
-        console.log("Quest Description: " + testQuest.questDescription);
-        
-        
-        
+        tutorialQuest.completionReward = "50 coins";
+
+        //set the current player quest to the new tutorial quest one.
+        currentQuest = tutorialQuest;
         loopcounter += 1; 
     }
-    
-    //Keep text UI data up to date 
-    userIntThis.questName.setText(testQuest.questName);
-    userIntThis.client.setText(testQuest.questGiver);
-    userIntThis.currentState.setText(testQuest.questState);
-    userIntThis.completionTime.setText(testQuest.questCompletionTime);
-    userIntThis.description.setText(testQuest.questDescription); 
-    userIntThis.reward.setText(testQuest.completionReward); 
     
     
     
