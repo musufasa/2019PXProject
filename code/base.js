@@ -26,7 +26,7 @@ var musicMuted = false; //Is the music muted?
 var musicPlaying = false; //Is music playing?
 var portalMap; //Which map should a portal warp into?
 var musicVolume = 0.7; // global starting music volume,editable via pause menu. 1 = 100%, 0.5 = 50% etc.
-
+var inventoryOpen = false;
 //Background layers
 var backgroundLayer0;
 var backgroundLayer1;
@@ -209,7 +209,16 @@ class controller extends Phaser.Scene {
   
         //open inventory
         if (inventoryKey._justDown){
-            game.scene.run('UIS');
+            inventoryKey._justDown = false;
+            if(!inventoryOpen){
+                game.scene.run('UIS');
+                inventoryOpen = true;
+            }else{
+                //close the inventory if it is open.
+                game.scene.resume(currentLevelID);
+                game.scene.stop('UIS');
+                inventoryOpen = false;
+            }
         }
         
         //Pause the game if the pause key is held down.
