@@ -1016,15 +1016,11 @@ class tutorialEnemy extends enemyBase {
             console.log(currentXP);
 
         }
-
-        //If all snakes in tutorial level are killed mark test quest as complete and print out data
-        if(activeBosses<=0){
-            //Grant 50 coin reward only once
+        {
             if(looper<1)
             {
                 completeCurrentQuest();
             }
-
-        }
+            console.log("Quest Description: " + testQuest.questDescription);        }
     }
 }
