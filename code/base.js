@@ -225,7 +225,7 @@ class controller extends Phaser.Scene {
                 this.description = this.add.text(this.game.renderer.width *.09, this.game.renderer.height * 0.33,currentQuest.questDescription,{ fontSize: '10px'});
 
                 //Rect structure for quest reward in UI
-                this.reward = this.add.text(this.game.renderer.width *.07, this.game.renderer.height * 0.39,currentQuest.completionReward,{ fontSize: '10px'});
+                this.reward = this.add.text(this.game.renderer.width *.07, this.game.renderer.height * 0.39,currentQuest.completionRewardText,{ fontSize: '10px'});
 
                 questInfoOpen = true;
             }else{
@@ -503,19 +503,6 @@ function callUpdateFuncs() {
     //Set test quest only once 
     if(loopcounter<1)
     {
-        //set the first class to be the tutorial one.
-        tutorialQuest = new questClass("Quest 1");
-        tutorialQuest.questName = "Snake hunt";
-        tutorialQuest.questGiver = "Jason";
-        tutorialQuest.questState = "In progress";
-        tutorialQuest.questCompletionTime = "Not complete yet";
-        tutorialQuest.questDescription = "Test quest - Player must \n slay all snakes \n in the tutorial level"
-
-        //Completion reward should be set to same structure as pickup item and pushed using bagInventory.push(currentQuest.completionReward) if there is space in the bag
-        tutorialQuest.completionReward = "50 coins";
-
-        //set the current player quest to the new tutorial quest one.
-        currentQuest = tutorialQuest;
         loopcounter += 1; 
     }
     

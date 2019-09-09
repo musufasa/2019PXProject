@@ -30,7 +30,20 @@ class tutorial extends Phaser.Scene {
             frameRate: 10,
             repeat: -1
         });
-         
+        //set the first class to be the tutorial one.
+        var tutorialQuest = new questClass("Quest 1");
+        tutorialQuest.questName = "Snake hunt";
+        tutorialQuest.questGiver = "Jason";
+        tutorialQuest.questState = "In progress";
+        tutorialQuest.questCompletionTime = "Not complete yet";
+        tutorialQuest.questDescription = "Test quest - Player must \n slay all snakes \n in the tutorial level";
+        tutorialQuest.rewardType = "coins";
+        tutorialQuest.reward = 50;
+        //Completion reward should be set to same structure as pickup item and pushed using bagInventory.push(currentQuest.completionReward) if there is space in the bag
+        tutorialQuest.completionRewardText = "50 coins";
+
+        //set the current player quest to the new tutorial quest one.
+        currentQuest = tutorialQuest;
     }
     
     update() 

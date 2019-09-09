@@ -28,6 +28,8 @@ class gardenForest extends Phaser.Scene {
             frameRate: 10,
             repeat: -1
         });
+        //complete and reward the player with the initial tutorial quest.
+        setToEmptyQuest();
     }
 
     update() {

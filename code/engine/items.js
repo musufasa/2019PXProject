@@ -495,7 +495,7 @@ class coin extends itemBase {
     }
 
     collision (tempItem){
-        currentCoins=currentCoins+1
+        currentCoins=currentCoins+1;
          playcoinsound=true;
         tempItem.destroy();
     }
