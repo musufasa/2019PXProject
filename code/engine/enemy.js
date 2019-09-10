@@ -1016,11 +1016,6 @@ class tutorialEnemy extends enemyBase {
             console.log(currentXP);
 
         }
-        {
-            if(looper<1)
-            {
-                completeCurrentQuest();
-            }
-                 }
+        
     }
 }
