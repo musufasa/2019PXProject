@@ -1021,6 +1021,6 @@ class tutorialEnemy extends enemyBase {
             {
                 completeCurrentQuest();
             }
-            console.log("Quest Description: " + testQuest.questDescription);        }
+                 }
     }
 }
