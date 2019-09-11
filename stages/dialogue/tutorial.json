@@ -155,16 +155,7 @@
         "char":"",
         "speech":""  
     }
-    ],
-    
-     "iphiclusG1":[
-    {
-        "char":"Keep Guard", 
-        "speech": "Hi Jonathan, how is our prototype going :)"
-    },
-    {
-        "char":"",
-        "speech":""  
-    }
     ]
+    
+    
 }
