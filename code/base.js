@@ -506,9 +506,6 @@ function callUpdateFuncs() {
         loopcounter += 1; 
     }
     
-    
-    
-    
     //Enemy Movement
     enemyMovement();
 

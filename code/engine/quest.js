@@ -15,19 +15,6 @@ class questClass
    }     
 }
 
-/**Test quest object for debugging purposes
-myQuest = new questClass("Quest 1");
-myQuest.questName = "Test"; 
-**/
-
-//Called every frame to keep quest GUI element up to date 
-function updateQuestBox() 
-{
-    console.log("Update routine here");
-    
-    //this.add.text(this.game.renderer.width *.09, this.game.renderer.height * 0.10,"TestQuest");
-}
-
 function setToEmptyQuest(){
    var emptyQuest = new questClass("Empty Quest");
    emptyQuest.questName = "No current quest";

@@ -30,7 +30,8 @@ class tutorial extends Phaser.Scene {
             frameRate: 10,
             repeat: -1
         });
-        //set the first class to be the tutorial one.
+        
+        //Set the first quest to be the tutorial one
         var tutorialQuest = new questClass("Quest 1");
         tutorialQuest.questName = "Snake hunt";
         tutorialQuest.questGiver = "Jason";
