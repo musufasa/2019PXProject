@@ -512,24 +512,6 @@
                 }, 
                 {
                  "height":0,
-                 "id":50,
-                 "name":"Iphiclus",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"dialogueKey",
-                         "type":"string",
-                         "value":"iphiclusG"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":2558,
-                 "y":826
-                }, 
-                {
-                 "height":0,
                  "id":55,
                  "name":"coin",
                  "point":true,
@@ -657,7 +639,7 @@
          "margin":0,
          "name":"coin",
          "spacing":0,
-         "tilecount":6,
+         "tilecount":0,
          "tileheight":32,
          "tilewidth":32
         }],
