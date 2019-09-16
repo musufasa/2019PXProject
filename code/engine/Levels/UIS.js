@@ -3,6 +3,10 @@ var hoverchecker=false;
 var currentCoins=0;
 var UISneedsUpdate=false;
 
+var upgrade1;
+var upgrade2;
+var upgrade3;
+
 class UIS extends Phaser.Scene {
     constructor() {
         super({ key: "UIS", active: false});
@@ -178,11 +182,11 @@ class UIS extends Phaser.Scene {
         
         //upgrading stats
         if(upgradePoints>=1){
-        let upgrade1 = this.add.image(this.game.renderer.width * 0.29, this.game.renderer.height * 0.51, "upgradeStatButton").setDepth(1).setInteractive();
+         upgrade1 = this.add.image(this.game.renderer.width * 0.29, this.game.renderer.height * 0.51, "upgradeStatButton").setDepth(1).setInteractive();
             
-        let upgrade2 = this.add.image(this.game.renderer.width * 0.29, this.game.renderer.height * 0.61, "upgradeStatButton").setDepth(1).setInteractive();
+         upgrade2 = this.add.image(this.game.renderer.width * 0.29, this.game.renderer.height * 0.61, "upgradeStatButton").setDepth(1).setInteractive();
         
-        let upgrade3 = this.add.image(this.game.renderer.width * 0.29, this.game.renderer.height * 0.72, "upgradeStatButton").setDepth(1).setInteractive();
+         upgrade3 = this.add.image(this.game.renderer.width * 0.29, this.game.renderer.height * 0.72, "upgradeStatButton").setDepth(1).setInteractive();
             
             
             //if player clicks upgrade buttons upgrade that stat
@@ -208,18 +212,24 @@ class UIS extends Phaser.Scene {
         });
 
         }
-        //need to remove buttons once all upgrade points are used
-
-        if (upgradePoints<=0){
-            console.log("upgrade points is 0");
-        }
 
         
     }
 
 }
 
+function checkUpgradePoints(){
+         if (upgradePoints<=0){
+        
+             upgrade1.destroy();
+            upgrade2.destroy();
+             upgrade3.destroy();
 
+
+        }
+
+    
+}
 //need to dynamically create slots based on inventory size
  function slotCreation() {
     for (var slotNo = 0; slotNo < inventoryLocations.length; slotNo ++){
@@ -231,5 +241,3 @@ class UIS extends Phaser.Scene {
         }
 }
 
-//function is global
-//without function is private to that js 

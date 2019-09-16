@@ -185,7 +185,7 @@ class controller extends Phaser.Scene {
     update() {
             //updates xp text
             updateXpText();
-  
+  checkUpgradePoints();
         //open inventory
         if (inventoryKey._justDown){
             inventoryKey._justDown = false;
