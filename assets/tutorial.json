@@ -581,6 +581,30 @@
                  "width":0,
                  "x":2596.83703873482,
                  "y":1762.54870501948
+                }, 
+                {
+                 "height":0,
+                 "id":72,
+                 "name":"healthPotion",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":2707.26828184041,
+                 "y":1764.8366303623
+                }, 
+                {
+                 "height":0,
+                 "id":73,
+                 "name":"diamond",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":2141.38499587799,
+                 "y":1768.34295136026
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -589,7 +613,7 @@
          "y":0
         }],
  "nextlayerid":22,
- "nextobjectid":72,
+ "nextobjectid":74,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",

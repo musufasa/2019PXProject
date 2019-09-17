@@ -477,6 +477,30 @@ class testItem extends itemBase {
     }
 }
 
+class healthPotion extends itemBase {
+    constructor(parameter){
+        super({
+            scene: createThis,
+            x: parameter.x,
+            y: parameter.y,
+            key: 'healthPotion',
+            gravity: false,
+            itemName: 'potion',
+            itemType: 'healing',
+            description: 'Can be consumed to heal 100 damage',
+            attributeNumber: 100,
+            bagImage: 'healthPotion'
+        })
+
+    }
+
+    collision (tempItem){
+        // wrap in a item pickup button function and handle only if item has extra attribute allowing pickup.
+        if(interactKey.isDown){
+            pickUpItem(tempItem);
+        }
+    }
+}
 
 
 //coins 
@@ -536,6 +560,25 @@ class levelUp extends itemBase {
     collision (tempItem){
         currentXP=XPtillNextLvl;
         playcoinsound=true;
+        tempItem.destroy();
+    }
+}
+
+class diamond extends itemBase {
+    constructor(parameter){
+        super({
+            scene: createThis,
+            x: parameter.x, 
+            y: parameter.y,
+            key: 'diamond', 
+            gravity: false
+        })
+
+    }
+
+    collision (tempItem){
+        playcoinsound=true;
+        currentCoins+=10;
         tempItem.destroy();
     }
 }
