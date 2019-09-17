@@ -401,6 +401,20 @@ function spawnObjects() {
                     y: mapObjectArray[i].y
                 });
                 itemCount++;
+                break;            
+            case 'healthPotion':
+                items[itemCount] = new healthPotion({
+                    x: mapObjectArray[i].x,
+                    y: mapObjectArray[i].y
+                });
+                itemCount++;
+                break;            break;            
+            case 'diamond':
+                items[itemCount] = new diamond({
+                    x: mapObjectArray[i].x,
+                    y: mapObjectArray[i].y
+                });
+                itemCount++;
                 break;
         }
     }
