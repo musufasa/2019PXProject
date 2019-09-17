@@ -466,7 +466,7 @@ function loadMap() {
     displayMapKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.M);
 
     sprintKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SHIFT);
-    portalKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
+    portalKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
 
 
     if (playerShip) {
@@ -604,7 +604,7 @@ var config = {
 
     scene: [controller, titleScreen,tutorial,settingsScreen, argoLanding, roadToColchis, marketplace, palace, shrine, shrineForest,
             colchisFields, riverCrossing, gardenEntrance, gardenForest, gardenDungeon, gardenFleece,
-            placeholdertestmap, endCutscene, endScreen, siren, pause, UIS, mapMenu, introCutscene]
+            placeholdertestmap, endCutscene, endScreen, siren, pause, UIS, mapMenu, introCutscene, sidequest1]
 };
 
 
