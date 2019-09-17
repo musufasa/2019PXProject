@@ -186,6 +186,24 @@
                  "width":0,
                  "x":2238,
                  "y":1556
+                }, 
+                {
+                 "height":0,
+                 "id":17,
+                 "name":"portal",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"portalMap",
+                         "type":"string",
+                         "value":"palaceTreasureRoom"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":2079.65342564885,
+                 "y":1157.14526002856
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -194,7 +212,7 @@
          "y":0
         }],
  "nextlayerid":19,
- "nextobjectid":17,
+ "nextobjectid":18,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",
