@@ -9,7 +9,8 @@ class sidequest1 extends Phaser.Scene {
         backgroundLayer0 = 'bgSky';
         playerInvulnerability = false;
         commonPreload();
-                this.load.spritesheet('fox','assets/enemy/fox.png',
+        
+        this.load.spritesheet('fox','assets/enemy/fox.png',
         {frameWidth: 120, frameHeight: 79});    
     }
 

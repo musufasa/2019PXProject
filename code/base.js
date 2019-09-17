@@ -605,8 +605,8 @@ var config = {
 
 
     scene: [controller, titleScreen,tutorial,settingsScreen, argoLanding, roadToColchis, marketplace, palace, shrine, shrineForest,
-            colchisFields, riverCrossing, gardenEntrance, gardenForest, gardenDungeon, gardenFleece,
-            placeholdertestmap, endCutscene, endScreen, siren, pause, UIS, mapMenu, introCutscene, sidequest1, palaceTreasureRoom,sidequest2]
+            colchisFields, riverCrossing, gardenEntrance, gardenForest, gardenDungeon, gardenFleece, sidequest1, palaceTreasureRoom ,sidequest2,
+            placeholdertestmap, endCutscene, endScreen, siren, pause, UIS, mapMenu, introCutscene]
 
 };
 
