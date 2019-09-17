@@ -557,6 +557,30 @@
                  "width":0,
                  "x":2083.12214901166,
                  "y":1769.70620037168
+                }, 
+                {
+                 "height":0,
+                 "id":70,
+                 "name":"smallExp",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":2784.78111391245,
+                 "y":1767.13270685308
+                }, 
+                {
+                 "height":0,
+                 "id":71,
+                 "name":"levelUp",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":2596.83703873482,
+                 "y":1762.54870501948
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -565,7 +589,7 @@
          "y":0
         }],
  "nextlayerid":22,
- "nextobjectid":70,
+ "nextobjectid":72,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",
@@ -639,7 +663,7 @@
          "margin":0,
          "name":"coin",
          "spacing":0,
-         "tilecount":0,
+         "tilecount":6,
          "tileheight":32,
          "tilewidth":32
         }],

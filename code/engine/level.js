@@ -381,8 +381,22 @@ function spawnObjects() {
                 });
                 itemCount++;
                 break;
-                  case 'coin':
+            case 'coin':
                 items[itemCount] = new coin({
+                    x: mapObjectArray[i].x,
+                    y: mapObjectArray[i].y
+                });
+                itemCount++;
+                break;
+            case 'smallExp':
+                items[itemCount] = new smallExp({
+                    x: mapObjectArray[i].x,
+                    y: mapObjectArray[i].y
+                });
+                itemCount++;
+                break;
+            case 'levelUp':
+                items[itemCount] = new levelUp({
                     x: mapObjectArray[i].x,
                     y: mapObjectArray[i].y
                 });

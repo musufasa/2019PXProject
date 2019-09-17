@@ -14,7 +14,7 @@ var intervalVar; //Interval.
 var currentPlayerLvl =1;
 var upgradePoints=1;
 var XPtillNextLvl=1000;
-var currentXP=500;
+var currentXP=0;
 
 function checkLevelUp(){
 if(currentXP >= XPtillNextLvl)
