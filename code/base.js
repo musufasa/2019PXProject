@@ -109,6 +109,9 @@ class controller extends Phaser.Scene {
         this.load.image('testItemSprite', 'assets/items/health.png');
         this.load.image('coinImage', 'assets/items/coinImage.jpg');
         this.load.image('damageIncreaseItemSprite', 'assets/items/damageIncrease.png');
+        this.load.image('smallExp', 'assets/items/smallExp.png');
+        this.load.image('levelUp', 'assets/items/levelUpItem.png');
+
 
         //Pause
         this.load.image('resumebut', 'assets/stage/background/resumebut.png');

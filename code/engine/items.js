@@ -500,3 +500,42 @@ class coin extends itemBase {
         tempItem.destroy();
     }
 }
+
+//exp item not working 
+class smallExp extends itemBase {
+    constructor(parameter){
+        super({
+            scene: createThis,
+            x: parameter.x, 
+            y: parameter.y,
+            key: 'smallExp', 
+            gravity: false
+        })
+
+    }
+
+    collision (tempItem){
+        currentXP+=500;
+        playcoinsound=true;
+        tempItem.destroy();
+    }
+}
+
+class levelUp extends itemBase {
+    constructor(parameter){
+        super({
+            scene: createThis,
+            x: parameter.x, 
+            y: parameter.y,
+            key: 'levelUp', 
+            gravity: false
+        })
+
+    }
+
+    collision (tempItem){
+        currentXP=XPtillNextLvl;
+        playcoinsound=true;
+        tempItem.destroy();
+    }
+}
