@@ -414,7 +414,7 @@ function loadMap() {
     mapLayer.setCollisionByProperty({ collides: true });
     createThis.physics.add.collider(player, mapLayer);
 
-    //Player animations.
+    //Player animations. 
     createThis.anims.create({
         key: 'jasonRight',
         frames: createThis.anims.generateFrameNumbers('jason', { start: 0, end: 11 }),
@@ -433,7 +433,7 @@ function loadMap() {
         frameRate: 10,
         repeat: -1
     });
-
+    
     //Medea animations.
     createThis.anims.create({
         key: 'medeaIdleRight',
