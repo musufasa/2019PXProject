@@ -20,6 +20,9 @@ class gardenFleece extends Phaser.Scene {
             repeat: -1
         });
         loadMap();
+        
+        //Set empty quest on map load 
+        setToEmptyQuest();
     }
 
     update() {

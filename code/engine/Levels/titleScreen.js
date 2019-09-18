@@ -60,5 +60,8 @@ class titleScreen extends Phaser.Scene{
             settings.setTint(0xffffff);
         });
         
+        //Set empty quest on map load 
+        setToEmptyQuest();
+        
     }
 }

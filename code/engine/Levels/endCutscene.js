@@ -39,6 +39,9 @@ class endCutscene extends Phaser.Scene{
 
         //Set world bounds. 
         createThis.physics.world.setBounds(0, 0, gameWidth + 300, gameHeight, 64, true, true, false, false);
+        
+        //Set empty quest on map load 
+        setToEmptyQuest();
     }
 
     update() {

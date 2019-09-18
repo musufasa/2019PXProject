@@ -21,10 +21,10 @@ function setToEmptyQuest(){
    emptyQuest.questGiver = "-";
    emptyQuest.questState = "-";
    emptyQuest.questCompletionTime = "-";
-   emptyQuest.questDescription = "Find a new quest.";
-   emptyQuest.rewardType = "";
-   emptyQuest.reward = "";
-   emptyQuest.completionRewardText = "Complete quests for rewards";
+   emptyQuest.questDescription = "-";
+   emptyQuest.rewardType = "-";
+   emptyQuest.reward = "-";
+   emptyQuest.completionRewardText = "-";
    currentQuest = emptyQuest;
 }
 

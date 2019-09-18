@@ -28,6 +28,9 @@ class riverCrossing extends Phaser.Scene {
             frameRate: 10,
             repeat: -1
         });
+        
+        //Set empty quest on map load 
+        setToEmptyQuest();
     }
         
     update() {

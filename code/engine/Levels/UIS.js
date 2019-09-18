@@ -215,7 +215,7 @@ class UIS extends Phaser.Scene {
 
         
     }
-
+    
 }
 
 function checkUpgradePoints(){

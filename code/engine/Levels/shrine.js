@@ -12,6 +12,9 @@ class shrine extends Phaser.Scene {
 
     create() {
         loadMap();
+        
+        //Set empty quest on map load 
+        setToEmptyQuest();
     }
 
     update() {

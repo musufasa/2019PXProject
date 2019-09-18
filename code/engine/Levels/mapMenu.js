@@ -70,5 +70,8 @@ class mapMenu extends Phaser.Scene {
             toDot12.on("pointerup", ()=>{changeLevel('gardenFleece');
             });    
         }
+        
+        //Set empty quest on map load 
+        setToEmptyQuest();
     }
 }

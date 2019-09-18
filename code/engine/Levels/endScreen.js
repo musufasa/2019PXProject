@@ -26,6 +26,9 @@ class endScreen extends Phaser.Scene {
             //Go back to the title screen.
             changeLevel('titleScreen');
         });
+        
+        //Set empty quest on map load 
+        setToEmptyQuest();
     }
 }
 

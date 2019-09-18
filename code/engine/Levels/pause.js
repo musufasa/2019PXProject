@@ -112,5 +112,10 @@ class pause extends Phaser.Scene {
         decreaseVolume.on('pointerout',()=>{
             decreaseVolume.setTint(0xffffff);
         });
+        
+        //Set empty quest on map load 
+        setToEmptyQuest();
     }
+    
+    
 }

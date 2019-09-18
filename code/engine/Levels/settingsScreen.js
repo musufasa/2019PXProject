@@ -92,5 +92,8 @@ class settingsScreen extends Phaser.Scene{
             back.setTint(0xffffff);
         });
         // Tint Change when hovering over buttons
+        
+        //Set empty quest on map load 
+        setToEmptyQuest();
     }
 }

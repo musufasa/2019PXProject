@@ -27,6 +27,9 @@ class introCutscene extends Phaser.Scene {
         setTimeout(this.updateProgress,68000);
         setTimeout(this.updateProgress,75000);
         setTimeout(this.updateProgress,86000);
+        
+        //Set empty quest on map load 
+        setToEmptyQuest();
     }
 
     update() {
