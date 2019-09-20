@@ -30,7 +30,7 @@ class projectile extends Phaser.GameObjects.Sprite {
         currentProjectile++;
     }
 
-    //Damage the player's health when plyaer collides into this projectile.
+    //Damage the player's health when player collides into this projectile.
     playerDamage(tempProjectile) {
         playerDamage(tempProjectile.damage);
         projectiles[tempProjectile.projectileId].destroy();
@@ -109,15 +109,19 @@ class projectile2 extends Phaser.GameObjects.Sprite {
         this.damage = parameter.damage; 
         this.velocityAimed = parameter.velocityAimed;
 
-        //Collision
-        createThis.physics.add.overlap(this, player, this.playerDamage);
+        //Collision with any enemy.
+        createThis.physics.add.overlap(this, enemies, this.enemyDamage);
 
         //Increment current projectile count. 
         currentProjectile++;
     }
 
-    //Damage the player's health when plyaer collides into this projectile.
-
+    //Damage an enemy's health when player projectile collides.
+    enemyDamage(tempProjectile,tempEnemy) {
+        // this.enemyDamage(tempProjectile.damage);
+        tempProjectile.destroy();
+        tempEnemy.health -= tempProjectile.damage;
+    }
 }
 
 class dragonFire2 extends projectile2 {

@@ -20,7 +20,6 @@ var playerInvulnerabilityWait = 1000; //How long the player should be invulnerab
 var playerInvulnerability = false; //Is the player invulnerable?
 var playerVelocityYMax = 1350; //Maximum Y velocity - prevents clipping through floor when falling. 
 var playerDoubleJump = false;
-var bagOpen = false; //used to alternate between opening and closing the bag/ inventory
 
 //Variables relating to siren level
 var playerShipOffsetX = 300; //Camera offset for playerShip mode. 
