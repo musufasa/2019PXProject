@@ -43,7 +43,7 @@ class titleScreen extends Phaser.Scene{
 
         //The first level of the game can be set here. 
         startGame.on("pointerup", ()=>{
-            playerSprite = 'ship';
+            playerSprite = 'jason';
             changeLevel('introCutscene');
         });   
         

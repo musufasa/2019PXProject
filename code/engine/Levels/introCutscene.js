@@ -85,7 +85,7 @@ class introCutscene extends Phaser.Scene {
                 endCutsceneStillImg.setDepth(100);
                 talkKeyPressed = true;
             } else {
-                changeLevel('siren');
+                changeLevel('tutorial');
             }
         }
           
