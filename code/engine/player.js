@@ -20,6 +20,7 @@ var playerInvulnerabilityWait = 1000; //How long the player should be invulnerab
 var playerInvulnerability = false; //Is the player invulnerable?
 var playerVelocityYMax = 1350; //Maximum Y velocity - prevents clipping through floor when falling. 
 var playerDoubleJump = false;
+var numberArrows = 10; //number of arrows the player is currently carrying, starts with 0 and must find them along the game.
 
 //Variables relating to siren level
 var playerShipOffsetX = 300; //Camera offset for playerShip mode. 

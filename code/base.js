@@ -204,7 +204,11 @@ class controller extends Phaser.Scene {
             updateXpText();
   checkUpgradePoints();
         if(game.input.activePointer.justDown){
-            shoot();
+            if(numberArrows > 0){
+                //only shoot an arrow if the player is carrying some.
+                shoot();
+                numberArrows -= 1;
+            }
             game.input.activePointer.justDown = false;
         }
         

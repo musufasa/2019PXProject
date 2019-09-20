@@ -118,7 +118,6 @@ class projectile2 extends Phaser.GameObjects.Sprite {
 
     //Damage an enemy's health when player projectile collides.
     enemyDamage(tempProjectile,tempEnemy) {
-        // this.enemyDamage(tempProjectile.damage);
         tempProjectile.destroy();
         tempEnemy.health -= tempProjectile.damage;
     }
