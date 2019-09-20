@@ -1,6 +1,9 @@
 var currentProjectile = 0; //The current projectile. Used for the projectileId.  
 var projectiles = []; //Array storing all projectiles. 
 
+var currentProjectile2;
+var playerProjectiles=[];
+
 /* Projectile base class. 
  * This is used to create other projectiles, so this should not be spawned directly. 
  * Required parameters: x, y, scene, key, velocityX, projectileId, damage. 
@@ -81,3 +84,60 @@ class dragonFire extends projectile {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+class projectile2 extends Phaser.GameObjects.Sprite {
+    constructor (parameter) {
+        //Create object. 
+        super(parameter.scene, parameter.x, parameter.y, parameter.key);
+        parameter.scene.physics.world.enable(this);
+        parameter.scene.add.existing(this);
+
+        //Movement. 
+        this.body.setVelocityX(parameter.velocityX);
+        this.body.allowGravity = false; 
+        this.projectileId = parameter.projectileId;
+        this.damage = parameter.damage; 
+        this.velocityAimed = parameter.velocityAimed;
+
+        //Collision
+        createThis.physics.add.overlap(this, player, this.playerDamage);
+
+        //Increment current projectile count. 
+        currentProjectile++;
+    }
+
+    //Damage the player's health when plyaer collides into this projectile.
+
+}
+
+class dragonFire2 extends projectile2 {
+    constructor (parameter) {
+        super({
+            scene: createThis,
+            x: parameter.x,
+            y: parameter.y, 
+            key: 'fireballSprite',
+            velocityX: 0,
+            velocityAimed: parameter.velocityAimed,
+            projectileId: parameter.projectileId,
+            damage: 25
+        })
+
+        //If aimed is true, accelerte towards the player. 
+            createThis.physics.moveTo(this,camera.scrollX+game.input.mousePointer.x, camera.scrollY+game.input.mousePointer.y, this.velocityAimed);
+            //createThis.physics.accelerateToObject(this, cursor, this.velocityAimed);
+        
+    }
+}
+
+
