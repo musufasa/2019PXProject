@@ -58,6 +58,7 @@ class UIS extends Phaser.Scene {
         //close invent screen when the x is pressed
         exitbutton.on('pointerup', function () {
 	        game.scene.resume(currentLevelID);
+            userIntThis.scene.bringToTop('controller');
 	        game.scene.stop('UIS');
 
         });

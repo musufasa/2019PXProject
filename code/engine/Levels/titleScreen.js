@@ -62,6 +62,8 @@ class titleScreen extends Phaser.Scene{
         
         //Set empty quest on map load 
         setToEmptyQuest();
-        
+
+        userIntThis.scene.sendToBack('controller');
+
     }
 }

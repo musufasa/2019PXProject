@@ -195,10 +195,12 @@ class controller extends Phaser.Scene {
         if (inventoryKey._justDown){
             inventoryKey._justDown = false;
             if(!inventoryOpen){
+                userIntThis.scene.sendToBack('controller');
                 game.scene.run('UIS');
                 inventoryOpen = true;
             }else{
                 //close the inventory if it is open.
+                userIntThis.scene.bringToTop('controller');
                 game.scene.resume(currentLevelID);
                 game.scene.stop('UIS');
                 inventoryOpen = false;
