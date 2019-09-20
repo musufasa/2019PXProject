@@ -10,7 +10,8 @@ var displayBagKey; //Inventory key (default is B)
 var inventoryKey; // Inventory key mapped to I
 var portalKey;//travel through portals key is mapped to the UP arrow
 var questInfoKey;//used to display or hide the quest information layer.
-
+var rangeAttackKey;
+var camera;
 //Player character
 var player; //Player sprite
 var attacksound = false; // Variable for attack sound - Used to tell if sound should be played.
@@ -42,6 +43,7 @@ var loopcounter = 0;
 var playcoinsound = false;
 
 var updatexpText=false;
+
 /* Controller.
  * Handles the entire game.
  */
@@ -92,6 +94,7 @@ class controller extends Phaser.Scene {
         this.load.spritesheet('skeleSprite','assets/enemy/skeleton.png',
             { frameWidth: 30, frameHeight: 45 });
 
+        
         //Items (must be constantly loaded for inventory)
         this.load.image('spiderFlowerSprite', 'assets/items/flower.png');
         this.load.image('thoughtBubbleSprite', 'assets/npc/thought.png');
@@ -161,6 +164,7 @@ class controller extends Phaser.Scene {
         jumpKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
         displayBagKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.B);
         questInfoKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Q);
+        rangeAttackKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
 
         var jump = this.sound.add('jump');
         var attack = this.sound.add('attack');
@@ -191,6 +195,10 @@ class controller extends Phaser.Scene {
             //updates xp text
             updateXpText();
   checkUpgradePoints();
+        if(rangeAttackKey._justDown){
+            shoot();
+        }
+        
         //open inventory
         if (inventoryKey._justDown){
             inventoryKey._justDown = false;
@@ -486,7 +494,7 @@ function loadMap() {
 
     //Camera
     if (!playerShip) {
-        createThis.cameras.main.startFollow(player, false, 0.05, 0.03);
+    camera = createThis.cameras.main.startFollow(player, false, 0.05, 0.03);
     } else {
         playerOffset = createThis.physics.add.sprite(playerSpawnPoint.x + playerShipOffsetX, playerSpawnPoint.y, playerSprite);
         createThis.cameras.main.startFollow(playerOffset, true, 1, 1);
@@ -584,6 +592,16 @@ function destroyOldObjects() {
         items[i].destroy();
     }
 }
+
+
+   function shoot() {
+        playerProjectiles[currentProjectile2] = new dragonFire2({
+            x: player.x, 
+            y: player.y,
+            projectileId: currentProjectile2,
+            aimed: true, 
+            velocityAimed: 400
+        });}
 
 var config = {
     type: Phaser.AUTO,
