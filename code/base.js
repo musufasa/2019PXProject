@@ -251,6 +251,7 @@ class controller extends Phaser.Scene {
         
         //Pause the game if the pause key is held down.
         if (pauseKey.isDown) {
+            userIntThis.scene.sendToBack('controller');
             game.scene.run('pause');
         }
 

@@ -37,6 +37,7 @@ class pause extends Phaser.Scene {
         }
 
         toPauseButton.on('pointerup', function () {
+            userIntThis.scene.bringToTop('controller');
 	        game.scene.resume(currentLevelID);
 	        game.scene.stop('pause');
         });
