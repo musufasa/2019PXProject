@@ -1,12 +1,13 @@
 //Variables for controls
 var cursors; //Arrow Keys
+var leftMoveKey; //Move left, deafault is A
+var rightMoveKey; //Move right, deafault is D
 var attackKey; //Attack key (default is Z)
 var jumpKey; //Jump key (default is Space bar)
 var sprintKey; //Sprint/dash key (default is left shift)
 var interactKey; //Talk/interact key (default is C)
 var pauseKey; //Pause key (default is P)
 var displayMapKey; //Map key (default is M)
-var displayBagKey; //Inventory key (default is B)
 var inventoryKey; // Inventory key mapped to I
 var portalKey;//travel through portals key is mapped to the UP arrow
 var questInfoKey;//used to display or hide the quest information layer.
@@ -159,13 +160,20 @@ class controller extends Phaser.Scene {
         initDialogueBox();
         inventoryKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.I);
         initDialogueBox();
-           
-        attackKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
-        jumpKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
-        displayBagKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.B);
         questInfoKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Q);
-        rangeAttackKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
+        //Keyboard input
+        //Create default key bindings for up,down,left and right
+        cursors = createThis.input.keyboard.createCursorKeys();
 
+        attackKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.X);
+        jumpKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+        interactKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Z);
+        displayMapKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.M);
+        leftMoveKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
+        rightMoveKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
+        sprintKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SHIFT);
+        portalKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
+        // rangeAttackKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
         var jump = this.sound.add('jump');
         var attack = this.sound.add('attack');
         var bite = this.sound.add('bite');
@@ -188,15 +196,16 @@ class controller extends Phaser.Scene {
 
         this.playerLevelText= userIntThis.add.text(this.game.renderer.width *.73, this.game.renderer.height * 0.09,"Player Level:"+currentPlayerLvl, styleRed2)
 
-         this.xpText= userIntThis.add.text(this.game.renderer.width *.73, this.game.renderer.height * 0.1,"/nCurrent EXP: "+currentXP+" / "+XPtillNextLvl, styleRed)
+        this.xpText= userIntThis.add.text(this.game.renderer.width *.73, this.game.renderer.height * 0.1,"/nCurrent EXP: "+currentXP+" / "+XPtillNextLvl, styleRed)
     }
 
     update() {
             //updates xp text
             updateXpText();
   checkUpgradePoints();
-        if(rangeAttackKey._justDown){
+        if(game.input.activePointer.justDown){
             shoot();
+            game.input.activePointer.justDown = false;
         }
         
         //open inventory
@@ -466,20 +475,6 @@ function loadMap() {
         frameRate: 16,
         repeat: -1
     });
-
-
-
-    //Keyboard input
-    //Create default key bindings for up,down,left and right
-    cursors = createThis.input.keyboard.createCursorKeys();
-    
-    attackKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.X);
-    jumpKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
-    interactKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Z);
-    displayMapKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.M);
-
-    sprintKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SHIFT);
-    portalKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
 
 
     if (playerShip) {

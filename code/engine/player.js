@@ -48,7 +48,7 @@ function playerMovement() {
 
     //Horizontal movement. tempVelocityX is modified and then used as the horizontal velocity of the player. 
     var tempVelocityX = 0; 
-    if (cursors.left.isDown) {
+    if (leftMoveKey.isDown) {
         if(sprintKey.isDown && player.body.blocked.down){
             //todo:if player is sprinting the animation should be different from walking
             tempVelocityX -=playerSprintVelocity;
@@ -57,7 +57,7 @@ function playerMovement() {
         }
         playerFacingRight = false; 
     }
-    if (cursors.right.isDown) {
+    if (rightMoveKey.isDown) {
         if(sprintKey.isDown && player.body.blocked.down){
             //todo:if player is sprinting the animation should be different from walking
             tempVelocityX +=playerSprintVelocity;
@@ -72,7 +72,7 @@ function playerMovement() {
     player.flipX = !(playerFacingRight);
 
     //Animations. 
-    if (!playerSwingSword && !cursors.left.isDown && !cursors.right.isDown) {
+    if (!playerSwingSword && !leftMoveKey.isDown && !rightMoveKey.isDown) {
         //Play idle animation. 
         player.anims.play('jasonIdleRight', true);
         player.setSize(20, 64);
@@ -124,19 +124,6 @@ function playerMovement() {
             //double jump velocity to be halfed ?
             player.setVelocityY(-playerJumpVelocity);
             playerDoubleJump = true;
-        }
-    }
-
-    if(displayBagKey._justDown){
-        displayBagKey._justDown = false;
-        if(!bagOpen){
-            //todo:open the bag and show its contents
-            console.log(bagInventory);
-            bagOpen = true;
-        }else{
-            //todo:close the bag if it is open
-            console.log('closed bag');
-            bagOpen = false;
         }
     }
 
