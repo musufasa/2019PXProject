@@ -314,8 +314,11 @@ class iphiclusNPC extends npcBase {
  * If the text is blank, a box will not appear. 
  */
 function processNPCdialogue () {
-    if ((interactKey.isDown || currentLevelID === 'tutorial' )&& typeof dialogue !== 'undefined') {
+    if ((interactKey._justDown || currentLevelID === 'tutorial' )&& typeof dialogue !== 'undefined') {
         if (!dialogueAlreadyEngaged) {
+            if (interactKey._justDown) {
+                interactKey._justDown = false;
+            }
             //Some NPCs react to flags in dialogue.
             for (i = 0; i < npcCount; i++){
                 npcs[i].dialogueUpdate();
@@ -325,7 +328,6 @@ function processNPCdialogue () {
             for (i = 0; i < portalCount; i++){
                 portals[i].dialogueUpdate();
             }
-
             //Clear the existing dialogue box.
             clearDialogueBox();
 
@@ -344,7 +346,6 @@ function processNPCdialogue () {
             dialogueAlreadyEngaged = true;
             dialogueActive = true;
         }else if (interactKey._justDown){
-            //this second call is used to allow progress for auto dialogue characters.
             interactKey._justDown = false;
             //Some NPCs react to flags in dialogue.
             for (i = 0; i < npcCount; i++){
@@ -375,10 +376,9 @@ function processNPCdialogue () {
         //Don't display a blank entry. 
         if (npcDialogue.text == '\n') {
             clearDialogueBox();
+            dialogueAlreadyEngaged = false;
         }
-    } else {
-        dialogueAlreadyEngaged = false; 
-    } 
+    }
 }
 
 //Run the update(); command of each NPC.
