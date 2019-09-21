@@ -144,7 +144,7 @@ class controller extends Phaser.Scene {
         this.load.image('items1', 'assets/background/closeinventbutton.png');
         this.load.image('inventory', 'assets/background/inventorydraft.png');
         this.load.image('slots', 'assets/items/inventoryslots.png');
-        this.load.image('upgradeStatButton','assets/buttons/upgradebutton.png')
+        this.load.image('upgradeStatButton','assets/buttons/upgradebutton.png');
         
         //coin
         this.load.image('coinSprite', 'assets/items/coinplaceholder.png');
@@ -152,6 +152,11 @@ class controller extends Phaser.Scene {
         
         //Quest UI assets 
         this.load.image('questBox', 'assets/items/questBox.png');
+        
+        //Centaur enemy spritesheet 
+        this.load.spritesheet('centaurEnemy','assets/enemy/centaur.png', {frameWidth: 192, frameHeight: 256});
+        
+        
     }
 
     create() {
@@ -165,7 +170,7 @@ class controller extends Phaser.Scene {
         //Create default key bindings for up,down,left and right
         cursors = createThis.input.keyboard.createCursorKeys();
 
-        attackKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.X);
+        attackKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
         jumpKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         interactKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Z);
         displayMapKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.M);
@@ -173,7 +178,7 @@ class controller extends Phaser.Scene {
         rightMoveKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
         sprintKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SHIFT);
         portalKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
-        // rangeAttackKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
+        rangeAttackKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
         var jump = this.sound.add('jump');
         var attack = this.sound.add('attack');
         var bite = this.sound.add('bite');

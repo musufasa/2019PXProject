@@ -76,24 +76,6 @@
                 }, 
                 {
                  "height":0,
-                 "id":11,
-                 "name":"snake",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"xMove",
-                         "type":"int",
-                         "value":90
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":513.055117960967,
-                 "y":1761.70967099838
-                }, 
-                {
-                 "height":0,
                  "id":13,
                  "name":"snake",
                  "point":true,
@@ -127,24 +109,6 @@
                  "width":0,
                  "x":2982.06060606061,
                  "y":1775.39
-                }, 
-                {
-                 "height":0,
-                 "id":15,
-                 "name":"snake",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"xMove",
-                         "type":"int",
-                         "value":90
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":3536.27260405114,
-                 "y":1772.26206756334
                 }, 
                 {
                  "height":0,
@@ -757,6 +721,60 @@
                  "width":0,
                  "x":7019.08038786362,
                  "y":1341.88301532687
+                }, 
+                {
+                 "height":0,
+                 "id":66,
+                 "name":"centaurEnemy",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"xMove",
+                         "type":"int",
+                         "value":180
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":453,
+                 "y":1744
+                }, 
+                {
+                 "height":0,
+                 "id":69,
+                 "name":"centaurEnemy",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"xMove",
+                         "type":"int",
+                         "value":180
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":3679,
+                 "y":1766
+                }, 
+                {
+                 "height":0,
+                 "id":70,
+                 "name":"centaurEnemy",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"xMove",
+                         "type":"int",
+                         "value":180
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":4612,
+                 "y":1693
                 }],
          "opacity":1,
          "properties":[
@@ -771,7 +789,7 @@
          "y":0
         }],
  "nextlayerid":18,
- "nextobjectid":66,
+ "nextobjectid":71,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",
