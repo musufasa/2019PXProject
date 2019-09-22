@@ -212,8 +212,6 @@ class controller extends Phaser.Scene {
         this.xpText= userIntThis.add.text(this.game.renderer.width *.73, this.game.renderer.height * 0.1,"/nCurrent EXP: "+currentXP+" / "+XPtillNextLvl, styleRed)
  
 
-        shield = createThis.add.image(0, 0, 'shield');
-        shield.setScale(.2);
 
     }
 
@@ -449,7 +447,10 @@ function loadMap() {
     mapLayer = createThis.map.createStaticLayer("Layer", tileset, 0, 0);
     mapLayer.setDepth(-40);
     mapLayerBG.setDepth(-50);
-
+    
+    //create player shield
+    shield = createThis.add.image(0, 0, 'shield');
+    shield.setScale(.2);
     //Spawn player.
     var playerSpawnPoint = createThis.map.findObject("Objects", obj => obj.name === "Player Spawn");
     player = createThis.physics.add.sprite(playerSpawnPoint.x, playerSpawnPoint.y, playerSprite);
