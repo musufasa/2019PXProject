@@ -13,11 +13,11 @@ var portalKey;//travel through portals key is mapped to the UP arrow
 var questInfoKey;//used to display or hide the quest information layer.
 var rangeAttackKey;
 var camera;
+var helperSprite; //used to hold the value of which helper sprite was choosen by the player at the start of the game. should be strictly 'Orpheus' or 'Medea'
 //Player character
 var player; //Player sprite
 var attacksound = false; // Variable for attack sound - Used to tell if sound should be played.
 var jumpsound = false; // Variable for Jump Sound - Used to tell if sound should be played.
-
 //Map variables
 var mapLayer; //Layer with tiles.
 var createThis;
@@ -630,6 +630,120 @@ var config = {
 
 };
 
+function drawHelperSpriteChoiceUIBox() {
+    //dimensions
+    drawWidth = userIntThis.sys.game.config.width*0.75;
+    drawHeight = userIntThis.sys.game.config.height*0.75;
+    swirlLength = drawWidth*0.02;
+    lineStyleThick = swirlLength/5;
+    diaBoxX = 125;
+    diaBoxY = 75;
+    //text settings
+    diaBoxTextStyle = {
+        fontSize: 12,
+        fontFamily: 'Arial',
+        align: "left",
+        color: '#000000',
+        wordWrap: {width: drawWidth*0.35, useAdvancedWrap: true}
+    }
 
+
+    //draw outer rectangle
+    dialogBox.lineStyle(lineStyleThick,0x000000,1);
+    dialogBox.fillStyle(0xf2edaa,1);
+    dialogBox.fillRect(diaBoxX,diaBoxY,drawWidth,drawHeight);
+    dialogBox.strokeRect(diaBoxX,diaBoxY,drawWidth,drawHeight);
+
+    //styling
+    //Top LHS
+    dialogBox.moveTo(diaBoxX+swirlLength,diaBoxY);
+    dialogBox.lineTo(diaBoxX+swirlLength,diaBoxY+swirlLength);
+    dialogBox.lineTo(diaBoxX+(swirlLength/2),diaBoxY+swirlLength);
+    dialogBox.lineTo(diaBoxX+(swirlLength/2),diaBoxY+(swirlLength/2));
+    dialogBox.strokePath();
+
+    //Bottom LHS
+    dialogBox.moveTo(diaBoxX+swirlLength,drawHeight+diaBoxY);
+    dialogBox.lineTo(diaBoxX+swirlLength,drawHeight+diaBoxY-swirlLength);
+    dialogBox.lineTo(diaBoxX+(swirlLength/2),drawHeight+diaBoxY-swirlLength);
+    dialogBox.lineTo(diaBoxX+(swirlLength/2),drawHeight+diaBoxY-(swirlLength/2));
+    dialogBox.strokePath();
+
+    //Top RHS
+    dialogBox.moveTo(diaBoxX+drawWidth-swirlLength,diaBoxY);
+    dialogBox.lineTo(diaBoxX+drawWidth-swirlLength,diaBoxY+swirlLength);
+    dialogBox.lineTo(diaBoxX+drawWidth-(swirlLength/2),diaBoxY+swirlLength);
+    dialogBox.lineTo(diaBoxX+drawWidth-(swirlLength/2),diaBoxY+(swirlLength/2));
+    dialogBox.strokePath();
+
+    //Bottom RHS
+    dialogBox.moveTo(diaBoxX+drawWidth-swirlLength,drawHeight+diaBoxY);
+    dialogBox.lineTo(diaBoxX+drawWidth-swirlLength,drawHeight+diaBoxY-swirlLength);
+    dialogBox.lineTo(diaBoxX+drawWidth-(swirlLength/2),drawHeight+diaBoxY-swirlLength);
+    dialogBox.lineTo(diaBoxX+drawWidth-(swirlLength/2),drawHeight+diaBoxY-(swirlLength/2));
+    dialogBox.strokePath();
+
+    //Style Lines
+    //Top
+    dialogBox.lineBetween(diaBoxX+swirlLength,diaBoxY+(swirlLength/2),diaBoxX+drawWidth-swirlLength,diaBoxY+(swirlLength/2));
+    //Bottom
+    dialogBox.lineBetween(diaBoxX+swirlLength,diaBoxY+drawHeight-(swirlLength/2),diaBoxX+drawWidth-swirlLength,diaBoxY+drawHeight-(swirlLength/2));
+    //Left
+    dialogBox.lineBetween(diaBoxX+(swirlLength*0.75),diaBoxY+swirlLength,diaBoxX+(swirlLength*0.75),diaBoxY+drawHeight-swirlLength);
+    //Right
+    dialogBox.lineBetween(diaBoxX+drawWidth-(swirlLength*0.75),diaBoxY+swirlLength,diaBoxX+drawWidth-(swirlLength*0.75),diaBoxY+drawHeight-swirlLength);
+
+    dialogBox.alpha = 1;
+    dialogBox.setDepth(1);
+    //set text location
+    orpheusDialogue = userIntThis.add.text(0,0,'',undefined);
+    orpheusDialogue.x = this.game.renderer.width * .575;
+    orpheusDialogue.y = this.game.renderer.height * .37;
+    orpheusDialogue.setDepth(10);
+    orpheusDialogue.setStyle(diaBoxTextStyle);
+    orpheusDialogue.setText("Orpheus placeholder text");
+
+    medeaDialogue = userIntThis.add.text(0,0,'',undefined);
+    medeaDialogue.x = this.game.renderer.width * .175;
+    medeaDialogue.y = this.game.renderer.height * .37;
+    medeaDialogue.setDepth(10);
+    medeaDialogue.setStyle(diaBoxTextStyle);
+    medeaDialogue.setText("Medea placeholder text");
+
+    let medeaImage = userIntThis.add.image(this.game.renderer.width * .30, this.game.renderer.height * 0.3,'slots').setDepth(10).setInteractive();
+    let orpheusImage = userIntThis.add.image(this.game.renderer.width * .70, this.game.renderer.height * 0.3, 'slots').setDepth(10).setInteractive();
+    let medeaButton = userIntThis.add.image(this.game.renderer.width * 0.30, this.game.renderer.height * 0.6, "items1").setDepth(10).setInteractive();
+    let orpheusButton = userIntThis.add.image(this.game.renderer.width * 0.70, this.game.renderer.height * 0.6, "items1").setDepth(10).setInteractive();
+
+    //choose medea mode and remove UI elements
+    medeaButton.on('pointerup', function () {
+        game.scene.resume(currentLevelID);
+        userIntThis.scene.bringToTop('controller');
+        game.scene.stop('helperSpriteUI');
+        dialogBox.clear();
+        medeaImage.destroy();
+        orpheusImage.destroy();
+        medeaButton.destroy();
+        orpheusButton.destroy();
+        medeaDialogue.setText("");
+        orpheusDialogue.setText("");
+        helperSprite = 'Medea';
+    });
+
+    //choose orpheus mode and remove UI elements
+    orpheusButton.on('pointerup', function () {
+        game.scene.resume(currentLevelID);
+        userIntThis.scene.bringToTop('controller');
+        game.scene.stop('helperSpriteUI');
+        dialogBox.clear();
+        medeaImage.destroy();
+        orpheusImage.destroy();
+        medeaButton.destroy();
+        orpheusButton.destroy();
+        medeaDialogue.setText("");
+        orpheusDialogue.setText("");
+        helperSprite = 'Orpheus';
+    });
+}
 
 var game = new Phaser.Game(config);

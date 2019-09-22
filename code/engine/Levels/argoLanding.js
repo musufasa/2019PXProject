@@ -14,7 +14,10 @@ class argoLanding extends Phaser.Scene {
 
     create() {
         loadMap();
-        
+        if(helperSprite == null){
+            //todo: pause the argoLanding level at this point, seems to be an issue with the standard game.scene.pause('argoLanding');
+            drawHelperSpriteChoiceUIBox();
+        }
         //Set empty quest on map load 
         setToEmptyQuest();
     }

@@ -60,7 +60,6 @@ class UIS extends Phaser.Scene {
 	        game.scene.resume(currentLevelID);
             userIntThis.scene.bringToTop('controller');
 	        game.scene.stop('UIS');
-
         });
         
         var font = {font: "100px Arial", fill: "#FFFFFF", align: "center"};        
