@@ -48,6 +48,7 @@ var updatexpText=false;
 
 var shield;
 
+var dragonPhase;
 /* Controller.
  * Handles the entire game.
  */
@@ -162,7 +163,9 @@ class controller extends Phaser.Scene {
         // shield
          this.load.image('shield','assets/player/shield.png');
 
-        
+        //fire
+        this.load.image('fire', 'assets/enemy/firePlaceHolder.png');
+        this.load.spritesheet('fireAnimation', 'assets/enemy/fireSheet.png', { frameWidth: 1920, frameHeight: 137 });
     }
 
     create() {
@@ -224,7 +227,7 @@ class controller extends Phaser.Scene {
         if(game.input.activePointer.justDown){
             if(numberArrows > 0){
                 //only shoot an arrow if the player is carrying some.
-                shoot();
+                playerShoot();
                 numberArrows -= 1;
             }
             game.input.activePointer.justDown = false;
@@ -500,7 +503,12 @@ function loadMap() {
         frameRate: 16,
         repeat: -1
     });
-
+    createThis.anims.create({
+        key: 'fire',
+        frames: createThis.anims.generateFrameNumbers('fireAnimation', { start: 0, end: 7 }),
+        frameRate: 10,
+        repeat: -1
+    });
 
     if (playerShip) {
         player.body.allowGravity = false;
@@ -617,7 +625,7 @@ function destroyOldObjects() {
 }
 
 
-   function shoot() {
+   function playerShoot() {
         playerProjectiles[currentProjectile2] = new dragonFire2({
             x: player.x, 
             y: player.y,
@@ -625,6 +633,8 @@ function destroyOldObjects() {
             aimed: true, 
             velocityAimed: 400
         });}
+  
+
 
 var config = {
     type: Phaser.AUTO,
@@ -646,7 +656,7 @@ var config = {
 
 
     scene: [controller, titleScreen,tutorial,settingsScreen, argoLanding, roadToColchis, marketplace, palace, shrine, shrineForest,
-            colchisFields, riverCrossing, gardenEntrance, gardenForest, gardenDungeon, gardenFleece, sidequest1, palaceTreasureRoom ,sidequest2,
+            colchisFields, riverCrossing, gardenEntrance, gardenForest, gardenDungeon, gardenFleece, sidequest1, palaceTreasureRoom ,sidequest2, dragonLevel,
             placeholdertestmap, endCutscene, endScreen, siren, pause, UIS, mapMenu, introCutscene]
 
 };

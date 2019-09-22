@@ -4,6 +4,9 @@ skelesActive = false;
 skeleInterval = undefined;
 var looper = 0; 
 
+phase2Ready=false;
+setfire=false;
+
 /* The enemyBase class is used as a base for various enemies.  
  * This should not be spawned directly. 
  * Required parameters: scene, x, y, key, xMove/yMove, xVel/yVel, scale, enemyId, gravity, health.
@@ -717,6 +720,7 @@ class dragonBoss extends enemyBase {
     }
 
     movement() { 
+             setTimeout(this.shoot, 100, this);
         if (!this.verticalMove && this.x > this.xMax) {
             if (this.moveUp) {
                 this.body.setVelocityX(0);
@@ -1054,5 +1058,145 @@ class centaurEnemy extends enemyBase {
             updatexpText=true;
         }
         
+    }
+}
+
+
+/* New Dragon Boss. 
+ * Flies horizontally and vertically. 
+ * Required parameters: x, y, xMove, yMove, enemyId
+ */
+class newdragonBoss extends enemyBase { 
+    constructor (parameter) {
+        super({
+            scene: createThis, 
+            x: parameter.x, 
+            y: parameter.y,
+            key: 'dragonSprite', 
+            xMove: parameter.xMove,
+            xVel: 300, 
+            yMove: parameter.yMove, 
+            yVel: 300,
+            scale: 1, 
+            enemyId: parameter.enemyId, 
+            gravity: false, 
+            health: 1000, 
+            boss: true
+        });
+
+        this.verticalMove = false; 
+        this.moveDirection = 0; 
+        this.body.setVelocityY(0);
+        this.invulnerabilityWait = 3000; 
+        this.anims.play('dragonSpriteRight', true);
+        this.body.setSize(140,70);
+    }    
+
+    collision (tempEnemy) {
+        var tempOldPhase = tempEnemy.checkPhase(); 
+        tempEnemy.collisionBase(tempEnemy);
+        if (tempOldPhase !== tempEnemy.checkPhase()) {
+            setTimeout(tempEnemy.hugeFire, 2000, tempEnemy);
+        }
+    }
+
+    checkPhase() {
+        if (this.health <= 300){
+            return 2;
+        } else if (this.health <= 700){
+            return 1; 
+        } else {
+            return 0; 
+        }
+    }
+
+    hugeFire (tempDragon) {
+        for (i = 0; i < 8; i++) {
+            projectiles[currentProjectile] = new dragonFire({
+                x: tempDragon.x, 
+                y: tempDragon.y,
+                projectileId: currentProjectile,
+                aimed: false, 
+                hugeFireMovement: true
+            });
+        }
+    }
+
+    movement() { 
+
+        if(phase2Ready==false){
+            if (!this.verticalMove && this.x > this.xMax) {
+                if (this.moveUp) {
+                    this.body.setVelocityX(0);
+                    this.body.setVelocityY(-this.yVel);
+                    this.verticalMove = true; 
+                    console.log("go up")
+                } else {
+                    this.body.setVelocityX(0);
+                    this.body.setVelocityY(this.yVel);
+                    this.verticalMove = true; 
+                    console.log("move down")
+                }
+            } else if (!this.verticalMove && this.x < this.xMin) {
+                this.body.setVelocityX(this.xVel);
+                this.body.setVelocityY(0);
+                this.shoot(); 
+                console.log("moving right")
+            } else if (this.verticalMove) {
+                if (!this.moveUp && (this.y > this.yMax) || (this.y < this.yMin)) {
+                    this.verticalMove = false;
+                    this.body.setVelocityX(-this.xVel);
+                    this.body.setVelocityY(0);
+                    this.moveUp = !this.moveUp; 
+                if (dragonPhase==2){
+                    phase2Ready=true;
+                        this.body.setVelocityX(0);
+                        this.body.setVelocityY(0);
+                }
+                    console.log("moving left")
+                }
+            }
+        
+        this.flipX = (this.body.velocity.x <= 0);
+        }
+        else
+            if(phase2Ready==true){
+                console.log("setting phase 2")
+                this.verticalMove = false;
+                this.body.setVelocityX(0);
+                this.body.setVelocityY(0);
+                this.moveUp = !this.moveUp; 
+
+
+            }
+        
+    }
+
+    shoot() {
+        projectiles[currentProjectile] = new dragonFire({
+            x: this.x, 
+            y: this.y,
+            projectileId: currentProjectile,
+            aimed: false, 
+            velocityAimed: 600
+        });
+
+            setTimeout(this.shootAgain, 1000, this);
+            setTimeout(this.shootAgain, 2000, this);
+            setTimeout(this.shootAgain, 3000, this);
+            setTimeout(this.shootAgain, 4000, this);
+
+    }
+
+    shootAgain(tempDragon) {
+        projectiles[currentProjectile] = new dragonFire({
+            x: tempDragon.x, 
+            y: tempDragon.y,
+            projectileId: currentProjectile,
+            aimed: true , 
+            velocityAimed: 400
+        });
+
+
     }
 }
