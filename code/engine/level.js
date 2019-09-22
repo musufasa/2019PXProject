@@ -200,7 +200,18 @@ function spawnObjects() {
                 });
                 enemyCount++; 
                 break;
-
+                
+            case 'newdragonBoss': 
+                enemies[enemyCount] = new newdragonBoss({
+                    x: mapObjectArray[i].x, 
+                    y: mapObjectArray[i].y, 
+                    xMove: tempProperties['xMove'],
+                    yMove: tempProperties['yMove'],
+                    enemyId: enemyCount
+                });
+                enemyCount++; 
+                break;
+                
             case 'spiderFlower': 
                 spiderFlower = new spiderFlowerItem({
                     x: mapObjectArray[i].x, 
@@ -425,6 +436,13 @@ function spawnObjects() {
                 });
                 enemyCount++;
                 break; 
+                case 'fire':
+                items[itemCount] = new fire({
+                    x: mapObjectArray[i].x,
+                    y: mapObjectArray[i].y
+                });
+                itemCount++;
+                break;
     }
 }
 }

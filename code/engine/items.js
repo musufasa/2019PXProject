@@ -525,7 +525,6 @@ class coin extends itemBase {
     }
 }
 
-//exp item not working 
 class smallExp extends itemBase {
     constructor(parameter){
         super({
@@ -580,5 +579,25 @@ class diamond extends itemBase {
         playcoinsound=true;
         currentCoins+=10;
         tempItem.destroy();
+    }
+}
+
+class fire extends itemBase {
+    constructor(parameter){
+        super({
+            scene: createThis,
+            x: parameter.x, 
+            y: parameter.y,
+            key: 'fire', 
+            gravity: false
+        })
+        this.anims.play('fire', true);
+
+
+    }
+
+    collision (tempItem){
+console.log("onfire")
+        //tempItem.destroy();
     }
 }

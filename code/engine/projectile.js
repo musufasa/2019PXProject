@@ -32,9 +32,9 @@ class projectile extends Phaser.GameObjects.Sprite {
 
     //Damage the player's health when player collides into this projectile.
     playerDamage(tempProjectile) {
-        if(blocking=false){
+        if(blocking==false){
             playerDamage(tempProjectile.damage);
-            }
+        }
         projectiles[tempProjectile.projectileId].destroy();
     }
 }
@@ -68,7 +68,7 @@ class dragonFire extends projectile {
             x: parameter.x,
             y: parameter.y, 
             key: 'fireballSprite',
-            velocityX: -150,
+            velocityX: -300,
             velocityAimed: parameter.velocityAimed,
             projectileId: parameter.projectileId,
             damage: 25
