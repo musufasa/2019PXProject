@@ -5,6 +5,8 @@ skeleInterval = undefined;
 var looper = 0; 
 
 phase2Ready=false;
+abovePlayer=false;
+dragonReset=false;
 setfire=false;
 
 /* The enemyBase class is used as a base for various enemies.  
@@ -1161,11 +1163,28 @@ class newdragonBoss extends enemyBase {
         }
         else
             if(phase2Ready==true){
-                createThis.physics.moveTo(this, player.x,1300, 100)
-                //need to make the dragon attack once the dragon is above the player
-                if(this.x==player.x){
-                    createThis.physics.accelerateToObject(this, player, 300);
+                if (abovePlayer==false&&dragonReset==false)
+                {
+                    createThis.physics.moveTo(this, player.x,1300, 150)
+                    if(this.x<=player.x+5 && this.x>=player.x-5 ){
+                        abovePlayer=true;
+                    }
+                }
 
+                if(abovePlayer==true&&dragonReset==false){
+                    createThis.physics.moveTo(this, player.x,player.y, 200)
+                       if(this.x<=player.x+10 && this.x>=player.x-10 && this.y<=player.y+10 && this.y>=player.y-10 ){
+                           player.x=player.x-30;
+                           dragonReset=true;
+                    abovePlayer=false;
+                       }
+                }
+                
+                if (dragonReset==true){
+                     createThis.physics.moveTo(this, 1400,1400, 200)
+                    if(this.x<=1420&&this.x>=1380&&this.y<=1420&&this.y>=1380){
+                    dragonReset=false;
+                    }
                 }
                 //createThis.physics.accelerateTo(this, player.x,1600, 100)
                 //createThis.physics.accelerateToObject(this, player, this.velocityAimed);
