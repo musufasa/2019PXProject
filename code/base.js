@@ -12,6 +12,7 @@ var inventoryKey; // Inventory key mapped to I
 var portalKey;//travel through portals key is mapped to the UP arrow
 var questInfoKey;//used to display or hide the quest information layer.
 var rangeAttackKey;
+var blockKey;//used to enable blocking (E key)
 var camera;
 //Player character
 var player; //Player sprite
@@ -44,6 +45,8 @@ var loopcounter = 0;
 var playcoinsound = false;
 
 var updatexpText=false;
+
+var shield;
 
 /* Controller.
  * Handles the entire game.
@@ -156,6 +159,9 @@ class controller extends Phaser.Scene {
         //Centaur enemy spritesheet 
         this.load.spritesheet('centaurEnemy','assets/enemy/centaur.png', {frameWidth: 192, frameHeight: 256});
         
+        // shield
+         this.load.image('shield','assets/player/shield.png');
+
         
     }
 
@@ -179,6 +185,8 @@ class controller extends Phaser.Scene {
         sprintKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SHIFT);
         portalKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
         rangeAttackKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
+        blockKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
+
         var jump = this.sound.add('jump');
         var attack = this.sound.add('attack');
         var bite = this.sound.add('bite');
@@ -202,12 +210,19 @@ class controller extends Phaser.Scene {
         this.playerLevelText= userIntThis.add.text(this.game.renderer.width *.73, this.game.renderer.height * 0.09,"Player Level:"+currentPlayerLvl, styleRed2)
 
         this.xpText= userIntThis.add.text(this.game.renderer.width *.73, this.game.renderer.height * 0.1,"/nCurrent EXP: "+currentXP+" / "+XPtillNextLvl, styleRed)
+ 
+
+        shield = createThis.add.image(0, 0, 'shield');
+        shield.setScale(.2);
+
     }
 
     update() {
-            //updates xp text
-            updateXpText();
-  checkUpgradePoints();
+            
+            updateXpText();//updates xp text
+        checkUpgradePoints();
+        
+        
         if(game.input.activePointer.justDown){
             if(numberArrows > 0){
                 //only shoot an arrow if the player is carrying some.

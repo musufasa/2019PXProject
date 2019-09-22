@@ -22,6 +22,9 @@ var playerVelocityYMax = 1350; //Maximum Y velocity - prevents clipping through 
 var playerDoubleJump = false;
 var numberArrows = 10; //number of arrows the player is currently carrying, starts with 0 and must find them along the game.
 
+//checks if the player is blocking
+var blocking=false;
+
 //Variables relating to siren level
 var playerShipOffsetX = 300; //Camera offset for playerShip mode. 
 var playerShip = false; //Is the player a ship or a person?
@@ -149,6 +152,8 @@ function playerMovement() {
     if(displayMapKey.isDown){
         maybeDisplayMap();
     }
+    
+    playerBlocking();
 
 }
 
@@ -339,4 +344,26 @@ function maybeDisplayMap(){
         //only allow the map to be shown if it is not in the array of maps above.
         changeLevel('mapMenu');
     }
+}
+
+//checks if the player is pressing the block button to block projectiles
+function playerBlocking(){
+            if(blockKey._justDown){
+                shield.setAlpha(1);
+            blocking=true;
+                if(playerFacingRight==true){
+                shield.angle=0;
+                shield.x=player.x+20;
+                shield.y=player.y;
+                }
+                else if(playerFacingRight==false){
+                shield.angle=180;
+                shield.x=player.x-20;
+                shield.y=player.y;    
+                }
+        }
+        else{
+            blocking=false;
+            shield.setAlpha(0);
+        }
 }
