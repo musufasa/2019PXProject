@@ -12,6 +12,7 @@ var inventoryKey; // Inventory key mapped to I
 var portalKey;//travel through portals key is mapped to the UP arrow
 var questInfoKey;//used to display or hide the quest information layer.
 var rangeAttackKey;
+var blockKey;//used to enable blocking (E key)
 var camera;
 var helperSprite; //used to hold the value of which helper sprite was choosen by the player at the start of the game. should be strictly 'Orpheus' or 'Medea'
 //Player character
@@ -44,6 +45,8 @@ var loopcounter = 0;
 var playcoinsound = false;
 
 var updatexpText=false;
+
+var shield;
 
 /* Controller.
  * Handles the entire game.
@@ -144,7 +147,7 @@ class controller extends Phaser.Scene {
         this.load.image('items1', 'assets/background/closeinventbutton.png');
         this.load.image('inventory', 'assets/background/inventorydraft.png');
         this.load.image('slots', 'assets/items/inventoryslots.png');
-        this.load.image('upgradeStatButton','assets/buttons/upgradebutton.png')
+        this.load.image('upgradeStatButton','assets/buttons/upgradebutton.png');
         
         //coin
         this.load.image('coinSprite', 'assets/items/coinplaceholder.png');
@@ -152,6 +155,14 @@ class controller extends Phaser.Scene {
         
         //Quest UI assets 
         this.load.image('questBox', 'assets/items/questBox.png');
+        
+        //Centaur enemy spritesheet 
+        this.load.spritesheet('centaurEnemy','assets/enemy/centaur.png', {frameWidth: 192, frameHeight: 256});
+        
+        // shield
+         this.load.image('shield','assets/player/shield.png');
+
+        
     }
 
     create() {
@@ -165,7 +176,7 @@ class controller extends Phaser.Scene {
         //Create default key bindings for up,down,left and right
         cursors = createThis.input.keyboard.createCursorKeys();
 
-        attackKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.X);
+        attackKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
         jumpKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         interactKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Z);
         displayMapKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.M);
@@ -173,7 +184,9 @@ class controller extends Phaser.Scene {
         rightMoveKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
         sprintKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SHIFT);
         portalKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
-        // rangeAttackKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
+        rangeAttackKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
+        blockKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
+
         var jump = this.sound.add('jump');
         var attack = this.sound.add('attack');
         var bite = this.sound.add('bite');
@@ -197,12 +210,17 @@ class controller extends Phaser.Scene {
         this.playerLevelText= userIntThis.add.text(this.game.renderer.width *.73, this.game.renderer.height * 0.09,"Player Level:"+currentPlayerLvl, styleRed2)
 
         this.xpText= userIntThis.add.text(this.game.renderer.width *.73, this.game.renderer.height * 0.1,"/nCurrent EXP: "+currentXP+" / "+XPtillNextLvl, styleRed)
+ 
+
+
     }
 
     update() {
-            //updates xp text
-            updateXpText();
-  checkUpgradePoints();
+            
+            updateXpText();//updates xp text
+        checkUpgradePoints();
+        
+        
         if(game.input.activePointer.justDown){
             if(numberArrows > 0){
                 //only shoot an arrow if the player is carrying some.
@@ -429,7 +447,10 @@ function loadMap() {
     mapLayer = createThis.map.createStaticLayer("Layer", tileset, 0, 0);
     mapLayer.setDepth(-40);
     mapLayerBG.setDepth(-50);
-
+    
+    //create player shield
+    shield = createThis.add.image(0, 0, 'shield');
+    shield.setScale(.2);
     //Spawn player.
     var playerSpawnPoint = createThis.map.findObject("Objects", obj => obj.name === "Player Spawn");
     player = createThis.physics.add.sprite(playerSpawnPoint.x, playerSpawnPoint.y, playerSprite);

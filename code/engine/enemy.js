@@ -1019,3 +1019,40 @@ class tutorialEnemy extends enemyBase {
         
     }
 }
+
+class centaurEnemy extends enemyBase {
+    constructor (parameter) {
+        super({
+            scene: createThis,
+            x: parameter.x,
+            y: parameter.y,
+            key: 'centaurEnemy',
+            xMove: parameter.xMove,
+            xVel: 130,
+            scale: 0.45,
+            enemyId: parameter.enemyId,
+            gravity: true,
+            health: 100,
+        });
+        //this.anims.play('centaur', true);
+    }
+    update () {
+        if (this.body.velocity.x < 0) {
+            this.anims.play('centaurLeft', true);
+        } else if (this.body.velocity.x > 0) {
+            this.anims.play('centaurRight', true);
+        }
+
+        if (this.alive && this.health <= 0) {
+            this.alive = false;
+            if(!this.alive) {
+                activeBosses --;
+            }
+            enemies[this.enemyId].destroy();
+            
+            currentXP=currentXP+200;
+            updatexpText=true;
+        }
+        
+    }
+}

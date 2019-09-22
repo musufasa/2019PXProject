@@ -408,7 +408,7 @@ function spawnObjects() {
                     y: mapObjectArray[i].y
                 });
                 itemCount++;
-                break;            break;            
+                break;                      
             case 'diamond':
                 items[itemCount] = new diamond({
                     x: mapObjectArray[i].x,
@@ -416,6 +416,15 @@ function spawnObjects() {
                 });
                 itemCount++;
                 break;
-        }
+            case 'centaurEnemy':
+                enemies[enemyCount] = new centaurEnemy({
+                    x: mapObjectArray[i].x,
+                    y: mapObjectArray[i].y,
+                    xMove: tempProperties['xMove'],
+                    enemyId: enemyCount
+                });
+                enemyCount++;
+                break; 
     }
+}
 }

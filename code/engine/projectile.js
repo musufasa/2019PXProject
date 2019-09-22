@@ -32,7 +32,9 @@ class projectile extends Phaser.GameObjects.Sprite {
 
     //Damage the player's health when player collides into this projectile.
     playerDamage(tempProjectile) {
-        playerDamage(tempProjectile.damage);
+        if(blocking=false){
+            playerDamage(tempProjectile.damage);
+            }
         projectiles[tempProjectile.projectileId].destroy();
     }
 }
@@ -120,6 +122,14 @@ class projectile2 extends Phaser.GameObjects.Sprite {
     enemyDamage(tempProjectile,tempEnemy) {
         tempProjectile.destroy();
         tempEnemy.health -= tempProjectile.damage;
+          enemies[tempEnemy.enemyId].health -= playerDamagePoints;
+            enemies[tempEnemy.enemyId].invulnerability = true; 
+            enemies[tempEnemy.enemyId].alpha = 0.3;
+            enemies[tempEnemy.enemyId].setTint(0xFF0000);
+            if (enemies[tempEnemy.enemyId].body.allowGravity) {
+                enemies[tempEnemy.enemyId].knockback = true;
+            }
+            setTimeout(tempEnemy.invulnerabilityStop, 500, tempEnemy.enemyId);
     }
 }
 
