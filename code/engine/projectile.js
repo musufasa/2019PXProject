@@ -32,7 +32,9 @@ class projectile extends Phaser.GameObjects.Sprite {
 
     //Damage the player's health when player collides into this projectile.
     playerDamage(tempProjectile) {
-        playerDamage(tempProjectile.damage);
+        if(blocking=false){
+            playerDamage(tempProjectile.damage);
+            }
         projectiles[tempProjectile.projectileId].destroy();
     }
 }
