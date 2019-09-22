@@ -1161,12 +1161,20 @@ class newdragonBoss extends enemyBase {
         }
         else
             if(phase2Ready==true){
-                console.log("setting phase 2")
-                this.verticalMove = false;
+                createThis.physics.moveTo(this, player.x,1300, 100)
+                //need to make the dragon attack once the dragon is above the player
+                if(this.x==player.x){
+                    createThis.physics.accelerateToObject(this, player, 300);
+
+                }
+                //createThis.physics.accelerateTo(this, player.x,1600, 100)
+                //createThis.physics.accelerateToObject(this, player, this.velocityAimed);
+                /*
                 this.body.setVelocityX(0);
                 this.body.setVelocityY(0);
                 this.moveUp = !this.moveUp; 
-
+                console.log(this.x);
+                */
 
             }
         
