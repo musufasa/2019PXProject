@@ -171,8 +171,20 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":1187.78280542986,
+                 "x":1787.78,
                  "y":1766.96832579186
+                }, 
+                {
+                 "height":0,
+                 "id":20,
+                 "name":"fountain",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":416.638797271123,
+                 "y":1693.88649848914
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -181,7 +193,7 @@
          "y":0
         }],
  "nextlayerid":22,
- "nextobjectid":20,
+ "nextobjectid":21,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",

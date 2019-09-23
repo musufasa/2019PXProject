@@ -75,6 +75,7 @@ class dragonFire extends projectile {
         })
 
         this.hugeFireMovement = parameter.hugeFireMovement !== undefined && parameter.hugeFireMovement;
+        
 
         //If aimed is true, accelerate towards the player. 
         if (parameter.aimed){
@@ -88,7 +89,29 @@ class dragonFire extends projectile {
 }
 
 
+class chargeDragonFire extends projectile {
+    constructor (parameter) {
+        super({
+            scene: createThis,
+            x: parameter.x,
+            y: parameter.y, 
+            key: 'fireballSprite',
+            velocityX: 0,
+            velocityAimed: parameter.velocityAimed,
+            projectileId: parameter.projectileId,
+            damage: 50
+        })
 
+this.setScale(2.5);
+        //If aimed is true, accelerate towards the player. 
+        if (parameter.aimed){
+              createThis.physics.accelerateToObject(this, player, this.velocityAimed);
+        } 
+        
+        
+
+    }
+}
 
 
 
@@ -149,7 +172,7 @@ class dragonFire2 extends projectile2 {
         //If aimed is true, accelerte towards the player. 
             createThis.physics.moveTo(this,camera.scrollX+game.input.mousePointer.x, camera.scrollY+game.input.mousePointer.y, this.velocityAimed);
             //createThis.physics.accelerateToObject(this, cursor, this.velocityAimed);
-        
+
     }
 }
 

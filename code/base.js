@@ -49,6 +49,7 @@ var updatexpText=false;
 var shield;
 
 var dragonPhase;
+var onFire=false;
 /* Controller.
  * Handles the entire game.
  */
@@ -166,6 +167,8 @@ class controller extends Phaser.Scene {
         //fire
         this.load.image('fire', 'assets/enemy/firePlaceHolder.png');
         this.load.spritesheet('fireAnimation', 'assets/enemy/fireSheet.png', { frameWidth: 1920, frameHeight: 137 });
+        this.load.image('fountain', 'assets/items/fountain.png');
+
     }
 
     create() {
@@ -219,7 +222,6 @@ class controller extends Phaser.Scene {
     }
 
     update() {
-            
             updateXpText();//updates xp text
         checkUpgradePoints();
         
