@@ -601,8 +601,28 @@ class fire extends itemBase {
     collision (tempItem){
         if(dragonPhase==2)
         {
+            onFire=true;
             console.log("onfire")
 
         }
+    }
+}
+
+class fountain extends itemBase {
+    constructor(parameter){
+        super({
+            scene: createThis,
+            x: parameter.x, 
+            y: parameter.y,
+            key: 'fountain', 
+            gravity: false
+            
+            
+        })
+
+    }
+
+    collision (tempItem){
+        onFire=false;
     }
 }

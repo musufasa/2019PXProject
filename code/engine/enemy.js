@@ -7,8 +7,10 @@ var looper = 0;
 phase2Ready=false;
 abovePlayer=false;
 dragonReset=false;
+dragonResetPhase3=true;
 setfire=false;
-
+dragonCharging=false;
+dragonIdle=false;
 /* The enemyBase class is used as a base for various enemies.  
  * This should not be spawned directly. 
  * Required parameters: scene, x, y, key, xMove/yMove, xVel/yVel, scale, enemyId, gravity, health.
@@ -1126,8 +1128,8 @@ class newdragonBoss extends enemyBase {
 
     movement() { 
 
-        if(phase2Ready==false){
-            if (!this.verticalMove && this.x > this.xMax) {
+        if(dragonPhase==1){
+            if (!this.verticalMove && this.x > this.xMax&&dragonPhase==1) {
                 if (this.moveUp) {
                     this.body.setVelocityX(0);
                     this.body.setVelocityY(-this.yVel);
@@ -1162,7 +1164,7 @@ class newdragonBoss extends enemyBase {
         this.flipX = (this.body.velocity.x <= 0);
         }
         else
-            if(phase2Ready==true){
+            if(dragonPhase==2){
                 if (abovePlayer==false&&dragonReset==false)
                 {
                     createThis.physics.moveTo(this, player.x,1300, 150)
@@ -1186,7 +1188,39 @@ class newdragonBoss extends enemyBase {
                     dragonReset=false;
                     }
                 }
-                //createThis.physics.accelerateTo(this, player.x,1600, 100)
+
+            }
+        else 
+            if(dragonPhase=3)
+                { 
+                    if (dragonResetPhase3==true&&dragonIdle==false){
+                     createThis.physics.moveTo(this, 1450,1500, 200)
+                    if(this.x<=1470&&this.x>=1430&&this.y<=1520&&this.y>=1480){
+                        this.body.setVelocityX(0);
+                        this.body.setVelocityY(0);
+                    dragonResetPhase3=false;
+                        dragonCharging=true;
+                    }
+                }
+                    if (dragonCharging=true&&dragonIdle==false){
+                    if(this.x<=1470&&this.x>=1430&&this.y<=1520&&this.y>=1480){
+                        this.body.setVelocityX(0);
+                        this.body.setVelocityY(0);
+                        dragonCharging=false;
+                        dragonIdle=true;
+                        this.chargeShot();
+                    }
+
+                    }
+                 
+                 if (dragonIdle==true){
+                         this.body.setVelocityX(0);
+                        this.body.setVelocityY(0);
+                 }
+                }
+        
+        
+                        //createThis.physics.accelerateTo(this, player.x,1600, 100)
                 //createThis.physics.accelerateToObject(this, player, this.velocityAimed);
                 /*
                 this.body.setVelocityX(0);
@@ -1194,8 +1228,6 @@ class newdragonBoss extends enemyBase {
                 this.moveUp = !this.moveUp; 
                 console.log(this.x);
                 */
-
-            }
         
     }
 
@@ -1205,13 +1237,15 @@ class newdragonBoss extends enemyBase {
             y: this.y,
             projectileId: currentProjectile,
             aimed: false, 
-            velocityAimed: 600
+            velocityAimed: 400
         });
-
+            
+        if (dragonPhase==1){
             setTimeout(this.shootAgain, 1000, this);
             setTimeout(this.shootAgain, 2000, this);
             setTimeout(this.shootAgain, 3000, this);
             setTimeout(this.shootAgain, 4000, this);
+        }
 
     }
 
@@ -1226,4 +1260,19 @@ class newdragonBoss extends enemyBase {
 
 
     }
+    
+    chargeShot()  {
+        projectiles[currentProjectile] = new chargeDragonFire({
+            x: this.x-30, 
+            y: this.y,
+            projectileId: currentProjectile,
+            aimed: true, 
+            velocityAimed: 100
+        });
+
+
+
+    }
+
+    
 }

@@ -443,6 +443,14 @@ function spawnObjects() {
                 });
                 itemCount++;
                 break;
+                                break; 
+                case 'fountain':
+                items[itemCount] = new fountain({
+                    x: mapObjectArray[i].x,
+                    y: mapObjectArray[i].y
+                });
+                itemCount++;
+                break;
     }
 }
 }
