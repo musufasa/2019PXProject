@@ -237,30 +237,9 @@ if(onFire==true)//checks if the player is on fire
         checkUpgradePoints();
         
         
-        if(game.input.activePointer.justDown){
-            if(numberArrows > 0){
-                //only shoot an arrow if the player is carrying some.
-                playerShoot();
-                numberArrows -= 1;
-            }
-            game.input.activePointer.justDown = false;
-        }
+
         
-        //open inventory
-        if (inventoryKey._justDown){
-            inventoryKey._justDown = false;
-            if(!inventoryOpen){
-                userIntThis.scene.sendToBack('controller');
-                game.scene.run('UIS');
-                inventoryOpen = true;
-            }else{
-                //close the inventory if it is open.
-                userIntThis.scene.bringToTop('controller');
-                game.scene.resume(currentLevelID);
-                game.scene.stop('UIS');
-                inventoryOpen = false;
-            }
-        }
+
 
         if (questInfoKey._justDown){
             //display the quest info or hide it depending on its current state.
@@ -590,6 +569,32 @@ function callUpdateFuncs() {
     if (dialogueActive) {
         playerCheckDialogueWalkAway();
     }
+    
+            if(game.input.activePointer.justDown){
+            if(numberArrows > 0){
+                //only shoot an arrow if the player is carrying some.
+                playerShoot();
+                numberArrows -= 1;
+            }
+            game.input.activePointer.justDown = false;
+        }
+    
+    
+            //open inventory
+        if (inventoryKey._justDown){
+            inventoryKey._justDown = false;
+            if(!inventoryOpen){
+                userIntThis.scene.sendToBack('controller');
+                game.scene.run('UIS');
+                inventoryOpen = true;
+            }else{
+                //close the inventory if it is open.
+                userIntThis.scene.bringToTop('controller');
+                game.scene.resume(currentLevelID);
+                game.scene.stop('UIS');
+                inventoryOpen = false;
+            }
+        }
 }
 
 //Ship update function.
