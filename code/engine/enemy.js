@@ -7,10 +7,12 @@ var looper = 0;
 phase2Ready=false;
 abovePlayer=false;
 dragonReset=false;
-dragonResetPhase3=true;
+dragonPhase3Ready=false;
 setfire=false;
 dragonCharging=false;
 dragonIdle=false;
+phase1ready=false;
+
 /* The enemyBase class is used as a base for various enemies.  
  * This should not be spawned directly. 
  * Required parameters: scene, x, y, key, xMove/yMove, xVel/yVel, scale, enemyId, gravity, health.
@@ -1127,9 +1129,27 @@ class newdragonBoss extends enemyBase {
     }
 
     movement() { 
-
         if(dragonPhase==1){
+            if(phase1ready==false&&dragonPhase==1){
+            createThis.physics.moveTo(this, 1600,1400, 300)
+            if(this.x>=1570&&this.x<=1630&&this.y>=1380&&this.y<=1420&&dragonPhase==1){
+                this.shoot();
+             console.log("going left");
+                phase1ready=true;
+            }
+            }else
+            if(phase1ready==true&&dragonPhase==1)
+                {   
+                    createThis.physics.moveTo(this, 800,1400, 300)
+                    if(this.x>=770&&this.x<=830&&this.y>=1380&&this.y<=1420&&dragonPhase==1){
+                                        console.log("going right");
+                    phase1ready=false;
+
+                }
+                }
+            /*
             if (!this.verticalMove && this.x > this.xMax&&dragonPhase==1) {
+                 dragonIdle=false;
                 if (this.moveUp) {
                     this.body.setVelocityX(0);
                     this.body.setVelocityY(-this.yVel);
@@ -1160,11 +1180,14 @@ class newdragonBoss extends enemyBase {
                     console.log("moving left")
                 }
             }
-        
+        */
         this.flipX = (this.body.velocity.x <= 0);
         }
         else
             if(dragonPhase==2){
+                phase1ready=false;
+                dragonIdle=false;
+                dragonPhase3Ready=false;
                 if (abovePlayer==false&&dragonReset==false)
                 {
                     createThis.physics.moveTo(this, player.x,1300, 150)
@@ -1193,12 +1216,14 @@ class newdragonBoss extends enemyBase {
         else 
             if(dragonPhase=3)
                 { 
-                    if (dragonResetPhase3==true&&dragonIdle==false){
+                    phase1ready=false;
+                    if (dragonPhase3Ready==false&&dragonIdle==false){
                      createThis.physics.moveTo(this, 1450,1500, 200)
                     if(this.x<=1470&&this.x>=1430&&this.y<=1520&&this.y>=1480){
+                        this.flipX = (this.body.velocity.x <= 0);
                         this.body.setVelocityX(0);
                         this.body.setVelocityY(0);
-                    dragonResetPhase3=false;
+                    dragonPhase3Ready=true;
                         dragonCharging=true;
                     }
                 }
