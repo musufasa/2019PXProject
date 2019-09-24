@@ -69,6 +69,12 @@ class controller extends Phaser.Scene {
            { frameWidth: 32, frameHeight: 64 });
         this.load.spritesheet('jason','assets/player/jason.png',
            { frameWidth: 76, frameHeight: 64 });
+        this.load.spritesheet('jasonIdle','assets/player/newJasonIdle.png',
+           { frameWidth: 82, frameHeight: 94 });
+        this.load.spritesheet('jasonWalk','assets/player/newJasonWalking.png',
+           { frameWidth: 52, frameHeight: 94 });
+        
+        
         this.load.spritesheet('kingSprite','assets/NPC/king.png',
            { frameWidth: 40, frameHeight: 64 });
 
@@ -478,7 +484,7 @@ function loadMap() {
     //Player animations. 
     createThis.anims.create({
         key: 'jasonRight',
-        frames: createThis.anims.generateFrameNumbers('jason', { start: 0, end: 11 }),
+        frames: createThis.anims.generateFrameNumbers('jasonWalk', { start: 2, end: 11 }),
         frameRate: 10,
         repeat: -1
     });
@@ -490,7 +496,7 @@ function loadMap() {
     });
     createThis.anims.create({
         key: 'jasonIdleRight',
-        frames: createThis.anims.generateFrameNumbers('jason', { start: 0, end: 0 }),
+        frames: createThis.anims.generateFrameNumbers('jasonIdle', { start: 0, end: 12 }),
         frameRate: 10,
         repeat: -1
     });
