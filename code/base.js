@@ -228,6 +228,11 @@ class controller extends Phaser.Scene {
     }
 
     update() {
+ 
+if(onFire==true)//checks if the player is on fire
+{
+    playerDamage(1);
+}
             updateXpText();//updates xp text
         checkUpgradePoints();
         
@@ -795,5 +800,6 @@ function drawHelperSpriteChoiceUIBox() {
         helperSprite = 'Orpheus';
     });
 }
+
 
 var game = new Phaser.Game(config);
