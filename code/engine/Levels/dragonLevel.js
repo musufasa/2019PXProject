@@ -13,7 +13,7 @@ class dragonLevel extends Phaser.Scene {
         this.load.spritesheet('fireAnimation', 'assets/enemy/fireSheet.png', { frameWidth: 1920, frameHeight: 137 });
         
         commonPreload();
-                dragonPhase=1;
+                dragonPhase = 1;
 
     }
 
@@ -30,9 +30,27 @@ class dragonLevel extends Phaser.Scene {
         
         //Set empty quest on map load 
         setToEmptyQuest();
-    }
 
+        //every 60 seconds change the dragon phase on a loop.
+        this.time.addEvent({ delay: 6000, callback: this.updateDragonPhase, callbackScope: this, loop: true });
+    }
     update() {
         callUpdateFuncs();
+    }
+
+     updateDragonPhase() {
+
+         switch (dragonPhase) {
+             case 1:
+                 dragonPhase = 2;
+                 break;
+             case 2:
+                 dragonPhase = 3;
+                 break;
+             default:
+                 dragonPhase = 1;
+                 break;
+         }
+
     }
 }
