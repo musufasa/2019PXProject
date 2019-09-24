@@ -463,6 +463,17 @@ function loadMap() {
 
     mapLayer.setCollisionByProperty({ collides: true });
     createThis.physics.add.collider(player, mapLayer);
+    
+        attackKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
+        jumpKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+        interactKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Z);
+        displayMapKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.M);
+        leftMoveKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
+        rightMoveKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
+        sprintKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SHIFT);
+        portalKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
+        rangeAttackKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
+        blockKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
 
     //Player animations. 
     createThis.anims.create({
