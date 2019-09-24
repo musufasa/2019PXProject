@@ -1084,18 +1084,6 @@
                 }, 
                 {
                  "height":0,
-                 "id":96,
-                 "name":"bganchor",
-                 "point":true,
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":-419.124495498292,
-                 "y":4191.24495498292
-                }, 
-                {
-                 "height":0,
                  "id":98,
                  "name":"medea",
                  "point":true,
@@ -1207,6 +1195,18 @@
                  "width":0,
                  "x":2272.58615336852,
                  "y":3846.63148090655
+                }, 
+                {
+                 "height":0,
+                 "id":105,
+                 "name":"bganchor",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":34.1508848183794,
+                 "y":4057.74604160199
                 }],
          "offsetx":3.10462589257997,
          "offsety":3.10462589257986,
@@ -1217,7 +1217,7 @@
          "y":0
         }],
  "nextlayerid":14,
- "nextobjectid":105,
+ "nextobjectid":106,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",
