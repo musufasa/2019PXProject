@@ -102,6 +102,8 @@ class controller extends Phaser.Scene {
         this.load.image('spiderBossSprite','assets/enemy/spiderBoss.png');
         this.load.image('spiderBossWebSprite','assets/enemy/spiderBossWeb.png');
         this.load.image('medusaBossSprite','assets/enemy/medusaBoss.png');
+        this.load.image('medea','assets/NPC/medeaNew.png');
+        this.load.image('orpheus','assets/NPC/orpheusNew.jpg');
         this.load.image('bullBossSprite','assets/enemy/bullBoss.png');
         this.load.spritesheet('skeleSprite','assets/enemy/skeleton.png',
             { frameWidth: 30, frameHeight: 45 });
@@ -758,20 +760,22 @@ function drawHelperSpriteChoiceUIBox() {
     //set text location
     orpheusDialogue = userIntThis.add.text(0,0,'',undefined);
     orpheusDialogue.x = this.game.renderer.width * .575;
-    orpheusDialogue.y = this.game.renderer.height * .37;
+    orpheusDialogue.y = this.game.renderer.height * .45;
     orpheusDialogue.setDepth(10);
     orpheusDialogue.setStyle(diaBoxTextStyle);
     orpheusDialogue.setText("Orpheus placeholder text");
 
     medeaDialogue = userIntThis.add.text(0,0,'',undefined);
     medeaDialogue.x = this.game.renderer.width * .175;
-    medeaDialogue.y = this.game.renderer.height * .37;
+    medeaDialogue.y = this.game.renderer.height * .45;
     medeaDialogue.setDepth(10);
     medeaDialogue.setStyle(diaBoxTextStyle);
     medeaDialogue.setText("Medea placeholder text");
 
-    let medeaImage = userIntThis.add.image(this.game.renderer.width * .30, this.game.renderer.height * 0.3,'slots').setDepth(10).setInteractive();
-    let orpheusImage = userIntThis.add.image(this.game.renderer.width * .70, this.game.renderer.height * 0.3, 'slots').setDepth(10).setInteractive();
+    let medeaImage = userIntThis.add.image(this.game.renderer.width * .30, this.game.renderer.height * 0.3,'medea').setDepth(10).setInteractive();
+    medeaImage.setScale(.187);
+    let orpheusImage = userIntThis.add.image(this.game.renderer.width * .70, this.game.renderer.height * 0.3, 'orpheus').setDepth(10).setInteractive();
+    orpheusImage.setScale(.125);
     let medeaButton = userIntThis.add.image(this.game.renderer.width * 0.30, this.game.renderer.height * 0.6, "items1").setDepth(10).setInteractive();
     let orpheusButton = userIntThis.add.image(this.game.renderer.width * 0.70, this.game.renderer.height * 0.6, "items1").setDepth(10).setInteractive();
 
