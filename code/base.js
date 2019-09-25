@@ -70,19 +70,19 @@ class controller extends Phaser.Scene {
         this.load.spritesheet('jason','assets/player/jason.png',
            { frameWidth: 76, frameHeight: 64 });
         
-        /** Revert back to old jason spritesheet for now, can be re-enabled once new spritesheet is working 
         this.load.spritesheet('jasonIdle','assets/player/newJasonIdle.png',
            { frameWidth: 82, frameHeight: 94 });
         this.load.spritesheet('jasonWalk','assets/player/newJasonWalking.png',
            { frameWidth: 52, frameHeight: 94 });
-        **/
-        
+        this.load.spritesheet('orpheusSprite','assets/NPC/orpheusTest.png',
+           { frameWidth: 57, frameHeight: 94 });
+
         this.load.spritesheet('kingSprite','assets/NPC/king.png',
            { frameWidth: 40, frameHeight: 64 });
 
         //Portal
         this.load.image('portalSprite','assets/items/portal.png');
-        
+    
         //Music & Audio
         this.load.audio('female', ['assets/stage/background/female.mp3']);
         this.load.audio('water', ['assets/stage/background/water.mp3']);
@@ -132,6 +132,7 @@ class controller extends Phaser.Scene {
         this.load.image('levelUp', 'assets/items/levelUpItem.png');
         this.load.image('healthPotion', 'assets/items/healthPotion.png');
         this.load.image('diamond', 'assets/items/diamond.png');
+        this.load.image('arrowAmmo', 'assets/items/arrow.png');
 
 
         //Pause
@@ -226,7 +227,9 @@ class controller extends Phaser.Scene {
         this.playerLevelText= userIntThis.add.text(this.game.renderer.width *.73, this.game.renderer.height * 0.09,"Player Level:"+currentPlayerLvl, styleRed2)
 
         this.xpText= userIntThis.add.text(this.game.renderer.width *.73, this.game.renderer.height * 0.1,"/nCurrent EXP: "+currentXP+" / "+XPtillNextLvl, styleRed)
- 
+        
+        this.ammoText= userIntThis.add.text(this.game.renderer.width *.73, this.game.renderer.height * 0.18,"/nCurrent EXP: "+currentXP+" / "+XPtillNextLvl, styleRed)
+
 
 
     }
@@ -472,7 +475,7 @@ function loadMap() {
     //Player animations. 
     createThis.anims.create({
         key: 'jasonRight',
-        frames: createThis.anims.generateFrameNumbers('jason', { start: 1, end: 6 }),
+        frames: createThis.anims.generateFrameNumbers('jasonWalk', { start: 2, end: 11 }),
         frameRate: 10,
         repeat: -1
     });
@@ -484,7 +487,7 @@ function loadMap() {
     });
     createThis.anims.create({
         key: 'jasonIdleRight',
-        frames: createThis.anims.generateFrameNumbers('jason', { start: 1, end: 1 }),
+        frames: createThis.anims.generateFrameNumbers('jasonIdle', { start: 0, end: 12 }),
         frameRate: 10,
         repeat: -1
     });
@@ -503,6 +506,12 @@ function loadMap() {
         repeat: -1
     });
     
+     createThis.anims.create({
+        key: 'orpheusTest',
+        frames: createThis.anims.generateFrameNumbers('orpheusSprite', { start: 0, end: 0 }),
+        frameRate: 10,
+        repeat: -1
+    });
     //coin animation 
         createThis.anims.create({
         key: 'spin',

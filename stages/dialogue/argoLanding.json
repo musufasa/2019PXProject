@@ -68,5 +68,15 @@
 			"char":"",
 			"speech":"" 
 		}
+	],
+    "orpheus1": [
+		{
+			"char":"Orpheus",
+			"speech":"Hello Jason, shall we venture forth together? "
+		},
+		{ 
+			"char":"",
+			"speech":"" 
+		}
 	]
 }

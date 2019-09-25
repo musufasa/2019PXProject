@@ -121,7 +121,14 @@ function spawnObjects() {
                 });
                 npcCount++; 
                 break;
-                
+                case 'orpheus': 
+                npcs[npcCount] = new orpheusNPC({
+                    x: mapObjectArray[i].x, 
+                    y: mapObjectArray[i].y, 
+                    dialogueKey: tempProperties['dialogueKey'] + levelProgress
+                });
+                npcCount++; 
+                break;
             case 'spiderBoss': 
                 enemies[enemyCount] = new spiderBoss({
                     x: mapObjectArray[i].x, 
@@ -443,9 +450,15 @@ function spawnObjects() {
                 });
                 itemCount++;
                 break;
-                                break; 
                 case 'fountain':
                 items[itemCount] = new fountain({
+                    x: mapObjectArray[i].x,
+                    y: mapObjectArray[i].y
+                });
+                itemCount++;
+                break;
+                case 'arrowAmmo':
+                items[itemCount] = new arrowAmmo({
                     x: mapObjectArray[i].x,
                     y: mapObjectArray[i].y
                 });

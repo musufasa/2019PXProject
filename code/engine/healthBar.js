@@ -34,6 +34,7 @@ function updateXpText(){
     
     userIntThis.xpText.setText("\nCurrent EXP: "+currentXP+" / "+XPtillNextLvl);
     userIntThis.playerLevelText.setText("Player Level "+currentPlayerLvl);
+    userIntThis.ammoText.setText("Ammo = "+numberArrows);
 
 }
 
