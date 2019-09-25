@@ -605,6 +605,42 @@
                  "width":0,
                  "x":2141.38499587799,
                  "y":1768.34295136026
+                }, 
+                {
+                 "height":0,
+                 "id":74,
+                 "name":"arrowAmmo",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":2849.59198813056,
+                 "y":1772.06973293769
+                }, 
+                {
+                 "height":0,
+                 "id":77,
+                 "name":"arrowAmmo",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":2880.19287833828,
+                 "y":1771.14243323442
+                }, 
+                {
+                 "height":0,
+                 "id":78,
+                 "name":"arrowAmmo",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":2867.21068249258,
+                 "y":1751.66913946588
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -613,7 +649,7 @@
          "y":0
         }],
  "nextlayerid":22,
- "nextobjectid":74,
+ "nextobjectid":79,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",

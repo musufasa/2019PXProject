@@ -626,3 +626,21 @@ class fountain extends itemBase {
         onFire=false;
     }
 }
+
+class arrowAmmo extends itemBase {
+    constructor(parameter){
+        super({
+            scene: createThis,
+            x: parameter.x, 
+            y: parameter.y,
+            key: 'arrowAmmo', 
+            gravity: false
+        })
+
+    }
+
+    collision (tempItem){
+        numberArrows++;
+        tempItem.destroy();
+    }
+}

@@ -130,6 +130,7 @@ class controller extends Phaser.Scene {
         this.load.image('levelUp', 'assets/items/levelUpItem.png');
         this.load.image('healthPotion', 'assets/items/healthPotion.png');
         this.load.image('diamond', 'assets/items/diamond.png');
+        this.load.image('arrowAmmo', 'assets/items/arrow.png');
 
 
         //Pause
@@ -224,7 +225,9 @@ class controller extends Phaser.Scene {
         this.playerLevelText= userIntThis.add.text(this.game.renderer.width *.73, this.game.renderer.height * 0.09,"Player Level:"+currentPlayerLvl, styleRed2)
 
         this.xpText= userIntThis.add.text(this.game.renderer.width *.73, this.game.renderer.height * 0.1,"/nCurrent EXP: "+currentXP+" / "+XPtillNextLvl, styleRed)
- 
+        
+        this.ammoText= userIntThis.add.text(this.game.renderer.width *.73, this.game.renderer.height * 0.18,"/nCurrent EXP: "+currentXP+" / "+XPtillNextLvl, styleRed)
+
 
 
     }
