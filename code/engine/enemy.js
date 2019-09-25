@@ -1131,7 +1131,7 @@ class newdragonBoss extends enemyBase {
     movement() { 
         if(dragonPhase==1){
             if(phase1ready==false&&dragonPhase==1){
-            createThis.physics.moveTo(this, 1600,1400, 300)
+            createThis.physics.moveTo(this, 1600,1400, 250)
             if(this.x>=1570&&this.x<=1630&&this.y>=1380&&this.y<=1420&&dragonPhase==1){
                 this.shoot();
              console.log("going left");
@@ -1139,8 +1139,8 @@ class newdragonBoss extends enemyBase {
             }
             }else
             if(phase1ready==true&&dragonPhase==1)
-                {   
-                    createThis.physics.moveTo(this, 800,1400, 300)
+                {           this.anims.play('dragonSpriteRight', true);
+                    createThis.physics.moveTo(this, 800,1400, 250)
                     if(this.x>=770&&this.x<=830&&this.y>=1380&&this.y<=1420&&dragonPhase==1){
                                         console.log("going right");
                     phase1ready=false;
@@ -1188,6 +1188,7 @@ class newdragonBoss extends enemyBase {
                 phase1ready=false;
                 dragonIdle=false;
                 dragonPhase3Ready=false;
+                this.anims.play('dragonSpriteRight', true);
                 if (abovePlayer==false&&dragonReset==false)
                 {
                     createThis.physics.moveTo(this, player.x,1300, 150)
@@ -1202,12 +1203,14 @@ class newdragonBoss extends enemyBase {
                            player.x=player.x-30;
                            dragonReset=true;
                     abovePlayer=false;
+                        this.flipX=true;
                        }
                 }
                 
                 if (dragonReset==true){
                      createThis.physics.moveTo(this, 1400,1400, 200)
                     if(this.x<=1420&&this.x>=1380&&this.y<=1420&&this.y>=1380){
+                        
                     dragonReset=false;
                     }
                 }
@@ -1220,7 +1223,7 @@ class newdragonBoss extends enemyBase {
                     if (dragonPhase3Ready==false&&dragonIdle==false){
                      createThis.physics.moveTo(this, 1450,1500, 200)
                     if(this.x<=1470&&this.x>=1430&&this.y<=1520&&this.y>=1480){
-                        this.flipX = (this.body.velocity.x <= 0);
+                        this.flipX=true;
                         this.body.setVelocityX(0);
                         this.body.setVelocityY(0);
                     dragonPhase3Ready=true;
@@ -1229,16 +1232,19 @@ class newdragonBoss extends enemyBase {
                 }
                     if (dragonCharging=true&&dragonIdle==false){
                     if(this.x<=1470&&this.x>=1430&&this.y<=1520&&this.y>=1480){
+                        this.anims.play('dragonAttackRight', true);
                         this.body.setVelocityX(0);
                         this.body.setVelocityY(0);
+                        
                         dragonCharging=false;
                         dragonIdle=true;
                         this.chargeShot();
+                        
                     }
 
                     }
                  
-                 if (dragonIdle==true){
+                 if (dragonIdle==true){                
                          this.body.setVelocityX(0);
                         this.body.setVelocityY(0);
                  }
