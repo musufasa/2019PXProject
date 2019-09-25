@@ -12,19 +12,27 @@ class dragonLevel extends Phaser.Scene {
         
         this.load.spritesheet('fireAnimation', 'assets/enemy/fireSheet.png', { frameWidth: 1920, frameHeight: 137 });
         
+        this.load.spritesheet('dragonAttack', 'assets/enemy/dragonAttackSheet.png', { frameWidth: 365, frameHeight: 322 });
+        
         commonPreload();
-                dragonPhase = 1;
+        dragonPhase = 1;
 
     }
 
     create() {
         this.anims.create({
             key: 'dragonSpriteRight',
-            frames: createThis.anims.generateFrameNumbers('dragonSprite', { start: 0, end: 7 }),
+            frames: createThis.anims.generateFrameNumbers('dragonSprite', { start: 0, end: 9 }),
             frameRate: 10,
             repeat: -1
         });
         
+                this.anims.create({
+            key: 'dragonAttackRight',
+            frames: createThis.anims.generateFrameNumbers('dragonAttack', { start: 0, end: 9 }),
+            frameRate: 10,
+            repeat: -1
+        });
         
         loadMap();
         
@@ -32,7 +40,7 @@ class dragonLevel extends Phaser.Scene {
         setToEmptyQuest();
 
         //every 60 seconds change the dragon phase on a loop.
-        this.time.addEvent({ delay: 6000, callback: this.updateDragonPhase, callbackScope: this, loop: true });
+        this.time.addEvent({ delay: 12000, callback: this.updateDragonPhase, callbackScope: this, loop: true });
     }
     update() {
         callUpdateFuncs();
