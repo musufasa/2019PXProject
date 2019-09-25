@@ -73,14 +73,14 @@ class controller extends Phaser.Scene {
            { frameWidth: 82, frameHeight: 94 });
         this.load.spritesheet('jasonWalk','assets/player/newJasonWalking.png',
            { frameWidth: 52, frameHeight: 94 });
-        
-        
+        this.load.spritesheet('orpheusSprite','assets/NPC/orpheusTest.png',
+           { frameWidth: 57, frameHeight: 94 });
         this.load.spritesheet('kingSprite','assets/NPC/king.png',
            { frameWidth: 40, frameHeight: 64 });
 
         //Portal
         this.load.image('portalSprite','assets/items/portal.png');
-        
+    
         //Music & Audio
         this.load.audio('female', ['assets/stage/background/female.mp3']);
         this.load.audio('water', ['assets/stage/background/water.mp3']);
@@ -501,6 +501,12 @@ function loadMap() {
         repeat: -1
     });
     
+     createThis.anims.create({
+        key: 'orpheusTest',
+        frames: createThis.anims.generateFrameNumbers('orpheusSprite', { start: 0, end: 0 }),
+        frameRate: 10,
+        repeat: -1
+    });
     //coin animation 
         createThis.anims.create({
         key: 'spin',

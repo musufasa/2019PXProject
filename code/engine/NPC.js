@@ -308,6 +308,22 @@ class iphiclusNPC extends npcBase {
     }
 }
 
+class orpheusNPC extends npcBase {
+    constructor (parameter) {
+        super({
+            scene: createThis, 
+            x: parameter.x, 
+            y: parameter.y, 
+            key: 'orpheusSprite',
+            dialogueKey: parameter.dialogueKey,
+            npcId: parameter.npcId, 
+            gravity: true
+        })
+        this.anims.play('orpheusTest', true);
+
+    }
+}
+
 /* Process NPC dialogue. 
  * The game will display one entry for char and speech in dialogue[currentDialogue]. 
  * Doing this repeatedly will cycle through the contents of dialogue[currentDialogue].

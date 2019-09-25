@@ -198,6 +198,24 @@
                  "width":0,
                  "x":642.234772085518,
                  "y":1556.9092375958
+                }, 
+                {
+                 "height":0,
+                 "id":16,
+                 "name":"orpheus",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"dialogueKey",
+                         "type":"string",
+                         "value":"orpheus"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":1404,
+                 "y":1726
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -206,7 +224,7 @@
          "y":0
         }],
  "nextlayerid":15,
- "nextobjectid":16,
+ "nextobjectid":17,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",
