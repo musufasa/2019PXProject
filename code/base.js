@@ -67,22 +67,23 @@ class controller extends Phaser.Scene {
         //Main characters
         this.load.spritesheet('medeaSprite','assets/NPC/medea.png',
            { frameWidth: 32, frameHeight: 64 });
+      /*old jason
         this.load.spritesheet('jason','assets/player/jason.png',
            { frameWidth: 76, frameHeight: 64 });
-        
-        /** Revert back to old jason spritesheet for now, can be re-enabled once new spritesheet is working 
+        */
         this.load.spritesheet('jasonIdle','assets/player/newJasonIdle.png',
            { frameWidth: 82, frameHeight: 94 });
         this.load.spritesheet('jasonWalk','assets/player/newJasonWalking.png',
            { frameWidth: 52, frameHeight: 94 });
-        **/
-        
+        this.load.spritesheet('orpheusSprite','assets/NPC/orpheusTest.png',
+           { frameWidth: 57, frameHeight: 94 });
+
         this.load.spritesheet('kingSprite','assets/NPC/king.png',
            { frameWidth: 40, frameHeight: 64 });
 
         //Portal
         this.load.image('portalSprite','assets/items/portal.png');
-        
+    
         //Music & Audio
         this.load.audio('female', ['assets/stage/background/female.mp3']);
         this.load.audio('water', ['assets/stage/background/water.mp3']);
@@ -475,7 +476,7 @@ function loadMap() {
     //Player animations. 
     createThis.anims.create({
         key: 'jasonRight',
-        frames: createThis.anims.generateFrameNumbers('jason', { start: 1, end: 6 }),
+        frames: createThis.anims.generateFrameNumbers('jasonWalk', { start: 2, end: 11 }),
         frameRate: 10,
         repeat: -1
     });
@@ -487,7 +488,7 @@ function loadMap() {
     });
     createThis.anims.create({
         key: 'jasonIdleRight',
-        frames: createThis.anims.generateFrameNumbers('jason', { start: 1, end: 1 }),
+        frames: createThis.anims.generateFrameNumbers('jasonIdle', { start: 0, end: 12 }),
         frameRate: 10,
         repeat: -1
     });
@@ -506,6 +507,12 @@ function loadMap() {
         repeat: -1
     });
     
+     createThis.anims.create({
+        key: 'orpheusTest',
+        frames: createThis.anims.generateFrameNumbers('orpheusSprite', { start: 0, end: 0 }),
+        frameRate: 10,
+        repeat: -1
+    });
     //coin animation 
         createThis.anims.create({
         key: 'spin',

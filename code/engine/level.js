@@ -121,7 +121,14 @@ function spawnObjects() {
                 });
                 npcCount++; 
                 break;
-                
+                case 'orpheus': 
+                npcs[npcCount] = new orpheusNPC({
+                    x: mapObjectArray[i].x, 
+                    y: mapObjectArray[i].y, 
+                    dialogueKey: tempProperties['dialogueKey'] + levelProgress
+                });
+                npcCount++; 
+                break;
             case 'spiderBoss': 
                 enemies[enemyCount] = new spiderBoss({
                     x: mapObjectArray[i].x, 
