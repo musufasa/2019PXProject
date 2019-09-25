@@ -67,10 +67,9 @@ class controller extends Phaser.Scene {
         //Main characters
         this.load.spritesheet('medeaSprite','assets/NPC/medea.png',
            { frameWidth: 32, frameHeight: 64 });
-      /*old jason
         this.load.spritesheet('jason','assets/player/jason.png',
            { frameWidth: 76, frameHeight: 64 });
-        */
+        
         this.load.spritesheet('jasonIdle','assets/player/newJasonIdle.png',
            { frameWidth: 82, frameHeight: 94 });
         this.load.spritesheet('jasonWalk','assets/player/newJasonWalking.png',
