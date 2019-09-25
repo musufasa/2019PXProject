@@ -450,9 +450,15 @@ function spawnObjects() {
                 });
                 itemCount++;
                 break;
-                                break; 
                 case 'fountain':
                 items[itemCount] = new fountain({
+                    x: mapObjectArray[i].x,
+                    y: mapObjectArray[i].y
+                });
+                itemCount++;
+                break;
+                case 'arrowAmmo':
+                items[itemCount] = new arrowAmmo({
                     x: mapObjectArray[i].x,
                     y: mapObjectArray[i].y
                 });

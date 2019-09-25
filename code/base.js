@@ -67,14 +67,17 @@ class controller extends Phaser.Scene {
         //Main characters
         this.load.spritesheet('medeaSprite','assets/NPC/medea.png',
            { frameWidth: 32, frameHeight: 64 });
+      /*old jason
         this.load.spritesheet('jason','assets/player/jason.png',
            { frameWidth: 76, frameHeight: 64 });
+        */
         this.load.spritesheet('jasonIdle','assets/player/newJasonIdle.png',
            { frameWidth: 82, frameHeight: 94 });
         this.load.spritesheet('jasonWalk','assets/player/newJasonWalking.png',
            { frameWidth: 52, frameHeight: 94 });
         this.load.spritesheet('orpheusSprite','assets/NPC/orpheusTest.png',
            { frameWidth: 57, frameHeight: 94 });
+
         this.load.spritesheet('kingSprite','assets/NPC/king.png',
            { frameWidth: 40, frameHeight: 64 });
 
@@ -130,6 +133,7 @@ class controller extends Phaser.Scene {
         this.load.image('levelUp', 'assets/items/levelUpItem.png');
         this.load.image('healthPotion', 'assets/items/healthPotion.png');
         this.load.image('diamond', 'assets/items/diamond.png');
+        this.load.image('arrowAmmo', 'assets/items/arrow.png');
 
 
         //Pause
@@ -224,7 +228,9 @@ class controller extends Phaser.Scene {
         this.playerLevelText= userIntThis.add.text(this.game.renderer.width *.73, this.game.renderer.height * 0.09,"Player Level:"+currentPlayerLvl, styleRed2)
 
         this.xpText= userIntThis.add.text(this.game.renderer.width *.73, this.game.renderer.height * 0.1,"/nCurrent EXP: "+currentXP+" / "+XPtillNextLvl, styleRed)
- 
+        
+        this.ammoText= userIntThis.add.text(this.game.renderer.width *.73, this.game.renderer.height * 0.18,"/nCurrent EXP: "+currentXP+" / "+XPtillNextLvl, styleRed)
+
 
 
     }
@@ -246,7 +252,7 @@ if(onFire==true)//checks if the player is on fire
         if (questInfoKey._justDown){
             //display the quest info or hide it depending on its current state.
             questInfoKey._justDown = false;
-            console.log('quest key pressed.');
+            
             if(!questInfoOpen){
 
                 //Render quest box every frame with opacity of 40%
@@ -693,7 +699,7 @@ var config = {
 
 
     scene: [controller, titleScreen,tutorial,settingsScreen, argoLanding, roadToColchis, marketplace, palace, shrine, shrineForest,
-            colchisFields, riverCrossing, gardenEntrance, gardenForest, gardenDungeon, gardenFleece, sidequest1, palaceTreasureRoom ,sidequest2, dragonLevel,
+            colchisFields, riverCrossing, gardenEntrance, gardenForest, gardenDungeon, gardenFleece, sidequest1, palaceTreasureRoom ,sidequest2, dragonLevel, interStage1, 
             placeholdertestmap, endCutscene, endScreen, siren, pause, UIS, mapMenu, introCutscene]
 
 };
