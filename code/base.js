@@ -44,6 +44,9 @@ var loopcounter = 0;
 //variable to see if coin is picked up
 var playcoinsound = false;
 
+//Keeps track of when arrow sound should be played 
+var playArrowSound = false; 
+
 var updatexpText=false;
 
 var shield;
@@ -93,6 +96,7 @@ class controller extends Phaser.Scene {
         this.load.audio('jump',['assets/stage/background/jump.wav']);
         this.load.audio('bite',['assets/stage/background/bite.wav']);
         this.load.audio('coinsSound',['assets/sounds/coincollectsounds.wav']);
+        this.load.audio('arrowFired',['assets/sounds/arrowFired.wav']);
 
         
         //Other/Placeholders
@@ -361,6 +365,14 @@ if(onFire==true)//checks if the player is on fire
            this.sound.play('coinsSound');
            playcoinsound=false;
        }
+        
+        //Play arrow fired sound when arrow is fired 
+        if(playArrowSound==true)
+        {
+            var arrowFiredChunk = this.sound.add('arrowFired');
+            this.sound.play('arrowFired');
+            playArrowSound = false; 
+        }
 
     }
     updateRitualItemText() {
@@ -671,6 +683,10 @@ function destroyOldObjects() {
 
 
    function playerShoot() {
+        
+        //Play arrow shot sound effect 
+        playArrowSound = true;  
+        
         playerProjectiles[currentProjectile2] = new dragonFire2({
             x: player.x, 
             y: player.y,

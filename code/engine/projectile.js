@@ -162,7 +162,7 @@ class dragonFire2 extends projectile2 {
             scene: createThis,
             x: parameter.x,
             y: parameter.y, 
-            key: 'fireballSprite',
+            key: 'arrowAmmo',
             velocityX: 0,
             velocityAimed: parameter.velocityAimed,
             projectileId: parameter.projectileId,
