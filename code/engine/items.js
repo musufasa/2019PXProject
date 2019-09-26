@@ -644,3 +644,22 @@ class arrowAmmo extends itemBase {
         tempItem.destroy();
     }
 }
+
+class mirror extends itemBase {
+    constructor(parameter){
+        super({
+            scene: createThis,
+            x: parameter.x, 
+            y: parameter.y,
+            key: 'mirror', 
+            gravity: false
+            
+            
+        })
+
+    }
+
+    collision (tempItem){
+        console.log("Jason is in front of the mirror");
+    }
+}

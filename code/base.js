@@ -82,7 +82,7 @@ class controller extends Phaser.Scene {
 
         //Portal
         this.load.image('portalSprite','assets/items/portal.png');
-    
+        
         //Music & Audio
         this.load.audio('female', ['assets/stage/background/female.mp3']);
         this.load.audio('water', ['assets/stage/background/water.mp3']);
@@ -179,6 +179,9 @@ class controller extends Phaser.Scene {
         this.load.image('fire', 'assets/enemy/firePlaceHolder.png');
         this.load.spritesheet('fireAnimation', 'assets/enemy/fireSheet.png', { frameWidth: 1920, frameHeight: 137 });
         this.load.image('fountain', 'assets/items/fountain.png');
+        
+        //Temple of Hecate - Medea boss 
+        this.load.image('mirror', 'assets/items/mirror.png');
 
     }
 
