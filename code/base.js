@@ -236,8 +236,8 @@ class controller extends Phaser.Scene {
         this.xpText= userIntThis.add.text(this.game.renderer.width *.73, this.game.renderer.height * 0.1,"/nCurrent EXP: "+currentXP+" / "+XPtillNextLvl, styleRed)
         
         this.ammoText= userIntThis.add.text(this.game.renderer.width *.73, this.game.renderer.height * 0.18,"/nCurrent EXP: "+currentXP+" / "+XPtillNextLvl, styleRed)
-
-
+        
+        this.coinText= userIntThis.add.text(this.game.renderer.width *.73, this.game.renderer.height * 0.22,"Coins: " +currentCoins, styleRed)
 
     }
 
@@ -250,6 +250,8 @@ if(onFire==true)//checks if the player is on fire
             updateXpText();//updates xp text
         checkUpgradePoints();
         
+        //Keeps coin counter up to date
+        this.coinText.setText("Coins: "+currentCoins);
         
 
         
