@@ -133,7 +133,6 @@ class projectile2 extends Phaser.GameObjects.Sprite {
         this.projectileId = parameter.projectileId;
         this.damage = parameter.damage; 
         this.velocityAimed = parameter.velocityAimed;
-
         //Collision with any enemy.
         createThis.physics.add.overlap(this, enemies, this.enemyDamage);
 
@@ -168,7 +167,8 @@ class dragonFire2 extends projectile2 {
             projectileId: parameter.projectileId,
             damage: 25
         })
-
+        console.log(Phaser.Math.Angle.Between(this.x,this.y,camera.scrollX+game.input.mousePointer.x, camera.scrollY+game.input.mousePointer.y));
+        this.rotation = Phaser.Math.Angle.Between(this.x,this.y,camera.scrollX+game.input.mousePointer.x, camera.scrollY+game.input.mousePointer.y);
         //If aimed is true, accelerte towards the player. 
             createThis.physics.moveTo(this,camera.scrollX+game.input.mousePointer.x, camera.scrollY+game.input.mousePointer.y, this.velocityAimed);
             //createThis.physics.accelerateToObject(this, cursor, this.velocityAimed);
