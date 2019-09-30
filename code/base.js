@@ -125,6 +125,8 @@ class controller extends Phaser.Scene {
         this.load.image('bgDungeon', 'assets/background/dungeon.png');
         this.load.image('bgForest', 'assets/background/forest.png');
         this.load.image('bgMarket', 'assets/background/market.png');
+        this.load.image('bgDragon', 'assets/background/dragonBackground.jpg');
+        
         this.load.image("tiles", "assets/tilesheet-extruded.png");
         this.load.image('plowSprite','assets/items/plow.png');
         this.load.image('maxHealthItemSprite', 'assets/items/maxHealth.png');

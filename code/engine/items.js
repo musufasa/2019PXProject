@@ -594,7 +594,7 @@ class fire extends itemBase {
             
         })
         this.anims.play('fire', true);
-        this.setAlpha(.5);
+       // this.setAlpha(.5);
 
     }
 
