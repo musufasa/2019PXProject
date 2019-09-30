@@ -75,7 +75,7 @@ class dragonFire extends projectile {
         })
 
         this.hugeFireMovement = parameter.hugeFireMovement !== undefined && parameter.hugeFireMovement;
-        
+
 
         //If aimed is true, accelerate towards the player. 
         if (parameter.aimed){
@@ -135,7 +135,7 @@ class projectile2 extends Phaser.GameObjects.Sprite {
         this.velocityAimed = parameter.velocityAimed;
         //Collision with any enemy.
         createThis.physics.add.overlap(this, enemies, this.enemyDamage);
-
+        createThis.physics.add.overlap(this, mapLayer, this.checkForTileCollision);
         //Increment current projectile count. 
         currentProjectile++;
     }
@@ -153,6 +153,14 @@ class projectile2 extends Phaser.GameObjects.Sprite {
             }
             setTimeout(tempEnemy.invulnerabilityStop, 500, tempEnemy.enemyId);
     }
+
+    checkForTileCollision(tempProjectile,tempTile){
+        //todo: probably need to optimize this as it calls on every movement of the projectile lifespan.
+        if(tempTile.canCollide){
+            tempProjectile.destroy();
+        }
+    }
+
 }
 
 class dragonFire2 extends projectile2 {
@@ -167,7 +175,7 @@ class dragonFire2 extends projectile2 {
             projectileId: parameter.projectileId,
             damage: 25
         })
-        console.log(Phaser.Math.Angle.Between(this.x,this.y,camera.scrollX+game.input.mousePointer.x, camera.scrollY+game.input.mousePointer.y));
+
         this.rotation = Phaser.Math.Angle.Between(this.x,this.y,camera.scrollX+game.input.mousePointer.x, camera.scrollY+game.input.mousePointer.y);
         //If aimed is true, accelerte towards the player. 
             createThis.physics.moveTo(this,camera.scrollX+game.input.mousePointer.x, camera.scrollY+game.input.mousePointer.y, this.velocityAimed);
