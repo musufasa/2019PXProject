@@ -1198,13 +1198,19 @@ class newdragonBoss extends enemyBase {
                 }
 
                 if(abovePlayer==true&&dragonReset==false){
-                    createThis.physics.moveTo(this, player.x,player.y, 200)
+                    createThis.physics.moveTo(this, this.x,player.y, 200)
                        if(this.x<=player.x+10 && this.x>=player.x-10 && this.y<=player.y+10 && this.y>=player.y-10 ){
                            player.x=player.x-30;
                            dragonReset=true;
                     abovePlayer=false;
                         this.flipX=true;
                        }
+                    else if(this.y<=player.y+10 && this.y>=player.y-10 ){
+                        player.x=player.x-30;
+                           dragonReset=true;
+                    abovePlayer=false;
+                        this.flipX=true;
+                    }
                 }
                 
                 if (dragonReset==true){

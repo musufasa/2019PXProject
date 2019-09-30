@@ -6,7 +6,7 @@ class dragonLevel extends Phaser.Scene {
     preload() {
         createThis = this;
         currentLevelID = 'dragonLevel';
-        backgroundLayer0 = 'bgSky';
+        backgroundLayer0 = 'bgDragon';
         this.load.spritesheet('dragonSprite','assets/enemy/dragon2.png', 
            { frameWidth: 296, frameHeight: 322 });
         
