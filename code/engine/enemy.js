@@ -13,6 +13,9 @@ dragonCharging=false;
 dragonIdle=false;
 phase1ready=false;
 
+medeaReset=false;
+teleport=0;
+readyToTeleport=false;
 /* The enemyBase class is used as a base for various enemies.  
  * This should not be spawned directly. 
  * Required parameters: scene, x, y, key, xMove/yMove, xVel/yVel, scale, enemyId, gravity, health.
@@ -1312,4 +1315,138 @@ class newdragonBoss extends enemyBase {
     }
 
     
+}
+
+
+
+
+/* Medea Boss. 
+ * Flies horizontally and vertically. 
+ * Required parameters: x, y, xMove, yMove, enemyId
+ */
+class medeaBoss extends enemyBase { 
+    constructor (parameter) {
+        super({
+            scene: createThis, 
+            x: parameter.x, 
+            y: parameter.y,
+            key: 'medeaBoss', 
+            xMove: parameter.xMove,
+            xVel: 100, 
+            scale: .45, 
+            enemyId: parameter.enemyId, 
+            gravity: false, 
+            health: 2000
+        });
+    } 
+    
+
+
+    
+
+    update () { 
+        if (this.health <= 1000){
+            medeaPhase=3
+        } else if (this.health <= 1500){
+            medeaPhase=2 
+        } else {
+            medeaPhase=1;
+        }
+        
+        if (this.x > player.x) {
+            this.anims.play('medeaBoss', true);
+        } else if (this.x< player.x) {
+                        this.flipX
+
+            //this.anims.play('medeaBoss', true);
+        }
+        
+        if (this.alive && this.health <= 0) {
+            this.alive = false; 
+            enemies[this.enemyId].destroy(); 
+        }
+    }    
+    
+    movement(){
+                if(medeaPhase==1){
+                    
+                    if(medeaReset==false){
+                        this.medeaShoot();
+                        readyToTeleport=true;
+                        medeaReset=true;
+                    }
+            if(this.x>=player.x-50&&this.x<=player.x+50&&this.y>=player.y-50&&this.y<=player.y+50){
+                            medeaReset=false;
+
+             console.log("teleport");
+                if (teleport<=5){
+                teleport=teleport+1;
+                }else
+                    teleport=0;
+            }
+                    
+                    if(teleport==1){
+                        if(readyToTeleport==true){
+                        this.x=364;
+                        this.y=7616;
+                        }
+                    }
+                    
+                          if(teleport==2){
+                        if(readyToTeleport==true){
+                        this.x=737;
+                        this.y=7232;
+                        }
+                    }
+                    
+                            if(teleport==3){
+                        if(readyToTeleport==true){
+                        this.x=1518;
+                        this.y=7225;
+                        }
+                    }
+                          if(teleport==4){
+                        if(readyToTeleport==true){
+                        this.x=1766;
+                        this.y=7487;
+                        }
+                    }
+
+
+    }
+    }
+    
+
+    medeaShoot() {
+        projectiles[currentProjectile] = new medeaArrow({
+            x: this.x, 
+            y: this.y,
+            projectileId: currentProjectile,
+            aimed: true, 
+            velocityAimed: 300
+        });
+
+            setTimeout(this.shootAgain, 1000, this);
+            setTimeout(this.shootAgain, 2000, this);
+            setTimeout(this.shootAgain, 3500, this);
+            setTimeout(this.shootAgain, 4500, this);
+            setTimeout(this.shootAgain, 5500, this);
+            setTimeout(this.shootAgain, 5500, this);
+            setTimeout(this.shootAgain, 6500, this);
+             setTimeout(this.shootAgain, 7500, this);
+
+
+    }
+    
+        shootAgain(tempDragon) {
+        projectiles[currentProjectile] = new medeaArrow({
+            x: tempDragon.x, 
+            y: tempDragon.y,
+            projectileId: currentProjectile,
+            aimed: true , 
+            velocityAimed: 200
+        });
+
+
+    }
 }

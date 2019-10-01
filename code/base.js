@@ -53,6 +53,9 @@ var shield;
 
 var dragonPhase;
 var onFire=false;
+
+var medeaPhase;
+
 /* Controller.
  * Handles the entire game.
  */

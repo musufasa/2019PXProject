@@ -594,7 +594,7 @@ class fire extends itemBase {
             
         })
         this.anims.play('fire', true);
-       // this.setAlpha(.5);
+        //this.setAlpha(.5);
 
     }
 
@@ -660,6 +660,10 @@ class mirror extends itemBase {
     }
 
     collision (tempItem){
+        if (medeaPhase==2){
+        player.x=968;
+        player.y=6447;
+        }
         console.log("Jason is in front of the mirror");
     }
 }
