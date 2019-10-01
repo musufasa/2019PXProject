@@ -471,6 +471,17 @@ function spawnObjects() {
                 });
                 itemCount++;
                 break; 
+                case 'medeaBoss': 
+                enemies[enemyCount] = new medeaBoss({
+                    x: mapObjectArray[i].x, 
+                    y: mapObjectArray[i].y,
+                    xMove: tempProperties['xMove'],
+                    enemyId: enemyCount
+                });
+                enemyCount++; 
+                break;
+                
+                
     }
 }
 }
