@@ -55,6 +55,8 @@ var dragonPhase;
 var onFire=false;
 
 var medeaPhase;
+var teleport;
+var medeaReset=false;
 
 /* Controller.
  * Handles the entire game.

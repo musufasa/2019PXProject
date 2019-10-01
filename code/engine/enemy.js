@@ -14,7 +14,6 @@ dragonIdle=false;
 phase1ready=false;
 
 medeaReset=false;
-teleport=0;
 readyToTeleport=false;
 /* The enemyBase class is used as a base for various enemies.  
  * This should not be spawned directly. 
@@ -1375,15 +1374,6 @@ class medeaBoss extends enemyBase {
                         readyToTeleport=true;
                         medeaReset=true;
                     }
-            if(this.x>=player.x-50&&this.x<=player.x+50&&this.y>=player.y-50&&this.y<=player.y+50){
-                            medeaReset=false;
-
-             console.log("teleport");
-                if (teleport<=5){
-                teleport=teleport+1;
-                }else
-                    teleport=0;
-            }
                     
                     if(teleport==1){
                         if(readyToTeleport==true){
