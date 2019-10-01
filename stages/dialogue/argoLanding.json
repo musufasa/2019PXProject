@@ -2,7 +2,7 @@
 	"oileus1":[
 		{ 
 			"char":"Oileus",
-			"speech":"A long boat ride, I always enjoy the soil of new lands" 
+			"speech":"Where can we find the fleece? Mayhaps the king of these lands can help" 
 		},
 		{ 
 			"char":"",
@@ -12,7 +12,7 @@
 	"iphiclus1":[
 		{
 			"char":"Iphiclus",
-			"speech":"We will stay here and protect the boat whilst you head to the palace"
+			"speech":"Go ahead with Orpheus. Oileus and I will guard our supplies"
 		},
 		{ 
 			"char":"",
@@ -73,6 +73,18 @@
 		{
 			"char":"Orpheus",
 			"speech":"Hello Jason, shall we venture forth together? "
+		},
+		{ 
+			"char":"",
+			"speech":"" 
+		}
+        
+	],
+    
+    "oileusB1": [
+		{
+			"char":"Villager",
+			"speech":"Foxes are ruining my crops, can you help me?"
 		},
 		{ 
 			"char":"",
