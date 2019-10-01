@@ -124,7 +124,7 @@ class medeaArrow extends projectile {
             velocityX: 0,
             velocityAimed: parameter.velocityAimed,
             projectileId: parameter.projectileId,
-            damage: 50
+            damage: 10
         })
 
         

@@ -15,6 +15,7 @@ phase1ready=false;
 
 medeaReset=false;
 readyToTeleport=false;
+move=false;
 /* The enemyBase class is used as a base for various enemies.  
  * This should not be spawned directly. 
  * Required parameters: scene, x, y, key, xMove/yMove, xVel/yVel, scale, enemyId, gravity, health.
@@ -1334,7 +1335,7 @@ class medeaBoss extends enemyBase {
             xVel: 100, 
             scale: .45, 
             enemyId: parameter.enemyId, 
-            gravity: false, 
+            gravity: true, 
             health: 2000
         });
     } 
@@ -1352,12 +1353,10 @@ class medeaBoss extends enemyBase {
             medeaPhase=1;
         }
         
-        if (this.x > player.x) {
+        if (this.x < player.x) {
             this.anims.play('medeaBoss', true);
-        } else if (this.x< player.x) {
+        } else if (this.x> player.x) {
                         this.flipX
-
-            //this.anims.play('medeaBoss', true);
         }
         
         if (this.alive && this.health <= 0) {
@@ -1368,7 +1367,7 @@ class medeaBoss extends enemyBase {
     
     movement(){
                 if(medeaPhase==1){
-                    
+                    move=false;
                     if(medeaReset==false){
                         this.medeaShoot();
                         readyToTeleport=true;
@@ -1377,6 +1376,7 @@ class medeaBoss extends enemyBase {
                     
                     if(teleport==1){
                         if(readyToTeleport==true){
+                            //this.body.reset(364, 7616);
                         this.x=364;
                         this.y=7616;
                         }
@@ -1401,9 +1401,35 @@ class medeaBoss extends enemyBase {
                         this.y=7487;
                         }
                     }
-
-
     }
+        
+        if(medeaPhase==2){
+            if(this.y>6200){
+            if(move==false){
+            this.x=1177;
+            this.y=7700;
+            this.setVelocity
+            move=true;
+            }
+            createThis.physics.moveTo(this, 1500,this.y, 100)
+            if(this.x>1380)
+                { 
+                   this.x=610;
+                    this.y=6149;
+                this.body.setVelocityX(0);
+
+                }
+        }
+            
+            if(this.y<6201){
+                if(cloneSpawn==true){
+            this.spawnClone();
+            cloneSpawn=false;
+                }
+            
+        }
+            
+        }
     }
     
 
@@ -1439,4 +1465,47 @@ class medeaBoss extends enemyBase {
 
 
     }
+    
+            spawnClone(){
+                    enemies[enemyCount] = new medeaClone({
+                    x: this.x, 
+                    y: this.y,
+                    xMove: tempProperties[50],
+                    enemyId: enemyCount
+                });
+                enemyCount++; 
+    }
 }
+
+class medeaClone extends enemyBase { 
+    constructor (parameter) {
+        super({
+            scene: createThis, 
+            x: parameter.x, 
+            y: parameter.y,
+            key: 'medeaBoss', 
+            xMove: parameter.xMove,
+            xVel: 130, 
+            scale: 0.45, 
+            enemyId: parameter.enemyId, 
+            gravity: true, 
+            health: 1
+        });
+    }    
+
+    update () {        
+
+        
+        if (this.alive && this.health <= 0) {
+            this.alive = false; 
+            enemies[this.enemyId].destroy(); 
+        }
+    }    
+    
+    movement(){
+    createThis.physics.moveTo(this, player.x,player.y, 150)
+
+    }
+}
+
+
