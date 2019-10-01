@@ -36,13 +36,25 @@ var playerShipVelocity = 300; //X velocity used in playerShip mode.
  * This is not used for controlling a ship. 
  */
 function playerMovement() {
-    //If the attack key is held, swing the player's sword. 
-    if (attackKey.isDown && !playerSwingSword && !playerSwungSword) {
-        playerSword();
-    //If the player's sword has been swung and the player isn't currently in a swing, allow the player to swing their sword again. 
-    } else if (!attackKey.isDown && !playerSwingSword && playerSwungSword) {
-        playerSwungSword = false; 
+    if(game.input.activePointer.justDown){
+        //used as attack mapping
+        if(currentWeapon === 'sword') {
+            if (!playerSwingSword && !playerSwungSword) {
+                playerSword();
+                //If the player's sword has been swung and the player isn't currently in a swing, allow the player to swing their sword again.
+            } else if (!playerSwingSword && playerSwungSword) {
+                playerSwungSword = false;
+            }
+        }else if(currentWeapon === 'ranged'){
+            if (numberArrows > 0) {
+                //only shoot an arrow if the player is carrying some.
+                playerShoot();
+                numberArrows -= 1;
+            }
+        }
+        game.input.activePointer.justDown = false;
     }
+
 
     //Cap the player's Y velocity. 
     if (player.body.velocity.y > playerVelocityYMax) {
@@ -325,8 +337,9 @@ function playerCheckDialogueWalkAway(){
  * It does not affect animation or damage.  
  */
 function playerSword () {
-    playerSwingSword = true; 
-    playerSwungSword = true; 
+    playerSwingSword = true;
+    playerSwungSword = true;
+    attacksound = true;
     setTimeout(playerSwordStop, 500);
 }
 

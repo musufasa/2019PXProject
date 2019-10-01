@@ -2,7 +2,7 @@
 var cursors; //Arrow Keys
 var leftMoveKey; //Move left, deafault is A
 var rightMoveKey; //Move right, deafault is D
-var attackKey; //Attack key (default is Z)
+var weaponKey; //Attack key (default is Z)
 var jumpKey; //Jump key (default is Space bar)
 var sprintKey; //Sprint/dash key (default is left shift)
 var interactKey; //Talk/interact key (default is C)
@@ -15,6 +15,7 @@ var rangeAttackKey;
 var blockKey;//used to enable blocking (E key)
 var camera;
 var helperSprite; //used to hold the value of which helper sprite was choosen by the player at the start of the game. should be strictly 'Orpheus' or 'Medea'
+var currentWeapon = 'sword';
 //Player character
 var player; //Player sprite
 var attacksound = false; // Variable for attack sound - Used to tell if sound should be played.
@@ -207,7 +208,6 @@ class controller extends Phaser.Scene {
         //Create default key bindings for up,down,left and right
         cursors = createThis.input.keyboard.createCursorKeys();
 
-        attackKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
         jumpKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         interactKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Z);
         displayMapKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.M);
@@ -359,15 +359,11 @@ if(onFire==true)//checks if the player is on fire
 
 
        //When character Attacks, play the attack sound.
-        if (!attackKey.isDown)
-            {
-                attacksound = true;
-            }
-        if (attackKey.isDown && attacksound )
-            {
-           this.sound.play('attack');
-                attacksound = false;
-            }
+        if (attacksound){
+            this.sound.play('attack');
+            attacksound = false;
+        }
+
         //play coins sounds when coin is picked up
        if(playcoinsound==true){
          var coinsSoundtest = this.sound.add('coinsSound');
@@ -485,7 +481,7 @@ function loadMap() {
     mapLayer.setCollisionByProperty({ collides: true });
     createThis.physics.add.collider(player, mapLayer);
     
-        attackKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
+        weaponKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
         jumpKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         interactKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Z);
         displayMapKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.M);
@@ -606,17 +602,21 @@ function callUpdateFuncs() {
     if (dialogueActive) {
         playerCheckDialogueWalkAway();
     }
-    
-            if(game.input.activePointer.justDown){
-            if(numberArrows > 0){
-                //only shoot an arrow if the player is carrying some.
-                playerShoot();
-                numberArrows -= 1;
-            }
-            game.input.activePointer.justDown = false;
+
+    if (weaponKey._justDown){
+        weaponKey._justDown = false;
+        switch (currentWeapon) {
+            case "sword":
+                currentWeapon = "ranged";
+                break;
+            case "ranged":
+                currentWeapon = "sword";
+                break;
+            default:
+                currentWeapon = "sword";
+                break;
         }
-    
-    
+    }
             //open inventory
         if (inventoryKey._justDown){
             inventoryKey._justDown = false;
