@@ -87,6 +87,14 @@
 			"speech":"Foxes are ruining my crops, can you help me?"
 		},
 		{ 
+			"char":"Jason",
+			"speech":"Do not fear villager, i will slay these beasts." 
+		},
+        { 
+			"char":"Villager",
+			"speech":"Thank thee mighty hero." 
+		},
+        { 
 			"char":"",
 			"speech":"" 
 		}

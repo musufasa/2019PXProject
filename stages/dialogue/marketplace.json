@@ -14,6 +14,57 @@
 		{ "char":"",
 			"speech":"" 
 		}
+	],
+    "orpheus1":[
+		{ "char":"Orpheus",
+			"speech":"King Aeitos' Palace..." 
+		},
+		{ "char":"Orpheus",
+			"speech":"I hear the king has a daughter Jason..." 
+		},
+        { "char":"Jason",
+			"speech":"What are you suggesting Orpheus?" 
+		},
+        { "char":"Orpheus",
+			"speech":"Oh nothing Jason..." 
+		},
+        
+        { "char":"",
+			"speech":"" 
+		}
+        
+	],
+    
+    "orpheus2":[
+		{ "char":"Orpheus",
+			"speech":"I saw the shrine on the road to Colchis" 
+		},
+        
+        { "char":"",
+			"speech":"" 
+		}
+	],
+    "oileus1":[
+		{ "char":"Villager",
+			"speech":"My Brother... *sob* .. no" 
+		},
+		{ "char":"Jason",
+			"speech":"What is wrong?" 
+		},
+        
+        { "char":"Villager",
+			"speech":"My brother has yet to return through that portal... *sob*" 
+		},
+        { "char":"Villager",
+			"speech":"Can you go in and find out what has happened?" 
+		},
+        
+        { "char":"Jason",
+			"speech":"Verry well, stay here." 
+		},
+        { "char":"",
+			"speech":"" 
+		}
 	]
 
 }

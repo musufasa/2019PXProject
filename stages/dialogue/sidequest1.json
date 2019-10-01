@@ -1,12 +1,16 @@
 {    
-	"signR2C": [
+	"orpheus1": [
 		{
-			"char":"To the argolanding",
-			"speech":" "
+			"char":"Orpheus",
+			"speech":"Beware Jason there are mighty foxes ahead."
 		},
 		{ 
-			"char":"",
-			"speech":"" 
-		}
+			"char":"Jason",
+			"speech":"Stand back Orpheus, i will handle this." 
+		},
+        {
+            "char":"",
+            "speech":""
+        }
 	]
 }
