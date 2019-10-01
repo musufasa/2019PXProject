@@ -1,10 +1,40 @@
 {    
-	"orpheus1": [
+	"oileus1": [
 		{
-			"char":"Orpheus",
-			"speech":"SLP SLP SLP SLP I AM ORPHEUS "
+			"char":"Villager",
+			"speech":"Thank you for saving me, here is 50 Gold. "
 		},
 		{ 
+			"char":"Jason",
+			"speech":"Keep your gold Villager. I have another request" 
+		},
+        { 
+			"char":"Villager",
+			"speech":"Oh? What do you need?" 
+		},
+        { 
+			"char":"Jason",
+			"speech":"Where can i find the Golden Fleece?" 
+		},
+        { 
+			"char":"Villager",
+			"speech":"You must speak to the king. I hear it is in a sacred garden, guarded by a mighty dragon!" 
+		},
+        { 
+			"char":"",
+			"speech":"" 
+		}
+	],
+    "orpheus1": [
+		{
+			"char":"Orpheus",
+			"speech":"Mayhaps the golden fleece is here? "
+		},
+		{ 
+			"char":"Jason",
+			"speech":"Only one way to find out..." 
+		},
+        { 
 			"char":"",
 			"speech":"" 
 		}

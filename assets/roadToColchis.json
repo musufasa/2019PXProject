@@ -462,6 +462,42 @@
                  "width":0,
                  "x":4221,
                  "y":1745
+                }, 
+                {
+                 "height":0,
+                 "id":61,
+                 "name":"orpheus",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"dialogueKey",
+                         "type":"string",
+                         "value":"orpheus"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":252,
+                 "y":1730
+                }, 
+                {
+                 "height":0,
+                 "id":62,
+                 "name":"Oileus",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"dialogueKey",
+                         "type":"string",
+                         "value":"oileus"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":640,
+                 "y":1722
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -470,7 +506,7 @@
          "y":0
         }],
  "nextlayerid":24,
- "nextobjectid":61,
+ "nextobjectid":64,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",

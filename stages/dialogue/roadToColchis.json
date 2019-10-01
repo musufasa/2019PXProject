@@ -14,5 +14,27 @@
 		{ "char":"",
 			"speech":"" 
 		}
+	],
+    "orpheus1":[
+		{ "char":"Orpheus",
+			"speech":"This road should take us to the marketplace." 
+		},
+        { "char":"Orpheus",
+			"speech":"The villagers can help us with finding the golden fleece." 
+		},
+		{ "char":"",
+			"speech":"" 
+		}
+	],
+    "oileus1":[
+		{ "char":"Villager",
+			"speech":"Help! Centaurs are blocking the road to the market!" 
+		},
+        { "char":"Jason",
+			"speech":"They will taste my blade." 
+		},
+		{ "char":"",
+			"speech":"" 
+		}
 	]
 }
