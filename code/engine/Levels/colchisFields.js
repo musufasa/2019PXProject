@@ -6,7 +6,7 @@ class colchisFields extends Phaser.Scene{
     preload() {
         createThis = this;
         currentLevelID = 'colchisFields';
-        backgroundLayer0 = 'bgSky';
+        backgroundLayer0 = 'bgDragon';
         commonPreload();
     }
 

@@ -6,7 +6,7 @@ class sidequest2 extends Phaser.Scene {
     preload() {
         createThis = this;
         currentLevelID = 'sidequest2';
-        backgroundLayer0 = 'bgSky';
+        backgroundLayer0 = 'bgDragon';
         playerInvulnerability = false;
         commonPreload();
                 this.load.spritesheet('fox','assets/enemy/fox.png',

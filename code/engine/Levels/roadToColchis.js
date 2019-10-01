@@ -6,7 +6,7 @@ class roadToColchis extends Phaser.Scene {
     preload() {
         createThis = this;
         currentLevelID = 'roadToColchis';
-        backgroundLayer0 = 'bgSky';
+        backgroundLayer0 = 'bgDragon';
         commonPreload();
          this.load.spritesheet('fox','assets/enemy/fox.png',
         {frameWidth: 120, frameHeight: 79}); 
