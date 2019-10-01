@@ -57,7 +57,7 @@ var onFire=false;
 var medeaPhase;
 var teleport;
 var medeaReset=false;
-
+var cloneSpawn=false;
 /* Controller.
  * Handles the entire game.
  */
