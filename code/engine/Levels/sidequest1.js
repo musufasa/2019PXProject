@@ -6,7 +6,7 @@ class sidequest1 extends Phaser.Scene {
     preload() {
         createThis = this;
         currentLevelID = 'sidequest1';
-        backgroundLayer0 = 'bgSky';
+        backgroundLayer0 = 'bgDragon';
         playerInvulnerability = false;
         commonPreload();
         

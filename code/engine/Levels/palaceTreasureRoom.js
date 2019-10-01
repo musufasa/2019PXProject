@@ -6,7 +6,7 @@ class palaceTreasureRoom extends Phaser.Scene {
     preload() {
         createThis = this;
         currentLevelID = 'palaceTreasureRoom';
-        backgroundLayer0 = 'bgSky';
+        backgroundLayer0 = 'bgDragon';
         playerInvulnerability = false;
         commonPreload();
   

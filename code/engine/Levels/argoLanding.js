@@ -6,7 +6,7 @@ class argoLanding extends Phaser.Scene {
     preload() {
         createThis = this;
         currentLevelID = 'argoLanding';
-        backgroundLayer0 = 'bgSky';
+        backgroundLayer0 = 'bgDragon';
         //on actual start of game turn off invulnerability which was enabled during the tutorial level.
         playerInvulnerability = false;
         commonPreload();

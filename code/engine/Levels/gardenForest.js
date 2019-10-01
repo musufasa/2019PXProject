@@ -6,7 +6,7 @@ class gardenForest extends Phaser.Scene {
     preload() {
         createThis = this;
         currentLevelID = 'gardenForest';
-        backgroundLayer0 = 'bgSky';
+        backgroundLayer0 = 'bgDragon';
         backgroundLayer1 = 'bgForest';
         commonPreload();
         

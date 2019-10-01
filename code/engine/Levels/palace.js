@@ -6,7 +6,7 @@ class palace extends Phaser.Scene {
     preload() {
         createThis = this;
         currentLevelID = 'palace';
-        backgroundLayer0 = 'bgSky';
+        backgroundLayer0 = 'bgDragon';
         commonPreload();
 
         createThis.anims.create({
