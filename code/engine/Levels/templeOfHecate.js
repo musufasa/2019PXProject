@@ -14,6 +14,8 @@ class templeOfHecate extends Phaser.Scene {
         
                 this.load.spritesheet('medeaBoss','assets/enemy/medeaBoss.png',
         {    frameWidth: 200, frameHeight: 242});   
+
+        
     }
 
     create() {
@@ -31,10 +33,35 @@ class templeOfHecate extends Phaser.Scene {
             
         //Set empty quest on map load 
         setToEmptyQuest();
+                
+        this.time.addEvent({ delay: 12000, callback: this.updateTeleport, callbackScope: this, loop: true });
     }
 
     update() {
         callUpdateFuncs();
+
+    }
+    
+         updateTeleport() {
+
+         switch (teleport) {
+             case 1:
+                 teleport = 2;
+                 medeaReset=false;
+                 break;
+             case 2:
+                 teleport = 3;
+                 medeaReset=false;
+                 break;
+             case 3:
+                 teleport = 4;
+                medeaReset=false;
+                 break;
+             default:
+                 teleport = 1;
+                medeaReset=false;
+                 break;
+         }
 
     }
 }
