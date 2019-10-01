@@ -1413,7 +1413,7 @@ class medeaBoss extends enemyBase {
             y: this.y,
             projectileId: currentProjectile,
             aimed: true, 
-            velocityAimed: 300
+            velocityAimed: 100
         });
 
             setTimeout(this.shootAgain, 1000, this);
@@ -1434,7 +1434,7 @@ class medeaBoss extends enemyBase {
             y: tempDragon.y,
             projectileId: currentProjectile,
             aimed: true , 
-            velocityAimed: 200
+            velocityAimed: 100
         });
 
 

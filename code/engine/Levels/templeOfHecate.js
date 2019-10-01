@@ -5,7 +5,7 @@ class templeOfHecate extends Phaser.Scene {
 
     preload() {
         
-        //Create local context to createThis, set level id, background layer, disable player invulnerability and carry out common preload tasks common to //all levels
+        //Create local context to createThis, set level id, background layer, disable player invulnerability and carry out common preload tasks common to all levels
         createThis = this;
         currentLevelID = 'templeOfHecate';
         backgroundLayer0 = 'bgSky';
