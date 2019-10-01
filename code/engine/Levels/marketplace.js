@@ -6,7 +6,7 @@ class marketplace extends Phaser.Scene {
     preload() {
         createThis = this;
         currentLevelID = 'marketplace';
-        backgroundLayer0 = 'bgSky';
+        backgroundLayer0 = 'bgDragon';
         backgroundLayer1 = 'bgMarket';
         commonPreload();
     }

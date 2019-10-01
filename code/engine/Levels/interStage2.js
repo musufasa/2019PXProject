@@ -8,7 +8,7 @@ class interStage2 extends Phaser.Scene {
         //Create local context to createThis, set level id, background layer, disable player invulnerability and carry out common preload tasks common to //all levels
         createThis = this;
         currentLevelID = 'interStage2';
-        backgroundLayer0 = 'bgSky';
+        backgroundLayer0 = 'bgDragon';
         playerInvulnerability = false;
         commonPreload();
         

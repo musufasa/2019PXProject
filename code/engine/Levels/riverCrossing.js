@@ -6,7 +6,7 @@ class riverCrossing extends Phaser.Scene {
     preload() {
         createThis = this;
         currentLevelID = 'riverCrossing';
-        backgroundLayer0 = 'bgSky';
+        backgroundLayer0 = 'bgDragon';
         commonPreload();
 
         this.load.spritesheet('fox','assets/enemy/fox.png',

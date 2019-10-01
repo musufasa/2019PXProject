@@ -6,7 +6,7 @@ class tutorial extends Phaser.Scene {
     preload() {
         createThis = this;
         currentLevelID = 'tutorial';
-        backgroundLayer0 = 'bgSky';
+        backgroundLayer0 = 'bgDragon';
         commonPreload();
         
         //todo: change image for tutorial enemy character
