@@ -729,7 +729,7 @@ var config = {
 
 
     scene: [controller, titleScreen,tutorial,settingsScreen, argoLanding, roadToColchis, marketplace, palace, shrine, shrineForest,
-            colchisFields, riverCrossing, gardenEntrance, gardenForest, gardenDungeon, gardenFleece, sidequest1, palaceTreasureRoom ,sidequest2, dragonLevel, interStage1, interStage2, 
+            colchisFields, riverCrossing, gardenEntrance, gardenForest, gardenDungeon, gardenFleece, sidequest1, palaceTreasureRoom ,sidequest2, dragonLevel, interStage1, interStage2, interStage3,  
             placeholdertestmap,templeOfHecate, endCutscene, endScreen, siren, pause, UIS, mapMenu, introCutscene]
 
 };
