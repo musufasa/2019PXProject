@@ -1,8 +1,9 @@
-
-//Base stats, used when starting a new game. 
-//Intermediate Difficulty
-const maxHealthInit = 100;
-const playerDamgePointsInit = 50; 
+//Base stats, used when starting a new game.
+//Easy diff - Health 300, Damage 100 
+//Normal diff - Health 200, Damage 75 
+//Hard diff - Health 100, Damage 50 - Previous default 
+var maxHealthInit = 100;
+var playerDamgePointsInit = 50; 
 
 //Game variables relating to the player on all levels.
 var maxHealth = maxHealthInit;

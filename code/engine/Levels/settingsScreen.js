@@ -22,13 +22,13 @@ class settingsScreen extends Phaser.Scene{
         //Add back button. mutebutton, and sound buttons.
         let back = this.add.image(this.game.renderer.width / 1.50, this.game.renderer.height *0.94, "exitbut").setDepth(101).setInteractive();
         let mutebut = this.add.image(this.game.renderer.width / 1.35, this.game.renderer.height *0.80, "mutebtn").setDepth(101).setInteractive();
-    
+        
         endCutsceneStillImg = createThis.add.image(1024, 576, 'introSlide7');
                 endCutsceneStillImg.setOrigin(1,1);
                 endCutsceneStillImg.scrollFactorX = 0;
                 endCutsceneStillImg.scrollFactorY = 0;
                 endCutsceneStillImg.setDepth(100);
-  
+    
         //If exit is pressed, change level back to Main Title.
         back.on('pointerup',()=>{
             changeLevel('titleScreen');

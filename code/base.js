@@ -659,7 +659,7 @@ function shipUpdate() {
 function changeLevel(tempNewLevelID) {
     oldLevelID = currentLevelID;
     playerShip = false;
-    if ((['endScreen','titleScreen','settingsScreen','colchisFields', 'gardenFleece','mapMenu','siren','introCutscene'].includes(currentLevelID)) ||
+    if ((['endScreen','titleScreen','settingsScreen','difficultyScreen','colchisFields', 'gardenFleece','mapMenu','siren','introCutscene'].includes(currentLevelID)) ||
             (['endScreen','titleScreen','colchisFields', 'gardenFleece','mapMenu','siren','introCutscene'].includes(tempNewLevelID)))
     {
         musicPlaying = false;
@@ -667,7 +667,7 @@ function changeLevel(tempNewLevelID) {
     }
     clearDialogueBox();
     npcDialogue.text = '';
-    if (['endScreen','titleScreen','settingsScreen','mapMenu','introCutscene'].includes(tempNewLevelID)) {
+    if (['endScreen','titleScreen','settingsScreen','difficultyScreen','mapMenu','introCutscene'].includes(tempNewLevelID)) {
         userIntThis.scene.sendToBack('controller');
     } else {
         userIntThis.scene.bringToTop('controller');
@@ -729,7 +729,7 @@ var config = {
     },
 
 
-    scene: [controller, titleScreen,tutorial,settingsScreen, argoLanding, roadToColchis, marketplace, palace, shrine, shrineForest,
+    scene: [controller, titleScreen,tutorial,settingsScreen, difficultyScreen, argoLanding, roadToColchis, marketplace, palace, shrine, shrineForest,
             colchisFields, riverCrossing, gardenEntrance, gardenForest, gardenDungeon, gardenFleece, sidequest1, palaceTreasureRoom ,sidequest2, dragonLevel, interStage1, interStage2, interStage3,  
             placeholdertestmap,templeOfHecate, endCutscene, endScreen, siren, pause, UIS, mapMenu, introCutscene]
 
