@@ -385,6 +385,15 @@ function spawnObjects() {
                 });
                 npcCount++; 
                 break; 
+            case 'crittersCreekSign': 
+                npcs[npcCount] = new signNPC({
+                    x: mapObjectArray[i].x, 
+                    y: mapObjectArray[i].y, 
+                    key: 'crittersCreekSign',
+                    dialogueKey: tempProperties['dialogueKey']
+                });
+                npcCount++; 
+                break; 
                 
             
             case 'plow':

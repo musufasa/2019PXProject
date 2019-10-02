@@ -211,6 +211,18 @@
                  "width":0,
                  "x":1095.18964334291,
                  "y":3856.26462186788
+                }, 
+                {
+                 "height":0,
+                 "id":109,
+                 "name":"crittersCreekSign",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":1543.97621961881,
+                 "y":3852.07204056653
                 }],
          "offsetx":3.10462589257997,
          "offsety":3.10462589257986,
@@ -221,7 +233,7 @@
          "y":0
         }],
  "nextlayerid":14,
- "nextobjectid":109,
+ "nextobjectid":110,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",
