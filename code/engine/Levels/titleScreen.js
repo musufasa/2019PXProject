@@ -15,6 +15,7 @@ class titleScreen extends Phaser.Scene{
         this.load.image('titlebg', 'assets/stage/background/titlebg.png');
         this.load.image('playbut', 'assets/stage/background/playbut.png');
         this.load.image('settingsbut','assets/stage/background/settingsbut.png');
+        this.load.image('difficultyButton','assets/stage/background/difficultyButton.png');
     }
 
     create() {
@@ -24,6 +25,7 @@ class titleScreen extends Phaser.Scene{
         //Add the Play Game button.
         let startGame = this.add.image(this.game.renderer.width / 2, this.game.renderer.height *0.40, "playbut").setDepth(1).setInteractive();
         let settings = this.add.image(this.game.renderer.width / 2, this.game.renderer.height *0.60, "settingsbut").setDepth(1).setInteractive();
+        let difficulty = this.add.image(this.game.renderer.width / 2, this.game.renderer.height *0.80, "difficultyButton").setDepth(1).setInteractive(); 
 
 
             
@@ -58,6 +60,18 @@ class titleScreen extends Phaser.Scene{
         
         settings.on('pointerout',()=>{
             settings.setTint(0xffffff);
+        });
+        
+        difficulty.on("pointerup",()=>{
+            changeLevel('difficultyScreen');
+        });
+        
+        difficulty.on('pointerover',()=>{
+            difficulty.setTint(0xA7FF7D);
+        });
+        
+        difficulty.on('pointerout',()=>{
+            difficulty.setTint(0xffffff);
         });
         
         //Set empty quest on map load 

@@ -1,4 +1,6 @@
+
 //Base stats, used when starting a new game. 
+//Intermediate Difficulty
 const maxHealthInit = 100;
 const playerDamgePointsInit = 50; 
 
