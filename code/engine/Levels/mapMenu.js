@@ -8,7 +8,7 @@ class mapMenu extends Phaser.Scene {
         currentLevelID = 'mapMenu';
         
         //Map image. 
-        this.load.image('mapbg1', 'assets/stage/background/mapcolchis/mapbg1.png');
+        this.load.image('mapbg1', 'assets/stage/background/mapcolchis/newmapbg1.png');
         this.load.image('dot1', 'assets/stage/background/mapcolchis/dot1.png');
         
     }
@@ -17,14 +17,18 @@ class mapMenu extends Phaser.Scene {
     	//Images
         this.add.image(0,0, "mapbg1").setOrigin(0).setDepth(0);
         
-        let toDot1 = this.add.image(this.game.renderer.width*0.295, this.game.renderer.height*0.88, "dot1").setDepth(1).setInteractive();
+        let toDot1 = this.add.image(this.game.renderer.width*0.295, this.game.renderer.height*0.25, "dot1").setDepth(1).setInteractive();
         toDot1.on("pointerup", ()=>{ changeLevel('argoLanding');
             });
         
+            let toDot14 = this.add.image(this.game.renderer.width*0.13, this.game.renderer.height*0.23, "dot1").setDepth(1).setInteractive();
+            toDot14.on("pointerup", ()=>{changeLevel('tutorial');
+            }); 
+        
         if (levelProgress > 1) {
-            let toDot2 = this.add.image(this.game.renderer.width*0.35, this.game.renderer.height*0.64, "dot1").setDepth(1).setInteractive();        
-            let toDot3 = this.add.image(this.game.renderer.width*0.495, this.game.renderer.height*0.66, "dot1").setDepth(1).setInteractive();        
-            let toDot4 = this.add.image(this.game.renderer.width*0.6, this.game.renderer.height*0.86, "dot1").setDepth(1).setInteractive();
+            let toDot2 = this.add.image(this.game.renderer.width*0.5, this.game.renderer.height*0.25, "dot1").setDepth(1).setInteractive();        
+            let toDot3 = this.add.image(this.game.renderer.width*0.67, this.game.renderer.height*0.2, "dot1").setDepth(1).setInteractive();        
+            let toDot4 = this.add.image(this.game.renderer.width*0.82, this.game.renderer.height*0.22, "dot1").setDepth(1).setInteractive();
 
             toDot2.on("pointerup", ()=>{ changeLevel('roadToColchis');
                 });
@@ -34,25 +38,40 @@ class mapMenu extends Phaser.Scene {
 
             toDot4.on("pointerup", ()=>{changeLevel('palace');
                 });
+        
+        
+                    
+
+        
+       
+        let toDot16 = this.add.image(this.game.renderer.width*0.3, this.game.renderer.height*0.5, "dot1").setDepth(1).setInteractive();
+            toDot16.on("pointerup", ()=>{changeLevel('sidequest1');
+            }); 
+        
+          let toDot17 = this.add.image(this.game.renderer.width*0.67, this.game.renderer.height*0.41, "dot1").setDepth(1).setInteractive();
+            toDot17.on("pointerup", ()=>{changeLevel('sidequest2');
+            }); 
+        
+        
         }
 
         if (levelProgress > 2) {        
-            let toDot5 = this.add.image(this.game.renderer.width*0.648, this.game.renderer.height*0.495, "dot1").setDepth(1).setInteractive();
-            let toDot6 = this.add.image(this.game.renderer.width*0.73, this.game.renderer.height*0.67, "dot1").setDepth(1).setInteractive();
+            let toDot5 = this.add.image(this.game.renderer.width*0.5, this.game.renderer.height*0.55, "dot1").setDepth(1).setInteractive();
+            let toDot6 = this.add.image(this.game.renderer.width*0.64, this.game.renderer.height*0.55, "dot1").setDepth(1).setInteractive();
 
             toDot5.on("pointerup", ()=>{changeLevel('shrine');
             });
 
             toDot6.on("pointerup", ()=>{changeLevel('shrineForest');
             });
-        }
+       }
 
         if (levelProgress > 3) {
-            let toDot7 = this.add.image(this.game.renderer.width*0.9, this.game.renderer.height*0.88, "dot1").setDepth(1).setInteractive();
-            let toDot8 = this.add.image(this.game.renderer.width*0.89, this.game.renderer.height*0.65, "dot1").setDepth(1).setInteractive();
-            let toDot9 = this.add.image(this.game.renderer.width*0.815, this.game.renderer.height*0.33, "dot1").setDepth(1).setInteractive();
-            let toDot10 = this.add.image(this.game.renderer.width*0.6, this.game.renderer.height*0.23, "dot1").setDepth(1).setInteractive();
-            let toDot11 = this.add.image(this.game.renderer.width*0.93, this.game.renderer.height*0.48, "dot1").setDepth(1).setInteractive();
+            let toDot7 = this.add.image(this.game.renderer.width*0.82, this.game.renderer.height*0.5, "dot1").setDepth(1).setInteractive();
+            let toDot8 = this.add.image(this.game.renderer.width*0.7, this.game.renderer.height*0.68, "dot1").setDepth(1).setInteractive();
+            let toDot9 = this.add.image(this.game.renderer.width*0.5, this.game.renderer.height*0.68, "dot1").setDepth(1).setInteractive();
+            let toDot10 = this.add.image(this.game.renderer.width*0.63, this.game.renderer.height*0.83, "dot1").setDepth(1).setInteractive();
+            let toDot11 = this.add.image(this.game.renderer.width*0.4, this.game.renderer.height*0.83, "dot1").setDepth(1).setInteractive();
             toDot7.on("pointerup", ()=>{changeLevel('colchisFields');
                 });
             toDot8.on("pointerup", ()=>{changeLevel('riverCrossing');
@@ -66,9 +85,13 @@ class mapMenu extends Phaser.Scene {
         }
 
         if (levelProgress > 5) {        
-            let toDot12 = this.add.image(this.game.renderer.width*0.81, this.game.renderer.height*0.05, "dot1").setDepth(1).setInteractive();
-            toDot12.on("pointerup", ()=>{changeLevel('gardenFleece');
-            });    
+            let toDot12 = this.add.image(this.game.renderer.width*0.3, this.game.renderer.height*0.68, "dot1").setDepth(1).setInteractive();
+            toDot12.on("pointerup", ()=>{changeLevel('dragonLevel');
+            });
+            
+            let toDot13 = this.add.image(this.game.renderer.width*0.16, this.game.renderer.height*0.68, "dot1").setDepth(1).setInteractive();
+            toDot13.on("pointerup", ()=>{changeLevel('templeOfHecate');
+            });  
         }
         
         //Set empty quest on map load 
