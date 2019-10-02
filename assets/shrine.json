@@ -163,66 +163,6 @@
                  "width":0,
                  "x":34.1508848183794,
                  "y":4057.74604160199
-                }, 
-                {
-                 "height":0,
-                 "id":106,
-                 "name":"portal",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"portalMap",
-                         "type":"string",
-                         "value":"interStage1"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":1187.87581298319,
-                 "y":3854.46067002086
-                }, 
-                {
-                 "height":0,
-                 "id":107,
-                 "name":"portal",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"portalMap",
-                         "type":"string",
-                         "value":"interStage2"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":1632.10209841698,
-                 "y":3854.46067002086
-                }, 
-                {
-                 "height":0,
-                 "id":108,
-                 "name":"centaurPlainsSign",
-                 "point":true,
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":1095.18964334291,
-                 "y":3856.26462186788
-                }, 
-                {
-                 "height":0,
-                 "id":109,
-                 "name":"crittersCreekSign",
-                 "point":true,
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":1543.97621961881,
-                 "y":3852.07204056653
                 }],
          "offsetx":3.10462589257997,
          "offsety":3.10462589257986,

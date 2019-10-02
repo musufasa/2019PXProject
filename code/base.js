@@ -169,6 +169,7 @@ class controller extends Phaser.Scene {
         this.load.image('signGardenForestSprite','assets/items/signGardenForest.png');
         this.load.image('centaurPlainsSign', 'assets/items/centaurPlainsSign.png');
         this.load.image('crittersCreekSign', 'assets/items/crittersCreekSign.png');
+        this.load.image('marshlandSign', 'assets/items/marshlandSign.png');
         
         //UIS stuff
         this.load.image('items1', 'assets/background/closeinventbutton.png');

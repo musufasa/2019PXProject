@@ -394,6 +394,15 @@ function spawnObjects() {
                 });
                 npcCount++; 
                 break; 
+            case 'marshlandSign': 
+                npcs[npcCount] = new signNPC({
+                    x: mapObjectArray[i].x, 
+                    y: mapObjectArray[i].y, 
+                    key: 'marshlandSign',
+                    dialogueKey: tempProperties['dialogueKey']
+                });
+                npcCount++; 
+                break; 
                 
             
             case 'plow':
