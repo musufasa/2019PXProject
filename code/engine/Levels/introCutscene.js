@@ -15,7 +15,7 @@ class introCutscene extends Phaser.Scene {
         this.load.image('introSlide4', 'assets/background/introSlide4.jpg');
         this.load.image('introSlide5', 'assets/background/introSlide5.jpg');
         this.load.image('introSlide6', 'assets/background/introSlide6.jpg');
-        this.load.image('introSlide7', 'assets/background/introSlide7.jpg');
+        this.load.image('introSlide7', 'assets/background/introSlide7.png');
     }
 
     create() {
