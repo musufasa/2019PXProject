@@ -194,6 +194,7 @@ class controller extends Phaser.Scene {
         
         //Temple of Hecate - Medea boss 
         this.load.image('mirror', 'assets/items/mirror.png');
+        this.load.image('cauldron','assets/items/steamingCauldron.png');
 
     }
 
