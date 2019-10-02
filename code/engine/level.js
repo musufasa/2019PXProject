@@ -376,6 +376,16 @@ function spawnObjects() {
                 });
                 npcCount++; 
                 break;
+            case 'centaurPlainsSign': 
+                npcs[npcCount] = new signNPC({
+                    x: mapObjectArray[i].x, 
+                    y: mapObjectArray[i].y, 
+                    key: 'centaurPlainsSign',
+                    dialogueKey: tempProperties['dialogueKey']
+                });
+                npcCount++; 
+                break; 
+                
             
             case 'plow':
                 plow = new plowItem({
