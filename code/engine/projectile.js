@@ -74,7 +74,9 @@ class dragonFire extends projectile {
             damage: 25
         })
             this.rotation = Phaser.Math.Angle.Between(this.x,this.y,player.x,player.y)+10;
-            this.anims.play('fireBallSprite', true);
+        if(dragonPhase==1){    
+        this.anims.play('fireBallSprite', true);
+        }
             this.setScale(.25);
         this.hugeFireMovement = parameter.hugeFireMovement !== undefined && parameter.hugeFireMovement;
 
