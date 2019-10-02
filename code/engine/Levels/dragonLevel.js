@@ -14,6 +14,8 @@ class dragonLevel extends Phaser.Scene {
         
         this.load.spritesheet('dragonAttack', 'assets/enemy/dragonAttackSheet.png', { frameWidth: 365, frameHeight: 322 });
         
+        this.load.spritesheet('fireBallSprite', 'assets/enemy/FireballSpritesheet.png', { frameWidth: 515, frameHeight: 515 });
+        
         commonPreload();
         dragonPhase = 1;
 
@@ -30,6 +32,13 @@ class dragonLevel extends Phaser.Scene {
                 this.anims.create({
             key: 'dragonAttackRight',
             frames: createThis.anims.generateFrameNumbers('dragonAttack', { start: 0, end: 9 }),
+            frameRate: 10,
+            repeat: -1
+        });
+        
+                this.anims.create({
+            key: 'fireBallSprite',
+            frames: createThis.anims.generateFrameNumbers('fireBallSprite', { start: 0, end: 5 }),
             frameRate: 10,
             repeat: -1
         });

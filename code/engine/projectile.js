@@ -67,13 +67,15 @@ class dragonFire extends projectile {
             scene: createThis,
             x: parameter.x,
             y: parameter.y, 
-            key: 'fireballSprite',
+            key: 'fireBallSprite',
             velocityX: -300,
             velocityAimed: parameter.velocityAimed,
             projectileId: parameter.projectileId,
             damage: 25
         })
-
+            this.rotation = Phaser.Math.Angle.Between(this.x,this.y,player.x,player.y)+10;
+            this.anims.play('fireBallSprite', true);
+            this.setScale(.25);
         this.hugeFireMovement = parameter.hugeFireMovement !== undefined && parameter.hugeFireMovement;
 
 
@@ -95,14 +97,17 @@ class chargeDragonFire extends projectile {
             scene: createThis,
             x: parameter.x,
             y: parameter.y, 
-            key: 'fireballSprite',
+            key: 'fireBallSprite',
             velocityX: 0,
             velocityAimed: parameter.velocityAimed,
             projectileId: parameter.projectileId,
             damage: 50
         })
+                    this.setScale(.7);
 
-this.setScale(2.5);
+                    this.anims.play('fireBallSprite', true);
+
+            this.rotation = Phaser.Math.Angle.Between(this.x,this.y,player.x,player.y)+10;
         //If aimed is true, accelerate towards the player. 
         if (parameter.aimed){
               createThis.physics.accelerateToObject(this, player, this.velocityAimed);
