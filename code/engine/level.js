@@ -499,6 +499,13 @@ function spawnObjects() {
                 });
                 enemyCount++; 
                 break;
+                case 'cauldron':
+                items[itemCount] = new cauldron({
+                    x: mapObjectArray[i].x,
+                    y: mapObjectArray[i].y
+                });
+                itemCount++;
+                break; 
                 
                 
     }

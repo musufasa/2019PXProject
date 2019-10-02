@@ -661,9 +661,28 @@ class mirror extends itemBase {
 
     collision (tempItem){
         if (medeaPhase==2){
-        player.x=968;
-        player.y=6447;
+        player.x=1328;
+        player.y=6328;
         }
         console.log("Jason is in front of the mirror");
+    }
+}
+
+class cauldron extends itemBase {
+    constructor(parameter){
+        super({
+            scene: createThis,
+            x: parameter.x, 
+            y: parameter.y,
+            key: 'cauldron', 
+            gravity: false
+            
+            
+        })
+
+    }
+    
+    collision (tempItem){
+        console.log("Touch the cauldron");
     }
 }
