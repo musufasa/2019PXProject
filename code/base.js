@@ -806,21 +806,23 @@ function drawHelperSpriteChoiceUIBox() {
     orpheusDialogue.y = this.game.renderer.height * .45;
     orpheusDialogue.setDepth(10);
     orpheusDialogue.setStyle(diaBoxTextStyle);
-    orpheusDialogue.setText("Orpheus placeholder text");
+    orpheusDialogue.setText("Orpheus, a musician and poet who joined the argonauts with the intention of helping Jason retrieve the golden fleece from the dragon." +
+        " He helped the argonauts pass the terrors of the sirens and successfully find new land with his music played by his Lyre.");
 
     medeaDialogue = userIntThis.add.text(0,0,'',undefined);
     medeaDialogue.x = this.game.renderer.width * .175;
     medeaDialogue.y = this.game.renderer.height * .45;
     medeaDialogue.setDepth(10);
     medeaDialogue.setStyle(diaBoxTextStyle);
-    medeaDialogue.setText("Medea placeholder text");
+    medeaDialogue.setText("Medea, the Princess of Colchis and a powerful sorceress with a shady past." +
+        " Her powers are strong enough to help Jason on his quest to retrieve the golden fleece and has had a prophecy that Jason will be successful on his mission.");
 
     let medeaImage = userIntThis.add.image(this.game.renderer.width * .30, this.game.renderer.height * 0.3,'medea').setDepth(10).setInteractive();
     medeaImage.setScale(.187);
     let orpheusImage = userIntThis.add.image(this.game.renderer.width * .70, this.game.renderer.height * 0.3, 'orpheus').setDepth(10).setInteractive();
     orpheusImage.setScale(.125);
-    let medeaButton = userIntThis.add.image(this.game.renderer.width * 0.30, this.game.renderer.height * 0.6, "items1").setDepth(10).setInteractive();
-    let orpheusButton = userIntThis.add.image(this.game.renderer.width * 0.70, this.game.renderer.height * 0.6, "items1").setDepth(10).setInteractive();
+    let medeaButton = userIntThis.add.image(this.game.renderer.width * 0.30, this.game.renderer.height * 0.7, "items1").setDepth(10).setInteractive();
+    let orpheusButton = userIntThis.add.image(this.game.renderer.width * 0.70, this.game.renderer.height * 0.7, "items1").setDepth(10).setInteractive();
 
     //choose medea mode and remove UI elements
     medeaButton.on('pointerup', function () {
