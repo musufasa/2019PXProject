@@ -139,7 +139,7 @@
                  "point":true,
                  "rotation":0,
                  "type":"",
-                 "visible":true,
+                 "visible":false,
                  "width":0,
                  "x":215.845866493422,
                  "y":1767.1494234205
@@ -185,6 +185,18 @@
                  "width":0,
                  "x":416.638797271123,
                  "y":1693.88649848914
+                }, 
+                {
+                 "height":0,
+                 "id":21,
+                 "name":"medea",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":194,
+                 "y":1775
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -193,7 +205,7 @@
          "y":0
         }],
  "nextlayerid":22,
- "nextobjectid":21,
+ "nextobjectid":22,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",
