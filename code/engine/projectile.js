@@ -193,7 +193,7 @@ class projectile2 extends Phaser.GameObjects.Sprite {
 
 }
 
-class dragonFire2 extends projectile2 {
+class playerArrow extends projectile2 {
     constructor (parameter) {
         super({
             scene: createThis,
@@ -206,10 +206,9 @@ class dragonFire2 extends projectile2 {
             damage: 25
         })
 
+        //aim the arrow image at the mouse and fire towards it
         this.rotation = Phaser.Math.Angle.Between(this.x,this.y,camera.scrollX+game.input.mousePointer.x, camera.scrollY+game.input.mousePointer.y);
-        //If aimed is true, accelerte towards the player. 
-            createThis.physics.moveTo(this,camera.scrollX+game.input.mousePointer.x, camera.scrollY+game.input.mousePointer.y, this.velocityAimed);
-            //createThis.physics.accelerateToObject(this, cursor, this.velocityAimed);
+        createThis.physics.moveTo(this,camera.scrollX+game.input.mousePointer.x, camera.scrollY+game.input.mousePointer.y, this.velocityAimed);
 
     }
 }

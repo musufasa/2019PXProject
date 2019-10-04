@@ -11,7 +11,7 @@ var displayMapKey; //Map key (default is M)
 var inventoryKey; // Inventory key mapped to I
 var portalKey;//travel through portals key is mapped to the UP arrow
 var questInfoKey;//used to display or hide the quest information layer.
-var rangeAttackKey;
+var shopKey;//used to display or hide the in game shop UI.
 var blockKey;//used to enable blocking (E key)
 var camera;
 var helperSprite; //used to hold the value of which helper sprite was choosen by the player at the start of the game. should be strictly 'Orpheus' or 'Medea'
@@ -31,9 +31,10 @@ var music;
 var musicMuted = false; //Is the music muted?
 var musicPlaying = false; //Is music playing?
 var portalMap; //Which map should a portal warp into?
-var musicVolume = 0.7; // global starting music volume,editable via pause menu. 1 = 100%, 0.5 = 50% etc.
+var musicVolume = 0; // global starting music volume,editable via pause menu. 1 = 100%, 0.5 = 50% etc.
 var inventoryOpen = false;
 var questInfoOpen = false;
+var shopOpen = false;
 var currentQuest;//holds a quest object to be read into UI elements.
 
 //Background layers
@@ -204,15 +205,15 @@ class controller extends Phaser.Scene {
 
     create() {
         firstInitHealthBar();
-        pauseKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.P);
         initDialogueBox();
-        inventoryKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.I);
-        initDialogueBox();
-        questInfoKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Q);
-        //Keyboard input
-        //Create default key bindings for up,down,left and right
-        cursors = createThis.input.keyboard.createCursorKeys();
 
+        //Keyboard input mappings
+        //Create default key bindings for up,down,left and righ
+        cursors = createThis.input.keyboard.createCursorKeys();
+        pauseKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.P);
+        inventoryKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.I);
+        questInfoKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Q);
+        weaponKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
         jumpKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         interactKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Z);
         displayMapKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.M);
@@ -220,13 +221,14 @@ class controller extends Phaser.Scene {
         rightMoveKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
         sprintKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SHIFT);
         portalKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
-        rangeAttackKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
+        shopKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
         blockKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
 
+        //action sound mappings
         var jump = this.sound.add('jump');
         var attack = this.sound.add('attack');
         var bite = this.sound.add('bite');
-        
+
         game.scene.run(currentLevelID);
         userIntThis.scene.bringToTop('controller');
 
@@ -234,40 +236,38 @@ class controller extends Phaser.Scene {
         this.ritualItemText.alpha = 0;
 
         createThis.anims.create({
-        key: 'jasonAttackRight',
-        frames: createThis.anims.generateFrameNumbers('jason', { start: 12, end: 29 }),
-        frameRate: 30,
-        repeat: -1
-    });
+            key: 'jasonAttackRight',
+            frames: createThis.anims.generateFrameNumbers('jason', { start: 12, end: 29 }),
+            frameRate: 30,
+            repeat: -1
+        });
         
-         var styleRed = { font: "20px Arial", fill: "#FF0000", align: "right"};
+        var styleRed = { font: "20px Arial", fill: "#FF0000", align: "right"};
         var styleRed2 = { font: "20px Arial", fill: "#FF0000", align: "left"};
 
+        //add player level UI elements
         this.playerLevelText= userIntThis.add.text(this.game.renderer.width *.73, this.game.renderer.height * 0.09,"Player Level:"+currentPlayerLvl, styleRed2)
-
         this.xpText= userIntThis.add.text(this.game.renderer.width *.73, this.game.renderer.height * 0.1,"/nCurrent EXP: "+currentXP+" / "+XPtillNextLvl, styleRed)
-        
+        //add player arrows UI element
         this.ammoText= userIntThis.add.text(this.game.renderer.width *.73, this.game.renderer.height * 0.18,"/nCurrent EXP: "+currentXP+" / "+XPtillNextLvl, styleRed)
-        
+        //add current coin UI element
         this.coinText= userIntThis.add.text(this.game.renderer.width *.73, this.game.renderer.height * 0.22,"Coins: " +currentCoins, styleRed)
 
     }
 
     update() {
- 
-if(onFire==true)//checks if the player is on fire
-{
-    playerDamage(1);
-}
-            updateXpText();//updates xp text
+
+        //checks if the player is on fire and passively damages them until false
+        if(onFire==true){
+            playerDamage(1);
+        }
+
+        //updates xp text and upgrade points UIs
+        updateXpText();
         checkUpgradePoints();
         
         //Keeps coin counter up to date
         this.coinText.setText("Coins: "+currentCoins);
-        
-
-        
-
 
         if (questInfoKey._justDown){
             //display the quest info or hide it depending on its current state.
@@ -312,7 +312,8 @@ if(onFire==true)//checks if the player is on fire
         }
         
         //Pause the game if the pause key is held down.
-        if (pauseKey.isDown) {
+        if (pauseKey._justDown) {
+            pauseKey._justDown = false;
             userIntThis.scene.sendToBack('controller');
             game.scene.run('pause');
         }
@@ -342,26 +343,22 @@ if(onFire==true)//checks if the player is on fire
             }
             musicPlaying = true;
         }
+
         //Dont play sounds on these Scenes.
-        if (['endScreen','titleScreen','mapMenu','settingsScreen','introCutscene','siren'].includes(currentLevelID))
-            {
-                jumpsound = false;
-                attacksound = false;
-            }
+        if (['endScreen','titleScreen','mapMenu','settingsScreen','introCutscene','siren'].includes(currentLevelID)){
+            jumpsound = false;
+            attacksound = false;
+        }
 
         // When character Jumps, play the jump sound
-        if(!jumpKey.isDown)
-            {
-                jumpsound = true;
-            }
+        if(!jumpKey.isDown){
+            jumpsound = true;
+        }
 
-
-        if (jumpKey.isDown && jumpsound)
-            {
-                this.sound.play('jump');
-                jumpsound = false;
-            }
-
+        if (jumpKey.isDown && jumpsound){
+            this.sound.play('jump');
+            jumpsound = false;
+        }
 
        //When character Attacks, play the attack sound.
         if (attacksound){
@@ -371,17 +368,31 @@ if(onFire==true)//checks if the player is on fire
 
         //play coins sounds when coin is picked up
        if(playcoinsound==true){
-         var coinsSoundtest = this.sound.add('coinsSound');
+           var coinsSoundtest = this.sound.add('coinsSound');
            this.sound.play('coinsSound');
            playcoinsound=false;
        }
         
         //Play arrow fired sound when arrow is fired 
-        if(playArrowSound==true)
-        {
+        if(playArrowSound==true){
             var arrowFiredChunk = this.sound.add('arrowFired');
             this.sound.play('arrowFired');
             playArrowSound = false; 
+        }
+
+        //handle shopUI
+        if (shopKey._justDown){
+            shopKey._justDown = false;
+            if(!shopOpen) {
+                shopOpen = true;
+                game.scene.run('shopUI');
+                userIntThis.scene.sendToBack('controller');
+            }else{
+                shopOpen = false;
+                game.scene.stop('shopUI');
+                userIntThis.scene.bringToTop('controller');
+                game.scene.resume(currentLevelID);
+            }
         }
 
     }
@@ -485,17 +496,6 @@ function loadMap() {
 
     mapLayer.setCollisionByProperty({ collides: true });
     createThis.physics.add.collider(player, mapLayer);
-    
-        weaponKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
-        jumpKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
-        interactKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Z);
-        displayMapKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.M);
-        leftMoveKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
-        rightMoveKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
-        sprintKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SHIFT);
-        portalKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
-        rangeAttackKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
-        blockKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
 
     //Player animations. 
     createThis.anims.create({
@@ -622,21 +622,22 @@ function callUpdateFuncs() {
                 break;
         }
     }
-            //open inventory
-        if (inventoryKey._justDown){
-            inventoryKey._justDown = false;
-            if(!inventoryOpen){
-                userIntThis.scene.sendToBack('controller');
-                game.scene.run('UIS');
-                inventoryOpen = true;
-            }else{
-                //close the inventory if it is open.
-                userIntThis.scene.bringToTop('controller');
-                game.scene.resume(currentLevelID);
-                game.scene.stop('UIS');
-                inventoryOpen = false;
-            }
+    //open or closes inventory
+    if (inventoryKey._justDown){
+        inventoryKey._justDown = false;
+        if(!inventoryOpen){
+            userIntThis.scene.sendToBack('controller');
+            game.scene.run('UIS');
+            inventoryOpen = true;
+        }else{
+            //close the inventory if it is open.
+            userIntThis.scene.bringToTop('controller');
+            game.scene.resume(currentLevelID);
+            game.scene.stop('UIS');
+            inventoryOpen = false;
         }
+    }
+
 }
 
 //Ship update function.
@@ -701,13 +702,15 @@ function destroyOldObjects() {
         //Play arrow shot sound effect 
         playArrowSound = true;  
         
-        playerProjectiles[currentProjectile2] = new dragonFire2({
+        playerProjectiles[currentProjectile2] = new playerArrow({
             x: player.x, 
             y: player.y,
             projectileId: currentProjectile2,
             aimed: true, 
             velocityAimed: 400
-        });}
+        });
+
+    }
   
 
 
@@ -732,7 +735,7 @@ var config = {
 
     scene: [controller, titleScreen,tutorial,settingsScreen, difficultyScreen, argoLanding, roadToColchis, marketplace, palace, shrine, shrineForest,
             colchisFields, riverCrossing, gardenEntrance, gardenForest, gardenDungeon, gardenFleece, sidequest1, palaceTreasureRoom ,sidequest2, dragonLevel, interStage1, interStage2, interStage3,  
-            placeholdertestmap,templeOfHecate, endCutscene, endScreen, siren, pause, UIS, mapMenu, introCutscene]
+            placeholdertestmap,templeOfHecate, endCutscene, endScreen, siren, pause, UIS, mapMenu, introCutscene,shopUI]
 
 };
 
@@ -808,7 +811,7 @@ function drawHelperSpriteChoiceUIBox() {
     orpheusDialogue.setDepth(10);
     orpheusDialogue.setStyle(diaBoxTextStyle);
     orpheusDialogue.setText("Orpheus, a musician and poet who joined the argonauts with the intention of helping Jason retrieve the golden fleece from the dragon." +
-        " He helped the argonauts pass the terrors of the sirens and successfully find new land with his music played by his Lyre.");
+    " He helped the argonauts pass the terrors of the sirens and successfully find new land with his music played by his Lyre.");
 
     medeaDialogue = userIntThis.add.text(0,0,'',undefined);
     medeaDialogue.x = this.game.renderer.width * .175;
@@ -816,7 +819,7 @@ function drawHelperSpriteChoiceUIBox() {
     medeaDialogue.setDepth(10);
     medeaDialogue.setStyle(diaBoxTextStyle);
     medeaDialogue.setText("Medea, the Princess of Colchis and a powerful sorceress with a shady past." +
-        " Her powers are strong enough to help Jason on his quest to retrieve the golden fleece and has had a prophecy that Jason will be successful on his mission.");
+    " Her powers are strong enough to help Jason on his quest to retrieve the golden fleece and has had a prophecy that Jason will be successful on his mission.");
 
     let medeaImage = userIntThis.add.image(this.game.renderer.width * .30, this.game.renderer.height * 0.3,'medea').setDepth(10).setInteractive();
     medeaImage.setScale(.187);
