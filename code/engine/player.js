@@ -156,7 +156,7 @@ function playerMovement() {
     if (portalCount > 0) { 
         for (i = 0; i < portalCount; i++) {
             if (Phaser.Geom.Intersects.RectangleToRectangle(player.getBounds(), portals[i].getBounds())){
-                if (portalKey._justDown && portals[i].activePortal && justPorted === false) {
+                if (portalKey._justDown && portals[i].activePortal && justPorted === false && !leftMoveKey.isDown && !rightMoveKey.isDown) {
                     portalKey._justDown = false;
                     justPorted = true;
                     playerShip = false;
