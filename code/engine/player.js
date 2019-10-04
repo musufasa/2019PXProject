@@ -156,9 +156,14 @@ function playerMovement() {
     if (portalCount > 0) { 
         for (i = 0; i < portalCount; i++) {
             if (Phaser.Geom.Intersects.RectangleToRectangle(player.getBounds(), portals[i].getBounds())){
-                if (portalKey.isDown && portals[i].activePortal) {
+                if (portalKey._justDown && portals[i].activePortal && justPorted === false) {
+                    portalKey._justDown = false;
+                    justPorted = true;
                     playerShip = false;
-                    changeLevel(portalMap); 
+                    changeLevel(portalMap);
+                    setTimeout(function(){
+                        justPorted = false;
+                    },700);
                 }   
             }
         }

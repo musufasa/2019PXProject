@@ -16,6 +16,7 @@ var blockKey;//used to enable blocking (E key)
 var camera;
 var helperSprite; //used to hold the value of which helper sprite was choosen by the player at the start of the game. should be strictly 'Orpheus' or 'Medea'
 var currentWeapon = 'sword';
+var justPorted = false;
 //Player character
 var player; //Player sprite
 var attacksound = false; // Variable for attack sound - Used to tell if sound should be played.
