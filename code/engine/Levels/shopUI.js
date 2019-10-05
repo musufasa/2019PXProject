@@ -95,6 +95,8 @@ class shopUI extends Phaser.Scene {
         currentCoinsText.setDepth(10);
         currentCoinsText.setStyle(diaBoxTextStyle);
 
+        let exitbutton = this.add.image(this.game.renderer.width * 0.83, this.game.renderer.height * 0.18, "items1").setDepth(1).setInteractive();
+
         //add arrow purchase UI elements
         let arrow = this.add.image(this.game.renderer.width * .25, this.game.renderer.height * 0.325,'arrowAmmo').setDepth(1);
         let arrowPurchase = this.add.image(this.game.renderer.width * .25, this.game.renderer.height * 0.5,'coinSpriteTest').setDepth(1).setInteractive();
@@ -151,6 +153,13 @@ class shopUI extends Phaser.Scene {
                 //update UI elements
                 updateUIelements();
             }
+        });
+
+        //close shop screen when the x is pressed
+        exitbutton.on('pointerup', function () {
+            game.scene.resume(currentLevelID);
+            userIntThis.scene.bringToTop('controller');
+            game.scene.stop('shopUI');
         });
 
         function updateUIelements(){
