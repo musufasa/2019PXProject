@@ -23,7 +23,7 @@ class shopUI extends Phaser.Scene {
             fontFamily: 'Arial',
             align: "left",
             color: '#000000',
-            wordWrap: {width: drawWidth*0.35, useAdvancedWrap: true}
+            wordWrap: {width: drawWidth*0.25, useAdvancedWrap: true}
         }
         let newDialogBox = this.add.graphics();
         //draw outer rectangle
@@ -74,25 +74,98 @@ class shopUI extends Phaser.Scene {
         newDialogBox.alpha = 1;
         newDialogBox.setDepth(1);
 
-        let arrow = this.add.image(this.game.renderer.width * .30, this.game.renderer.height * 0.3,'arrowAmmo').setDepth(1);
-        let arrowPurchase = this.add.image(this.game.renderer.width * .30, this.game.renderer.height * 0.45,'coinSpriteTest').setDepth(1).setInteractive();
-        if(currentCoins < 10){
-            arrowPurchase.alpha = 0.4;
+        let titleTextStyle = {
+            fontSize: 28,
+            fontFamily: 'Arial',
+            align: "left",
+            color: '#000000',
+            wordWrap: {width: drawWidth*0.30, useAdvancedWrap: true}
         }
 
+        let shopTitle = this.add.text(0,0,'',undefined);
+        shopTitle.x = this.game.renderer.width * .47;
+        shopTitle.y = this.game.renderer.height * .15;
+        shopTitle.setDepth(10);
+        shopTitle.setStyle(titleTextStyle);
+        shopTitle.setText("SHOP" );
+
+        let currentCoinsText = this.add.text(0,0,'',undefined);
+        currentCoinsText.x = this.game.renderer.width * .465;
+        currentCoinsText.y = this.game.renderer.height * .21;
+        currentCoinsText.setDepth(10);
+        currentCoinsText.setStyle(diaBoxTextStyle);
+
+        //add arrow purchase UI elements
+        let arrow = this.add.image(this.game.renderer.width * .25, this.game.renderer.height * 0.325,'arrowAmmo').setDepth(1);
+        let arrowPurchase = this.add.image(this.game.renderer.width * .25, this.game.renderer.height * 0.5,'coinSpriteTest').setDepth(1).setInteractive();
         let arrowPurchaseText = this.add.text(0,0,'',undefined);
-        arrowPurchaseText.x = this.game.renderer.width * .175;
-        arrowPurchaseText.y = this.game.renderer.height * .35;
+        arrowPurchaseText.x = this.game.renderer.width * .155;
+        arrowPurchaseText.y = this.game.renderer.height * .375;
         arrowPurchaseText.setDepth(10);
         arrowPurchaseText.setStyle(diaBoxTextStyle);
-        arrowPurchaseText.setText("add 10 arrows into your inventory, handy for taking out enemies from afar" );
+        arrowPurchaseText.setText("10 coins : Add 10 arrows into your inventory, handy for taking out enemies from afar" );
+
+        //add upgrade point purchase UI elements
+        let upgradePoint = this.add.image(this.game.renderer.width * .50, this.game.renderer.height * 0.325,'upgradeStatButton').setDepth(1);
+        let upgradePointPurchase = this.add.image(this.game.renderer.width * .50, this.game.renderer.height * 0.5,'coinSpriteTest').setDepth(1).setInteractive();
+        let upgradePointText = this.add.text(0,0,'',undefined);
+        upgradePointText.x = this.game.renderer.width * .4;
+        upgradePointText.y = this.game.renderer.height * .375;
+        upgradePointText.setDepth(10);
+        upgradePointText.setStyle(diaBoxTextStyle);
+        upgradePointText.setText("10 coins : Add 2 additional upgrade points, improve Jason's stats where needed" );
+
+        //add upgrade point purchase UI elements
+        //todo: change for xp image
+        let xp = this.add.image(this.game.renderer.width * .75, this.game.renderer.height * 0.325,'upgradeStatButton').setDepth(1);
+        let xpPurchase = this.add.image(this.game.renderer.width * .75, this.game.renderer.height * 0.5,'coinSpriteTest').setDepth(1).setInteractive();
+        let xpText = this.add.text(0,0,'',undefined);
+        xpText.x = this.game.renderer.width * .645;
+        xpText.y = this.game.renderer.height * .375;
+        xpText.setDepth(10);
+        xpText.setStyle(diaBoxTextStyle);
+        xpText.setText("5 coins : Add an additional 500 xp, improve Jason's experience without having to take on as many enemies" );
 
         arrowPurchase.on('pointerup', function () {
-            if(currentCoins > 10) {
+            if(currentCoins >= 10) {
                 numberArrows += 10;
                 currentCoins -= 10;
+                //update UI elements
+                updateUIelements();
             }
         });
+
+        upgradePointPurchase.on('pointerup', function () {
+            if(currentCoins >= 10) {
+                upgradePoints += 2;
+                currentCoins -= 10;
+                //update UI elements
+                updateUIelements();
+            }
+        });
+
+        xpPurchase.on('pointerup', function () {
+            if(currentCoins >= 5) {
+                currentXP += 500;
+                currentCoins -= 5;
+                //update UI elements
+                updateUIelements();
+            }
+        });
+
+        function updateUIelements(){
+            currentCoinsText.setText("Current coins :"+ currentCoins );
+            if(currentCoins < 10){
+                arrowPurchase.alpha = 0.4;
+                upgradePointPurchase.alpha = 0.4;
+            }
+            if(currentCoins < 5){
+                xpPurchase.alpha = 0.4;
+            }
+        }
+
+        updateUIelements();
+
     }
 
 }
