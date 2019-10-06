@@ -16,6 +16,7 @@ phase1ready=false;
 medeaReset=false;
 readyToTeleport=false;
 move=false;
+phase3ready=false;
 /* The enemyBase class is used as a base for various enemies.  
  * This should not be spawned directly. 
  * Required parameters: scene, x, y, key, xMove/yMove, xVel/yVel, scale, enemyId, gravity, health.
@@ -1408,10 +1409,9 @@ class medeaBoss extends enemyBase {
             if(move==false){
             this.x=1177;
             this.y=7700;
-            this.setVelocity
             move=true;
             }
-            createThis.physics.moveTo(this, 1500,this.y, 100)
+            createThis.physics.moveTo(this, 1500,this.y, 100);
             if(this.x>1380)
                 { 
                    this.x=610;
@@ -1428,6 +1428,29 @@ class medeaBoss extends enemyBase {
                 }
             
         }
+            
+        }
+        
+        if(medeaPhase==3){
+            if(phase3ready==false){
+            if(this.y>3000){
+            createThis.physics.moveTo(this, 180,6350, 150);
+            }
+            if(this.x<185){
+                this.x=1025;
+                    this.y=3685;
+                phase3ready=true;
+            }
+            }
+            if(phase3ready==true){
+                this.x=1025;
+                this.y=3695;
+                if(medeaReset==false){
+                this.medeaShoot2();
+                    medeaReset=true;
+                }
+
+            }
             
         }
     }
@@ -1475,6 +1498,38 @@ class medeaBoss extends enemyBase {
                 });
                 enemyCount++; 
     }
+    
+        medeaShoot2() {
+        projectiles[currentProjectile] = new medeaArrow2({
+            x: this.x, 
+            y: this.y,
+            projectileId: currentProjectile,
+            aimed: true, 
+            velocityAimed: 300
+        });
+     setTimeout(this.shootAgain2, 1000, this);
+            setTimeout(this.shootAgain2, 2000, this);
+            setTimeout(this.shootAgain2, 3500, this);
+            setTimeout(this.shootAgain2, 4500, this);
+            setTimeout(this.shootAgain2, 5500, this);
+            setTimeout(this.shootAgain2, 5500, this);
+
+    }
+    
+
+    
+            shootAgain2(tempDragon) {
+        projectiles[currentProjectile] = new medeaArrow2({
+            x: tempDragon.x, 
+            y: tempDragon.y,
+            projectileId: currentProjectile,
+            aimed: true , 
+            velocityAimed: 300
+        });
+
+
+    }
+    
 }
 
 class medeaClone extends enemyBase { 
@@ -1499,12 +1554,21 @@ class medeaClone extends enemyBase {
         if (this.alive && this.health <= 0) {
             this.alive = false; 
             enemies[this.enemyId].destroy(); 
+            this.dropArrow()
         }
     }    
     
     movement(){
     createThis.physics.moveTo(this, player.x,player.y, 150)
 
+    }
+    
+        dropArrow(){
+               items[itemCount] = new arrowAmmo({
+                    x: this.x,
+                    y: player.y,
+                });
+        itemCount++
     }
 }
 

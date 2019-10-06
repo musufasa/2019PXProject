@@ -34,6 +34,7 @@ class projectile extends Phaser.GameObjects.Sprite {
     playerDamage(tempProjectile) {
         if(blocking==false){
             playerDamage(tempProjectile.damage);
+            
         }
         projectiles[tempProjectile.projectileId].destroy();
     }
@@ -146,6 +147,64 @@ class medeaArrow extends projectile {
     }
 }
 
+
+class medeaprojectile extends Phaser.GameObjects.Sprite {
+    constructor (parameter) {
+        //Create object. 
+        super(parameter.scene, parameter.x, parameter.y, parameter.key);
+        parameter.scene.physics.world.enable(this);
+        parameter.scene.add.existing(this);
+
+        //Movement. 
+        this.body.setVelocityX(parameter.velocityX);
+        this.body.allowGravity = false; 
+        this.projectileId = parameter.projectileId;
+        this.damage = parameter.damage; 
+        this.velocityAimed = parameter.velocityAimed;
+
+        //Collision
+        createThis.physics.add.overlap(this, player, this.playerDamage);
+
+        //Increment current projectile count. 
+        currentProjectile++;
+    }
+
+    //Damage the player's health when player collides into this projectile.
+    playerDamage(tempProjectile) {
+        if(blocking==false){
+            playerDamage(tempProjectile.damage);
+            
+        }
+        player.x=player.x+50;        //pushes the player
+        projectiles[tempProjectile.projectileId].destroy();
+    }
+}
+
+class medeaArrow2 extends medeaprojectile {
+    constructor (parameter) {
+        super({
+            scene: createThis,
+            x: parameter.x,
+            y: parameter.y, 
+            key: 'medeaArrow2',
+            velocityX: 0,
+            velocityAimed: parameter.velocityAimed,
+            projectileId: parameter.projectileId,
+            damage: 10
+        })
+            this.setScale(.1);
+
+        
+        this.rotation = Phaser.Math.Angle.Between(this.x,this.y,player.x,player.y);
+        //If aimed is true, accelerate towards the player. 
+        if (parameter.aimed){
+              createThis.physics.accelerateToObject(this, player, this.velocityAimed);
+        } 
+        
+        
+
+    }
+}
 
 
 
