@@ -15,6 +15,7 @@ class templeOfHecate extends Phaser.Scene {
                 this.load.spritesheet('medeaBoss','assets/enemy/medeaBoss.png',
         {    frameWidth: 200, frameHeight: 242});   
 
+        this.load.image('medeaArrow2','assets/enemy/medeaArrow2.png');
 
         
     }
@@ -36,7 +37,7 @@ class templeOfHecate extends Phaser.Scene {
         setToEmptyQuest();
                 
         this.time.addEvent({ delay: 12000, callback: this.updateTeleport, callbackScope: this, loop: true });
-        this.time.addEvent({ delay: 2400, callback: this.updatCloneSpawn, callbackScope: this, loop: true });
+        this.time.addEvent({ delay: 4800, callback: this.updatCloneSpawn, callbackScope: this, loop: true });
         
     }
 
