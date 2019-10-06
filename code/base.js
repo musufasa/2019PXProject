@@ -87,6 +87,9 @@ class controller extends Phaser.Scene {
            { frameWidth: 52, frameHeight: 94 });
         this.load.spritesheet('orpheusSprite','assets/NPC/orpheusTest.png',
            { frameWidth: 57, frameHeight: 94 });
+        
+        this.load.spritesheet('jasonAttack','assets/player/newJasonAttack.png',
+           { frameWidth: 139, frameHeight: 94 });
 
         this.load.spritesheet('kingSprite','assets/NPC/king.png',
            { frameWidth: 40, frameHeight: 64 });
@@ -234,14 +237,14 @@ class controller extends Phaser.Scene {
 
         this.ritualItemText = userIntThis.add.text(800, 50, '0/x Ritual Items', undefined);
         this.ritualItemText.alpha = 0;
-
+/*
         createThis.anims.create({
             key: 'jasonAttackRight',
             frames: createThis.anims.generateFrameNumbers('jason', { start: 12, end: 29 }),
             frameRate: 30,
             repeat: -1
         });
-        
+ */       
         var styleRed = { font: "20px Arial", fill: "#FF0000", align: "right"};
         var styleRed2 = { font: "20px Arial", fill: "#FF0000", align: "left"};
 
@@ -506,7 +509,7 @@ function loadMap() {
     });
     createThis.anims.create({
         key: 'jasonAttackRight',
-        frames: createThis.anims.generateFrameNumbers('jason', { start: 12, end: 29 }),
+        frames: createThis.anims.generateFrameNumbers('jasonAttack', { start: 0, end: 19 }),
         frameRate: 30,
         repeat: -1
     });

@@ -94,7 +94,7 @@ function playerMovement() {
         //Play idle animation. 
         player.anims.play('jasonIdleRight', true);
         player.setSize(20, 64);
-        player.setOffset(28, 0);
+        player.setOffset(28, 20);
     } else if (playerSwingSword) {
         //Play attack animation. 
         player.anims.play('jasonAttackRight', true);
@@ -116,21 +116,21 @@ function playerMovement() {
             (player.x + 50 > gameWidth) || (player.x - 11 < 0)) {
             //Smaller hitbox
             player.setSize(20, 64);
-            player.setOffset(28, 0);     
+            player.setOffset(28, 20);     
         } else if (playerFacingRight) {
             //Expand hitbox to right 
             player.setSize(60, 64);
-            player.setOffset(28, 0);
+            player.setOffset(28, 20);
         } else {
             //Expand hitbox to left
             player.setSize(60, 64);
-            player.setOffset(-12, 0);
+            player.setOffset(-12, 20);
         }
     } else {
         //Play walk animation. 
         player.anims.play('jasonRight', true);
         player.setSize(20, 64);
-        player.setOffset(28, 0);
+        player.setOffset(28, 20);
     }
     
     //Vertical movement
