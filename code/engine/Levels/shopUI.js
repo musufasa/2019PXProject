@@ -117,9 +117,8 @@ class shopUI extends Phaser.Scene {
         upgradePointText.setStyle(diaBoxTextStyle);
         upgradePointText.setText("10 coins : Add 2 additional upgrade points, improve Jason's stats where needed" );
 
-        //add upgrade point purchase UI elements
-        //todo: change for xp image
-        let xp = this.add.image(this.game.renderer.width * .75, this.game.renderer.height * 0.325,'upgradeStatButton').setDepth(1);
+        //add xp purchase UI elements
+        let xp = this.add.image(this.game.renderer.width * .75, this.game.renderer.height * 0.325,'smallExp').setDepth(1);
         let xpPurchase = this.add.image(this.game.renderer.width * .75, this.game.renderer.height * 0.5,'coinSpriteTest').setDepth(1).setInteractive();
         let xpText = this.add.text(0,0,'',undefined);
         xpText.x = this.game.renderer.width * .645;
@@ -127,6 +126,37 @@ class shopUI extends Phaser.Scene {
         xpText.setDepth(10);
         xpText.setStyle(diaBoxTextStyle);
         xpText.setText("5 coins : Add an additional 500 xp, improve Jason's experience without having to take on as many enemies" );
+
+        //add large health potion purchase UI elements
+        let potion = this.add.image(this.game.renderer.width * .25, this.game.renderer.height * 0.625,'healthPotion').setDepth(1);
+        let potionPurchase = this.add.image(this.game.renderer.width * .25, this.game.renderer.height * 0.8,'coinSpriteTest').setDepth(1).setInteractive();
+        let potionText = this.add.text(0,0,'',undefined);
+        potionText.x = this.game.renderer.width * .155;
+        potionText.y = this.game.renderer.height * .675;
+        potionText.setDepth(10);
+        potionText.setStyle(diaBoxTextStyle);
+        potionText.setText("10 coins : Add an additional large health potion to your bag to heal a large amount." );
+
+        //add chicken purchase UI elements
+        let chicken = this.add.image(this.game.renderer.width * .50, this.game.renderer.height * 0.625,'healthItemSprite').setDepth(1);
+        let chickenPurchase = this.add.image(this.game.renderer.width * .50, this.game.renderer.height * 0.8,'coinSpriteTest').setDepth(1).setInteractive();
+        let chickenText = this.add.text(0,0,'',undefined);
+        chickenText.x = this.game.renderer.width * .4;
+        chickenText.y = this.game.renderer.height * .675;
+        chickenText.setDepth(10);
+        chickenText.setStyle(diaBoxTextStyle);
+        chickenText.setText("5 coins : Add an additional chicken leg to your bag to heal a small amount.s" );
+
+        //add max health purchase UI elements
+        let damageIncrease = this.add.image(this.game.renderer.width * .75, this.game.renderer.height * 0.625,'damageIncreaseItemSprite').setDepth(1);
+        let damagePurchase = this.add.image(this.game.renderer.width * .75, this.game.renderer.height * 0.8,'coinSpriteTest').setDepth(1).setInteractive();
+        let damageText = this.add.text(0,0,'',undefined);
+        damageText.x = this.game.renderer.width * .645;
+        damageText.y = this.game.renderer.height * .675;
+        damageText.setDepth(10);
+        damageText.setStyle(diaBoxTextStyle);
+        damageText.setText("25 coins : Increase damage by 10 points. Helpful for experienced players playing on a higher difficulties. " );
+
 
         arrowPurchase.on('pointerup', function () {
             if(currentCoins >= 10) {
@@ -155,6 +185,35 @@ class shopUI extends Phaser.Scene {
             }
         });
 
+        potionPurchase.on('pointerup', function () {
+            if(currentCoins >= 10 && bagInventory.length < bagSize) {
+                var item = { "Description": "Can be consumed to heal 100 damage", "ItemName": "potion", "ItemType":"healing", "Attribute":100,"BagImage":"healthPotion" };
+                bagInventory.push(item);
+                currentCoins -= 10;
+                //update UI elements
+                updateUIelements();
+            }
+        });
+
+        chickenPurchase.on('pointerup', function () {
+            if(currentCoins >= 5 && bagInventory.length < bagSize) {
+                var item = { "Description": "Can be consumed to heal 10 damage", "ItemName": "Chicken Leg", "ItemType":"healing", "Attribute":10,"BagImage":"testItemSprite" };
+                bagInventory.push(item);
+                currentCoins -= 5;
+                //update UI elements
+                updateUIelements();
+            }
+        });
+
+        damagePurchase.on('pointerup', function () {
+            if(currentCoins >= 25) {
+                playerDamagePoints += 10;
+                currentCoins -= 25;
+                //update UI elements
+                updateUIelements();
+            }
+        });
+
         //close shop screen when the x is pressed
         exitbutton.on('pointerup', function () {
             game.scene.resume(currentLevelID);
@@ -167,9 +226,14 @@ class shopUI extends Phaser.Scene {
             if(currentCoins < 10){
                 arrowPurchase.alpha = 0.4;
                 upgradePointPurchase.alpha = 0.4;
+                potionPurchase.alpha = 0.4;
             }
             if(currentCoins < 5){
                 xpPurchase.alpha = 0.4;
+                chickenPurchase.alpha = 0.4;
+            }
+            if(currentCoins < 25){
+                damagePurchase.alpha = 0.4;
             }
         }
 
