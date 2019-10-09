@@ -4,6 +4,8 @@
 //Hard diff - Health 100, Damage 50 - Previous default 
 var maxHealthInit = 100;
 var playerDamgePointsInit = 50; 
+var difficulty;
+
 
 //Game variables relating to the player on all levels.
 var maxHealth = maxHealthInit;

@@ -59,7 +59,7 @@ class enemyBase extends Phaser.GameObjects.Sprite {
         this.scaleX = parameter.scale; 
         this.scaleY = parameter.scale; 
         this.enemyId = parameter.enemyId;
-        this.health = parameter.health;
+        this.health = parameter.health*difficulty;
         this.invulnerabilityWait = 1500; 
         this.invulnerability = false; 
         this.alive = true;
