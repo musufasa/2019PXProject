@@ -421,7 +421,7 @@ class snake extends enemyBase {
             health: 150
         });
     }
-    update () {        
+    update () {  
         if (this.body.velocity.x < 0) {
             this.anims.play('snakeLeft', true);
         } else if (this.body.velocity.x > 0) {
@@ -1011,6 +1011,7 @@ class tutorialEnemy extends enemyBase {
         });
     }
     update () {
+        this.body.setOffset(0,45);
         //todo: modify for hit effect left & right, using snake ani for sampling.
         if (this.body.velocity.x < 0) {
             this.anims.play('snakeLeft', true);
