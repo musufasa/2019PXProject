@@ -15,7 +15,6 @@ var playerAlive = true;
 //Variables relating to normal levels
 var playerJumpVelocity = 500; //Jumping Y velocity
 var playerWalkVelocity = 200; //Walking X velocity
-var playerSprintVelocity = 300;
 var playerFacingRight = true; //Is the player facing right?
 var playerHasWings = false; //Can the player fly?
 var playerSwingSword = false; //Is the player swinging their sword?
@@ -70,7 +69,7 @@ function playerMovement() {
     if (leftMoveKey.isDown) {
         if(sprintKey.isDown && player.body.blocked.down){
             //todo:if player is sprinting the animation should be different from walking
-            tempVelocityX -=playerSprintVelocity;
+            tempVelocityX -= playerWalkVelocity * 1.5;
         }else {
             tempVelocityX -= playerWalkVelocity;
         }
@@ -79,7 +78,7 @@ function playerMovement() {
     if (rightMoveKey.isDown) {
         if(sprintKey.isDown && player.body.blocked.down){
             //todo:if player is sprinting the animation should be different from walking
-            tempVelocityX +=playerSprintVelocity;
+            tempVelocityX += playerWalkVelocity * 1.5;
         }else {
             tempVelocityX += playerWalkVelocity;
         }

@@ -34,14 +34,16 @@ function updateXpText(){
     
     userIntThis.xpText.setText("\nCurrent EXP: "+currentXP+" / "+XPtillNextLvl);
     userIntThis.playerLevelText.setText("Player Level "+currentPlayerLvl);
-    userIntThis.ammoText.setText("Ammo = "+numberArrows);
-
+    if(currentWeapon == 'ranged'){
+        userIntThis.ammoText.setText("Weapon:Bow & Arrows("+numberArrows+")");
+    }else{
+       userIntThis.ammoText.setText("Weapon:Sword"); 
+    }
 }
 
 
 //Initialise health bar. 
 function firstInitHealthBar() {
-
     hbWidth = userIntThis.sys.game.config.width*0.20;
     hbHeight = userIntThis.sys.game.config.height*0.05;
     hbIncrement = hbWidth/maxHealth;
@@ -99,9 +101,10 @@ function parseHealthBar() {
 
 //Draw the health bar. 
 function drawHealthBar() {
-    
+    maxHealthUpdate();
     healthBar.clear();
-    hbX = userIntThis.cameras.main.scrollX + userIntThis.sys.game.config.width*0.775;
+    
+    hbX = userIntThis.cameras.main.scrollX + userIntThis.sys.game.config.width*0.73;
     hbY = userIntThis.cameras.main.scrollY + userIntThis.sys.game.config.height*0.0225;
     healthBar.lineStyle(1,0x000000,1);
     healthBar.fillStyle(0xff0000,1);
