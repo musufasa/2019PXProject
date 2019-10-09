@@ -32,7 +32,8 @@ class difficultyScreen extends Phaser.Scene{
         lowDifficulty.on('pointerup',()=>{
             console.log("Set difficulty to low");
             maxHealthInit = 300;
-            playerDamgePointsInit = 100; 
+            playerDamgePointsInit = 100;
+            difficulty=.5;
         });
         
         //Set game difficulty to normal if player wants
@@ -40,6 +41,8 @@ class difficultyScreen extends Phaser.Scene{
             console.log("Set difficulty to normal");
             maxHealthInit = 200;
             playerDamgePointsInit = 75;
+            difficulty=1;
+
         });
         
         //Set game difficulty to hard if player wants
@@ -47,6 +50,7 @@ class difficultyScreen extends Phaser.Scene{
             console.log("Set difficulty to hard");
             maxHealthInit = 100;
             playerDamgePointsInit = 50;
+            difficulty=2;
         });
         
         
