@@ -127,6 +127,8 @@ function spawnObjects() {
                     y: mapObjectArray[i].y, 
                     dialogueKey: tempProperties['dialogueKey'] + levelProgress
                 });
+                npcs[npcCount].displayHeight = 64;
+                npcs[npcCount].displayWidth = 50;
                 npcCount++; 
                 break;
             case 'spiderBoss': 
