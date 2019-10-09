@@ -179,7 +179,7 @@
                         {
                          "name":"portalMap",
                          "type":"string",
-                         "value":"gardenFleece"
+                         "value":"dragonLevel"
                         }, 
                         {
                          "name":"spawnAfterRitual",
