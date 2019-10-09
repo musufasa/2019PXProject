@@ -99,30 +99,9 @@ function parseHealthBar() {
 
 //Draw the health bar. 
 function drawHealthBar() {
+    
     healthBar.clear();
-    
-    
-    
-    
-    
-    if(difficulty==0.5)
-    {
-       hbX = userIntThis.cameras.main.scrollX + userIntThis.sys.game.config.width*0.25;      
-    }
-    else if(difficulty==1)
-    {
-       hbX = userIntThis.cameras.main.scrollX + userIntThis.sys.game.config.width*0.50;       
-    }
-    else if(difficulty==2)
-    {
-       hbX = userIntThis.cameras.main.scrollX + userIntThis.sys.game.config.width*0.775;      
-    }else{
-       hbX = userIntThis.cameras.main.scrollX + userIntThis.sys.game.config.width*0.775;
-    }
-    
-    
-    
-    //hbX = userIntThis.cameras.main.scrollX + userIntThis.sys.game.config.width*0.30;
+    hbX = userIntThis.cameras.main.scrollX + userIntThis.sys.game.config.width*0.775;
     hbY = userIntThis.cameras.main.scrollY + userIntThis.sys.game.config.height*0.0225;
     healthBar.lineStyle(1,0x000000,1);
     healthBar.fillStyle(0xff0000,1);
