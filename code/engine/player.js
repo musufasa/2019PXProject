@@ -60,7 +60,6 @@ function playerMovement() {
         game.input.activePointer.justDown = false;
     }
 
-
     //Cap the player's Y velocity. 
     if (player.body.velocity.y > playerVelocityYMax) {
         player.body.velocity.y = playerVelocityYMax; 
@@ -102,6 +101,7 @@ function playerMovement() {
     } else if (playerSwingSword) {
         //Play attack animation. 
         player.anims.play('jasonAttackRight', true);
+        
 
         /* If the player is facing a wall and close to it, the game will use the default hitbox size. 
          * If the player is not near a wall, a larger hitbox will be used.  
@@ -148,7 +148,7 @@ function playerMovement() {
             playerDoubleJump = true;
         }
     }
-
+    
     if(player.body.blocked.down && playerDoubleJump){
         //once player lands on ground reset double jump ability.
         playerDoubleJump = false;
