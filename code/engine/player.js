@@ -120,21 +120,21 @@ function playerMovement() {
             (player.x + 50 > gameWidth) || (player.x - 11 < 0)) {
             //Smaller hitbox
             player.setSize(30, 64);
-            player.setOffset(28, 25);     
+            player.setOffset(0, 25);     
         } else if (playerFacingRight) {
             //Expand hitbox to right 
             player.setSize(30, 64);
-            player.setOffset(28, 25);
+            player.setOffset(0, 25);
         } else {
             //Expand hitbox to left
             player.setSize(30, 64);
-            player.setOffset(-12, 25);
+            player.setOffset(0, 25);
         }
     } else {
         //Play walk animation. 
         player.anims.play('jasonRight', true);
         player.setSize(30, 64);
-        player.setOffset(28, 30);
+        player.setOffset(0, 30);
     }
     
     //Vertical movement
