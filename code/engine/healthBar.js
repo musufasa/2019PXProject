@@ -34,8 +34,11 @@ function updateXpText(){
     
     userIntThis.xpText.setText("\nCurrent EXP: "+currentXP+" / "+XPtillNextLvl);
     userIntThis.playerLevelText.setText("Player Level "+currentPlayerLvl);
-    userIntThis.ammoText.setText("Ammo = "+numberArrows);
-
+    if(currentWeapon == 'ranged'){
+        userIntThis.ammoText.setText("Weapon:Bow & Arrows("+numberArrows+")");
+    }else{
+       userIntThis.ammoText.setText("Weapon:Sword"); 
+    }
 }
 
 
