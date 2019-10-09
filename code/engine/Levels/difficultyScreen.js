@@ -42,7 +42,6 @@ class difficultyScreen extends Phaser.Scene{
             maxHealthInit = 200;
             playerDamgePointsInit = 75;
             difficulty=1;
-
         });
         
         //Set game difficulty to hard if player wants
