@@ -25,7 +25,7 @@ var playerInvulnerabilityWait = 1000; //How long the player should be invulnerab
 var playerInvulnerability = false; //Is the player invulnerable?
 var playerVelocityYMax = 1350; //Maximum Y velocity - prevents clipping through floor when falling. 
 var playerDoubleJump = false;
-var numberArrows = 10; //number of arrows the player is currently carrying, starts with 0 and must find them along the game.
+var numberArrows = 10; //number of arrows the player is currently carrying, starts with 10 and must find or purchase them throughout the game.
 
 //checks if the player is blocking
 var blocking=false;
@@ -96,7 +96,9 @@ function playerMovement() {
         //Play idle animation. 
         player.anims.play('jasonIdleRight', true);
         player.setSize(20, 64);
-        player.setOffset(28, 20);
+        player.displayHeight = 64;
+        player.displayWidth = 50;
+        player.setOffset(0, 30);
     } else if (playerSwingSword) {
         //Play attack animation. 
         player.anims.play('jasonAttackRight', true);
@@ -118,21 +120,21 @@ function playerMovement() {
             (player.x + 50 > gameWidth) || (player.x - 11 < 0)) {
             //Smaller hitbox
             player.setSize(20, 64);
-            player.setOffset(28, 20);     
+            player.setOffset(28, 25);     
         } else if (playerFacingRight) {
             //Expand hitbox to right 
             player.setSize(60, 64);
-            player.setOffset(28, 20);
+            player.setOffset(28, 25);
         } else {
             //Expand hitbox to left
             player.setSize(60, 64);
-            player.setOffset(-12, 20);
+            player.setOffset(-12, 25);
         }
     } else {
         //Play walk animation. 
         player.anims.play('jasonRight', true);
         player.setSize(20, 64);
-        player.setOffset(28, 20);
+        player.setOffset(28, 30);
     }
     
     //Vertical movement
@@ -371,19 +373,19 @@ function maybeDisplayMap(){
 
 //checks if the player is pressing the block button to block projectiles
 function playerBlocking(){
-            if(blockKey._justDown && !leftMoveKey.isDown && !rightMoveKey.isDown){
-                shield.setAlpha(1);
-                blocking=true;
-                if(playerFacingRight==true){
-                shield.angle=0;
-                shield.x=player.x+20;
-                shield.y=player.y;
-                }
-                else if(playerFacingRight==false){
-                shield.angle=180;
-                shield.x=player.x-20;
-                shield.y=player.y;    
-                }
+        if(blockKey._justDown && !leftMoveKey.isDown && !rightMoveKey.isDown){
+            shield.setAlpha(1);
+            blocking=true;
+            if(playerFacingRight==true){
+            shield.angle=0;
+            shield.x=player.x+20;
+            shield.y=player.y;
+            }
+            else if(playerFacingRight==false){
+            shield.angle=180;
+            shield.x=player.x-20;
+            shield.y=player.y;    
+            }
         }
         else{
             blocking=false;

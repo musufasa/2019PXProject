@@ -496,7 +496,8 @@ function loadMap() {
     var playerSpawnPoint = createThis.map.findObject("Objects", obj => obj.name === "Player Spawn");
     player = createThis.physics.add.sprite(playerSpawnPoint.x, playerSpawnPoint.y, playerSprite);
     player.setCollideWorldBounds(true);
-
+    player.displayHeight = 64;
+    player.displayWidth = 72;
     mapLayer.setCollisionByProperty({ collides: true });
     createThis.physics.add.collider(player, mapLayer);
 
@@ -511,7 +512,7 @@ function loadMap() {
         key: 'jasonAttackRight',
         frames: createThis.anims.generateFrameNumbers('jasonAttack', { start: 0, end: 19 }),
         frameRate: 30,
-        repeat: -1
+        repeat: -1,
     });
     createThis.anims.create({
         key: 'jasonIdleRight',
