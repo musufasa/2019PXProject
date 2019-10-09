@@ -4,7 +4,7 @@
 //Hard diff - Health 100, Damage 50 - Previous default 
 var maxHealthInit = 100;
 var playerDamgePointsInit = 50; 
-var difficulty;
+var difficulty=1;
 
 
 //Game variables relating to the player on all levels.
@@ -95,9 +95,9 @@ function playerMovement() {
     if (!playerSwingSword && !leftMoveKey.isDown && !rightMoveKey.isDown) {
         //Play idle animation. 
         player.anims.play('jasonIdleRight', true);
-        player.setSize(20, 64);
+        player.setSize(30, 64);
         player.displayHeight = 64;
-        player.displayWidth = 50;
+        player.displayWidth = 35;
         player.setOffset(0, 30);
     } else if (playerSwingSword) {
         //Play attack animation. 
@@ -119,22 +119,22 @@ function playerMovement() {
             (!playerFacingRight && tempCheckLeftTile2 !== null && tempCheckLeftTile2.collides) || 
             (player.x + 50 > gameWidth) || (player.x - 11 < 0)) {
             //Smaller hitbox
-            player.setSize(20, 64);
-            player.setOffset(28, 25);     
+            player.setSize(30, 64);
+            player.setOffset(0, 25);     
         } else if (playerFacingRight) {
             //Expand hitbox to right 
-            player.setSize(60, 64);
-            player.setOffset(28, 25);
+            player.setSize(30, 64);
+            player.setOffset(0, 25);
         } else {
             //Expand hitbox to left
-            player.setSize(60, 64);
-            player.setOffset(-12, 25);
+            player.setSize(30, 64);
+            player.setOffset(0, 25);
         }
     } else {
         //Play walk animation. 
         player.anims.play('jasonRight', true);
-        player.setSize(20, 64);
-        player.setOffset(28, 30);
+        player.setSize(30, 64);
+        player.setOffset(0, 30);
     }
     
     //Vertical movement
