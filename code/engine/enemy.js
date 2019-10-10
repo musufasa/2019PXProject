@@ -390,7 +390,7 @@ class fox extends enemyBase {
     }
 
     update () {  
-        this.body.setOffset(0,-15);
+        this.body.setOffset(0,50);
         if (this.body.velocity.x < 0) {
             this.anims.play('foxLeft', true);
         } else if (this.body.velocity.x > 0) {
