@@ -31,11 +31,15 @@ var music;
 var musicMuted = false; //Is the music muted?
 var musicPlaying = false; //Is music playing?
 var portalMap; //Which map should a portal warp into?
-var musicVolume = 0; // global starting music volume,editable via pause menu. 1 = 100%, 0.5 = 50% etc.
+var musicVolume = 0.5; // global starting music volume,editable via pause menu. 1 = 100%, 0.5 = 50% etc.
 var inventoryOpen = false;
 var questInfoOpen = false;
 var shopOpen = false;
 var currentQuest;//holds a quest object to be read into UI elements.
+var diffText1; 
+var diffText2;
+var diffText3;
+ 
 
 //Background layers
 var backgroundLayer0;

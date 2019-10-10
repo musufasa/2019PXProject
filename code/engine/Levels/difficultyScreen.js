@@ -1,5 +1,5 @@
 class difficultyScreen extends Phaser.Scene{
-
+    
     constructor() {
         super({key: 'difficultyScreen', active: false });
     }
@@ -34,6 +34,25 @@ class difficultyScreen extends Phaser.Scene{
             maxHealthInit = 300;
             playerDamgePointsInit = 100;
             difficulty=.5;
+            
+            //Prevent multiple button presses from rendering same text over itself
+            if(typeof this.diffText1 != "undefined") 
+            {
+               this.diffText1.destroy(); 
+            }
+            
+            this.diffText1 = this.add.text(this.game.renderer.width *.02, this.game.renderer.height * 0.25,"Difficulty set to easy",{ fontSize: '25px',color:'0,0,0'});
+            
+            //Destroy text for normal and hard difficulty when not needed 
+            if(typeof this.diffText2 != "undefined") 
+            {
+               this.diffText2.destroy(); 
+            }
+            
+            if(typeof this.diffText3 != "undefined") 
+            {
+               this.diffText3.destroy(); 
+            }
         });
         
         //Set game difficulty to normal if player wants
@@ -41,7 +60,26 @@ class difficultyScreen extends Phaser.Scene{
             console.log("Set difficulty to normal");
             maxHealthInit = 200;
             playerDamgePointsInit = 75;
-            difficulty=1;
+            difficulty=1; 
+            
+            //Prevent multiple button presses from rendering same text over itself
+            if(typeof this.diffText2 != "undefined") 
+            {
+               this.diffText2.destroy(); 
+            }
+            
+            this.diffText2 = this.add.text(this.game.renderer.width *.02, this.game.renderer.height * 0.25,"Difficulty set to normal",{ fontSize: '25px',color:'0,0,0'});
+            
+            //Destroy text for easy and hard difficulty when not needed 
+            if(typeof this.diffText1 != "undefined") 
+            {
+               this.diffText1.destroy(); 
+            }
+            
+            if(typeof this.diffText3 != "undefined") 
+            {
+               this.diffText3.destroy(); 
+            }
         });
         
         //Set game difficulty to hard if player wants
@@ -49,7 +87,26 @@ class difficultyScreen extends Phaser.Scene{
             console.log("Set difficulty to hard");
             maxHealthInit = 100;
             playerDamgePointsInit = 50;
-            difficulty=2;
+            difficulty=2; 
+            
+            //Prevent multiple button presses from rendering same text over itself
+            if(typeof this.diffText3 != "undefined") 
+            {
+               this.diffText3.destroy(); 
+            }
+            
+            this.diffText3 = this.add.text(this.game.renderer.width *.02, this.game.renderer.height * 0.25,"Difficulty set to hard",{ fontSize: '25px',color:'0,0,0'});
+            
+            //Destroy text for easy and normal difficulty when not needed 
+            if(typeof this.diffText1 != "undefined") 
+            {
+               this.diffText1.destroy(); 
+            }
+            
+            if(typeof this.diffText2 != "undefined") 
+            {
+               this.diffText2.destroy(); 
+            }
         });
         
         
@@ -78,31 +135,31 @@ class difficultyScreen extends Phaser.Scene{
         // Tint Change when hovering over buttons
       
         mutebut.on('pointerover',()=>{
-            mutebut.setTint(0xA7FF7D);
+            mutebut.setTint(0xfcf003);
         });
         mutebut.on('pointerout',()=>{
             mutebut.setTint(0xffffff);
         });
         back.on('pointerover',()=>{
-            back.setTint(0xA7FF7D);
+            back.setTint(0xfcf003);
         });
         back.on('pointerout',()=>{
             back.setTint(0xffffff);
         });
         lowDifficulty.on('pointerover',()=>{
-            lowDifficulty.setTint(0xA7FF7D);
+            lowDifficulty.setTint(0xfcf003);
         });
         lowDifficulty.on('pointerout',()=>{
             lowDifficulty.setTint(0xffffff);
         });
         normalDifficulty.on('pointerover',()=>{
-            normalDifficulty.setTint(0xA7FF7D);
+            normalDifficulty.setTint(0xfcf003);
         });
         normalDifficulty.on('pointerout',()=>{
             normalDifficulty.setTint(0xffffff);
         });
         highDifficulty.on('pointerover',()=>{
-            highDifficulty.setTint(0xA7FF7D);
+            highDifficulty.setTint(0xfcf003);
         });
         highDifficulty.on('pointerout',()=>{
             highDifficulty.setTint(0xffffff);
