@@ -101,6 +101,7 @@ function playerMovement() {
         //Play attack animation. 
         player.anims.play('jasonAttackRight', true);
         
+        
 
         /* If the player is facing a wall and close to it, the game will use the default hitbox size. 
          * If the player is not near a wall, a larger hitbox will be used.  

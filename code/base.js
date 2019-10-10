@@ -85,8 +85,6 @@ class controller extends Phaser.Scene {
            { frameWidth: 82, frameHeight: 94 });
         this.load.spritesheet('jasonWalk','assets/player/newJasonWalking.png',
            { frameWidth: 52, frameHeight: 94 });
-        this.load.spritesheet('jasonJump','assets/player/jasonJump.png',
-           { frameWidth: 58, frameHeight: 94 });
         this.load.spritesheet('orpheusSprite','assets/NPC/orpheusTest.png',
            { frameWidth: 57, frameHeight: 94 });
         
@@ -519,12 +517,6 @@ function loadMap() {
     createThis.anims.create({
         key: 'jasonIdleRight',
         frames: createThis.anims.generateFrameNumbers('jasonIdle', { start: 0, end: 12 }),
-        frameRate: 10,
-        repeat: -1
-    });
-    createThis.anims.create({
-        key: 'jasonJump',
-        frames: createThis.anims.generateFrameNumbers('jasonJump', { start: 0, end: 10 }),
         frameRate: 10,
         repeat: -1
     });
