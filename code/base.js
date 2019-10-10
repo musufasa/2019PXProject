@@ -275,7 +275,7 @@ class controller extends Phaser.Scene {
         //updates xp text and upgrade points UIs
         updateXpText();
         checkUpgradePoints();
-        console.log(currentHealth); 
+        
         //Keeps coin counter up to date
         this.coinText.setText("Coins: "+currentCoins);
 
@@ -648,7 +648,7 @@ function callUpdateFuncs() {
             inventoryOpen = false;
         }
     }
-
+    
 }
 
 //Ship update function.

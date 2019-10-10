@@ -51,7 +51,7 @@
     },
        {
       "char":"Keep Guard",
-      "speech":"I am sure I don't need to tell you how to use your sword, but you can attack by pressing the 'S' key. Press Z to Continue..."
+      "speech":"I am sure I don't need to tell you how to use your sword, but you can attack by pressing the left mouse button. Press Z to Continue..."
     },
     {
       "char":"Keep Guard",
@@ -69,7 +69,7 @@
     },
     {
       "char":"Keep Guard",
-      "speech":"Remember, it is 'S' to attack. Press Z to Continue..."
+      "speech":"Remember, it is left mouse button to attack. Press Z to Continue..."
     },
     {
       "char":"Keep Guard",
@@ -109,7 +109,7 @@
     },
     {
         "char":"Keep Guard",
-        "speech":"To enter the door press the 'W' key."
+        "speech":"To enter the door press the W arrow key."
     }, 
     {
         "char":"",
