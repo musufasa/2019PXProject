@@ -18,13 +18,13 @@ class riverCrossing extends Phaser.Scene {
 
         createThis.anims.create({
             key: 'foxLeft',
-            frames: createThis.anims.generateFrameNumbers('fox', { start: 0, end: 0 }),
+            frames: createThis.anims.generateFrameNumbers('foxEnemy', { start: 4, end: 7 }),
             frameRate: 10,
             repeat: -1
         });
         createThis.anims.create({
             key: 'foxRight',
-            frames: createThis.anims.generateFrameNumbers('fox', { start: 1, end: 1 }),
+            frames: createThis.anims.generateFrameNumbers('foxEnemy', { start: 8, end: 11 }),
             frameRate: 10,
             repeat: -1
         });

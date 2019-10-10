@@ -192,6 +192,9 @@ class controller extends Phaser.Scene {
         //Centaur enemy spritesheet 
         this.load.spritesheet('centaurEnemy','assets/enemy/centaur.png', {frameWidth: 192, frameHeight: 256});
         
+        //Fox enemy spritesheet 
+        this.load.spritesheet('foxEnemy','assets/enemy/newFoxSpriteSheet.png', {frameWidth: 120, frameHeight: 79});
+        
         // shield
          this.load.image('shield','assets/player/shield.png');
 
