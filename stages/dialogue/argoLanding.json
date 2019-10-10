@@ -32,7 +32,7 @@
 	"iphiclus2":[
 		{
 			"char":"Iphiclus",
-			"speech":"A meeting by the shrine with the kings daughter? that's a royal invite you cannot refuse"
+			"speech":"A meeting by the shrine with the kings daughter? That's a royal invite you cannot refuse"
 		},
 		{ 
 			"char":"",
@@ -52,7 +52,7 @@
 	"iphiclus3": [
 		{
 			"char":"Iphiclus",
-			"speech":"No challenge is too great for mighty Jason!"
+			"speech":"No challenge is too great for the mighty Jason!"
 		},
 		{ 
 			"char":"",
