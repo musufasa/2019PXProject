@@ -7,6 +7,7 @@ var jumpKey; //Jump key (default is Space bar)
 var sprintKey; //Sprint/dash key (default is left shift)
 var interactKey; //Talk/interact key (default is C)
 var pauseKey; //Pause key (default is P)
+var secondaryPauseKey; //Secondary pause key (default is ESC)
 var displayMapKey; //Map key (default is M)
 var inventoryKey; // Inventory key mapped to I
 var portalKey;//travel through portals key is mapped to the UP arrow
@@ -221,6 +222,7 @@ class controller extends Phaser.Scene {
         //Create default key bindings for up,down,left and righ
         cursors = createThis.input.keyboard.createCursorKeys();
         pauseKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.P);
+        secondaryPauseKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ESC);
         inventoryKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.I);
         questInfoKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Q);
         weaponKey = createThis.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
@@ -324,6 +326,12 @@ class controller extends Phaser.Scene {
         //Pause the game if the pause key is held down.
         if (pauseKey._justDown) {
             pauseKey._justDown = false;
+            userIntThis.scene.sendToBack('controller');
+            game.scene.run('pause');
+        }
+
+        if (secondaryPauseKey._justDown) {
+            secondaryPauseKey._justDown = false;
             userIntThis.scene.sendToBack('controller');
             game.scene.run('pause');
         }
