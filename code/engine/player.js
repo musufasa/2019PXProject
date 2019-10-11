@@ -2,8 +2,8 @@
 //Easy diff - Health 300, Damage 100 
 //Normal diff - Health 200, Damage 75 
 //Hard diff - Health 100, Damage 50 - Previous default 
-var maxHealthInit = 100;
-var playerDamgePointsInit = 50; 
+var maxHealthInit = 200;
+var playerDamgePointsInit = 75;
 var difficulty=1;
 
 

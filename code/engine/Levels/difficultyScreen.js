@@ -34,7 +34,8 @@ class difficultyScreen extends Phaser.Scene{
             maxHealthInit = 300;
             playerDamgePointsInit = 100;
             difficulty=.5;
-            
+            normalDifficulty.setTint(0xffffff);
+            highDifficulty.setTint(0xffffff);
             //Prevent multiple button presses from rendering same text over itself
             if(typeof this.diffText1 != "undefined") 
             {
@@ -60,8 +61,9 @@ class difficultyScreen extends Phaser.Scene{
             console.log("Set difficulty to normal");
             maxHealthInit = 200;
             playerDamgePointsInit = 75;
-            difficulty=1; 
-            
+            difficulty=1;
+            lowDifficulty.setTint(0xffffff);
+            highDifficulty.setTint(0xffffff);
             //Prevent multiple button presses from rendering same text over itself
             if(typeof this.diffText2 != "undefined") 
             {
@@ -87,8 +89,9 @@ class difficultyScreen extends Phaser.Scene{
             console.log("Set difficulty to hard");
             maxHealthInit = 100;
             playerDamgePointsInit = 50;
-            difficulty=2; 
-            
+            difficulty=2;
+            normalDifficulty.setTint(0xffffff);
+            lowDifficulty.setTint(0xffffff);
             //Prevent multiple button presses from rendering same text over itself
             if(typeof this.diffText3 != "undefined") 
             {
@@ -140,29 +143,45 @@ class difficultyScreen extends Phaser.Scene{
         mutebut.on('pointerout',()=>{
             mutebut.setTint(0xffffff);
         });
+
         back.on('pointerover',()=>{
             back.setTint(0xfcf003);
         });
         back.on('pointerout',()=>{
             back.setTint(0xffffff);
         });
+
         lowDifficulty.on('pointerover',()=>{
             lowDifficulty.setTint(0xfcf003);
         });
         lowDifficulty.on('pointerout',()=>{
-            lowDifficulty.setTint(0xffffff);
+            if(difficulty == .5) {
+                lowDifficulty.setTint(0xfcf003);
+            }else{
+                lowDifficulty.setTint(0xffffff);
+            }
         });
+
         normalDifficulty.on('pointerover',()=>{
             normalDifficulty.setTint(0xfcf003);
         });
         normalDifficulty.on('pointerout',()=>{
-            normalDifficulty.setTint(0xffffff);
+            if(difficulty == 1) {
+                normalDifficulty.setTint(0xfcf003);
+            }else{
+                normalDifficulty.setTint(0xffffff);
+            }
         });
+
         highDifficulty.on('pointerover',()=>{
             highDifficulty.setTint(0xfcf003);
         });
         highDifficulty.on('pointerout',()=>{
-            highDifficulty.setTint(0xffffff);
+            if(difficulty == 2) {
+                highDifficulty.setTint(0xfcf003);
+            }else{
+                highDifficulty.setTint(0xffffff);
+            }
         });
         
         // Tint Change when hovering over buttons
