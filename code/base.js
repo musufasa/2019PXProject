@@ -405,6 +405,22 @@ class controller extends Phaser.Scene {
             }
         }
 
+        //open or closes inventory
+        if (inventoryKey._justDown){
+            inventoryKey._justDown = false;
+            if(!inventoryOpen){
+                userIntThis.scene.sendToBack('controller');
+                game.scene.run('UIS');
+                inventoryOpen = true;
+            }else{
+                //close the inventory if it is open.
+                userIntThis.scene.bringToTop('controller');
+                game.scene.resume(currentLevelID);
+                game.scene.stop('UIS');
+                inventoryOpen = false;
+            }
+        }
+
     }
     updateRitualItemText() {
         var tempCount = 0;
@@ -631,21 +647,6 @@ function callUpdateFuncs() {
             default:
                 currentWeapon = "sword";
                 break;
-        }
-    }
-    //open or closes inventory
-    if (inventoryKey._justDown){
-        inventoryKey._justDown = false;
-        if(!inventoryOpen){
-            userIntThis.scene.sendToBack('controller');
-            game.scene.run('UIS');
-            inventoryOpen = true;
-        }else{
-            //close the inventory if it is open.
-            userIntThis.scene.bringToTop('controller');
-            game.scene.resume(currentLevelID);
-            game.scene.stop('UIS');
-            inventoryOpen = false;
         }
     }
     

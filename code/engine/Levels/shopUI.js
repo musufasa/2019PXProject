@@ -219,6 +219,7 @@ class shopUI extends Phaser.Scene {
             game.scene.resume(currentLevelID);
             userIntThis.scene.bringToTop('controller');
             game.scene.stop('shopUI');
+            shopOpen = false;
         });
 
         function updateUIelements(){
