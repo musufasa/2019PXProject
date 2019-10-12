@@ -4,6 +4,8 @@ skelesActive = false;
 skeleInterval = undefined;
 var looper = 0; 
 
+
+//new dragon states
 phase2Ready=false;
 abovePlayer=false;
 dragonReset=false;
@@ -13,6 +15,7 @@ dragonCharging=false;
 dragonIdle=false;
 phase1ready=false;
 
+//medea states
 medeaReset=false;
 readyToTeleport=false;
 move=false;
@@ -59,7 +62,7 @@ class enemyBase extends Phaser.GameObjects.Sprite {
         this.scaleX = parameter.scale; 
         this.scaleY = parameter.scale; 
         this.enemyId = parameter.enemyId;
-        this.health = parameter.health*difficulty;
+        this.health = parameter.health;
         this.invulnerabilityWait = 1500; 
         this.invulnerability = false; 
         this.alive = true;
@@ -358,7 +361,7 @@ class spiderMini extends enemyBase {
             scale: 0.45, 
             enemyId: parameter.enemyId, 
             gravity: false, 
-            health: 1, 
+            health: 1*difficulty, 
             stompable: true
         });
     }
@@ -385,7 +388,7 @@ class fox extends enemyBase {
             scale: 0.45, 
             enemyId: parameter.enemyId, 
             gravity: true, 
-            health: 200
+            health: 200*difficulty
         });
     }
 
@@ -419,7 +422,7 @@ class snake extends enemyBase {
             scale: 0.45, 
             enemyId: parameter.enemyId, 
             gravity: true, 
-            health: 150
+            health: 150*difficulty
         });
     }
     update () {  
@@ -451,7 +454,7 @@ class bats extends enemyBase {
             scale: 0.45, 
             enemyId: parameter.enemyId, 
             gravity: true, 
-            health: 150
+            health: 150*difficulty
         });
     }    
 
@@ -484,7 +487,7 @@ class bullBoss extends enemyBase {
             scale: 0.18, 
             enemyId: parameter.enemyId, 
             gravity: false, 
-            health: 250, 
+            health: 250*difficulty, 
             boss: true, 
             invulnerabilityAlways: true
         });
@@ -550,7 +553,7 @@ class medusaBoss extends enemyBase {
             scale: 1, 
             enemyId: parameter.enemyId, 
             gravity: false, 
-            health: 250, 
+            health: 250*difficulty, 
             boss: true
         });
     }
@@ -594,7 +597,7 @@ class minotaurBoss extends enemyBase {
             scale: 3, 
             enemyId: parameter.enemyId, 
             gravity: true, 
-            health: 500, 
+            health: 500*difficulty, 
             damageTouch: true,
             hasSword: true, 
             boss: true
@@ -688,7 +691,7 @@ class dragonBoss extends enemyBase {
             scale: 1, 
             enemyId: parameter.enemyId, 
             gravity: false, 
-            health: 1000, 
+            health: 1000*difficulty, 
             boss: true
         });
 
@@ -799,7 +802,7 @@ class spiderBoss extends enemyBase {
             scale: 1, 
             enemyId: parameter.enemyId, 
             gravity: false, 
-            health: 250,
+            health: 250*difficulty,
             spiderBoss: true, 
             boss: true
         });
@@ -869,7 +872,7 @@ class skeleton extends enemyBase {
             scale: 1, 
             enemyId: parameter.enemyId, 
             gravity: true, 
-            health: 100,
+            health: 100*difficulty,
             skeleton:true, 
             boss: true
         });
@@ -1048,7 +1051,7 @@ class centaurEnemy extends enemyBase {
             scale: 0.45,
             enemyId: parameter.enemyId,
             gravity: true,
-            health: 100,
+            health: 100*difficulty,
         });
         //this.anims.play('centaur', true);
     }
