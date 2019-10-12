@@ -14,6 +14,7 @@ setfire=false;
 dragonCharging=false;
 dragonIdle=false;
 phase1ready=false;
+animPlay=false;
 
 //medea states
 medeaReset=false;
@@ -1092,7 +1093,7 @@ class newdragonBoss extends enemyBase {
             xVel: 300, 
             yMove: parameter.yMove, 
             yVel: 300,
-            scale: 1, 
+            scale: .4, 
             enemyId: parameter.enemyId, 
             gravity: false, 
             health: 1000, 
@@ -1104,7 +1105,10 @@ class newdragonBoss extends enemyBase {
         this.body.setVelocityY(0);
         this.invulnerabilityWait = 3000; 
         this.anims.play('dragonSpriteRight', true);
-        this.body.setSize(140,70);
+        this.body.setSize(1000,600);
+        this.body.setOffset(0,300);
+        //this.body.setSize(140,70);
+
     }    
 
     collision (tempEnemy) {
@@ -1232,7 +1236,7 @@ class newdragonBoss extends enemyBase {
 
             }
         else 
-            if(dragonPhase=3)
+            if(dragonPhase==3)
                 { 
                     phase1ready=false;
                     if (dragonPhase3Ready==false&&dragonIdle==false){
@@ -1254,12 +1258,17 @@ class newdragonBoss extends enemyBase {
                         dragonCharging=false;
                         dragonIdle=true;
                         this.chargeShot();
+                        setTimeout(this.playanimation,100,this);
                         
                     }
 
                     }
                  
-                 if (dragonIdle==true){                
+                 if (dragonIdle==true){
+                     if(animPlay==true){
+                    this.anims.play('dragonSpriteRight', true);
+                         animPlay=false;
+                     }
                          this.body.setVelocityX(0);
                         this.body.setVelocityY(0);
                  }
@@ -1275,6 +1284,9 @@ class newdragonBoss extends enemyBase {
                 console.log(this.x);
                 */
         
+    }
+    playanimation(){
+        animPlay=true;
     }
 
     shoot() {
@@ -1309,7 +1321,7 @@ class newdragonBoss extends enemyBase {
     
     chargeShot()  {
         projectiles[currentProjectile] = new chargeDragonFire({
-            x: this.x-30, 
+            x: this.x-100, 
             y: this.y,
             projectileId: currentProjectile,
             aimed: true, 

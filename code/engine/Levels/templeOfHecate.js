@@ -16,6 +16,7 @@ class templeOfHecate extends Phaser.Scene {
         {    frameWidth: 200, frameHeight: 242});   
 
         this.load.image('medeaArrow2','assets/enemy/medeaArrow2.png');
+        onFire=false;
 
         
     }

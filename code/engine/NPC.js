@@ -141,6 +141,7 @@ class medeaNPC extends npcBase {
             gravity: true
         })
         this.medeaActive = false;
+        this.setScale(.13)
     }
 
     makeInactive () {
