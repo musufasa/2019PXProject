@@ -17,7 +17,7 @@ class dragonLevel extends Phaser.Scene {
         this.load.spritesheet('fireBallSprite', 'assets/enemy/FireballSpritesheet.png', { frameWidth: 515, frameHeight: 515 });
         
         commonPreload();
-        dragonPhase = 3;
+        dragonPhase = 1;
         onFire=false;
 
     }
@@ -61,7 +61,7 @@ class dragonLevel extends Phaser.Scene {
         }
 
         //every 60 seconds change the dragon phase on a loop.
-        //this.time.addEvent({ delay: 12000, callback: this.updateDragonPhase, callbackScope: this, loop: true });
+        this.time.addEvent({ delay: 12000, callback: this.updateDragonPhase, callbackScope: this, loop: true });
     }
     update() {
         callUpdateFuncs();
