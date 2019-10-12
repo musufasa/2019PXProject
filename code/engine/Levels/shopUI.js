@@ -105,7 +105,7 @@ class shopUI extends Phaser.Scene {
         arrowPurchaseText.y = this.game.renderer.height * .375;
         arrowPurchaseText.setDepth(10);
         arrowPurchaseText.setStyle(diaBoxTextStyle);
-        arrowPurchaseText.setText("10 coins : Add 10 arrows into your inventory, handy for taking out enemies from afar" );
+        arrowPurchaseText.setText("10 coins : Add 10 arrows into your inventory, handy for taking out enemies from afar." );
 
         //add upgrade point purchase UI elements
         let upgradePoint = this.add.image(this.game.renderer.width * .50, this.game.renderer.height * 0.325,'upgradeStatButton').setDepth(1);
@@ -115,7 +115,7 @@ class shopUI extends Phaser.Scene {
         upgradePointText.y = this.game.renderer.height * .375;
         upgradePointText.setDepth(10);
         upgradePointText.setStyle(diaBoxTextStyle);
-        upgradePointText.setText("10 coins : Add 2 additional upgrade points, improve Jason's stats where needed" );
+        upgradePointText.setText("10 coins : Add 2 additional upgrade points, improve Jason's stats where needed." );
 
         //add xp purchase UI elements
         let xp = this.add.image(this.game.renderer.width * .75, this.game.renderer.height * 0.325,'smallExp').setDepth(1);
@@ -125,7 +125,7 @@ class shopUI extends Phaser.Scene {
         xpText.y = this.game.renderer.height * .375;
         xpText.setDepth(10);
         xpText.setStyle(diaBoxTextStyle);
-        xpText.setText("5 coins : Add an additional 500 xp, improve Jason's experience without having to take on as many enemies" );
+        xpText.setText("5 coins : Add an additional 500 xp, improve Jason's experience without having to take on as many enemies." );
 
         //add large health potion purchase UI elements
         let potion = this.add.image(this.game.renderer.width * .25, this.game.renderer.height * 0.625,'healthPotion').setDepth(1);
@@ -135,7 +135,7 @@ class shopUI extends Phaser.Scene {
         potionText.y = this.game.renderer.height * .675;
         potionText.setDepth(10);
         potionText.setStyle(diaBoxTextStyle);
-        potionText.setText("10 coins : Add an additional large health potion to your bag to heal a large amount." );
+        potionText.setText("10 coins : Add an additional large health potion to your bag to heal a large amount of HP." );
 
         //add chicken purchase UI elements
         let chicken = this.add.image(this.game.renderer.width * .50, this.game.renderer.height * 0.625,'healthItemSprite').setDepth(1);
@@ -145,7 +145,7 @@ class shopUI extends Phaser.Scene {
         chickenText.y = this.game.renderer.height * .675;
         chickenText.setDepth(10);
         chickenText.setStyle(diaBoxTextStyle);
-        chickenText.setText("5 coins : Add an additional chicken leg to your bag to heal a small amount.s" );
+        chickenText.setText("5 coins : Add an additional chicken leg to your bag to heal a small amount of HP." );
 
         //add max health purchase UI elements
         let damageIncrease = this.add.image(this.game.renderer.width * .75, this.game.renderer.height * 0.625,'damageIncreaseItemSprite').setDepth(1);
@@ -155,7 +155,7 @@ class shopUI extends Phaser.Scene {
         damageText.y = this.game.renderer.height * .675;
         damageText.setDepth(10);
         damageText.setStyle(diaBoxTextStyle);
-        damageText.setText("25 coins : Increase damage by 10 points. Helpful for experienced players playing on a higher difficulties. " );
+        damageText.setText("25 coins : Increase damage by 10 points. Helpful for experienced players playing on a higher difficulty setting." );
 
 
         arrowPurchase.on('pointerup', function () {
