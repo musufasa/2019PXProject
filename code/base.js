@@ -81,8 +81,9 @@ class controller extends Phaser.Scene {
         userIntThis = this;
         
         //Main characters
-        this.load.spritesheet('medeaSprite','assets/NPC/medea.png',
-           { frameWidth: 32, frameHeight: 64 });
+        this.load.spritesheet('medeaSprite','assets/NPC/newMedea.png',
+           { frameWidth: 319, frameHeight: 679 });
+        
         this.load.spritesheet('jason','assets/player/jason.png',
            { frameWidth: 76, frameHeight: 64 });
         
@@ -561,7 +562,7 @@ function loadMap() {
     });
     createThis.anims.create({
         key: 'medeaWalkRight',
-        frames: createThis.anims.generateFrameNumbers('medeaSprite', { start: 0, end: 7 }),
+        frames: createThis.anims.generateFrameNumbers('medeaSprite', { start: 0, end: 0 }),
         frameRate: 10,
         repeat: -1
     });
