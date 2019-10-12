@@ -661,21 +661,64 @@ class mirror extends itemBase {
 
     collision (tempItem){
         
-        if (medeaPhase==2){
+        if (medeaPhase>=2){
         player.x=1328;
         player.y=6328;
         }
-        
-        else if(medeaPhase==3){
-                player.x=2347;
-        player.y=5609;
-
-    }
-        
     }
     
 
 }
+
+class mirror2 extends itemBase {
+    constructor(parameter){
+        super({
+            scene: createThis,
+            x: parameter.x, 
+            y: parameter.y,
+            key: 'mirror', 
+            gravity: false
+            
+            
+        })
+
+    }
+
+    collision (tempItem){
+        if(medeaPhase>=3){
+                player.x=2347;
+        player.y=5609;
+
+    }
+    }
+
+}
+
+class mirror3 extends itemBase {
+    constructor(parameter){
+        super({
+            scene: createThis,
+            x: parameter.x, 
+            y: parameter.y,
+            key: 'mirror', 
+            gravity: false
+            
+            
+        })
+
+    }
+
+    collision (tempItem){
+        if(medeaPhase>=3){
+        player.x=2100;
+        player.y=3600;
+
+    }
+    }
+
+}
+
+
 
 class cauldron extends itemBase {
     constructor(parameter){

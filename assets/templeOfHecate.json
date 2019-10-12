@@ -63,7 +63,7 @@
                 {
                  "height":0,
                  "id":252,
-                 "name":"mirror",
+                 "name":"mirror2",
                  "point":true,
                  "rotation":0,
                  "type":"",
@@ -75,7 +75,7 @@
                 {
                  "height":0,
                  "id":254,
-                 "name":"mirror",
+                 "name":"mirror3",
                  "point":true,
                  "rotation":0,
                  "type":"",
@@ -95,18 +95,6 @@
                  "width":0,
                  "x":1344.9967796894,
                  "y":7393.30930001779
-                }, 
-                {
-                 "height":0,
-                 "id":257,
-                 "name":"mirror",
-                 "point":true,
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":2267.86158824994,
-                 "y":3737.60888608352
                 }, 
                 {
                  "height":0,
@@ -326,7 +314,7 @@
          "margin":0,
          "name":"coin",
          "spacing":0,
-         "tilecount":0,
+         "tilecount":6,
          "tileheight":32,
          "tilewidth":32
         }],

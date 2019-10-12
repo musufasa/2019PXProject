@@ -500,7 +500,21 @@ function spawnObjects() {
                     y: mapObjectArray[i].y
                 });
                 itemCount++;
-                break; 
+                break;
+                case 'mirror2':
+                items[itemCount] = new mirror2({
+                    x: mapObjectArray[i].x,
+                    y: mapObjectArray[i].y
+                });
+                itemCount++;
+                break;
+                case 'mirror3':
+                items[itemCount] = new mirror3({
+                    x: mapObjectArray[i].x,
+                    y: mapObjectArray[i].y
+                });
+                itemCount++;
+                break;
                 case 'medeaBoss': 
                 enemies[enemyCount] = new medeaBoss({
                     x: mapObjectArray[i].x, 
