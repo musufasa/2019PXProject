@@ -15,6 +15,7 @@ class interStage3 extends Phaser.Scene {
         //Load spritesheets for enemies 
         this.load.spritesheet('snake','assets/enemy/snake.png', {frameWidth: 120, frameHeight: 83});    
         this.load.spritesheet('centaurEnemy','assets/enemy/centaur.png',{frameWidth: 192, frameHeight: 256});   
+        this.load.spritesheet('minotaurSprite', 'assets/enemy/minotaur.png',{frameWidth: 48, frameHeight: 48});    
     }
 
     create() {
@@ -47,6 +48,19 @@ class interStage3 extends Phaser.Scene {
             frameRate: 10, 
             repeat: -1 
         }); 
+        createThis.anims.create({
+            key: 'minotaurWalkLeft',
+            frames: createThis.anims.generateFrameNumbers('minotaurSprite', { start: 20, end: 29 }),
+            frameRate: 10,
+            repeat: -1
+        });
+
+        createThis.anims.create({
+            key: 'minotaurSwingLeft',
+            frames: createThis.anims.generateFrameNumbers('minotaurSprite', { start: 30, end: 39}),
+            frameRate: 30,
+            repeat: -1
+        });
         
         //Set empty quest on map load 
         setToEmptyQuest();
