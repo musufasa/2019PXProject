@@ -471,7 +471,16 @@ function spawnObjects() {
                     xMove: tempProperties['xMove'],
                     enemyId: enemyCount
                 });
-                enemyCount++;
+                enemyCount++; 
+                break; 
+            case 'centaurEnemy2':
+                enemies[enemyCount] = new centaurEnemy({
+                    x: mapObjectArray[i].x,
+                    y: mapObjectArray[i].y,
+                    xMove: tempProperties['xMove'],
+                    enemyId: enemyCount
+                });
+                enemyCount++; 
                 break; 
                 case 'fire':
                 items[itemCount] = new fire({

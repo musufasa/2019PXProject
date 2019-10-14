@@ -29,7 +29,9 @@ function setToEmptyQuest(){
 }
 
 function completeCurrentQuest(){
-   if(currentQuest.questName !== 'No Quest Assigned'){
+   
+    /**For item based quest rewards 
+    if(currentQuest.questName !== 'No Quest Assigned'){
 
       //if the current quest object is not empty quest
       if(currentQuest.rewardType === 'coins'){
@@ -41,6 +43,34 @@ function completeCurrentQuest(){
       }
 
    }
+   **/ 
+    
+    //If the tutorial quest is complete reward the player 
+    if(tutorialQuestComplete==true)
+    {
+        if(questLooper<=0)
+        {
+            currentCoins += 50;
+            playcoinsound = true;  
+            tutorialQuestComplete = false; 
+            questLooper += 1;    
+        }       
+   }
+    
+   //If the centaur plains quest is complete reward the player 
+   if(centaurQuestComplete==true)
+   {
+      if(questLooper2<=0)
+      {
+         currentCoins += 200; 
+         currentXP += 1000; 
+         centaurQuestComplete = false;    
+         playcoinsound = true; 
+         questLooper2 += 1; 
+      }   
+   }
+
+       
    setToEmptyQuest();
 }
 

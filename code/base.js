@@ -40,6 +40,10 @@ var currentQuest;//holds a quest object to be read into UI elements.
 var diffText1; 
 var diffText2;
 var diffText3;
+var tutorialQuestComplete = false; 
+var questLooper = 0; 
+var centaurQuestComplete = false; 
+var questLooper2 = 0; 
  
 
 //Background layers
@@ -621,12 +625,6 @@ function callUpdateFuncs() {
     checkLevelUp()
     //Use the appropriate movement function for the level.
     playerMovement();
-    
-    //Set test quest only once 
-    if(loopcounter<1)
-    {
-        loopcounter += 1; 
-    }
     
     //Enemy Movement
     enemyMovement();

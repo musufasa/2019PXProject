@@ -1036,7 +1036,6 @@ class tutorialEnemy extends enemyBase {
             console.log(currentXP);
 
         }
-        
     }
 }
 
@@ -1053,6 +1052,44 @@ class centaurEnemy extends enemyBase {
             enemyId: parameter.enemyId,
             gravity: true,
             health: 100*difficulty,
+        });
+        //this.anims.play('centaur', true);
+    }
+    update () {
+        if (this.body.velocity.x < 0) {
+            this.anims.play('centaurLeft', true);
+        } else if (this.body.velocity.x > 0) {
+            this.anims.play('centaurRight', true);
+        }
+
+        if (this.alive && this.health <= 0) {
+            this.alive = false;
+            if(!this.alive) {
+                activeBosses --;
+            }
+            enemies[this.enemyId].destroy();
+            
+            currentXP=currentXP+200;
+            updatexpText=true;
+        }
+        
+    }
+}
+
+class centaurEnemy2 extends enemyBase {
+    constructor (parameter) {
+        super({
+            scene: createThis,
+            x: parameter.x,
+            y: parameter.y,
+            key: 'centaurEnemy2',
+            xMove: parameter.xMove,
+            xVel: 130,
+            scale: 0.45,
+            enemyId: parameter.enemyId,
+            gravity: true,
+            health: 100*difficulty,
+            boss: true
         });
         //this.anims.play('centaur', true);
     }

@@ -31,6 +31,7 @@ class tutorial extends Phaser.Scene {
             repeat: -1
         });
         
+        
         //Set the first quest to be the tutorial one
         var tutorialQuest = new questClass("Quest 1");
         tutorialQuest.questName = "Snake hunt";
@@ -45,11 +46,22 @@ class tutorial extends Phaser.Scene {
 
         //set the current player quest to the new tutorial quest one.
         currentQuest = tutorialQuest;
+        
+        tutorialQuestComplete = false; 
+        questLooper = 0; 
     }
     
     update() 
     {
         callUpdateFuncs();
+        
+        //If all snakes have been defeated then mark tutorial quest as complete 
+        if(activeBosses<=0)
+        {
+           tutorialQuestComplete = true; 
+           completeCurrentQuest()
+        }
+        
             //makes the player invulnerable if they are below 50hp so the player
             //can use items
                  if (currentHealth<=70){
