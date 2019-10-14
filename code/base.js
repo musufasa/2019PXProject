@@ -57,7 +57,6 @@ var playArrowSound = false;
 
 var updatexpText=false;
 
-var shield;
 
 var dragonPhase;
 var onFire=false;
@@ -200,9 +199,6 @@ class controller extends Phaser.Scene {
         
         //Fox enemy spritesheet 
         this.load.spritesheet('foxEnemy','assets/enemy/newFoxSpriteSheet.png', {frameWidth: 240, frameHeight: 158});
-        
-        // shield
-         this.load.image('shield','assets/player/shield.png');
 
         //fire
         this.load.image('fire', 'assets/enemy/firePlaceHolder.png');
@@ -521,9 +517,7 @@ function loadMap() {
     mapLayer.setDepth(-40);
     mapLayerBG.setDepth(-50);
     
-    //create player shield
-    shield = createThis.add.image(0, 0, 'shield');
-    shield.setScale(.2);
+
     //Spawn player.
     var playerSpawnPoint = createThis.map.findObject("Objects", obj => obj.name === "Player Spawn");
     player = createThis.physics.add.sprite(playerSpawnPoint.x, playerSpawnPoint.y, playerSprite);
@@ -543,6 +537,13 @@ function loadMap() {
     createThis.anims.create({
         key: 'jasonAttackRight',
         frames: createThis.anims.generateFrameNumbers('jasonAttack', { start: 0, end: 19 }),
+        frameRate: 30,
+        repeat: -1,
+    });
+    
+    createThis.anims.create({
+        key: 'blockingAnim',
+        frames: createThis.anims.generateFrameNumbers('jasonAttack', { start: 3, end: 3 }),
         frameRate: 30,
         repeat: -1,
     });

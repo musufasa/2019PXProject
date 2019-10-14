@@ -374,21 +374,14 @@ function maybeDisplayMap(){
 //checks if the player is pressing the block button to block projectiles
 function playerBlocking(){
         if(blockKey._justDown && !leftMoveKey.isDown && !rightMoveKey.isDown){
-            shield.setAlpha(1);
             blocking=true;
             if(playerFacingRight==true){
-            shield.angle=0;
-            shield.x=player.x+20;
-            shield.y=player.y;
+            player.anims.play('blockingAnim', true);
             }
             else if(playerFacingRight==false){
-            shield.angle=180;
-            shield.x=player.x-20;
-            shield.y=player.y;    
+                player.anims.play('blockingAnim', true);
+
             }
         }
-        else{
-            blocking=false;
-            shield.setAlpha(0);
-        }
+
 }
