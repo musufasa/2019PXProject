@@ -258,6 +258,11 @@
                          "name":"portalMap",
                          "type":"string",
                          "value":"argoLanding"
+                        }, 
+                        {
+                         "name":"spawnAfterBossBattle",
+                         "type":"bool",
+                         "value":true
                         }],
                  "rotation":0,
                  "type":"",
@@ -269,7 +274,7 @@
                 {
                  "height":0,
                  "id":130,
-                 "name":"centaurEnemy",
+                 "name":"centaurEnemy2",
                  "point":true,
                  "properties":[
                         {
@@ -287,7 +292,7 @@
                 {
                  "height":0,
                  "id":131,
-                 "name":"centaurEnemy",
+                 "name":"centaurEnemy2",
                  "point":true,
                  "properties":[
                         {

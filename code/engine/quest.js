@@ -1,4 +1,11 @@
 /**Each instance of questClass represents one quest along with its data (Name,giver,state,completion time,description and completion reward object if given.)**/
+
+/**Current Quests: 
+//
+//Quest 1: Tutorial Quest
+//Quest 2: Centaur Plains Quest 
+*/
+
 class questClass
 {
    constructor(questName) 
@@ -73,4 +80,5 @@ function completeCurrentQuest(){
        
    setToEmptyQuest();
 }
+
 

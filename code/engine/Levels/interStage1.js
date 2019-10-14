@@ -77,6 +77,5 @@ class interStage1 extends Phaser.Scene {
         }
         
         callUpdateFuncs();
-
     }
 }

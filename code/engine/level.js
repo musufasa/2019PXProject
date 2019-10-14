@@ -480,7 +480,8 @@ function spawnObjects() {
                     xMove: tempProperties['xMove'],
                     enemyId: enemyCount
                 });
-                enemyCount++; 
+                enemyCount++;
+                activeBosses ++; 
                 break; 
                 case 'fire':
                 items[itemCount] = new fire({
