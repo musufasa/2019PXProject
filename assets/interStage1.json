@@ -71,7 +71,7 @@
                         {
                          "name":"portalMap",
                          "type":"string",
-                         "value":"argoLanding"
+                         "value":"riverCrossing"
                         }],
                  "rotation":0,
                  "type":"",
@@ -257,7 +257,7 @@
                         {
                          "name":"portalMap",
                          "type":"string",
-                         "value":"argoLanding"
+                         "value":"riverCrossing"
                         }, 
                         {
                          "name":"spawnAfterBossBattle",

@@ -71,7 +71,7 @@
                         {
                          "name":"portalMap",
                          "type":"string",
-                         "value":"argoLanding"
+                         "value":"gardenEntrance"
                         }],
                  "rotation":0,
                  "type":"",
@@ -89,7 +89,7 @@
                         {
                          "name":"portalMap",
                          "type":"string",
-                         "value":"argoLanding"
+                         "value":"gardenEntrance"
                         }],
                  "rotation":0,
                  "type":"",

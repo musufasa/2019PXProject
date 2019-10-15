@@ -44,6 +44,9 @@ var tutorialQuestComplete = false;
 var questLooper = 0; 
 var centaurQuestComplete = false; 
 var questLooper2 = 0; 
+var treasureQuestComplete = false; 
+var questLooper3 = 0; 
+var numberOfCoinsHeld = 0; 
  
 
 //Background layers

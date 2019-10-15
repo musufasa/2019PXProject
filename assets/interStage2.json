@@ -71,7 +71,7 @@
                         {
                          "name":"portalMap",
                          "type":"string",
-                         "value":"argoLanding"
+                         "value":"palace"
                         }],
                  "rotation":0,
                  "type":"",
@@ -161,7 +161,7 @@
                         {
                          "name":"portalMap",
                          "type":"string",
-                         "value":"argoLanding"
+                         "value":"palace"
                         }],
                  "rotation":0,
                  "type":"",

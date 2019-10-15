@@ -4,7 +4,8 @@
 //
 //Quest 1: Tutorial Quest
 //Quest 2: Centaur Plains Quest 
-*/
+//Quest 3: Critters Creek Quest 
+*/ 
 
 class questClass
 {
@@ -76,6 +77,20 @@ function completeCurrentQuest(){
          questLooper2 += 1; 
       }   
    }
+    
+   //If the treasure hunter quest is complete reward the player 
+   if(treasureQuestComplete==true)
+   {
+      if(questLooper3<=0)
+      {
+         currentCoins += 500; 
+         currentXP += 2000; 
+         treasureQuestComplete = false;    
+         playcoinsound = true; 
+         questLooper3 += 1; 
+      }   
+   }
+
 
        
    setToEmptyQuest();

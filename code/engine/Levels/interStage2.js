@@ -48,11 +48,38 @@ class interStage2 extends Phaser.Scene {
             repeat: -1 
         }); 
         
-        //Set empty quest on map load 
-        setToEmptyQuest();
+        //Set quest for critters creek level 
+        var treasureQuest = new questClass("Quest 3");
+        treasureQuest.questName = "Treasure Hunter";
+        treasureQuest.questGiver = "Jason";
+        treasureQuest.questState = "In progress";
+        treasureQuest.questCompletionTime = "Not complete yet";
+        treasureQuest.questDescription = "Collect 50 coins";
+        treasureQuest.rewardType = "coins";
+        treasureQuest.reward = 200;
+        //Completion reward should be set to same structure as pickup item and pushed using bagInventory.push(currentQuest.completionReward) if there is space in the bag
+        treasureQuest.completionRewardText = "500 coins + 2000 XP";
+
+        //set the current player quest to the new tutorial quest one.
+        currentQuest = treasureQuest;
+        
+        //Track number of coins held by player upon spawn 
+        numberOfCoinsHeld = currentCoins; 
+        
+        treasureQuestComplete = false; 
+        questLooper3 = 0; 
     }
 
     update() {
+        
+        //If 50 coins have been collected mark quest as complete 
+        if(currentCoins-numberOfCoinsHeld==50)
+        {
+           treasureQuestComplete = true; 
+           completeCurrentQuest()
+        }
+        
+        
         callUpdateFuncs();
 
     }

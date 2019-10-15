@@ -779,6 +779,24 @@
                  "width":0,
                  "x":3644.44985987572,
                  "y":2382.11283051054
+                }, 
+                {
+                 "height":0,
+                 "id":77,
+                 "name":"portal",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"portalMap",
+                         "type":"string",
+                         "value":"interStage1"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":3776.21544327931,
+                 "y":1745.71020019066
                 }],
          "opacity":1,
          "properties":[
@@ -793,7 +811,7 @@
          "y":0
         }],
  "nextlayerid":22,
- "nextobjectid":76,
+ "nextobjectid":78,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",
