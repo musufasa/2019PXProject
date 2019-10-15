@@ -408,6 +408,39 @@ class fox extends enemyBase {
     }    
 }
 
+class fox2 extends enemyBase { 
+    constructor (parameter) {
+        super({
+            scene: createThis, 
+            x: parameter.x, 
+            y: parameter.y,
+            key: 'fox2', 
+            xMove: parameter.xMove,
+            xVel: 130, 
+            scale: 0.45, 
+            enemyId: parameter.enemyId, 
+            gravity: true, 
+            health: 200*difficulty,
+            boss: true
+        });
+    }
+
+    update () {  
+        this.body.setOffset(0,50);
+        if (this.body.velocity.x < 0) {
+            this.anims.play('foxLeft', true);
+        } else if (this.body.velocity.x > 0) {
+            this.anims.play('foxRight', true);
+        }
+            
+        if (this.alive && this.health <= 0) {
+            this.alive = false; 
+            enemies[this.enemyId].destroy(); 
+            activeBosses2 --;
+        }
+    }    
+}
+
 /* Snake.
  * Required parameters: x, y, xMove, enemyId
  */

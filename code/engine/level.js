@@ -21,6 +21,7 @@ function spawnObjects() {
     itemCount = 0; //Items counter
 
     activeBosses = 0; 
+    activeBosses2 = 0; 
 
     /* Run through the list of objects in the map and spawn the appropriate object. 
      * Object properties (xMove, yMove) and co-ordinates (x, y) are used.  
@@ -150,6 +151,16 @@ function spawnObjects() {
                     enemyId: enemyCount
                 });
                 enemyCount++; 
+                break;
+            case 'fox2': 
+                enemies[enemyCount] = new fox2({
+                    x: mapObjectArray[i].x, 
+                    y: mapObjectArray[i].y, 
+                    xMove: tempProperties['xMove'],
+                    enemyId: enemyCount
+                });
+                enemyCount++; 
+                activeBosses2 ++; 
                 break;
 
             case 'snake': 

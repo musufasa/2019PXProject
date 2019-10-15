@@ -90,6 +90,19 @@ function completeCurrentQuest(){
          questLooper3 += 1; 
       }   
    }
+    
+   //If the fox invasion quest is complete reward the player 
+   if(foxHuntQuestComplete==true)
+   {
+      if(questLooper4<=0)
+      {
+         currentCoins += 100; 
+         currentXP += 500; 
+         foxHuntQuestComplete = false;    
+         playcoinsound = true; 
+         questLooper4 += 1; 
+      }   
+   }    
 
 
        

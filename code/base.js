@@ -46,6 +46,8 @@ var centaurQuestComplete = false;
 var questLooper2 = 0; 
 var treasureQuestComplete = false; 
 var questLooper3 = 0; 
+var foxHuntQuestComplete = false; 
+var questLooper4 = 0; 
 var numberOfCoinsHeld = 0; 
  
 
