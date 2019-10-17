@@ -72,13 +72,18 @@
                          "name":"portalMap",
                          "type":"string",
                          "value":"riverCrossing"
+                        }, 
+                        {
+                         "name":"spawnafterbossbattle",
+                         "type":"bool",
+                         "value":true
                         }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":84.4285019693455,
-                 "y":1830.65560226762
+                 "x":4027.45213421279,
+                 "y":1807.9945469099
                 }, 
                 {
                  "height":0,
@@ -258,18 +263,13 @@
                          "name":"portalMap",
                          "type":"string",
                          "value":"riverCrossing"
-                        }, 
-                        {
-                         "name":"spawnAfterBossBattle",
-                         "type":"bool",
-                         "value":true
                         }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":3993.14807765512,
-                 "y":1815.75942139322
+                 "x":63.073619901802,
+                 "y":1806.04754052563
                 }, 
                 {
                  "height":0,
