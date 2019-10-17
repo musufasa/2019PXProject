@@ -5,7 +5,8 @@
 //Quest 1: Tutorial Quest
 //Quest 2: Centaur Plains Quest 
 //Quest 3: Critters Creek Quest 
-*/ 
+//Quest 4: sidequest1 fox hunt quest 
+**/
 
 class questClass
 {
