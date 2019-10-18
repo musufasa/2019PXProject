@@ -69,7 +69,7 @@ var updatexpText=false;
 
 var dragonPhase;
 var onFire=false;
-
+var fireVisible = false;
 var medeaPhase;
 var teleport;
 var medeaReset=false;

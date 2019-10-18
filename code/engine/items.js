@@ -594,16 +594,13 @@ class fire extends itemBase {
             
         })
         this.anims.play('fire', true);
-        //this.setAlpha(.5);
-
+        this.setAlpha(0);
     }
 
     collision (tempItem){
         if(dragonPhase==2)
         {
             onFire=true;
-            console.log("onfire")
-
         }
     }
 }

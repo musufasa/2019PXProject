@@ -95,7 +95,7 @@ function playerMovement() {
         player.anims.play('jasonIdleRight', true);
         player.setSize(30, 64);
         player.displayHeight = 64;
-        player.displayWidth = 35;
+        player.displayWidth = 50;
         player.setOffset(0, 30);
     } else if (playerSwingSword) {
         //Play attack animation. 

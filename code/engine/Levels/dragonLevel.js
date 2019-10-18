@@ -19,7 +19,6 @@ class dragonLevel extends Phaser.Scene {
         commonPreload();
         dragonPhase = 1;
         onFire=false;
-
     }
 
     create() {
@@ -62,24 +61,50 @@ class dragonLevel extends Phaser.Scene {
 
         //every 60 seconds change the dragon phase on a loop.
         this.time.addEvent({ delay: 12000, callback: this.updateDragonPhase, callbackScope: this, loop: true });
+        //change fire opacity
+        this.time.addEvent({ delay: 10, callback: this.changeFireOpactity, callbackScope: this, loop: true });
+        //on load reset the visibility of the fire.
+        items[2].alpha = 0;
+        fireVisible = false;
     }
     update() {
         callUpdateFuncs();
     }
 
      updateDragonPhase() {
-
-         switch (dragonPhase) {
-             case 1:
-                 dragonPhase = 2;
-                 break;
-             case 2:
-                 dragonPhase = 3;
-                 break;
-             default:
-                 dragonPhase = 1;
-                 break;
+         if(enemies[0].alive) {
+             switch (dragonPhase) {
+                 case 1:
+                     dragonPhase = 2;
+                     fireVisible = true;
+                     break;
+                 case 2:
+                     dragonPhase = 3;
+                     fireVisible = false;
+                     break;
+                 default:
+                     dragonPhase = 1;
+                     break;
+             }
+         }else{
+             dragonPhase = 1;
          }
-
     }
+
+    changeFireOpactity(){
+        if(enemies[0].alive) {
+            if (fireVisible) {
+                if (items[2].alpha < 1) {
+                    items[2].alpha += 0.01;
+                }
+            } else {
+                if (items[2].alpha > 0) {
+                    items[2].alpha -= 0.01;
+                }
+            }
+        }else{
+            items[2].alpha = 0;
+        }
+    }
+
 }
