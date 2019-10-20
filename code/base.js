@@ -216,6 +216,8 @@ class controller extends Phaser.Scene {
         //dragon level
         this.load.image('fountain', 'assets/items/fountain.png');
         this.load.image('pillar','assets/PILLAR.png');
+        this.load.image('bush1','assets/BUSHES1.png');
+        this.load.image('tree','assets/TREE_BG.png');
 
         //Temple of Hecate - Medea boss 
         this.load.image('mirror', 'assets/items/mirror.png');

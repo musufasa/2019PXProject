@@ -732,7 +732,6 @@ class cauldron extends itemBase {
     }
     
     collision (tempItem){
-        console.log("Touch the cauldron");
     }
 }
 
@@ -748,7 +747,30 @@ class pillar extends itemBase {
             this.setDepth(-35);
     }
 
-    collision (tempItem){
-        console.log("Touch the pillar");
+}
+
+class bush1 extends itemBase {
+    constructor(parameter){
+        super({
+            scene: createThis,
+            x: parameter.x,
+            y: parameter.y,
+            key: 'bush1',
+            gravity: false
+        })
+        this.setDepth(-35);
+    }
+
+}
+class tree extends itemBase {
+    constructor(parameter){
+        super({
+            scene: createThis,
+            x: parameter.x,
+            y: parameter.y,
+            key: 'tree',
+            gravity: false
+        })
+        this.setDepth(-35);
     }
 }

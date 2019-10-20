@@ -59,9 +59,8 @@ function spawnObjects() {
                     y: mapObjectArray[i].y, 
                     dialogueKey: tempProperties['dialogueKey'] + levelProgress
                 });
-                // npcs[npcCount].displayHeight = 55;
-                // npcs[npcCount].displayWidth = 45;
-                npcCount++; 
+                npcs[npcCount].displayHeight = 64;
+                npcCount++;
                 break;
 
             case 'artemis': 
@@ -561,7 +560,20 @@ function spawnObjects() {
                 });
                 itemCount++;
                 break;
-
+                case 'bush1':
+                items[itemCount] = new bush1({
+                    x: mapObjectArray[i].x,
+                    y: mapObjectArray[i].y
+                });
+                itemCount++;
+                break;
+                case 'tree':
+                items[itemCount] = new tree({
+                    x: mapObjectArray[i].x,
+                    y: mapObjectArray[i].y
+                });
+                itemCount++;
+                break;
         }
 }
 }

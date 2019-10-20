@@ -171,7 +171,7 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":1778.78,
+                 "x":1664.78,
                  "y":1766.96832579186
                 }, 
                 {
@@ -245,6 +245,30 @@
                  "width":0,
                  "x":1506,
                  "y":1665
+                }, 
+                {
+                 "height":0,
+                 "id":29,
+                 "name":"bush1",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":1195,
+                 "y":1760
+                }, 
+                {
+                 "height":0,
+                 "id":32,
+                 "name":"tree",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":1887,
+                 "y":1643
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -253,7 +277,7 @@
          "y":0
         }],
  "nextlayerid":29,
- "nextobjectid":29,
+ "nextobjectid":33,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",
