@@ -1424,7 +1424,8 @@ class medeaBoss extends enemyBase {
             scale: .45, 
             enemyId: parameter.enemyId, 
             gravity: true, 
-            health: 2000
+            health: 2000,
+            boss: true
         });
     } 
     
@@ -1449,7 +1450,8 @@ class medeaBoss extends enemyBase {
         
         if (this.alive && this.health <= 0) {
             this.alive = false; 
-            enemies[this.enemyId].destroy(); 
+            enemies[this.enemyId].destroy();
+            activeBosses --;
         }
     }    
     
@@ -1602,7 +1604,6 @@ class medeaBoss extends enemyBase {
             setTimeout(this.shootAgain2, 5500, this);
 
     }
-    
 
     
             shootAgain2(tempDragon) {

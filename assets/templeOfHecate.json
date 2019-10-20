@@ -191,6 +191,29 @@
                  "width":0,
                  "x":1317.15771230503,
                  "y":3667.24436741768
+                }, 
+                {
+                 "height":0,
+                 "id":267,
+                 "name":"portal",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"portalMap",
+                         "type":"string",
+                         "value":"endCutscene"
+                        }, 
+                        {
+                         "name":"spawnAfterBossBattle",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":1136,
+                 "y":3669
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -231,7 +254,7 @@
          "y":0
         }],
  "nextlayerid":45,
- "nextobjectid":267,
+ "nextobjectid":268,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",
@@ -314,7 +337,7 @@
          "margin":0,
          "name":"coin",
          "spacing":0,
-         "tilecount":6,
+         "tilecount":0,
          "tileheight":32,
          "tilewidth":32
         }],
