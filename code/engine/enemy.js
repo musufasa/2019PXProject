@@ -426,7 +426,7 @@ class fox2 extends enemyBase {
     }
 
     update () {  
-        this.body.setOffset(0,50);
+        this.body.setOffset(0,95);
         if (this.body.velocity.x < 0) {
             this.anims.play('foxLeft', true);
         } else if (this.body.velocity.x > 0) {
