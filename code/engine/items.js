@@ -735,3 +735,20 @@ class cauldron extends itemBase {
         console.log("Touch the cauldron");
     }
 }
+
+class pillar extends itemBase {
+    constructor(parameter){
+        super({
+            scene: createThis,
+            x: parameter.x,
+            y: parameter.y,
+            key: 'pillar',
+            gravity: false
+        })
+            this.setDepth(-35);
+    }
+
+    collision (tempItem){
+        console.log("Touch the pillar");
+    }
+}

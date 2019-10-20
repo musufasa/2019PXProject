@@ -59,6 +59,8 @@ function spawnObjects() {
                     y: mapObjectArray[i].y, 
                     dialogueKey: tempProperties['dialogueKey'] + levelProgress
                 });
+                // npcs[npcCount].displayHeight = 55;
+                // npcs[npcCount].displayWidth = 45;
                 npcCount++; 
                 break;
 
@@ -551,9 +553,15 @@ function spawnObjects() {
                     y: mapObjectArray[i].y
                 });
                 itemCount++;
-                break; 
-                
-                
-    }
+                break;
+                case 'pillar':
+                items[itemCount] = new pillar({
+                    x: mapObjectArray[i].x,
+                    y: mapObjectArray[i].y
+                });
+                itemCount++;
+                break;
+
+        }
 }
 }

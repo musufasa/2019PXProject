@@ -212,8 +212,11 @@ class controller extends Phaser.Scene {
         //fire
         this.load.image('fire', 'assets/enemy/firePlaceHolder.png');
         this.load.spritesheet('fireAnimation', 'assets/enemy/fireSheet.png', { frameWidth: 1920, frameHeight: 137 });
+
+        //dragon level
         this.load.image('fountain', 'assets/items/fountain.png');
-        
+        this.load.image('pillar','assets/PILLAR.png');
+
         //Temple of Hecate - Medea boss 
         this.load.image('mirror', 'assets/items/mirror.png');
         this.load.image('cauldron','assets/items/steamingCauldron.png');
