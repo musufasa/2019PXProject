@@ -61,7 +61,6 @@ class tutorial extends Phaser.Scene {
            tutorialQuestComplete = true; 
            completeCurrentQuest()
         }
-        console.log(activeBosses);
             //makes the player invulnerable if they are below 50hp so the player
             //can use items
                  if (currentHealth<=70){

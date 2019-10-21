@@ -51,10 +51,8 @@ class pause extends Phaser.Scene {
             //get the current volume and make sure we aren't reducing below 0/muted.
             var currentVolume = music.currentConfig.volume;
             if(currentVolume > 0){
-                console.log(currentVolume);
                 //use to fixed to avoid floating point error on addition & parse as float to avoid strange error.
                 var newVolume = (parseFloat(currentVolume) - 0.1).toFixed(2);
-                console.log(newVolume);
                 music.setVolume(newVolume);
             }
         });
@@ -63,10 +61,8 @@ class pause extends Phaser.Scene {
             //get the current volume and make sure we aren't reducing below 0/muted.
             var currentVolume = music.currentConfig.volume;
             if(currentVolume > 0 || currentVolume <=0){
-                console.log(currentVolume);
                 //use to fixed to avoid floating point error on addition & parse as float to avoid strange error.
                 var newVolume = (parseFloat(currentVolume) + 0.1).toFixed(2);
-                console.log(newVolume);
                 music.setVolume(newVolume);
             }
         });

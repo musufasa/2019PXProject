@@ -22,11 +22,6 @@ if(currentXP >= XPtillNextLvl)
     upgradePoints = upgradePoints+10;
     currentPlayerLvl=currentPlayerLvl+1;
     XPtillNextLvl=XPtillNextLvl*2;
-    console.log("player is currently"+currentPlayerLvl);
-    console.log("currentxp "+currentXP);
-    console.log("Xp till next lvl "+XPtillNextLvl);
-    console.log("upgradepoints "+upgradePoints);
-
     }
 }
 

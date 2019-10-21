@@ -1066,7 +1066,6 @@ class tutorialEnemy extends enemyBase {
             
             currentXP=currentXP+100;
             updatexpText=true;
-            console.log(currentXP);
 
         }
     }
@@ -1217,7 +1216,6 @@ class newdragonBoss extends enemyBase {
             createThis.physics.moveTo(this, 1600,1400, 150)
             if(this.x>=1570&&this.x<=1630&&this.y>=1380&&this.y<=1420&&dragonPhase==1){
                 this.shoot();
-             console.log("going left");
                 phase1ready=true;
             }
             }else
@@ -1225,7 +1223,6 @@ class newdragonBoss extends enemyBase {
                 {           this.anims.play('dragonSpriteRight', true);
                     createThis.physics.moveTo(this, 800,1400, 150)
                     if(this.x>=770&&this.x<=830&&this.y>=1380&&this.y<=1420&&dragonPhase==1){
-                                        console.log("going right");
                     phase1ready=false;
 
                 }

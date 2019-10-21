@@ -76,7 +76,6 @@ class UIS extends Phaser.Scene {
             if (hoverchecker==false){
             textItemDescriptionInvent.text = itemDescriptionInvent[0];
             textItemDescriptionInvent.setAlpha(1);
-             console.log("hovered");
             hoverchecker =true;
             }
         });
@@ -85,7 +84,6 @@ class UIS extends Phaser.Scene {
         //checks if mouse is not on an item and turns description transparrent
              slotPresent1.on('pointerout',()=>{
                  if (hoverchecker==true){
-                 console.log("transparent")
                 textItemDescriptionInvent.setAlpha(0);
                  hoverchecker=false;
                  }
@@ -97,7 +95,6 @@ class UIS extends Phaser.Scene {
             if (hoverchecker==false){
                 textItemDescriptionInvent.text = itemDescriptionInvent[1];
                 textItemDescriptionInvent.setAlpha(1);
-                console.log("hovered");
                 hoverchecker =true;
             }
         });
@@ -106,7 +103,6 @@ class UIS extends Phaser.Scene {
         //checks if mouse is not on an item and turns description transparrent
         slotPresent2.on('pointerout',()=>{
             if (hoverchecker==true){
-                console.log("transparent")
                 textItemDescriptionInvent.setAlpha(0);
                 hoverchecker=false;
             }
@@ -117,7 +113,6 @@ class UIS extends Phaser.Scene {
             if (hoverchecker==false){
                 textItemDescriptionInvent.text = itemDescriptionInvent[2];
                 textItemDescriptionInvent.setAlpha(1);
-                console.log("hovered");
                 hoverchecker =true;
             }
         });
@@ -126,7 +121,6 @@ class UIS extends Phaser.Scene {
         //checks if mouse is not on an item and turns description transparrent
         slotPresent3.on('pointerout',()=>{
             if (hoverchecker==true){
-                console.log("transparent")
                 textItemDescriptionInvent.setAlpha(0);
                 hoverchecker=false;
             }
@@ -136,7 +130,6 @@ class UIS extends Phaser.Scene {
             if (hoverchecker==false){
                 textItemDescriptionInvent.text = itemDescriptionInvent[3];
                 textItemDescriptionInvent.setAlpha(1);
-                console.log("hovered");
                 hoverchecker =true;
             }
         });
@@ -145,7 +138,6 @@ class UIS extends Phaser.Scene {
         //checks if mouse is not on an item and turns description transparrent
         slotPresent4.on('pointerout',()=>{
             if (hoverchecker==true){
-                console.log("transparent")
                 textItemDescriptionInvent.setAlpha(0);
                 hoverchecker=false;
             }
@@ -155,28 +147,24 @@ class UIS extends Phaser.Scene {
             if(bagInventory[0] != null){
                 useBagItem(0);
             }else{
-                console.log('working nothing here');
             }
         });
         slotPresent2.on('pointerup', function () {
             if(bagInventory[1] != null){
                 useBagItem(1);
             }else{
-                console.log('working nothing here');
             }
         });
         slotPresent3.on('pointerup', function () {
             if(bagInventory[2] != null){
                 useBagItem(2);
             }else{
-                console.log('working nothing here');
             }
         });
         slotPresent4.on('pointerup', function () {
             if(bagInventory[3] != null){
                 useBagItem(3);
             }else{
-                console.log('working nothing here');
             }
         });
         //slotCreation();
@@ -238,7 +226,6 @@ function checkUpgradePoints(){
         slotPresent1 = this.game.renderer.width *presetXPos + 0.1 , this.game.renderer.height * 0.36, itemToDisplay//gameWidth * presetXPos + 0.1;
         
         presetXPos += 3; 
-        console.log("slotCreation works and presetX is :" + presetXPos);
         }
 }
 
