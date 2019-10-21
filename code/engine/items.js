@@ -774,3 +774,20 @@ class tree extends itemBase {
         this.setDepth(-35);
     }
 }
+
+class dockedShip extends itemBase {
+    constructor(parameter){
+        super({
+            scene: createThis,
+            x: parameter.x, 
+            y: parameter.y,
+            key: 'ship', 
+            gravity: false
+            
+            
+        })
+      
+    }
+
+}
+

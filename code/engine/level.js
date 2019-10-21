@@ -574,6 +574,13 @@ function spawnObjects() {
                 });
                 itemCount++;
                 break;
+                case 'ship':
+                items[itemCount] = new dockedShip({
+                    x: mapObjectArray[i].x,
+                    y: mapObjectArray[i].y
+                });
+                itemCount++;
+                break;
         }
 }
 }

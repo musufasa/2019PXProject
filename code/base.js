@@ -164,6 +164,7 @@ class controller extends Phaser.Scene {
         this.load.image('healthPotion', 'assets/items/healthPotion.png');
         this.load.image('diamond', 'assets/items/diamond.png');
         this.load.image('arrowAmmo', 'assets/items/arrow.png');
+        this.load.image('ship', 'assets/player/ship2.png');
 
 
         //Pause
