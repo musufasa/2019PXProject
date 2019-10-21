@@ -261,7 +261,7 @@ class playerArrow extends projectile2 {
             velocityX: 0,
             velocityAimed: parameter.velocityAimed,
             projectileId: parameter.projectileId,
-            damage: 25
+            damage: playerDamagePoints
         })
 
         //aim the arrow image at the mouse and fire towards it

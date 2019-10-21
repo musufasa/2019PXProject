@@ -7,8 +7,6 @@ class argoLanding extends Phaser.Scene {
         createThis = this;
         currentLevelID = 'argoLanding';
         backgroundLayer0 = 'bgDragon';
-        //on actual start of game turn off invulnerability which was enabled during the tutorial level.
-        playerInvulnerability = false;
         commonPreload();
     }
 
@@ -22,13 +20,14 @@ class argoLanding extends Phaser.Scene {
                 game.scene.pause(currentLevelID);
             },200);
         }
+        //on actual start of game turn off invulnerability which was enabled during the tutorial level.
+        playerInvulnerability = false;
         //Set empty quest on map load 
         setToEmptyQuest();
     }
 
     update() {
         callUpdateFuncs();
-                playerInvulnerability = false;
 
     }
 }

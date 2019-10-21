@@ -131,10 +131,10 @@ class enemyBase extends Phaser.GameObjects.Sprite {
      */
     collisionBase(tempEnemy) {
         if (tempEnemy.stompable && player.body.velocity['y'] >= 200) {
-            enemies[tempEnemy.enemyId].destroy();  
+            enemies[tempEnemy.enemyId].destroy();
         } else if (playerSwingSword && !tempEnemy.invulnerability && !tempEnemy.invulnerabilityAlways) {
             enemies[tempEnemy.enemyId].health -= playerDamagePoints;
-            enemies[tempEnemy.enemyId].invulnerability = true; 
+            enemies[tempEnemy.enemyId].invulnerability = true;
             enemies[tempEnemy.enemyId].alpha = 0.3;
             enemies[tempEnemy.enemyId].setTint(0xFF0000);
             if (enemies[tempEnemy.enemyId].body.allowGravity) {
@@ -153,7 +153,7 @@ class enemyBase extends Phaser.GameObjects.Sprite {
                 spiderBossActive = true;
             }
         }
-        
+
     }
 
     /* Stop enemy invulnerability. 
@@ -234,117 +234,6 @@ class enemyBase extends Phaser.GameObjects.Sprite {
         tempEnemy.collisionBase(tempEnemy);
     }
 
-    /* If the enemy is in a state of temporary invulnerability, nothing happens. 
-     * Otherwise, the player will damage the enemy if the sword is swung and the 
-     * enemy will damage the player if the sword is not being swung. 
-     * tempEnemy refers to the enemy object. 
-     */
-    collisionBase(tempEnemy) {
-        if (tempEnemy.stompable && player.body.velocity['y'] >= 200) {
-            enemies[tempEnemy.enemyId].destroy();  
-        } else if (playerSwingSword && !tempEnemy.invulnerability && !tempEnemy.invulnerabilityAlways) {
-            enemies[tempEnemy.enemyId].health -= playerDamagePoints;
-            enemies[tempEnemy.enemyId].invulnerability = true; 
-            enemies[tempEnemy.enemyId].alpha = 0.3;
-            enemies[tempEnemy.enemyId].setTint(0xFF0000);
-            if (enemies[tempEnemy.enemyId].body.allowGravity) {
-                enemies[tempEnemy.enemyId].knockback = true;
-            }
-            setTimeout(tempEnemy.invulnerabilityStop, 500, tempEnemy.enemyId);
-        } else if (!playerSwingSword && !tempEnemy.invulnerability && tempEnemy.damageTouch) {
-            playerDamage(tempEnemy.playerDamageCollision);
-        } else if (!playerSwingSword && tempEnemy.hasSword && tempEnemy.swingSword) {
-            playerDamage(tempEnemy.playerDamageSword);
-        }
-
-        //If the attacks are inactive and the spider is attacked, it will become active.
-        if (enemies[tempEnemy.enemyId] !== undefined) {
-            if (enemies[tempEnemy.enemyId].spiderBoss == true && !spiderBossActive) {
-            spiderBossActive = true;
-            }
-        }
-    }
-
-    /* Stop enemy invulnerability. 
-     * tempEnemyId refers to the enemy ID. 
-     */
-    invulnerabilityStop(tempEnemyId) {
-        enemies[tempEnemyId].invulnerability = false; 
-        enemies[tempEnemyId].alpha = 1; 
-        enemies[tempEnemyId].clearTint();
-    }
-
-    //Enemy update routine. 
-    update() {
-        if (this.alive && this.health <= 0) {
-            this.alive = false; 
-            if (this.boss) {
-                activeBosses--;
-            }
-
-            if (this.spiderBoss) {
-                this.webGraphics.alpha = 0;
-            }
-            
-            if (this.skeleton && skelesRemain > 0) {
-                skelesRemain--;
-                userIntThis.updateSkeletonText();
-                if (skelesRemain === 0) {
-                    userIntThis.ritualItemText.alpha = 0;
-                    if (levelProgress === 3) {
-                        levelProgress++;
-                    }
-                    
-                    //reset
-                    skelesRemain = 1;
-                }
-            }
-            
-            enemies[this.enemyId].destroy(); 
-        }
-    }
-
-    movement() {
-        //If the enemy has been knocked back, their movement should be adjusted. 
-        if (this.knockback) {
-            this.knockback = false;
-            if (playerFacingRight) {
-                this.body.setVelocityX(100);
-            } else {
-                this.body.setVelocityX(-100);
-            }
-            this.body.setVelocityY(-300);
-            this.knockedBack = true; 
-        } 
-        
-
-        //Movement logic. 
-        if (this.knockedBack && this.body.blocked.down) {
-            if (this.x > this.xMax) {
-                this.body.setVelocityX(-this.xVel);
-                this.moveRight = false; 
-                this.knockedBack = false;    
-            } else if (this.x < this.xMin) {
-                this.body.setVelocityX(this.xVel);
-                this.moveRight = true; 
-                this.knockedBack = false;    
-            }
-        } else if (!this.knockedBack) {
-            if (this.moveRight && this.x > this.xMax) {
-                this.body.setVelocityX(-this.xVel);
-                this.moveRight = false;     
-            } else if (this.x < this.xMin) {
-                this.body.setVelocityX(this.xVel);
-                this.moveRight = true; 
-            }
-        }
-
-        if (this.body.velocity.x === 0 && this.xMove !== undefined) {
-            //prevents sprite from getting 'stuck'
-            this.body.setVelocityX(this.xVel);
-            this.moveRight = true;
-        }
-    }
 }
 
 /* Mini spider enemy.
