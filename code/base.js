@@ -102,8 +102,14 @@ class controller extends Phaser.Scene {
         this.load.spritesheet('orpheusSprite','assets/NPC/orpheusTest.png',
            { frameWidth: 57, frameHeight: 94 });
         
+        /**
         this.load.spritesheet('jasonAttack','assets/player/newJasonAttack.png',
            { frameWidth: 139, frameHeight: 94 });
+        **/
+
+        this.load.spritesheet('jasonAttack','assets/player/attackSwish2.png',
+           { frameWidth: 139, frameHeight: 93 });
+
 
         this.load.spritesheet('kingSprite','assets/NPC/king.png',
            { frameWidth: 40, frameHeight: 64 });
@@ -551,7 +557,7 @@ function loadMap() {
     });
     createThis.anims.create({
         key: 'jasonAttackRight',
-        frames: createThis.anims.generateFrameNumbers('jasonAttack', { start: 0, end: 19 }),
+        frames: createThis.anims.generateFrameNumbers('jasonAttack', { start: 0, end: 16 }),
         frameRate: 30,
         repeat: -1,
     });
