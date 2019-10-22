@@ -29,14 +29,14 @@ class dragonLevel extends Phaser.Scene {
     create() {
         this.anims.create({
             key: 'dragonSpriteRight',
-            frames: createThis.anims.generateFrameNumbers('dragonSprite', { start: 25, end: 35 }),
+            frames: createThis.anims.generateFrameNumbers('dragonSprite', { start: 19, end: 35 }),
             frameRate: 10,
             repeat: -1
         });
         
                 this.anims.create({
             key: 'dragonAttackRight',
-            frames: createThis.anims.generateFrameNumbers('dragonSprite', { start: 25, end: 38 }),
+            frames: createThis.anims.generateFrameNumbers('dragonSprite', { start: 32, end: 40 }),
             frameRate: 7,
             repeat: -1
         });
