@@ -1250,7 +1250,7 @@ class newdragonBoss extends enemyBase {
             x: this.x, 
             y: this.y,
             projectileId: currentProjectile,
-            aimed: false, 
+            aimed: true, 
             velocityAimed: 200
         });
             

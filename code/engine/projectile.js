@@ -69,7 +69,7 @@ class dragonFire extends projectile {
             x: parameter.x,
             y: parameter.y, 
             key: 'fireBallSprite',
-            velocityX: -300,
+            velocityX: 0,
             velocityAimed: parameter.velocityAimed,
             projectileId: parameter.projectileId,
             damage: 25
