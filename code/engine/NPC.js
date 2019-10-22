@@ -113,8 +113,11 @@ class artemisDogNPC extends npcBase {
             dialogueKey: parameter.dialogueKey,
             npcId: parameter.npcId, 
             gravity: true
+            
         })
         this.anims.play('medeaIdleRight', true);
+        this.setScale(.09)
+
     }
 
     update () {
