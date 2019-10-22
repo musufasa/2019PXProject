@@ -7,13 +7,18 @@ class dragonLevel extends Phaser.Scene {
         createThis = this;
         currentLevelID = 'dragonLevel';
         backgroundLayer0 = 'bgDragon';
+        
+        //Used for flying and attack animation 
         this.load.spritesheet('dragonSprite','assets/enemy/dragonNew.png', 
            { frameWidth: 1242, frameHeight: 1046 });
         
+        //Ground fire animation 
         this.load.spritesheet('fireAnimation', 'assets/enemy/fireSheet.png', { frameWidth: 1920, frameHeight: 137 });
         
+        //Older attack animation
         this.load.spritesheet('dragonAttack', 'assets/enemy/dragonAttackSheet.png', { frameWidth: 365, frameHeight: 322 });
         
+        //Fireball animation 
         this.load.spritesheet('fireBallSprite', 'assets/enemy/FireballSpritesheet.png', { frameWidth: 515, frameHeight: 515 });
         
         commonPreload();
