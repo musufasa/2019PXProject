@@ -557,7 +557,7 @@ function loadMap() {
     });
     createThis.anims.create({
         key: 'jasonAttackRight',
-        frames: createThis.anims.generateFrameNumbers('jasonAttack', { start: 0, end: 16 }),
+        frames: createThis.anims.generateFrameNumbers('jasonAttack', { start: 8, end: 16 }),
         frameRate: 30,
         repeat: -1,
     });
