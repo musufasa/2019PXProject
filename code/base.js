@@ -108,7 +108,7 @@ class controller extends Phaser.Scene {
         **/
 
         this.load.spritesheet('jasonAttack','assets/player/attackSwish2.png',
-           { frameWidth: 139, frameHeight: 93 });
+           { frameWidth: 124, frameHeight: 110 });
 
 
         this.load.spritesheet('kingSprite','assets/NPC/king.png',

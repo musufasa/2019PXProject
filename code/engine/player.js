@@ -100,7 +100,9 @@ function playerMovement() {
     } else if (playerSwingSword) {
         //Play attack animation. 
         player.anims.play('jasonAttackRight', true);
-        
+                player.setOffset(0, 45);
+
+
         
 
         /* If the player is facing a wall and close to it, the game will use the default hitbox size. 
@@ -120,15 +122,15 @@ function playerMovement() {
             (player.x + 50 > gameWidth) || (player.x - 11 < 0)) {
             //Smaller hitbox
             player.setSize(30, 64);
-            player.setOffset(0, 25);     
+            player.setOffset(0, 45);     
         } else if (playerFacingRight) {
             //Expand hitbox to right 
             player.setSize(30, 64);
-            player.setOffset(0, 25);
+            player.setOffset(0, 45);
         } else {
             //Expand hitbox to left
             player.setSize(30, 64);
-            player.setOffset(0, 25);
+            player.setOffset(0, 45);
         }
     } else {
         //Play walk animation. 
@@ -377,9 +379,13 @@ function playerBlocking(){
             blocking=true;
             if(playerFacingRight==true){
             player.anims.play('blockingAnim', true);
+                        player.setOffset(0, 45);
+
             }
             else if(playerFacingRight==false){
                 player.anims.play('blockingAnim', true);
+                        player.setOffset(0, 45);
+
 
             }
         }
