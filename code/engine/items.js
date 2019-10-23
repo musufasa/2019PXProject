@@ -775,19 +775,18 @@ class tree extends itemBase {
     }
 }
 
-class dockedShip extends itemBase {
+class ship extends itemBase {
     constructor(parameter){
         super({
             scene: createThis,
-            x: parameter.x, 
+            x: parameter.x,
             y: parameter.y,
-            key: 'ship', 
+            key: 'ship',
             gravity: false
-            
-            
         })
-      
+        
     }
-
 }
+
+
 
