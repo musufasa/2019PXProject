@@ -558,7 +558,7 @@ function loadMap() {
     createThis.anims.create({
         key: 'jasonAttackRight',
         frames: createThis.anims.generateFrameNumbers('jasonAttack', { start: 8, end: 16 }),
-        frameRate: 30,
+        frameRate: 20,
         repeat: -1,
     });
     
