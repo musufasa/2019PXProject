@@ -1069,27 +1069,27 @@ class newdragonBoss extends enemyBase {
 
     }  
     
-    update () {
-        
-
-        if (this.health <= 0) {
-               
-                //Play death animation 
-                this.anims.play('dragonDeath', true);
-                createThis.physics.moveTo(this, this.x,1755, 200)
-      
+    update() 
+    {
+        //If dragon is defeated then run death routine 
+        if(this.health <= 0) 
+        {
+            //Play death animation 
+            this.anims.play('dragonDeath', true);
+            //Move dragon sprite downwards at speed of 200 pixels per second while retaining current x coord 
+            createThis.physics.moveTo(this, this.x,1755, 200)
         }
-                if(this.y>=1635){
-                    this.gravity=false;
-                    this.body.setVelocityY(0);
-                    this.body.setVelocityX(0);
-                    this.damageTouch=false;
-                    dragonIsDead=true;
-                    activeBosses=activeBosses-1
-                   this.alive=false;
-            }
         
-
+        //After dragon has fallen onto the ground mark the dragon as dead
+        if(this.y>=1620)
+        {
+            this.gravity=false;
+            this.body.setVelocityY(0);
+            this.body.setVelocityX(0);
+            this.damageTouch=false;
+            activeBosses=activeBosses-1
+            this.alive=false;
+        }
     }
 
     collision (tempEnemy) {

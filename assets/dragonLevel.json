@@ -47,8 +47,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":126.27272727273,
-                 "y":1751.34748595007
+                 "x":124.382010691146,
+                 "y":1743.78461962373
                 }, 
                 {
                  "height":0,
@@ -129,8 +129,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":1620.87861271676,
-                 "y":1766.93641618497
+                 "x":993.160707630732,
+                 "y":1483.32892894731
                 }, 
                 {
                  "height":0,
@@ -139,10 +139,10 @@
                  "point":true,
                  "rotation":0,
                  "type":"",
-                 "visible":false,
+                 "visible":true,
                  "width":0,
-                 "x":215.845866493422,
-                 "y":1767.1494234205
+                 "x":732.011493265969,
+                 "y":1489.21408592759
                 }, 
                 {
                  "height":0,
@@ -269,6 +269,30 @@
                  "width":0,
                  "x":1887,
                  "y":1643
+                }, 
+                {
+                 "height":0,
+                 "id":33,
+                 "name":"healthItem",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":1245.98222726413,
+                 "y":1484.21251654377
+                }, 
+                {
+                 "height":0,
+                 "id":34,
+                 "name":"healthItem",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":1508.79183210437,
+                 "y":1487.99394970694
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -277,7 +301,7 @@
          "y":0
         }],
  "nextlayerid":29,
- "nextobjectid":33,
+ "nextobjectid":35,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",
