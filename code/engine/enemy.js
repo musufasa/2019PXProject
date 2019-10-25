@@ -1057,7 +1057,7 @@ class newdragonBoss extends enemyBase {
             health: 1000, 
             boss: true
         });
-
+ 
         this.verticalMove = false; 
         this.moveDirection = 0; 
         this.body.setVelocityY(0);
@@ -1240,6 +1240,7 @@ class newdragonBoss extends enemyBase {
                         
                         this.chargeShot();
                         setTimeout(this.playanimation,100,this);
+                        bigFireBallFired = true;  
                         
                     }
 

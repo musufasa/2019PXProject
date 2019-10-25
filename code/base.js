@@ -49,6 +49,7 @@ var questLooper3 = 0;
 var foxHuntQuestComplete = false; 
 var questLooper4 = 0; 
 var numberOfCoinsHeld = 0; 
+var bigFireBallFired = false; 
  
 
 //Background layers
@@ -128,6 +129,7 @@ class controller extends Phaser.Scene {
         this.load.audio('bite',['assets/stage/background/bite.wav']);
         this.load.audio('coinsSound',['assets/sounds/coincollectsounds.wav']);
         this.load.audio('arrowFired',['assets/sounds/arrowFired.wav']);
+        this.load.audio('bigFireBall',['assets/sounds/dragonFireBreath.wav']);
 
         
         //Other/Placeholders
@@ -296,6 +298,13 @@ class controller extends Phaser.Scene {
         updateXpText();
         checkUpgradePoints();
         
+        //Play sound effect for dragon's big fireball when needed 
+        if(bigFireBallFired==true)
+        {
+           this.sound.play('bigFireBall');  
+           bigFireBallFired = false;     
+        }
+        
         //Keeps coin counter up to date
         this.coinText.setText("Coins: "+currentCoins);
 
@@ -360,7 +369,7 @@ class controller extends Phaser.Scene {
                 music = this.sound.add('water', {loop: true});
                 music.play();
                 music.setVolume(musicVolume);
-            } else if (['colchisFields','gardenFleece'].includes(currentLevelID)) {
+            } else if (['colchisFields','gardenFleece','dragonLevel'].includes(currentLevelID)) {
                 music = this.sound.add('male', {loop: true})
                 music.play();
                 music.setVolume(musicVolume);
