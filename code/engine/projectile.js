@@ -128,13 +128,13 @@ class medeaArrow extends projectile {
             scene: createThis,
             x: parameter.x,
             y: parameter.y, 
-            key: 'arrowAmmo',
+            key: 'medeaArrow1',
             velocityX: 0,
             velocityAimed: parameter.velocityAimed,
             projectileId: parameter.projectileId,
             damage: 10
         })
-
+            this.setScale(.05);
         
         this.rotation = Phaser.Math.Angle.Between(this.x,this.y,player.x,player.y);
         //If aimed is true, accelerate towards the player. 
