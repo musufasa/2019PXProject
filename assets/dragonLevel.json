@@ -106,7 +106,7 @@
                         {
                          "name":"portalMap",
                          "type":"string",
-                         "value":"endCutscene"
+                         "value":"templeOfHecate"
                         }, 
                         {
                          "name":"spawnAfterBossBattle",
@@ -261,14 +261,14 @@
                 {
                  "height":0,
                  "id":32,
-                 "name":"tree",
+                 "name":"noFleeceTree",
                  "point":true,
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
                  "x":1887,
-                 "y":1643
+                 "y":1620
                 }, 
                 {
                  "height":0,

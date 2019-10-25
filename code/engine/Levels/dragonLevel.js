@@ -64,15 +64,22 @@ class dragonLevel extends Phaser.Scene {
         //Set empty quest on map load 
         setToEmptyQuest();
 
-        //change end portal if orpheus is selected as helper sprite and remove medea sprite and replace with orpheus.
+        //change end portal if medea is selected as helper sprite and remove orpheus sprite and replace with medea.
         if(helperSprite === 'Medea'){
-            portals[0].portalMap = "templeOfHecate";
+            portals[0].portalMap = "endCutScene";
             npcs[0].destroy();
             new medeaNPC({
                 x: 194,
                 y: 1775,
                 dialogueKey: "Medea"
             });
+            items[9].destroy();
+            new fleeceTree({
+                x: 1887,
+                y: 1620
+            }).setScale(0.38);
+        }else{
+            items[9].setScale(0.45);
         }
 
         //every 60 seconds change the dragon phase on a loop.

@@ -762,13 +762,25 @@ class bush1 extends itemBase {
     }
 
 }
-class tree extends itemBase {
+class noFleeceTree extends itemBase {
     constructor(parameter){
         super({
             scene: createThis,
             x: parameter.x,
             y: parameter.y,
-            key: 'tree',
+            key: 'noFleeceTree',
+            gravity: false
+        })
+        this.setDepth(-35);
+    }
+}
+class fleeceTree extends itemBase {
+    constructor(parameter){
+        super({
+            scene: createThis,
+            x: parameter.x,
+            y: parameter.y,
+            key: 'fleeceTree',
             gravity: false
         })
         this.setDepth(-35);

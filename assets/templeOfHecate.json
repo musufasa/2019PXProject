@@ -44,24 +44,6 @@
                 }, 
                 {
                  "height":0,
-                 "id":72,
-                 "name":"portal",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"portalMap",
-                         "type":"string",
-                         "value":"argoLanding"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":176.960467913425,
-                 "y":8041.49091842086
-                }, 
-                {
-                 "height":0,
                  "id":252,
                  "name":"mirror2",
                  "point":true,

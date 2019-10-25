@@ -567,8 +567,8 @@ function spawnObjects() {
                 });
                 itemCount++;
                 break;
-                case 'tree':
-                items[itemCount] = new tree({
+                case 'fleeceTree':
+                items[itemCount] = new fleeceTree({
                     x: mapObjectArray[i].x,
                     y: mapObjectArray[i].y
                 });
@@ -581,7 +581,13 @@ function spawnObjects() {
                 });
                 itemCount++;
                 break;
-                
+            case 'noFleeceTree':
+                items[itemCount] = new noFleeceTree({
+                    x: mapObjectArray[i].x,
+                    y: mapObjectArray[i].y
+                });
+                itemCount++;
+                break;
         }
 }
 }
