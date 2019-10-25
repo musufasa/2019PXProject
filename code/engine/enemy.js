@@ -1064,7 +1064,7 @@ class newdragonBoss extends enemyBase {
         this.invulnerabilityWait = 3000; 
         this.anims.play('dragonSpriteRight', true);
         this.body.setSize(1000,600);
-        this.body.setOffset(0,300);
+        this.body.setOffset(400,300);
         //this.body.setSize(140,70);
 
     }  
@@ -1072,16 +1072,24 @@ class newdragonBoss extends enemyBase {
     update () {
         
 
-        if (this.alive && this.health <= 0) {
-            this.alive = false;
-            if(!this.alive) {
+        if (this.health <= 0) {
                
                 //Play death animation 
                 this.anims.play('dragonDeath', true);
-                createThis.physics.moveTo(this, 994,1790, 200)    
-            }
+                createThis.physics.moveTo(this, this.x,1755, 200)
+      
         }
+                if(this.y>=1635){
+                    this.gravity=false;
+                    this.body.setVelocityY(0);
+                    this.body.setVelocityX(0);
+                    this.damageTouch=false;
+                    dragonIsDead=true;
+                    activeBosses=activeBosses-1
+                   this.alive=false;
+            }
         
+
     }
 
     collision (tempEnemy) {
@@ -1115,6 +1123,7 @@ class newdragonBoss extends enemyBase {
     }
 
     movement() { 
+
         if(dragonPhase==1){
             if(phase1ready==false&&dragonPhase==1){
             createThis.physics.moveTo(this, 1600,1400, 150)
@@ -1257,6 +1266,7 @@ class newdragonBoss extends enemyBase {
                 */
         
     }
+    
     playanimation(){
         animPlay=true;
     }
