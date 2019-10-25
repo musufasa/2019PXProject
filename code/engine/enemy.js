@@ -1067,7 +1067,22 @@ class newdragonBoss extends enemyBase {
         this.body.setOffset(0,300);
         //this.body.setSize(140,70);
 
-    }    
+    }  
+    
+    update () {
+        
+
+        if (this.alive && this.health <= 0) {
+            this.alive = false;
+            if(!this.alive) {
+               
+                //Play death animation 
+                this.anims.play('dragonDeath', true);
+                createThis.physics.moveTo(this, 994,1790, 200)    
+            }
+        }
+        
+    }
 
     collision (tempEnemy) {
         var tempOldPhase = tempEnemy.checkPhase(); 

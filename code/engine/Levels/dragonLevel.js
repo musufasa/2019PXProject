@@ -12,6 +12,10 @@ class dragonLevel extends Phaser.Scene {
         this.load.spritesheet('dragonSprite','assets/enemy/dragonNew.png', 
            { frameWidth: 1242, frameHeight: 1046 });
         
+        //Death animation 
+        this.load.spritesheet('dragonDeath','assets/enemy/dragonDeathSpriteSheet.png', 
+           { frameWidth: 2048, frameHeight: 1024 });
+        
         //Ground fire animation 
         this.load.spritesheet('fireAnimation', 'assets/enemy/fireSheet.png', { frameWidth: 1920, frameHeight: 137 });
         
@@ -44,6 +48,13 @@ class dragonLevel extends Phaser.Scene {
                 this.anims.create({
             key: 'fireBallSprite',
             frames: createThis.anims.generateFrameNumbers('fireBallSprite', { start: 0, end: 5 }),
+            frameRate: 10,
+            repeat: -1
+        });
+        
+                this.anims.create({
+            key: 'dragonDeath',
+            frames: createThis.anims.generateFrameNumbers('dragonDeath', { start: 0, end: 0 }),
             frameRate: 10,
             repeat: -1
         });
