@@ -1213,6 +1213,7 @@ class newdragonBoss extends enemyBase {
                         
                         dragonCharging=false;
                         dragonIdle=true;
+                        
                         this.chargeShot();
                         setTimeout(this.playanimation,100,this);
                         
@@ -1329,9 +1330,9 @@ class medeaBoss extends enemyBase {
         }
         
         if (this.x < player.x) {
-            this.anims.play('medeaBoss', true);
+        this.anims.play('medeaBossRight', true);
         } else if (this.x> player.x) {
-                        this.flipX
+        this.anims.play('medeaBoss', true);
         }
         
         if (this.alive && this.health <= 0) {
@@ -1419,7 +1420,7 @@ class medeaBoss extends enemyBase {
             }
             if(phase3ready==true){
                 this.x=1025;
-                this.y=3695;
+                this.y=3655;
                 if(medeaReset==false){
                 this.medeaShoot2();
                     medeaReset=true;
@@ -1523,12 +1524,18 @@ class medeaClone extends enemyBase {
     }    
 
     update () {        
-
-        
         if (this.alive && this.health <= 0) {
             this.alive = false; 
             enemies[this.enemyId].destroy(); 
             this.dropArrow()
+        }else        
+        if(this.x<player.x){
+        this.anims.play('medeaBossRight', true);
+        }
+        else
+        if(this.x>player.x){
+        this.anims.play('medeaBoss', true);
+
         }
     }    
     
