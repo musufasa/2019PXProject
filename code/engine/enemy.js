@@ -1354,9 +1354,15 @@ class medeaBoss extends enemyBase {
             medeaPhase=1;
         }
         
-        if (this.x < player.x) {
+        if (this.x < player.x && medeaPhase==1) {
+        this.anims.play('medeaShootAnimRight', true);
+        } else if (this.x> player.x&& medeaPhase==1) {
+        this.anims.play('medeaShootAnimLeft', true);
+        }
+        
+        if (this.x < player.x && medeaPhase==2) {
         this.anims.play('medeaBossRight', true);
-        } else if (this.x> player.x) {
+        } else if (this.x> player.x&& medeaPhase==2) {
         this.anims.play('medeaBoss', true);
         }
         

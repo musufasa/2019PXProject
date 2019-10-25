@@ -16,6 +16,12 @@ class templeOfHecate extends Phaser.Scene {
         {    frameWidth: 200, frameHeight: 242});
                         
         this.load.spritesheet('medeaBossRight','assets/enemy/medeaBossRight.png',
+        {    frameWidth: 200, frameHeight: 242});
+        
+          this.load.spritesheet('medeaShootAnimLeft','assets/enemy/medeaShootAnimLeft.png',
+        {    frameWidth: 200, frameHeight: 242});
+        
+            this.load.spritesheet('medeaShootAnimRight','assets/enemy/medeaShootAnimRight.png',
         {    frameWidth: 200, frameHeight: 242});   
 
         this.load.image('medeaArrow2','assets/enemy/medeaArrow2.png');
@@ -39,6 +45,20 @@ class templeOfHecate extends Phaser.Scene {
             key: 'medeaBossRight',
             frames: createThis.anims.generateFrameNumbers('medeaBossRight', { start: 0, end: 0 }),
             frameRate: 10,
+            repeat: -1
+        });
+        
+                 createThis.anims.create({
+            key: 'medeaShootAnimRight',
+            frames: createThis.anims.generateFrameNumbers('medeaShootAnimRight', { start: 0, end: 20 }),
+            frameRate: 10,
+            repeat: -1
+        });
+        
+                         createThis.anims.create({
+            key: 'medeaShootAnimLeft',
+            frames: createThis.anims.generateFrameNumbers('medeaShootAnimLeft', { start: 0, end: 20 }),
+            frameRate: 15,
             repeat: -1
         });
         
