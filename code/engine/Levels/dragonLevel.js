@@ -65,13 +65,13 @@ class dragonLevel extends Phaser.Scene {
         setToEmptyQuest();
 
         //change end portal if orpheus is selected as helper sprite and remove medea sprite and replace with orpheus.
-        if(helperSprite === 'Orpheus'){
+        if(helperSprite === 'Medea'){
             portals[0].portalMap = "templeOfHecate";
             npcs[0].destroy();
-            new orpheusNPC({
+            new medeaNPC({
                 x: 194,
                 y: 1775,
-                dialogueKey: "Orpheus"
+                dialogueKey: "Medea"
             });
         }
 
