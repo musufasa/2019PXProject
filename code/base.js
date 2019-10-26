@@ -163,6 +163,8 @@ class controller extends Phaser.Scene {
         this.load.image('bgForest', 'assets/background/forest.png');
         this.load.image('bgMarket', 'assets/background/market.png');
         this.load.image('bgDragon', 'assets/background/dragonBackground.jpg');
+        this.load.image('bgMedea', 'assets/background/medeaBackground.png');
+        
         
         this.load.image("tiles", "assets/tilesheet-extruded.png");
         this.load.image('plowSprite','assets/items/plow.png');
@@ -374,7 +376,7 @@ class controller extends Phaser.Scene {
                 music = this.sound.add('water', {loop: true});
                 music.play();
                 music.setVolume(musicVolume);
-            } else if (['colchisFields','gardenFleece','dragonLevel'].includes(currentLevelID)) {
+            } else if (['colchisFields','gardenFleece','dragonLevel', 'templeOfHecate'].includes(currentLevelID)) {
                 music = this.sound.add('male', {loop: true})
                 music.play();
                 music.setVolume(musicVolume);
