@@ -1064,7 +1064,7 @@ class newdragonBoss extends enemyBase {
         this.invulnerabilityWait = 3000; 
         this.anims.play('dragonSpriteRight', true);
         this.body.setSize(1000,600);
-        this.body.setOffset(400,300);
+        this.body.setOffset(550,330);
         //this.body.setSize(140,70);
 
     }  
@@ -1081,8 +1081,9 @@ class newdragonBoss extends enemyBase {
         }
         
         //After dragon has fallen onto the ground mark the dragon as dead
-        if(this.y>=1620)
+        if(this.y>=1620&&this.health <= 0)
         {
+            console.log(this.y)
             this.gravity=false;
             this.body.setVelocityY(0);
             this.body.setVelocityX(0);
@@ -1095,9 +1096,7 @@ class newdragonBoss extends enemyBase {
     collision (tempEnemy) {
         var tempOldPhase = tempEnemy.checkPhase(); 
         tempEnemy.collisionBase(tempEnemy);
-        if (tempOldPhase !== tempEnemy.checkPhase()) {
-            setTimeout(tempEnemy.hugeFire, 2000, tempEnemy);
-        }
+ 
     }
 
     checkPhase() {
