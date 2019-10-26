@@ -232,6 +232,8 @@ class projectile2 extends Phaser.GameObjects.Sprite {
     //Damage an enemy's health when player projectile collides.
     enemyDamage(tempProjectile,tempEnemy) {
         tempProjectile.destroy();
+        //only damage enemies on collision if they can take damage from the arrows.
+        if(enemies[tempEnemy.enemyId].canTakeRangedDamage) {
             enemies[tempEnemy.enemyId].health -= tempProjectile.damage;
             enemies[tempEnemy.enemyId].invulnerability = true;
             enemies[tempEnemy.enemyId].alpha = 0.3;
@@ -240,6 +242,7 @@ class projectile2 extends Phaser.GameObjects.Sprite {
                 enemies[tempEnemy.enemyId].knockback = true;
             }
             setTimeout(tempEnemy.invulnerabilityStop, 500, tempEnemy.enemyId);
+        }
     }
 
     checkForTileCollision(tempProjectile,tempTile){

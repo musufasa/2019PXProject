@@ -69,7 +69,7 @@ class enemyBase extends Phaser.GameObjects.Sprite {
         this.alive = true;
         this.playerDamageCollision = 20;
         this.playerDamageSword = 40; 
-
+        this.canTakeRangedDamage = true;
         this.knockback = false; 
         this.knockedBack = false;
 
@@ -1065,8 +1065,8 @@ class newdragonBoss extends enemyBase {
         this.anims.play('dragonSpriteRight', true);
         this.body.setSize(1000,600);
         this.body.setOffset(400,300);
+        this.canTakeRangedDamage = false;
         //this.body.setSize(140,70);
-
     }  
     
     update() 
@@ -1125,6 +1125,7 @@ class newdragonBoss extends enemyBase {
     movement() { 
 
         if(dragonPhase==1){
+            this.canTakeRangedDamage = false;
             if(phase1ready==false&&dragonPhase==1){
             createThis.physics.moveTo(this, 1600,1400, 150)
             if(this.x>=1570&&this.x<=1630&&this.y>=1380&&this.y<=1420&&dragonPhase==1){
@@ -1217,7 +1218,8 @@ class newdragonBoss extends enemyBase {
             }
         else 
             if(dragonPhase==3)
-                { 
+                {
+                    this.canTakeRangedDamage = true;
                     phase1ready=false;
                     if (dragonPhase3Ready==false&&dragonIdle==false){
                      createThis.physics.moveTo(this, 1450,1500, 200)

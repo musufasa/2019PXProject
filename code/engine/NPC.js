@@ -326,6 +326,20 @@ class orpheusNPC extends npcBase {
         this.anims.play('orpheusTest', true);
 
     }
+    update(){
+        this.updateThoughtBubble();
+        
+        if(dragonPhase == 3) {
+            this.anims.play('orpheusLyre', true);
+            this.displayHeight = 70;
+            this.displayWidth = 55;
+            this.y = 1758;
+        }else{
+            this.anims.play('orpheusTest', true);
+            this.displayHeight = 64;
+            this.displayWidth = 45;
+        }
+    }
 }
 
 /* Process NPC dialogue. 

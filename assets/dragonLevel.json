@@ -191,12 +191,18 @@
                  "id":21,
                  "name":"orpheus",
                  "point":true,
+                 "properties":[
+                        {
+                         "name":"dialogueKey",
+                         "type":"string",
+                         "value":"orpheus"
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
                  "x":192.973095091395,
-                 "y":1751.38118710207
+                 "y":1751.38
                 }, 
                 {
                  "height":0,

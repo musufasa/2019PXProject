@@ -102,7 +102,8 @@ class controller extends Phaser.Scene {
            { frameWidth: 52, frameHeight: 94 });
         this.load.spritesheet('orpheusSprite','assets/NPC/orpheusTest.png',
            { frameWidth: 57, frameHeight: 94 });
-        
+        this.load.spritesheet('orpheusLyre','assets/NPC/Orpheus_Playing_Sprite.png',
+            { frameWidth: 192, frameHeight: 320 });
         /**
         this.load.spritesheet('jasonAttack','assets/player/newJasonAttack.png',
            { frameWidth: 139, frameHeight: 94 });
@@ -617,6 +618,12 @@ function loadMap() {
         frames: createThis.anims.generateFrameNumbers('fireAnimation', { start: 0, end: 7 }),
         frameRate: 10,
         repeat: -1
+    });
+    createThis.anims.create({
+        key: 'orpheusLyre',
+        frames: createThis.anims.generateFrameNumbers('orpheusLyre', { start: 0, end: 12 }),
+        frameRate: 10,
+        repeat: 1
     });
 
     if (playerShip) {

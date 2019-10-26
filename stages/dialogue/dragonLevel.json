@@ -1,12 +1,21 @@
-{    
-	"signR2C": [
+{
+	"orpheus1": [
 		{
-			"char":"To the argolanding",
-			"speech":" "
+			"char":"Orpheus",
+			"speech":"Jason, the fleece is no where to be seen here ?! Have we been betrayed ? "
 		},
-		{ 
+		{
+			"char":"Orpheus",
+			"speech":"Deal with this dragon first and we shall venture on. "
+		},
+		{
+			"char":"Orpheus",
+			"speech":"The dragon is vunerable to your arrows while i play my Lyre, keep an eye out and be careful. "
+		},
+		{
 			"char":"",
-			"speech":"" 
+			"speech":""
 		}
+
 	]
 }
