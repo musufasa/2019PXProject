@@ -233,6 +233,16 @@ function spawnObjects() {
                 enemyCount++; 
                 break;
                 
+                case 'medeaCharacterCutscene': 
+                enemies[enemyCount] = new medeaCharacterCutscene({
+                    x: mapObjectArray[i].x, 
+                    y: mapObjectArray[i].y, 
+                    xMove: tempProperties['xMove'],
+                    enemyId: enemyCount
+                });
+                enemyCount++; 
+                break;
+                
             case 'spiderFlower': 
                 spiderFlower = new spiderFlowerItem({
                     x: mapObjectArray[i].x, 

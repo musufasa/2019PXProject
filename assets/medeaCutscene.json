@@ -47,31 +47,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":124.382010691146,
-                 "y":1743.78461962373
-                }, 
-                {
-                 "height":0,
-                 "id":12,
-                 "name":"newdragonBoss",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"xMove",
-                         "type":"int",
-                         "value":800
-                        }, 
-                        {
-                         "name":"yMove",
-                         "type":"int",
-                         "value":350
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":866.075144508671,
-                 "y":1391.58574181118
+                 "x":1625.20228978622,
+                 "y":1745.14986321109
                 }, 
                 {
                  "height":0,
@@ -96,83 +73,6 @@
                  "width":0,
                  "x":14.6666666666666,
                  "y":1862.66666666667
-                }, 
-                {
-                 "height":0,
-                 "id":15,
-                 "name":"portal",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"portalMap",
-                         "type":"string",
-                         "value":"medeaCutscene"
-                        }, 
-                        {
-                         "name":"spawnAfterBossBattle",
-                         "type":"bool",
-                         "value":true
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":1624.01667298219,
-                 "y":1741.65977215928
-                }, 
-                {
-                 "height":0,
-                 "id":16,
-                 "name":"healthItem",
-                 "point":true,
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":993.160707630732,
-                 "y":1483.32892894731
-                }, 
-                {
-                 "height":0,
-                 "id":17,
-                 "name":"healthItem",
-                 "point":true,
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":732.011493265969,
-                 "y":1489.21408592759
-                }, 
-                {
-                 "height":0,
-                 "id":18,
-                 "name":"portal",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"portalMap",
-                         "type":"string",
-                         "value":"gardenEntrance"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":64.0807147258164,
-                 "y":1750.70404600534
-                }, 
-                {
-                 "height":0,
-                 "id":19,
-                 "name":"fire",
-                 "point":true,
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":1580.89987143127,
-                 "y":1745.27972681285
                 }, 
                 {
                  "height":0,
@@ -201,8 +101,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":192.973095091395,
-                 "y":1751.38
+                 "x":1513.2509639389,
+                 "y":1749.30446724212
                 }, 
                 {
                  "height":0,
@@ -278,30 +178,6 @@
                 }, 
                 {
                  "height":0,
-                 "id":33,
-                 "name":"healthItem",
-                 "point":true,
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":1245.98222726413,
-                 "y":1484.21251654377
-                }, 
-                {
-                 "height":0,
-                 "id":34,
-                 "name":"healthItem",
-                 "point":true,
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":1508.79183210437,
-                 "y":1487.99394970694
-                }, 
-                {
-                 "height":0,
                  "id":35,
                  "name":"bush1",
                  "point":true,
@@ -311,6 +187,18 @@
                  "width":0,
                  "x":796,
                  "y":1770
+                }, 
+                {
+                 "height":0,
+                 "id":38,
+                 "name":"medeaCharacterCutscene",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":1015.91,
+                 "y":1769.91150442478
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -319,7 +207,7 @@
          "y":0
         }],
  "nextlayerid":31,
- "nextobjectid":36,
+ "nextobjectid":39,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",
