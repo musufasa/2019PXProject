@@ -50,7 +50,7 @@ function playerMovement() {
                 playerSwungSword = false;
             }
         }else if(currentWeapon === 'ranged'){
-            if (numberArrows > 0) {
+            if (numberArrows > 0 && !isShooting) {
                 //only shoot an arrow if the player is carrying some.
                 playerShoot();
                 numberArrows -= 1;
@@ -90,8 +90,8 @@ function playerMovement() {
     player.flipX = !(playerFacingRight);
 
     //Animations. 
-    if (!playerSwingSword && !leftMoveKey.isDown && !rightMoveKey.isDown) {
-        //Play idle animation. 
+    if (!playerSwingSword && !leftMoveKey.isDown && !rightMoveKey.isDown && !isShooting) {
+        //Play idle animation.
         player.anims.play('jasonIdleRight', true);
         player.setSize(30, 64);
         player.displayHeight = 64;
@@ -103,7 +103,7 @@ function playerMovement() {
                 player.setOffset(0, 45);
 
 
-        
+
 
         /* If the player is facing a wall and close to it, the game will use the default hitbox size. 
          * If the player is not near a wall, a larger hitbox will be used.  
@@ -132,9 +132,11 @@ function playerMovement() {
             player.setSize(30, 64);
             player.setOffset(0, 45);
         }
-    } else {
+    }else if( !isShooting) {
         //Play walk animation. 
         player.anims.play('jasonRight', true);
+        player.displayHeight = 64;
+        player.displayWidth = 35;
         player.setSize(30, 64);
         player.setOffset(0, 30);
     }

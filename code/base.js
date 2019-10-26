@@ -18,6 +18,7 @@ var camera;
 var helperSprite; //used to hold the value of which helper sprite was choosen by the player at the start of the game. should be strictly 'Orpheus' or 'Medea'
 var currentWeapon = 'sword';
 var justPorted = false;
+var isShooting = false;
 //Player character
 var player; //Player sprite
 var attacksound = false; // Variable for attack sound - Used to tell if sound should be played.
@@ -104,6 +105,8 @@ class controller extends Phaser.Scene {
            { frameWidth: 57, frameHeight: 94 });
         this.load.spritesheet('orpheusLyre','assets/NPC/Orpheus_Playing_Sprite.png',
             { frameWidth: 192, frameHeight: 320 });
+        this.load.spritesheet('jasonRanged','assets/player/Jason_Shooting_Sprite_Sheet.png',
+            { frameWidth: 610, frameHeight: 725 });
         /**
         this.load.spritesheet('jasonAttack','assets/player/newJasonAttack.png',
            { frameWidth: 139, frameHeight: 94 });
@@ -572,7 +575,12 @@ function loadMap() {
         frameRate: 20,
         repeat: -1,
     });
-    
+    createThis.anims.create({
+        key: 'jasonRanged',
+        frames: createThis.anims.generateFrameNumbers('jasonRanged', { start: 0, end: 22 }),
+        frameRate: 16,
+        repeat: -1
+    });
     createThis.anims.create({
         key: 'blockingAnim',
         frames: createThis.anims.generateFrameNumbers('jasonAttack', { start: 3, end: 3 }),
@@ -625,7 +633,6 @@ function loadMap() {
         frameRate: 10,
         repeat: 1
     });
-
     if (playerShip) {
         player.body.allowGravity = false;
     }
@@ -753,17 +760,23 @@ function destroyOldObjects() {
 
 
    function playerShoot() {
-        
-        //Play arrow shot sound effect 
-        playArrowSound = true;  
-        
-        playerProjectiles[currentProjectile2] = new playerArrow({
-            x: player.x, 
-            y: player.y,
-            projectileId: currentProjectile2,
-            aimed: true, 
-            velocityAimed: 400
-        });
+
+        isShooting = true;
+       player.body.blocked.down = true;
+       player.anims.play('jasonRanged', true).setOffset(50, 620).setDisplaySize(65,85);
+       setTimeout(function(){
+           //Play arrow shot sound effect
+           playArrowSound = true;
+           playerProjectiles[currentProjectile2] = new playerArrow({
+           x: player.x,
+           y: player.y,
+           projectileId: currentProjectile2,
+           aimed: true,
+           velocityAimed: 400
+       });
+           isShooting = false;
+           player.body.allowGravity= true;
+       }, 1400);
 
     }
   
