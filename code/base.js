@@ -578,7 +578,7 @@ function loadMap() {
     createThis.anims.create({
         key: 'jasonRanged',
         frames: createThis.anims.generateFrameNumbers('jasonRanged', { start: 0, end: 22 }),
-        frameRate: 16,
+        frameRate: 23,
         repeat: -1
     });
     createThis.anims.create({
@@ -762,7 +762,6 @@ function destroyOldObjects() {
    function playerShoot() {
 
         isShooting = true;
-       player.body.blocked.down = true;
        player.anims.play('jasonRanged', true).setOffset(50, 620).setDisplaySize(65,85);
        setTimeout(function(){
            //Play arrow shot sound effect
@@ -776,7 +775,7 @@ function destroyOldObjects() {
        });
            isShooting = false;
            player.body.allowGravity= true;
-       }, 1400);
+       }, 1000);
 
     }
   

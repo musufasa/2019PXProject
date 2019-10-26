@@ -1,12 +1,17 @@
-{    
-	"signR2C": [
+{
+	"orpheus1": [
 		{
-			"char":"Medea Boss Battle",
-			"speech":" "
+			"char":"Orpheus",
+			"speech":"Alas, it was Medea who stole the golden fleece ! "
 		},
-		{ 
+		{
+			"char":"Orpheus",
+			"speech":"Retrieve the fleece and reclaim the throne from her."
+		},
+		{
 			"char":"",
-			"speech":"" 
+			"speech":""
 		}
+
 	]
 }

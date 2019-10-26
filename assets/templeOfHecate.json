@@ -196,6 +196,24 @@
                  "width":0,
                  "x":1136,
                  "y":3669
+                }, 
+                {
+                 "height":0,
+                 "id":268,
+                 "name":"orpheus",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"dialogueKey",
+                         "type":"string",
+                         "value":"orpheus"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":158,
+                 "y":8034
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -236,22 +254,22 @@
          "y":0
         }],
  "nextlayerid":45,
- "nextobjectid":268,
+ "nextobjectid":269,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",
  "tileheight":64,
  "tilesets":[
         {
-         "columns":26,
+         "columns":27,
          "firstgid":1,
          "image":"tilesheet-extruded.png",
          "imageheight":66,
-         "imagewidth":1716,
+         "imagewidth":1782,
          "margin":1,
          "name":"tilesheet-extruded",
          "spacing":2,
-         "tilecount":26,
+         "tilecount":27,
          "tileheight":64,
          "tiles":[
                 {
@@ -312,7 +330,7 @@
         }, 
         {
          "columns":6,
-         "firstgid":27,
+         "firstgid":28,
          "image":"..\/..\/..\/..\/Downloads\/phaser3-examples-master\/public\/assets\/sprites\/coin.png",
          "imageheight":32,
          "imagewidth":192,
