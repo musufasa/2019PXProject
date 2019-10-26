@@ -21,6 +21,11 @@ medeaReset=false;
 readyToTeleport=false;
 move=false;
 phase3ready=false;
+
+//medea cutscene
+ animationDone=false;
+nextPhase=false;
+
 /* The enemyBase class is used as a base for various enemies.  
  * This should not be spawned directly. 
  * Required parameters: scene, x, y, key, xMove/yMove, xVel/yVel, scale, enemyId, gravity, health.
@@ -1083,7 +1088,6 @@ class newdragonBoss extends enemyBase {
         //After dragon has fallen onto the ground mark the dragon as dead
         if(this.y>=1620&&this.health <= 0)
         {
-            console.log(this.y)
             this.gravity=false;
             this.body.setVelocityY(0);
             this.body.setVelocityX(0);
@@ -1585,5 +1589,66 @@ class medeaClone extends enemyBase {
         itemCount++
     }
 }
+
+class medeaCharacterCutscene extends enemyBase { 
+    constructor (parameter) {
+        super({
+            scene: createThis, 
+            x: parameter.x, 
+            y: parameter.y,
+            key: 'medeaBossRight', 
+            xMove: parameter.xMove,
+            xVel: 130, 
+            scale: 0.25, 
+            enemyId: parameter.enemyId, 
+            gravity: true, 
+            health: 200*difficulty
+            
+        });
+    }
+
+    update () {  
+         this.damageTouch=false;
+            
+        if (this.x> 1800&&animationDone==false){
+                    this.body.setOffset(0,50);
+            this.setFlip(true, false)
+            this.anims.play('medeaTaking', true);
+            this.gravity=false;
+            this.body.setVelocityY(0);
+            this.body.setVelocityX(0);
+                                    setTimeout(this.runOff,1500,this);
+                                    setTimeout(this.startNextLevel,5000,this);
+
+        animationDone=true;
+        nextPhase=false;
+        }
+        if (this.alive && this.health <= 0) {
+            this.alive = false; 
+            enemies[this.enemyId].destroy(); 
+        }
+    }    
+    
+    movement(){
+        if (animationDone==false){
+            createThis.physics.moveTo(this, 2050,1760, 100);
+
+        }
+         if (nextPhase==true){
+            createThis.physics.moveTo(this, 2050,1760, 100);
+        }
+    }
+    
+     runOff(){
+        nextPhase=true;
+         console.log(nextPhase);
+    }
+    
+    startNextLevel(){
+        changeLevel('templeOfHecate')
+    }
+
+}
+
 
 
