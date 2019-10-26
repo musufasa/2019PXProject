@@ -1462,7 +1462,7 @@ class medeaBoss extends enemyBase {
                 this.medeaShoot2();
                     medeaReset=true;
                 }
-
+            
             }
             
         }
@@ -1513,12 +1513,12 @@ class medeaBoss extends enemyBase {
     }
     
         medeaShoot2() {
-        projectiles[currentProjectile] = new medeaArrow2({
+        projectiles[currentProjectile] = new medeaAcidFlask({
             x: this.x, 
             y: this.y,
             projectileId: currentProjectile,
             aimed: true, 
-            velocityAimed: 300
+            velocityAimed: 200 
         });
      setTimeout(this.shootAgain2, 1000, this);
             setTimeout(this.shootAgain2, 2000, this);
@@ -1531,12 +1531,12 @@ class medeaBoss extends enemyBase {
 
     
             shootAgain2(tempDragon) {
-        projectiles[currentProjectile] = new medeaArrow2({
+        projectiles[currentProjectile] = new medeaAcidFlask({
             x: tempDragon.x, 
             y: tempDragon.y,
             projectileId: currentProjectile,
             aimed: true , 
-            velocityAimed: 300
+            velocityAimed: 200
         });
 
 

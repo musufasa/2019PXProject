@@ -206,6 +206,34 @@ class medeaArrow2 extends medeaprojectile {
     }
 }
 
+//For acid flask thrown by medea in phase 3 of her boss battle 
+class medeaAcidFlask extends medeaprojectile {
+    constructor (parameter) {
+        super({
+            scene: createThis,
+            x: parameter.x,
+            y: parameter.y, 
+            key: 'acidflask',
+            velocityX: 0,
+            velocityAimed: parameter.velocityAimed,
+            projectileId: parameter.projectileId,
+            damage: 10
+        })
+            
+        this.setScale(.42);
+
+        
+        this.rotation = Phaser.Math.Angle.Between(this.x,this.y,player.x,player.y);
+        //If aimed is true, accelerate towards the player. 
+        if (parameter.aimed){
+              createThis.physics.accelerateToObject(this, player, this.velocityAimed);
+        } 
+        
+        
+
+    }
+}
+
 
 
 
