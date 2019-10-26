@@ -328,7 +328,7 @@ class orpheusNPC extends npcBase {
     }
     update(){
         this.updateThoughtBubble();
-        
+
         if(dragonPhase == 3) {
             this.anims.play('orpheusLyre', true);
             this.displayHeight = 70;

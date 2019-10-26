@@ -83,7 +83,7 @@ class dragonLevel extends Phaser.Scene {
         }
 
         //every 60 seconds change the dragon phase on a loop.
-        this.time.addEvent({ delay: 12000, callback: this.updateDragonPhase, callbackScope: this, loop: true });
+        this.time.addEvent({ delay: 24000, callback: this.updateDragonPhase, callbackScope: this, loop: true });
         //change fire opacity
         this.time.addEvent({ delay: 10, callback: this.changeFireOpactity, callbackScope: this, loop: true });
         //on load reset the visibility of the fire.
