@@ -50,7 +50,7 @@ function playerMovement() {
                 playerSwungSword = false;
             }
         }else if(currentWeapon === 'ranged'){
-            if (numberArrows > 0 && !isShooting) {
+            if (numberArrows > 0 && !isShooting &&blocking==false) {
                 //only shoot an arrow if the player is carrying some.
                 playerShoot();
                 numberArrows -= 1;
@@ -390,6 +390,7 @@ function playerBlocking(){
 
 
             }
-        }
+        }else
+            blocking=false;
 
 }
