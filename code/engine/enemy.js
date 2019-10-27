@@ -1596,7 +1596,7 @@ class medeaCharacterCutscene extends enemyBase {
             scene: createThis, 
             x: parameter.x, 
             y: parameter.y,
-            key: 'medeaBossRight', 
+            key: 'medeaBoss', 
             xMove: parameter.xMove,
             xVel: 130, 
             scale: 0.25, 
@@ -1609,16 +1609,14 @@ class medeaCharacterCutscene extends enemyBase {
 
     update () {  
          this.damageTouch=false;
-            
-        if (this.x> 1800&&animationDone==false){
+        if (this.x< 1880&&animationDone==false){
                     this.body.setOffset(0,50);
-            this.setFlip(true, false)
             this.anims.play('medeaTaking', true);
             this.gravity=false;
             this.body.setVelocityY(0);
             this.body.setVelocityX(0);
                                     setTimeout(this.runOff,1500,this);
-                                    setTimeout(this.startNextLevel,5000,this);
+                                    setTimeout(this.startNextLevel,3700,this);
 
         animationDone=true;
         nextPhase=false;
@@ -1631,7 +1629,7 @@ class medeaCharacterCutscene extends enemyBase {
     
     movement(){
         if (animationDone==false){
-            createThis.physics.moveTo(this, 2050,1760, 100);
+            createThis.physics.moveTo(this, 1850,1760, 100);
 
         }
          if (nextPhase==true){
@@ -1641,7 +1639,6 @@ class medeaCharacterCutscene extends enemyBase {
     
      runOff(){
         nextPhase=true;
-         console.log(nextPhase);
     }
     
     startNextLevel(){
