@@ -106,7 +106,7 @@ class chargeDragonFire extends projectile {
             projectileId: parameter.projectileId,
             damage: 50
         })
-                    this.setScale(.5);
+                    this.setScale(.3);
 
                     this.anims.play('fireBallSprite', true);
 
