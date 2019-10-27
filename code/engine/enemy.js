@@ -1069,7 +1069,7 @@ class newdragonBoss extends enemyBase {
         this.invulnerabilityWait = 3000; 
         this.anims.play('dragonSpriteRight', true);
         this.body.setSize(1000,600);
-        this.body.setOffset(550,330);
+        this.body.setOffset(400,330);
         this.canTakeRangedDamage = false;
         //this.body.setSize(140,70);
     }  
