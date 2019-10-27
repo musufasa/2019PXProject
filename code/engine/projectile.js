@@ -134,7 +134,7 @@ class medeaArrow extends projectile {
             projectileId: parameter.projectileId,
             damage: 10
         })
-            this.setScale(.05);
+            this.setScale(.03);
         
         this.rotation = Phaser.Math.Angle.Between(this.x,this.y,player.x,player.y);
         //If aimed is true, accelerate towards the player. 

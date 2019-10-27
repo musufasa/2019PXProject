@@ -47,8 +47,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":124.382010691146,
-                 "y":1743.78461962373
+                 "x":168.382010691146,
+                 "y":1744.78461962373
                 }, 
                 {
                  "height":0,
@@ -201,8 +201,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":192.973095091395,
-                 "y":1751.38
+                 "x":121.973095091395,
+                 "y":1745.38
                 }, 
                 {
                  "height":0,
@@ -326,15 +326,15 @@
  "tileheight":64,
  "tilesets":[
         {
-         "columns":27,
+         "columns":28,
          "firstgid":1,
          "image":"tilesheet-extruded.png",
          "imageheight":66,
-         "imagewidth":1782,
+         "imagewidth":1848,
          "margin":1,
          "name":"tilesheet-extruded",
          "spacing":2,
-         "tilecount":27,
+         "tilecount":28,
          "tileheight":64,
          "tiles":[
                 {
