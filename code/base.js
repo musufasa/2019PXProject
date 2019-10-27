@@ -690,16 +690,21 @@ function callUpdateFuncs() {
 
     if (weaponKey._justDown){
         weaponKey._justDown = false;
-        switch (currentWeapon) {
-            case "sword":
-                currentWeapon = "ranged";
-                break;
-            case "ranged":
-                currentWeapon = "sword";
-                break;
-            default:
-                currentWeapon = "sword";
-                break;
+        //restrict the player to only sword and shield for orpheus mode during dragon level.
+        if(currentLevelID == 'dragonLevel' && helperSprite != 'Medea'){
+            currentWeapon = "sword";
+        }else{
+            switch (currentWeapon) {
+                case "sword":
+                    currentWeapon = "ranged";
+                    break;
+                case "ranged":
+                    currentWeapon = "sword";
+                    break;
+                default:
+                    currentWeapon = "sword";
+                    break;
+            }
         }
     }
     
