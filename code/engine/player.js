@@ -96,7 +96,7 @@ function playerMovement() {
         player.setSize(30, 64);
         player.displayHeight = 64;
         player.displayWidth = 50;
-        player.setOffset(0, 30);
+        player.setOffset(14, 30);
     } else if (playerSwingSword) {
         //Play attack animation. 
         player.anims.play('jasonAttackRight', true);
