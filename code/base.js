@@ -765,7 +765,7 @@ function destroyOldObjects() {
    function playerShoot() {
 
         isShooting = true;
-       player.anims.play('jasonRanged', true).setOffset(50, 620).setDisplaySize(65,85);
+       player.anims.play('jasonRanged', true).setDisplaySize(65,85).setSize(65,975);
        setTimeout(function(){
            //Play arrow shot sound effect
            playArrowSound = true;
