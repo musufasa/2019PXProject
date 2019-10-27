@@ -60,8 +60,20 @@
 		},
         
         { "char":"Jason",
-			"speech":"Verry well, stay here." 
+			"speech":"Very well, stay here." 
 		},
+        { "char":"",
+			"speech":"" 
+		}
+	],
+    "oileusB1":[
+		{ "char":"Shop Keeper",
+			"speech":"Did you know you can buy items using the R Key?" 
+		},
+		{ "char":"Shop Keeper",
+			"speech":"You can access my shop from anywhere." 
+		},
+        
         { "char":"",
 			"speech":"" 
 		}
