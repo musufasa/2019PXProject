@@ -1622,8 +1622,6 @@ class medeaCharacterCutscene extends enemyBase {
         nextPhase=false;
         }
         if (this.alive && this.health <= 0) {
-            this.alive = false; 
-            enemies[this.enemyId].destroy(); 
         }
     }    
     
