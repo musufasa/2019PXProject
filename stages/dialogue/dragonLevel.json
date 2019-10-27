@@ -10,7 +10,26 @@
 		},
 		{
 			"char":"Orpheus",
-			"speech":"The dragon is vunerable to your arrows while i play my Lyre, keep an eye out and be careful. "
+			"speech":"Your arrows are not effective here. The dragon is vunerable to your sword while i play my Lyre, keep an eye out and be careful. "
+		},
+		{
+			"char":"",
+			"speech":""
+		}
+
+	],
+	"medea1": [
+		{
+			"char":"Medea",
+			"speech":"Jason, finally we have found the golden fleece"
+		},
+		{
+			"char":"Medea",
+			"speech":"Defeat the dragon and reclaim it !"
+		},
+		{
+			"char":"Medea",
+			"speech":"The dragon is vunerable to your arrows just after it lights the ground on fire, keep an eye out and be careful. "
 		},
 		{
 			"char":"",
