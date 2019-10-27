@@ -311,6 +311,24 @@
                  "width":0,
                  "x":796,
                  "y":1770
+                }, 
+                {
+                 "height":0,
+                 "id":36,
+                 "name":"medea",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"dialogueKey",
+                         "type":"string",
+                         "value":"medea"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":125,
+                 "y":1745
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -319,7 +337,7 @@
          "y":0
         }],
  "nextlayerid":31,
- "nextobjectid":36,
+ "nextobjectid":37,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",

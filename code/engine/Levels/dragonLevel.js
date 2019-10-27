@@ -68,17 +68,15 @@ class dragonLevel extends Phaser.Scene {
         if(helperSprite === 'Medea'){
             portals[0].portalMap = "endCutScene";
             npcs[0].destroy();
-            new medeaNPC({
-                x: 194,
-                y: 1775,
-                dialogueKey: "Medea"
-            });
             items[9].destroy();
             new fleeceTree({
                 x: 1887,
                 y: 1620
             }).setScale(0.38);
         }else{
+            npcs[1].destroy();
+            currentWeapon = "sword";
+            userIntThis.ammoText.setText("Weapon:Sword");
             items[9].setScale(0.45);
         }
 
@@ -102,10 +100,14 @@ class dragonLevel extends Phaser.Scene {
                      fireVisible = true;
                      break;
                  case 2:
+                     if(helperSprite != 'Medea'){
+                        playerDamagePoints = playerDamagePoints * 2;
+                     }
                      dragonPhase = 3;
                      fireVisible = false;
                      break;
                  default:
+                     playerDamagePoints = playerDamagePoints/2;
                      dragonPhase = 1;
                      break;
              }

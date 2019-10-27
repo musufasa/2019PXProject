@@ -52,7 +52,7 @@ class medeaCutscene extends Phaser.Scene {
         
         createThis.anims.create({
             key: 'medeaTaking',
-            frames: createThis.anims.generateFrameNumbers('medeaTaking', { start: 0, end: 22 }),
+            frames: createThis.anims.generateFrameNumbers('medeaTaking', { start: 0, end: 23 }),
             frameRate: 15,
             repeat: false
         });
