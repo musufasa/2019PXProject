@@ -107,11 +107,16 @@ class dragonLevel extends Phaser.Scene {
                      fireVisible = false;
                      break;
                  default:
-                     playerDamagePoints = playerDamagePoints/2;
+                     if(helperSprite != 'Medea'){
+                        playerDamagePoints = playerDamagePoints/2;
+                     }
                      dragonPhase = 1;
                      break;
              }
          }else{
+             if(dragonPhase == 3 && helperSprite != 'Medea'){
+                 playerDamagePoints = playerDamagePoints/2;
+             }
              dragonPhase = 1;
          }
     }
