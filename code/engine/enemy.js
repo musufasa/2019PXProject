@@ -1222,8 +1222,6 @@ class newdragonBoss extends enemyBase {
         else 
             if(dragonPhase==3)
                 {
-                    console.log(this.x);
-                    console.log(this.x);
                     this.canTakeRangedDamage = true;
                     phase1ready=false;
                     if (dragonPhase3Ready==false&&dragonIdle==false){
