@@ -295,6 +295,7 @@ class playerArrow extends projectile2 {
             damage: playerDamagePoints
         })
 
+                    this.setScale(.5);
         //aim the arrow image at the mouse and fire towards it
         this.rotation = Phaser.Math.Angle.Between(this.x,this.y,camera.scrollX+game.input.mousePointer.x, camera.scrollY+game.input.mousePointer.y);
         createThis.physics.moveTo(this,camera.scrollX+game.input.mousePointer.x, camera.scrollY+game.input.mousePointer.y, this.velocityAimed);
