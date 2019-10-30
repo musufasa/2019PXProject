@@ -386,7 +386,6 @@ function playerBlocking(){
             }
             else if(playerFacingRight==false){
                 player.anims.play('blockingAnim', true);
-                player.setOffset(0, -45);
             }
         }else
             blocking=false;

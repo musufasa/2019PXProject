@@ -1222,11 +1222,13 @@ class newdragonBoss extends enemyBase {
         else 
             if(dragonPhase==3)
                 {
+                    console.log(this.x);
+                    console.log(this.x);
                     this.canTakeRangedDamage = true;
                     phase1ready=false;
                     if (dragonPhase3Ready==false&&dragonIdle==false){
-                     createThis.physics.moveTo(this, 1450,1500, 200)
-                    if(this.x<=1470&&this.x>=1430&&this.y<=1520&&this.y>=1480){
+                     createThis.physics.moveTo(this, 1450,1350, 200)
+                    if(this.x<=1470&&this.x>=1430&&this.y<=1350&&this.y>=1320){
                         this.flipX=true;
                         this.body.setVelocityX(0);
                         this.body.setVelocityY(0);
@@ -1235,7 +1237,7 @@ class newdragonBoss extends enemyBase {
                     }
                 }
                     if (dragonCharging=true&&dragonIdle==false){
-                    if(this.x<=1470&&this.x>=1430&&this.y<=1520&&this.y>=1480){
+                    if(this.x<=1470&&this.x>=1430&&this.y<=1350&&this.y>=1320){
                         this.anims.play('dragonAttackRight', true);
                         this.body.setVelocityX(0);
                         this.body.setVelocityY(0);
