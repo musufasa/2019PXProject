@@ -380,15 +380,13 @@ function playerBlocking(){
         if(blockKey._justDown && !leftMoveKey.isDown && !rightMoveKey.isDown){
             blocking=true;
             if(playerFacingRight==true){
-            player.anims.play('blockingAnim', true);
-                        player.setOffset(0, 45);
+                player.anims.play('blockingAnim', true);
+                player.setOffset(0, 45);
 
             }
             else if(playerFacingRight==false){
                 player.anims.play('blockingAnim', true);
-                        player.setOffset(0, 45);
-
-
+                player.setOffset(0, -45);
             }
         }else
             blocking=false;
