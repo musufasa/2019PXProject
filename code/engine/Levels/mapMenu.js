@@ -17,6 +17,7 @@ class mapMenu extends Phaser.Scene {
     	//Images
         this.add.image(0,0, "mapbg1").setOrigin(0).setDepth(0);
         
+        //Create dots for various levels 
         let toDot1 = this.add.image(this.game.renderer.width*0.295, this.game.renderer.height*0.25, "dot1").setDepth(1).setInteractive();
         toDot1.on("pointerup", ()=>{ changeLevel('argoLanding');
             });
