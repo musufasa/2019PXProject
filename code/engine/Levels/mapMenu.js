@@ -39,11 +39,7 @@ class mapMenu extends Phaser.Scene {
             toDot4.on("pointerup", ()=>{changeLevel('palace');
                 });
         
-        
-                    
-
-        
-       
+        //Sidequest dots
         let toDot16 = this.add.image(this.game.renderer.width*0.3, this.game.renderer.height*0.5, "dot1").setDepth(1).setInteractive();
             toDot16.on("pointerup", ()=>{changeLevel('sidequest1');
             }); 
@@ -52,11 +48,25 @@ class mapMenu extends Phaser.Scene {
             toDot17.on("pointerup", ()=>{changeLevel('sidequest2');
             }); 
         
+        //Critters creek 
+        let toDot18 = this.add.image(this.game.renderer.width*0.90, this.game.renderer.height*0.2, "dot1").setDepth(1).setInteractive();
+            toDot18.on("pointerup", ()=>{changeLevel('interStage2');
+                                         
+            }); 
+        
+        //Centaur Plains 
+        let toDot19 = this.add.image(this.game.renderer.width*0.82, this.game.renderer.height*0.79, "dot1").setDepth(1).setInteractive();
+            toDot19.on("pointerup", ()=>{changeLevel('interStage1');
+            }); 
+        
+        //Marshland 
+        let toDot20 = this.add.image(this.game.renderer.width*0.51, this.game.renderer.height*0.83, "dot1").setDepth(1).setInteractive();
+            toDot20.on("pointerup", ()=>{changeLevel('interStage3');
+            }); 
         
         
-
-            let toDot5 = this.add.image(this.game.renderer.width*0.5, this.game.renderer.height*0.55, "dot1").setDepth(1).setInteractive();
-            let toDot6 = this.add.image(this.game.renderer.width*0.64, this.game.renderer.height*0.55, "dot1").setDepth(1).setInteractive();
+        let toDot5 = this.add.image(this.game.renderer.width*0.5, this.game.renderer.height*0.55, "dot1").setDepth(1).setInteractive();
+        let toDot6 = this.add.image(this.game.renderer.width*0.64, this.game.renderer.height*0.55, "dot1").setDepth(1).setInteractive();
 
             toDot5.on("pointerup", ()=>{changeLevel('shrine');
             });
