@@ -1132,6 +1132,7 @@ class newdragonBoss extends enemyBase {
             if(phase1ready==false&&dragonPhase==1){
             createThis.physics.moveTo(this, 1600,1400, 150)
             if(this.x>=1570&&this.x<=1630&&this.y>=1380&&this.y<=1420&&dragonPhase==1){
+                
                 this.shoot();
                 phase1ready=true;
             }
@@ -1286,6 +1287,8 @@ class newdragonBoss extends enemyBase {
             velocityAimed: 200
         });
             
+          
+        
         if (dragonPhase==1){
             setTimeout(this.shootAgain, 1000, this);
             setTimeout(this.shootAgain, 2000, this);
@@ -1304,10 +1307,12 @@ class newdragonBoss extends enemyBase {
             velocityAimed: 200
         });
 
+        
 
     }
     
     chargeShot()  {
+        
         projectiles[currentProjectile] = new chargeDragonFire({
             x: this.x-100, 
             y: this.y,
@@ -1316,7 +1321,7 @@ class newdragonBoss extends enemyBase {
             velocityAimed: 100
         });
 
-
+        
 
     }
 

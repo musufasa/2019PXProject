@@ -294,7 +294,7 @@ class controller extends Phaser.Scene {
         this.coinText= userIntThis.add.text(this.game.renderer.width *.73, this.game.renderer.height * 0.22,"Coins: " +currentCoins, styleRed)
 
     }
-
+    
     update() {
 
         //checks if the player is on fire and passively damages them until false
