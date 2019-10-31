@@ -51,22 +51,6 @@ class mapMenu extends Phaser.Scene {
             toDot17.on("pointerup", ()=>{changeLevel('sidequest2');
             }); 
         
-        //Critters creek 
-        let toDot18 = this.add.image(this.game.renderer.width*0.90, this.game.renderer.height*0.2, "dot1").setDepth(1).setInteractive();
-            toDot18.on("pointerup", ()=>{changeLevel('interStage2');
-                                         
-            }); 
-        
-        //Centaur Plains 
-        let toDot19 = this.add.image(this.game.renderer.width*0.82, this.game.renderer.height*0.79, "dot1").setDepth(1).setInteractive();
-            toDot19.on("pointerup", ()=>{changeLevel('interStage1');
-            }); 
-        
-        //Marshland 
-        let toDot20 = this.add.image(this.game.renderer.width*0.51, this.game.renderer.height*0.83, "dot1").setDepth(1).setInteractive();
-            toDot20.on("pointerup", ()=>{changeLevel('interStage3');
-            }); 
-        
         
         
 
